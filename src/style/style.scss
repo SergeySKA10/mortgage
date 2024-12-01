@@ -1,9 +1,31 @@
 @import 'fonts/fonts.scss';
-@import 'variables/variables';
-@import 'media/media';
+@import 'variables/variables.scss';
+@import 'media/media.scss';
 
 * {
     font-family: 'Roboto', sans-serif;
+    font-weight: 700;
     margin: 0;
     padding: 0;
 }
+
+body {
+    margin: 0 auto;
+    width: 1440px;
+}
+
+.container {
+    display: block;
+    margin: 0 auto;
+    width: 1240px;
+}
+
+@import 'components/burger/burger.scss';
+@import 'components/menu/munu.scss';
+@import 'components/buttons/buttons.scss';
+@import 'components/line/line.scss';
+@import 'components/header/header.scss';
+@import 'components/main_page/promo_main.scss';
+@import 'components/main_page/getting.scss';
+@import 'components/main_page/story.scss';
+@import 'components/main_page/customers.scss';

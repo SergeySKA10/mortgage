@@ -1,0 +1,109 @@
+.getting {
+    margin-top: 104px;
+    &__speakers {
+        padding: 0px 76px;
+        margin-top: 65px;
+        display: flex;
+        justify-content: space-between;
+        &__block {
+            position: relative;
+            min-height: 535px;
+            padding: 0px 89px 31px 35px;
+            border-radius: 4px;
+            box-shadow: 0px 15px 30px 0px rgba(0, 0, 0, 0.1);
+            &_promo {
+                position: relative;
+                z-index: 1;
+                width: 388px;
+                height: 287px;
+                &-img {
+                    width: 388px;
+                    height: 287px;
+                    img {
+                        object-fit: contain;
+                    }
+                }
+                &-btn {
+                    position: absolute;
+                    width: 150px;
+                    height: 60px;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    top: 83px;
+                    left: 300px;
+                }
+            }
+            &_descr {
+                z-index: 10;
+                position: absolute;
+                top: 220px;
+                background-color: #ffffff;
+                &-subheader {
+                    margin-top: 28px;
+                    color: $main_color;
+                    font-size: 11px;
+                    line-height: 13px;
+                    text-align: left;
+                    letter-spacing: 2px;
+                    text-transform: uppercase;
+                }
+                &-header {
+                    color: $dark_color;
+                    margin-top: 5px;
+                    font-size: 28px;
+                    line-height: 28px;
+                    letter-spacing: 0px;
+                    text-align: left;
+                }
+                &-text {
+                    width: 360px;
+                    margin-top: 39px;
+                    color: rgb(0, 0, 0, 0.5);
+                    font-size: 14px;
+                    line-height: 24px;
+                    letter-spacing: 0px;
+                    text-align: left;
+                }
+                &-block {
+                    margin-top: 25px;
+                    color: $dark_color;
+                    font-size: 16px;
+                    line-height: 28px;
+                    text-align: left;
+                }
+                &-skills {
+                    margin-top: 16px;
+                    display: flex;
+                    &_skill {
+                        display: block;
+                        margin-right: 20px;
+                        div {
+                            display: block;
+                            margin: 0 auto;
+                            width: 48px;
+                            height: 48px;
+                            border: 1px solid rgb(232, 232, 232);
+                            border-radius: 100%;
+                            img {
+                                display: block;
+                                margin: 14px auto;
+                                width: 20px;
+                                height: 20px;
+                            }
+                        }
+                        p {
+                            margin-top: 7px;
+                            width: 65px;
+                            height: 24px;
+                            color: rgb(0, 0, 0);
+                            font-size: 11px;
+                            line-height: 12px;
+                            text-align: center;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

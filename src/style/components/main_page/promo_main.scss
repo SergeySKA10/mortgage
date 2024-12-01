@@ -1,0 +1,127 @@
+.promo_main {
+    position: relative;
+    display: flex;
+    // justify-content: space-between;
+    min-height: 720px;
+    background-color: #ffffff;
+    &__picture {
+        position: relative;
+        width: 586px;
+        height: 720px;
+        margin-right: 48px;
+        &_img {
+            object-fit: cover;
+        }
+        &_descr {
+            position: absolute;
+            left: 102px;
+            top: 572px;
+            width: 276px;
+            height: 43px;
+            color: rgb(255, 255, 255);
+            font-size: 18px;
+            line-height: 21px;
+            text-align: left;
+        }
+        &_btns {
+            position: absolute;
+            left: 92px;
+            top: 639px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 98px;
+            height: 60px;
+            button {
+                width: 60px;
+                height: 60px;
+            }
+            &-time {
+                height: 16px;
+                width: 26px;
+                color: #ffffff;
+            }
+        }
+    }
+    &__header {
+        margin-top: 240px;
+        width: 579px;
+        height: 120px;
+        font-size: 48px;
+        line-height: 60px;
+        text-align: left;
+        color: #342F45;
+        span {
+            color: $main_color;
+        }
+    }
+    &__descr {
+        margin-top: 26px;
+        width: 430px;
+        height: 48px;
+        opacity: 0.5;
+        color: rgb(0, 0, 0);
+        font-size: 14px;
+        line-height: 24px;
+        letter-spacing: 0px;
+        text-align: left;
+    }
+    &__buttons {
+        margin-top: 33px;
+        display: flex;
+        &_text {
+            width: 184px;
+            height: 43px;
+            color: rgb(0, 0, 0);
+            font-size: 18px;
+            line-height: 21px;
+            text-align: left;
+            margin-right: 42px;
+        }
+        a {
+            color: $dark_color;
+            text-decoration: none;
+        }
+    }
+    &__btn {
+        position: relative;
+        display: flex;
+        a {
+            margin-right: 28px;
+            color: #ffffff;
+            text-decoration: none;
+        }
+        div {
+            position: relative;
+            top: 8px;
+            width: 20px;
+            height: 2px;
+            background-color: #ffffff;
+            box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+            left: 10px;
+            display: block;
+        }
+         div::after {
+            content: "";
+            position: absolute;
+            width: 2px;
+            height: 8px;
+            top: -1px;
+            right: 1px;
+            background-color: #ffffff;
+            transform: rotate(45deg);
+        }
+         div::before {
+            content: "";
+            position: absolute;
+            width: 2px;
+            height: 8px;
+            top: -5.1px;
+            right: 1px;
+            background-color: #ffffff;
+            box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+            transform: rotate(-45deg);
+        }
+    }
+}
+
