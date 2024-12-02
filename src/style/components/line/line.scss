@@ -1,5 +1,4 @@
 .line {
-    margin-top: 145px;
     width: 703px;
     height: 1px;
     background-color: rgb(151, 151, 151);
@@ -41,6 +40,11 @@
             height: 160px;
             background-color: rgb(151, 151, 151, 0.2);
         }
+    }
+    &__footer {
+        width: 1240px;
+        height: 1px;
+        background-color: rgb(255, 255, 255, 0.2);
     }
     
 }

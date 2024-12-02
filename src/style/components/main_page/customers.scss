@@ -134,7 +134,7 @@
         }
         &_dots {
             position: relative;
-            top: 239px;
+            top: 235px;
             left: 190px;
             width: 556px;
             height: 20px;
@@ -163,8 +163,9 @@
         width: 859px;
         height: 315px;
         border-radius: 4px;
-        top: -100px;
+        top: -145px;
         left: 140px;
+        padding-top: 30px;
         overflow: hidden;
         display: flex;
     }
@@ -176,7 +177,7 @@
         height: 310px;
         background-color: #ffffff;
         padding: 24px 32px 28px 32px;
-        box-shadow: 0px -4px 18px -1px rgba(0, 0, 0, 0.1);
+        box-shadow: 0px -4px 20px -1px rgba(0, 0, 0, 0.1);
         &-profile {
             display: flex;
             margin-bottom: 24px;
@@ -208,6 +209,7 @@
             font-size: 28px;
             line-height: 28px;
             text-align: left;
+            width: 212px;
         }
         &-proff {
             margin-top: 14px;
@@ -218,6 +220,7 @@
         }
         &-social {
             margin-top: 41px;
+            margin-left: 11px;
         }
         .line__getting {
             width: 415px;

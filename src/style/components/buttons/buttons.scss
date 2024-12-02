@@ -24,6 +24,9 @@
         font-size: 16px;
         line-height: 16px;
         text-align: left;
+        a {
+            text-decoration: none;
+        }
     }
     &__play {
         position: relative;
@@ -155,5 +158,87 @@
             box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
             transform: rotate(45deg);
         }
+    }
+    &__watch {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        align-content: center;
+        background-clip: content-box;
+        border-radius: 100%;
+        width: 60px;
+        height: 60px;
+        border: 8px solid rgba(39, 143, 180, 0.4);
+        &-eyelid {
+            width: 22px;
+            height: 16px;
+            transform: rotate(35deg);
+            border-radius: 70% 0;
+            border: 2px solid #ffffff;
+        }
+        &-eys {
+            position: relative;
+            top: 3px;
+            left: 5px;
+            width: 6px;
+            height: 6px;
+            border-radius: 100%;
+            border: 2px solid #ffffff;
+        }
+    }
+    &__watch-download {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        align-content: center;
+        background-clip: content-box;
+        border-radius: 50px;
+        width: 144px;
+        height: 60px;
+        border: 8px solid rgba(39, 143, 180, 0.4);
+        &-text {
+            position: relative;
+            left: -9px;
+            display: block;
+            color: rgb(255, 255, 255);
+            font-size: 16px;
+            line-height: 19px;
+            text-align: left;
+        }
+        &-arrow {
+            position: relative;
+            width: 2px;
+            top: 2px;
+            height: 14px;
+            left: 7px;
+            background-color: #ffffff;
+            box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+            display: block;
+        }
+        &-arrow::after {
+            content: "";
+            position: absolute;
+            width: 2px;
+            height: 10px;
+            top: 5px;
+            right: 3px;
+            background-color: #ffffff;
+            transform: rotate(-35deg);
+        }
+        &-arrow::before {
+            content: "";
+            position: absolute;
+            width: 2px;
+            height: 10px;
+            top: 5px;
+            right: -3px;
+            background-color: #ffffff;
+            box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+            transform: rotate(35deg);
+        }
+        
+    
     }
 }
