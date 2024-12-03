@@ -3,6 +3,18 @@
     z-index: 10;
     top: 37px;
     left: 624px;
+    &__h1 {
+        margin-top: 240px;
+        width: 579px;
+        height: 120px;
+        font-size: 48px;
+        line-height: 60px;
+        text-align: left;
+        color: #342F45;
+        span {
+            color: $main_color;
+        }
+    }
     &__h2 {
         color: $dark_color;
         font-size: 36px;

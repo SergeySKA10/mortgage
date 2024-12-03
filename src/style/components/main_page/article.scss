@@ -1,6 +1,30 @@
 .article {
+    position: relative;
     min-height: 764px;
     margin-top: 129px;
+    &__filters {
+        display: flex;
+        justify-content: end;
+        position: absolute;
+        height: 80px;
+        width: 580px;
+        left: 335px;
+        top: 45px;
+    }
+    &__filter {
+        margin-left: 20px;
+        width: 68px;
+        height: 22px;
+        color: $dark_color;
+        font-size: 14px;
+        line-height: 16px;
+        text-align: left;
+        border-bottom: none;
+        &-active {
+            color: $main_color;
+            border-bottom: 1px solid $main_color;
+        }
+    }
     &__info {
         display: grid;
         grid-template-columns: 818px 397px;
