@@ -1,0 +1,255 @@
+@media(max-width: 1440px) {
+    .promo_main {
+        &__logo {
+            margin: 0;
+        }
+        &__info {
+            h1 {
+                margin-top: 155px;
+                margin-left: 10px;
+                text-align: left;
+            }
+            &_text {
+                margin-top: 30px;
+                margin-left: 10px;
+                text-align: left;
+            }
+        }
+        &__start {
+            justify-content: flex-start;
+        }
+    }
+}
+
+@media(max-width: 1320px) {
+    .header {
+        &__h1 {
+            font-size: 40px;
+            width: 550px;
+            line-height: 50px;
+        }
+    }
+    .promo_main {
+        padding-right: 30px;
+        &__info {
+            &_text {
+                margin-top: 10px;
+            }
+        }
+        &__start {
+            &_text {
+                height: 43px;
+                width: 150px;
+                font-size: 14px;
+            }
+        }
+        &__line {
+            padding-right: 30px;
+        }
+    }
+    .btn {
+        &__rct {
+            width: 150px;
+            height: 43px;
+            padding: 13px 29px 12px 32px;
+            a {
+                font-size: 12px;
+            }
+            div {
+                top: 7px;
+                width: 15px;
+                left: 18px
+            }
+        }
+        &__white {
+            width: 150px;
+            height: 43px;
+            padding: 13px 30px 12px 30px;
+            a {
+                font-size: 12px;
+            }
+        }
+    }
+}
+
+@media(max-width: 1200px) {
+    .promo_main {
+        display: flex;
+        flex-direction: column;
+        background-size: 100% 1120px;
+        gap: 50px;
+        &__subheader {
+            width: 376px;
+            min-height: 63px;
+            font-size: 24px;
+            line-height: 28px;
+        }
+        &__descr {
+            min-height: 1120px;
+            padding: 882px 208px 21px 92px;
+        }
+        &__info {
+            padding: 37px 38px 48px 38px;
+            h1 {
+                margin: 0 auto;
+                margin-top: 150px;
+                text-align: center;
+            }
+            &_text {
+                margin: 0 auto;
+                margin-top: 30px;
+                text-align: center;
+            }
+        }
+        &__start {
+            justify-content: center;
+        }
+    } 
+}
+
+@media(max-width: 992px) {
+    .promo_main {
+        background-size: 100% 920px;
+        &__descr {
+            min-height: 920px;
+            padding: 732px 208px 21px 92px;
+        }
+    } 
+}
+
+@media(max-width: 768px) {
+    .burger {
+        width: 42px;
+        height: 42px;
+    }
+    .promo_main {
+        gap: 0;
+        background-size: 100% 620px;
+        &__descr {
+            min-height: 620px;
+            padding: 450px 150px 21px 92px;
+        }
+        &__info {
+            padding: 37px 38px 48px 38px;
+            min-height: 540px;
+            h1 {
+                margin-top: 80px;
+                min-height: 80px;
+            }
+            &_text {
+                width: 400px;
+                font-size: 12px;
+                margin-top: 20px;
+            }
+        }
+        &__logo {
+            width: 200px;
+        }
+        &__line {
+            margin-top: 100px;
+            padding-right: 0px;
+        }
+        &__start {
+            flex-direction: column;
+            margin-left: 0px;
+            gap: 10px;
+            flex-wrap: wrap;
+            align-content: center;
+        
+            &_text {
+                display: block;
+                margin: 0 auto;
+                text-align: center;
+                line-height: 15px;
+            }
+        }
+    }
+    .header {
+        &__h1 {
+            font-size: 30px;
+            width: 375px;
+            line-height: 40px;
+        }
+    }
+}
+
+@media(max-width: 576px) {
+    .promo_main {
+        background-size: 100% 500px;
+        &__descr {
+            min-height: 500px;
+            padding: 370px 30px 11px 22px;
+        }
+        &__video {
+            margin-top: 4px;
+        }
+        &__subheader {
+            width: 176px;
+            font-size: 14px;
+            line-height: 18px;
+            min-height: 23px;
+        }
+        &__info {
+            min-height: 490px;
+            h1 {
+                margin-top: 60px;
+                font-size: 25px;
+                width: 310px;
+                line-height: 30px;
+            }
+            &_text {
+                line-height: 14px;
+                width: 310px;
+                font-size: 10px;
+            }
+        }
+        &__logo {
+            width: 150px;
+        }
+        &__line {
+            margin-top: 50px;
+        }
+        &__start {
+            gap: 0;
+            &_text {
+                width: 150px;
+                font-size: 12px;
+                text-align: center;
+                line-height: 12px;
+            }
+        }
+    }
+    .btn {
+        &__rct {
+            width: 100px;
+            padding: 15px 9px 6px 5px;
+            a {
+                line-height: 12px;
+            }
+            div {
+                top: 4px;
+                width: 10px;
+                left: 10px;
+            }
+        }
+        &__white {
+            width: 100px;
+            padding: 6px 15px 6px 15px;
+            text-align: center;
+            a {
+                line-height: 12px;
+            }
+        }
+    }
+}
+
+@media(max-width: 375px) {
+    .promo_main {
+        &__descr {
+            padding: 370px 0px 11px 10px;
+        }
+        &__info {
+            padding: 20px 4px 0px 1px;
+        }
+    }
+}

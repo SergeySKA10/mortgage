@@ -1,8 +1,61 @@
+// .line {
+//     width: 703px;
+//     height: 1px;
+//     background-color: rgb(151, 151, 151);
+//     opacity: 0.2;
+//     &__burger {
+//         display: block;
+//         margin: 0 auto;
+//         width: 18px;
+//         height: 1px;
+//         background-color: rgb(151, 151, 151);
+//         border-radius: 1px;
+//     }
+//     &__menu {
+//         width: 520px;
+//         margin-top: 89px;
+//         height: 1px;
+//         background-color: rgb(151, 151, 151, 0.2);
+//     }
+//     &__getting {
+//         width: 448px;
+//         height: 1px;
+//         background-color: rgb(151, 151, 151, 0.2);
+//         &-mini {
+//             width: 196px;
+//             height: 1px;
+//             background-color: rgb(151, 151, 151, 0.2);
+//         }
+//     }
+//     &__dashed {
+//         position: absolute;
+//         height: 450px;
+//         border: 1px dashed rgb(151, 151, 151, 0.5);
+//         top: 104px;
+//         left: -42px;
+//     }
+//     &__vertical {
+//         &-mini {
+//             width: 1px;
+//             height: 160px;
+//             background-color: rgb(151, 151, 151, 0.2);
+//         }
+//     }
+//     &__footer {
+//         width: 1240px;
+//         height: 1px;
+//         background-color: rgb(255, 255, 255, 0.2);
+//     }
+    
+// }
+
 .line {
-    width: 703px;
-    height: 1px;
-    background-color: rgb(151, 151, 151);
-    opacity: 0.2;
+    &_dark {
+     border: 1px solid rgb(151, 151, 151, 0.2);
+    }
+    &_white {
+        
+    }
     &__burger {
         display: block;
         margin: 0 auto;
@@ -11,40 +64,4 @@
         background-color: rgb(151, 151, 151);
         border-radius: 1px;
     }
-    &__menu {
-        width: 520px;
-        margin-top: 89px;
-        height: 1px;
-        background-color: rgb(151, 151, 151, 0.2);
-    }
-    &__getting {
-        width: 448px;
-        height: 1px;
-        background-color: rgb(151, 151, 151, 0.2);
-        &-mini {
-            width: 196px;
-            height: 1px;
-            background-color: rgb(151, 151, 151, 0.2);
-        }
-    }
-    &__dashed {
-        position: absolute;
-        height: 450px;
-        border: 1px dashed rgb(151, 151, 151, 0.5);
-        top: 104px;
-        left: -42px;
-    }
-    &__vertical {
-        &-mini {
-            width: 1px;
-            height: 160px;
-            background-color: rgb(151, 151, 151, 0.2);
-        }
-    }
-    &__footer {
-        width: 1240px;
-        height: 1px;
-        background-color: rgb(255, 255, 255, 0.2);
-    }
-    
 }

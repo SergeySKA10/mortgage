@@ -3,15 +3,50 @@
     color: #ffffff;
     cursor: pointer;
     &__rct {
-        margin-right: 24px;
+        display: flex;
         width: 200px;
         height: 56px;
         padding: 18px 29px 18px 32px;
         border: 1px solid $main_color;
         border-radius: 4px;
-        font-size: 16px;
         line-height: 16px;
         text-align: left;
+        a {
+            font-size: 16px;
+            color: #ffffff;
+            text-decoration: none;
+        }
+        div {
+            position: relative;
+            top: 8px;
+            width: 20px;
+            height: 2px;
+            background-color: #ffffff;
+            box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+            left: 38px;
+            display: block;
+        }
+         div::after {
+            content: "";
+            position: absolute;
+            width: 2px;
+            height: 8px;
+            top: -1px;
+            right: 1px;
+            background-color: #ffffff;
+            transform: rotate(45deg);
+        }
+         div::before {
+            content: "";
+            position: absolute;
+            width: 2px;
+            height: 8px;
+            top: -5.1px;
+            right: 1px;
+            background-color: #ffffff;
+            box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+            transform: rotate(-45deg);
+        }
     }
     &__white {
         background-color:#ffffff;
@@ -20,12 +55,12 @@
         padding: 18px 30px;
         border: 1px solid grey;
         border-radius: 4px;
-        color: $dark_color;
         font-size: 16px;
         line-height: 16px;
         text-align: left;
         a {
             text-decoration: none;
+            color: $dark_color;
         }
     }
     &__play {
@@ -43,9 +78,9 @@
         &-block::after {
             content: "";
             position: absolute;
-            top: -7px;
+            top: -5px;
             left: -4px;
-            border: 9px solid transparent;
+            border: 8px solid transparent;
             border-left: 11px solid #ffffff;
                
         }
