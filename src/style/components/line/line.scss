@@ -64,4 +64,11 @@
         background-color: rgb(151, 151, 151);
         border-radius: 1px;
     }
+    &__vertical {
+        &-mini {
+            width: 1px;
+            height: 160px;
+            background-color: rgb(151, 151, 151, 0.2);
+        }
+    }
 }

@@ -1,11 +1,12 @@
 .customers {
     position: relative;
-    margin-top: 96px;
+    margin-top: 69px;
     transform: translateX(100px);
     min-height: 463px;
     &__wrapper {
         margin-top: 29px;
         display: flex;
+        gap: 34px;
     }
     &__rating {
         height: 344px;
@@ -13,7 +14,6 @@
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        margin-right: 54px;
     }
     &__block {
         position: relative;
@@ -26,6 +26,7 @@
         border-radius: 4px;
         &-descr {
             width: 244px;
+            padding-right: 24px;
         }
         &_text {
             margin-top: 23px;
@@ -110,7 +111,7 @@
         background-color: $blue_color;
         width: 967px;
         height: 291px;
-        top: 50px;
+        top: 54px;
         border-radius: 4px;
         &_counter {
             width: 123px;

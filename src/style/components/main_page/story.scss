@@ -24,7 +24,7 @@
             flex-direction: column;
             justify-content: space-between;
             width: 380px;
-            height: 678px;
+            min-height: 678px;
         }
         &_slide {
             border: 1px solid rgba(0, 0, 0, 0.1);
@@ -59,6 +59,12 @@
             letter-spacing: 0px;
             text-align: left;
             width: 300px;
+        }
+        &_arrows {
+            display: none;
+            button {
+                border: 8px solid rgba(39, 143, 180, 0.4);
+            }
         }
         
     }
@@ -111,7 +117,7 @@
     }
     &__window {
         position: absolute;
-        top: 768px;
+        bottom: 23px;
         right: 50px;
         width: 409px;
         min-height: 140px;
