@@ -157,7 +157,9 @@
         overflow: hidden;
         display: flex;
         gap: 24px;
-        transform: translateY(-102px);
+        position: relative;
+        top: -100px;
+        transform: translateX(25%);
     }
     &__slide {
         width: 479px;
