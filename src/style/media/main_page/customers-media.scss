@@ -52,6 +52,9 @@
         top: -120px;
         left: 300px;
     }
+    .customers__slides {
+        transform: translateX(25%);
+    }
 }
 
 @media(max-width: 768px) {

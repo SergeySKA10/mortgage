@@ -1,29 +1,21 @@
 .article {
     position: relative;
     min-height: 764px;
-    margin-top: 129px;
+    margin-top: 109px;
     &__filters {
+        position: relative;
+        top: -30px;
         display: flex;
         justify-content: end;
-        position: absolute;
-        height: 80px;
-        width: 580px;
-        left: 335px;
-        top: 45px;
+        gap: 20px
     }
     &__filter {
-        margin-left: 20px;
         width: 68px;
         height: 22px;
         color: $dark_color;
         font-size: 14px;
         line-height: 16px;
-        text-align: left;
         border-bottom: none;
-        &-active {
-            color: $main_color;
-            border-bottom: 1px solid $main_color;
-        }
     }
     &__info {
         display: grid;
@@ -32,10 +24,12 @@
     }
     &__education {
         &_wrapper {
-            margin-top: 19px;
+            position: relative;
+            top: -18px;
+            margin-top: 5px;
             display: grid;
-            grid-template-columns: 397px 397px;
-            grid-template-rows: 342px 342px;
+            grid-template-columns: repeat(2, minmax(397px, 0px));
+            grid-template-rows: repeat(2, minmax(342px, 0px));
             gap: 24px;
         }
         
@@ -57,23 +51,21 @@
         text-align: left;
         text-transform: uppercase;
     }
-    &__header {
+    h4 {
         margin-top: 82px;
-        color: rgb(52, 47, 69);
-        font-size: 28px;
-        line-height: 28px;
         text-align: left;
     }
     &__descr {
         margin-top: 18px;
-        margin-bottom: 20px;
         color: rgb(0, 0, 0, 0.5);
         font-size: 14px;
         line-height: 24px;
-        text-align: left;
+    }
+    &__line {
+        margin-top: 3px;
     }
     &__by {
-        margin-top: 23px;
+        margin-top: 20px;
         display: flex;
         &_photo {
             width: 48px;
@@ -98,26 +90,25 @@
         }
     }
     &__book {
-        width: 181px;
-        height: 78px;
+        padding-right: 10px;
+        margin-top: 17px;
         color: $dark_color;
         font-size: 20px;
         line-height: 26px;
-        text-align: left;
     }
     &__resources {
         &_wrapper {
-            margin-top: 19px;
+            margin-top: 9px;
             display: grid;
-            grid-template-columns: 397px;
-            grid-template-rows: 266px 266px;
+            grid-template-columns: minmax(397px, 0px);
+            grid-template-rows: repeat(2, minmax(266px, 0px));
             row-gap: 20px;
         }
         &_block {
             position: relative;
             background-color: #ffffff;
             border-radius: 4px;
-            padding: 28px 32px 18px 32px;
+            padding: 23px 22px 18px 20px;
             box-shadow: 0px 15px 30px 0px rgba(0, 0, 0, 0.1);
             .line {
                 margin-top: 24px;
@@ -126,19 +117,16 @@
         }
         &_descr {
             display: flex;
+            gap: 34px;
             &-img {
                 width: 96px;
-                height: 120px;
+                height: 145px;
                 img {
                     position: relative;
                     top: -7px;
-                    width: 100%;
                     height: 100%;
                     object-fit: cover;
                 }
-            }
-            &-book {
-                margin-left: 24px;
             }
         }
         &_button {
@@ -150,19 +138,25 @@
     }
 }
 
+.filter-active {
+    color: $main_color;
+    border-bottom: 1px solid $main_color;
+}
+
 #article-first {
+    padding-right: 178px;
     grid-column-start: 1;
     grid-column-end: 3;
     background: url('../../../../public/assets/img/main_page/education/living_room.png') center/cover no-repeat;
-    .line {
-        background-color: rgb(255, 255, 255, 0.5);
-        width: 608px;
+    .line_dark {
+        background-color: rgb(255, 255, 255, 0.2);
     }
     .article__logo {
         color: rgb(255, 255, 255, 0.5);
     }
     .article__descr {
         color: rgb(255, 255, 255, 0.5);
+        padding-right: 214px;
     }
     .article__by_name {
         color: rgb(255, 255, 255, 0.5);
@@ -170,7 +164,7 @@
             color: rgb(255, 255, 255);
         }
     }
-    .article__header {
+    h4 {
         color: rgb(255, 255, 255);
     }
 }
@@ -178,8 +172,8 @@
 #article-active {
     cursor: pointer;
     background-color: $main_color;
-    .line {
-        background-color: rgb(255, 255, 255, 0.5);
+    .line_dark {
+        background-color: rgb(255, 255, 255, 0.2);
     }
     .article__logo {
         color: rgb(255, 255, 255, 0.5);
@@ -193,7 +187,7 @@
             color: rgb(255, 255, 255);
         }
     }
-    .article__header {
+    h4 {
         color: rgb(255, 255, 255);
     }
 
