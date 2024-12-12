@@ -19,8 +19,9 @@
     }
     &__info {
         display: grid;
-        grid-template-columns: 818px 397px;
+        grid-template-columns: minmax(818px, 0) minmax(397px, 0);
         column-gap: 24px;
+        justify-content: center;
     }
     &__education {
         &_wrapper {
@@ -31,6 +32,9 @@
             grid-template-columns: repeat(2, minmax(397px, 0px));
             grid-template-rows: repeat(2, minmax(342px, 0px));
             gap: 24px;
+        }
+        &__line {
+            margin-top: 20px;
         }
         
     }
@@ -60,9 +64,6 @@
         color: rgb(0, 0, 0, 0.5);
         font-size: 14px;
         line-height: 24px;
-    }
-    &__line {
-        margin-top: 3px;
     }
     &__by {
         margin-top: 20px;
@@ -103,6 +104,9 @@
             grid-template-columns: minmax(397px, 0px);
             grid-template-rows: repeat(2, minmax(266px, 0px));
             row-gap: 20px;
+        }
+        &__line {
+            margin-top: 3px;
         }
         &_block {
             position: relative;
