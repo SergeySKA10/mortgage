@@ -2,6 +2,7 @@
     &__main {
         position: absolute;
         z-index: 10;
+        width: 100%;
         padding-top: 24px;
         padding-left: 24px;
         display: flex;
@@ -45,9 +46,5 @@
         color: rgb(52, 47, 69);
         font-size: 28px;
         line-height: 28px;
-    }
-    &__menu {
-        position: absolute;
-        left: 96px;
     }
 }
