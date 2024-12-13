@@ -1,0 +1,11 @@
+.steps {
+    padding-top: 49px;
+    min-height: 541px;
+    &__wrapper {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(397px, 0px));
+        grid-template-rows: repeat(2, minmax(234px, 0));
+        gap: 24px;
+        justify-content: center;
+    }
+}
