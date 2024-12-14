@@ -1,0 +1,57 @@
+.about_author {
+    min-height: 500px;
+    padding: 100px 222px 10px 222px;
+    h2 {
+        padding-right: 5px;
+    }
+    &__wrapper {
+        margin-top: 15px;
+        padding: 40px 136px 0px 83px;
+        box-shadow: 0px 15px 30px 0px rgba(0, 0, 0, 0.1);
+        display: flex;
+        justify-content: center;
+        gap: 28px;
+        min-height: 338px;
+    }
+    &__photo {
+        background: url('../../../../public/assets/img/main_page/getting_mortgage/Justin.png') center/cover no-repeat;
+        width: 460px;
+        height: 338px;
+    }
+    &__descr {
+        width: 430px;
+    }
+    &__subheader {
+        margin-top: 48px;
+        color: $main_color;
+        font-size: 11px;
+        line-height: 13px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+    }
+    &__name {
+        margin-top: 5px;
+        color: $dark_color;
+        font-size: 28px;
+        line-height: 28px;
+    }
+    &__info {
+        margin-top: 39px;
+        color: rgb(0, 0, 0, 0.5);
+        font-size: 14px;
+        line-height: 24px;
+    }
+    &__btn {
+        margin-top: 20px;
+        display: flex;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 16px;
+    }
+    &__meet {
+        color: rgb(0, 0, 0);
+        font-size: 13px;
+        line-height: 15px;
+    }
+}
