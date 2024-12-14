@@ -1,3 +1,14 @@
-@media (max-width: 1320px) {
-    
+@media (max-width: 576px) {
+    .promo_blog {
+        min-height: 340px;
+    }
+    .promo_blog__header img {
+        width: 150px;
+    }
+}
+
+@media (max-width: 375px) {
+    .promo_blog__header {
+        padding-left: 0px; 
+    }
 }
