@@ -8,9 +8,6 @@
     .about_author__photo {
         width: 388px;
         height: 287px;
-        img {
-            width: 100%;
-        }
     }
 }
 
@@ -49,6 +46,11 @@
 }
 
 @media (max-width: 576px) {
+    .promo_webinar__header {
+        img {
+            transform: translateX(100px);
+        }
+    }
     .about_author {
         padding-left: 0px;
         padding-right: 0px;
