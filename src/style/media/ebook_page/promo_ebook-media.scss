@@ -40,7 +40,7 @@
     }
     .promo_ebook__header {
         img {
-            transform: translateX(-60px);
+            width: 300px;
         }
     }
     .promo_ebook__name {
@@ -52,11 +52,6 @@
 }
 
 @media (max-width: 375px) {
-    .promo_ebook__header {
-        img {
-            transform: translateX(-90px);
-        }
-    }
     .promo_ebook__name {
         margin-left: 10px;
     }

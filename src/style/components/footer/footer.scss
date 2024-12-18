@@ -1,6 +1,6 @@
 .footer {
     margin-top: 76px;
-    padding: 22px 100px 35px 95px;
+    padding: 2px 100px 35px 95px;
     min-height: 462px;
     background-color: $blue_color; 
     &__header {
@@ -17,9 +17,6 @@
             }
         }
     }
-    &__line {
-        margin-top: 15px;
-    }
     &__logo {
         position: relative;
         left: -95px;
@@ -27,7 +24,7 @@
     &__info {
         margin-top: 31px;
         padding: 0px 3px;
-        margin-bottom: 57px;
+        margin-bottom: 27px;
         display: flex;
         justify-content: center;
         gap: 100px;

@@ -108,13 +108,16 @@
     &__slider {
         position: relative;
         display: flex;
+        width: 100%;
         background-color: $blue_color;
         height: 291px;
         top: 54px;
         border-radius: 4px;
         gap: 31px;
+        &_inner {
+            height: 100%;
+        }
         &_counter {
-            height: 344px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -134,9 +137,10 @@
             justify-content: space-between;
         }
         &_dots {
+            margin-top: 22px;
             position: relative;
-            top: 238px;
-            left: -775px;
+            top: -100px;
+            left: 240px;
             width: 556px;
             height: 20px;
             display: flex;
@@ -175,6 +179,8 @@
             width: 110px;
             height: 110px;
             img {
+                width: 100%;
+                height: 100%;
                 object-fit: cover;
             }
         }
@@ -217,6 +223,7 @@
             gap: 31px;
         }
         &-text {
+            overflow: hidden;
             width: 346px;
             height: 96px;
             color: rgb(0, 0, 0, 0.5);

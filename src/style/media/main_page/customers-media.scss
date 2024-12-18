@@ -12,7 +12,10 @@
 
 @media(max-width: 1200px) {
     .customers {
-        padding: 0px 99px;
+        padding: 0px;
+        h2, h3 {
+            text-align: center;
+        }
     }
     .customers__wrapper {
         flex-direction: column;
@@ -35,13 +38,14 @@
     .customers__slider_counter {
         gap: 10px;
         height: 0px;
-        min-height: 200px;
+        min-height: 100px;
         margin-left: 0px;
         justify-content: center;
     }
     .customers__slider_arrows {
         flex-direction: row;
         gap: 50px;
+        height: 60px;
     }
     .customers__slider_current {
         margin-top: 0px;
@@ -49,51 +53,43 @@
         padding-top: 20px;
     }
     .customers__slider_dots {
-        top: -120px;
-        left: 300px;
+        top: -10px;
+        left: 50%;
+        transform: translateX(-50%);
     }
     .customers__slides {
-        transform: translateX(25%);
+        top: 0;
+        width: 479px;
+        height: 310px;
+        margin: 0 auto;
+        overflow: inherit;
     }
 }
 
 @media(max-width: 768px) {
-    .customers {
-        padding: 0px 10px;
-    }
     .customers__rating {
         flex-direction: column;
         align-items: center;
-    }
-    .customers__slider {
-        top: 180px;
-        min-height: 700px;
+        min-height: 340px;
     }
 }
 
-@media(max-width: 580px) {
-    .customers {
-        padding: 0px 0px;
-    }
+@media(max-width: 576px) {
     .customers__slider_dots {
         width: 290px;
-        left: 170px;
-        top: -110px;
+    }
+    .customers__slides {
+        width: 310px;
     }
     .customers__slide {
-        width: 300px;
-        height: 320px;
-        padding: 14px 5px 5px 5px;
+        width: 310px;
+        padding: 5px 15px 5px 15px;
         &-profile {
             align-items: center;
         }
         &-photo {
             width: 50px;
             height: 50px;
-            img {
-                width: 100%;
-                height: 100%;
-            }
         }
         &-info {
             padding-left: 0px;
@@ -104,22 +100,11 @@
             padding-right: 9px;
         }
         &-descr {
+            margin-top: 10px;
             gap: 10px;
-            padding-right: 10px;
-            height: 180px;
         }
         &-text {
-            height: 0px;
-            min-height: 100%;
+            height: 140px;
         }
-    }
-}
-
-@media(max-width: 375px) {
-    .customers__slides {
-        transform: translateX(26%);
-    }
-    .customers__slider_dots {
-        left: 165px;
     }
 }
