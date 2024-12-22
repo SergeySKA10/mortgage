@@ -1,0 +1,24 @@
+@import '../../../style/variables/variables.scss';
+
+.article {
+    &__filters {
+        position: relative;
+        top: -30px;
+        display: flex;
+        justify-content: end;
+        gap: 20px
+    }
+    &__filter {
+        width: 68px;
+        height: 22px;
+        color: $dark_color;
+        font-size: 14px;
+        line-height: 16px;
+        border-bottom: none;
+    }
+}
+
+.filter-active {
+    color: $main_color;
+    border-bottom: 1px solid $main_color;
+}
