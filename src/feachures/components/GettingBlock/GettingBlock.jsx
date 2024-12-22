@@ -14,7 +14,7 @@ import skillGuru from '../../../assets/icons/main_page/skills_scott/users.svg';
 
 const GettingBlock = () => {
     const initialState = {
-        getting: [
+        speakers: [
             {
                 photo: photoJustin,
                 name: 'Justin',
@@ -42,7 +42,7 @@ const GettingBlock = () => {
         ]
     }
 
-    const speakers = initialState.getting.map(el => {
+    const speakersCard = initialState.speakers.map(el => {
         const {photo, name, quality, descr, skills} = el;
         return (
             <SpeakerBlock
@@ -63,7 +63,7 @@ const GettingBlock = () => {
                 <h3 class="header__h3 roboto-regular">Well, not quite a village, but two of the villages best lending heroes!</h3>
 
                 <div class="getting__speakers">
-                    {speakers}
+                    {speakersCard}
                 </div>
             </div>
         </section>

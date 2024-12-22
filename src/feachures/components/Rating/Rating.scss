@@ -87,14 +87,6 @@
                 -webkit-clip-path: polygon(50% 0%, 66% 27%, 98% 35%, 76% 57%, 79% 91%, 50% 78%, 21% 91%, 24% 57%, 2% 35%, 32% 27%);
                 clip-path: polygon(50% 0%, 66% 27%, 98% 35%, 76% 57%, 79% 91%, 50% 78%, 21% 91%, 24% 57%, 2% 35%, 32% 27%);
             }
-            
-            div:hover {
-                background: linear-gradient(to bottom, $main_color 0%, $main_color);
-            }
-            
-            div:hover:before {
-                background: linear-gradient(to bottom, $main_color 0%, $main_color 100%);
-            }
         }
     }
 }
