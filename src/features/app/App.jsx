@@ -1,8 +1,13 @@
 import MainPage from "../pages/MainPage";
+import Footer from "../components/Footer/Footer";
 
 function App() {
   return (
-    <MainPage/>
+    <>
+      <MainPage/>
+      <Footer/>
+    </>
+    
   )
 }
 
