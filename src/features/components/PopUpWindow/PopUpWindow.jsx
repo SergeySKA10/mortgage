@@ -1,3 +1,5 @@
+import { Button } from '../Buttons/Buttons';
+
 import './PopUpWindow.scss';
 import quote from '../../../assets/icons/main_page/quote/left-quote.svg';
 import avatarJustin from '../../../assets/img/main_page/avatar_consultant/avatar_justin.png';
@@ -24,7 +26,9 @@ const PopUpWindow = () => {
             </div>
             <div className="story__window_button">
                 <div className="roboto-regular">Have a question?</div>
-                <button className="btn btn__mini"><a className="roboto-bold" href="#">Let's talk</a></button>
+                {/* <button className="btn btn__mini"><a className="roboto-bold" href="#">Let's talk</a></button>
+                 */}
+                 <Button type='mini' link='#' text="Let's talk"/>
             </div>
         </div>
     )

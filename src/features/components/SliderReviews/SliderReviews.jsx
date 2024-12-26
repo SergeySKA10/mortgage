@@ -1,6 +1,9 @@
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
 
+import { ButtonArrow } from '../Buttons/Buttons';
+import {Line} from '../Line/Line';
+
 import './SliderReviews.scss';
 import rightQuote from '../../../assets/icons/main_page/quote/right-quote.svg';
 
@@ -37,8 +40,8 @@ const SliderReviews = () => {
                     <span id="total-customers" className="roboto-bold">/{total}</span>
                 </div>
                 <div className="customers__slider_arrows">
-                    <button className="btn btn__arrow-left"><div></div></button>
-                    <button className="btn btn__arrow-right"><div></div></button>
+                    <ButtonArrow type='left'/>
+                    <ButtonArrow type='right'/>
                 </div>
             </div>
         
@@ -74,7 +77,7 @@ const SlideReviews = ({data}) => {
                 </div>
             </div>
             <div className="customers__slide_line">
-                <hr className="line_dark"/>
+                <Line/>
             </div>
             <div className="customers__slide-descr">
                 <div className="customers__slide-quote">

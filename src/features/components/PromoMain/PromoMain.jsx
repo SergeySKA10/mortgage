@@ -1,3 +1,5 @@
+import { Button, ButtonPlay } from '../Buttons/Buttons';
+import {Line} from '../Line/Line';
 
 import './PromoMain.scss';
 import './PromoMainMedia.scss';
@@ -10,9 +12,10 @@ const PromoMain = () => {
             <div className="promo_main__descr">
                 <h2 className="promo_main__subheader roboto-bold">Why a mortgage is so much more than just a rate?</h2>
                 <div className="promo_main__video">
-                    <button className="btn btn__play">
+                    {/* <button className="btn btn__play">
                         <a href="#"><div className="btn__play-block"></div></a>
-                    </button>
+                    </button> */}
+                    <ButtonPlay link='#'/>
                     <div className="promo_main__time roboto-regular">0:34</div>
                 </div>
             </div>
@@ -32,19 +35,14 @@ const PromoMain = () => {
                 </p>
 
                 <div className="promo_main__line">
-                    <hr className="line line_dark"/>
+                    <Line/>
                 </div>
 
                 <div className="promo_main__start">
                     <p className="promo_main__start_text roboto-bold">Let us help you create your mortgage journey</p>
                     <div className="promo_main__start_btns">
-                        <button className="btn btn__rct">
-                            <a className="roboto-bold" href="#">Get started</a>
-                            <div></div>
-                        </button>
-                        <button className="btn btn__white">
-                            <a className="roboto-bold" href="#">Schedule a time</a>
-                        </button>
+                        <Button text='Get started' link='#'/>
+                        <Button type='white' text='Schedule a time' link='#'/>
                     </div>
                 </div>
             </div>

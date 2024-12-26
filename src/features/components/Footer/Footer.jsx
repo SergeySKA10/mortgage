@@ -1,3 +1,5 @@
+import { Button } from '../Buttons/Buttons';
+
 import './Footer.scss';
 import './FooterMedia.scss';
 import logo from '../../../assets/icons/main_page/logo/logo_white.svg'
@@ -10,7 +12,7 @@ const Footer = () => {
                     <img src={logo} alt="logo"/>
                 </div>
                 <div className="footer__btn">
-                    <button className="btn btn__white"><a className="roboto-bold" href="#">Schedule a time</a></button>
+                    <Button type='white' text='Schedule a time' link='#'/>
                 </div>
             </header>
 

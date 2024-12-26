@@ -1,5 +1,7 @@
 import { useSelector } from 'react-redux';
 
+import {Line} from '../Line/Line';
+
 import './Rating.scss';
 
 
@@ -31,7 +33,7 @@ const ViewBlock = ({data}) => {
                     <img src={icon} alt="google"/>
                 </div>
                 <div className="customers__block_line">
-                    <hr className="line_dark"/>
+                    <Line/>
                 </div>
                 <div className="customers__block_reviews">
                     <p className="roboto-regular">Based on</p>

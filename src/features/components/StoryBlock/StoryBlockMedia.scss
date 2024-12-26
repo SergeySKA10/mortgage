@@ -1,12 +1,3 @@
-@media(max-width: 1440px) {
-    .header__h2-left {
-        text-align: left;
-    }
-    .header__h3-left {
-        text-align: left;
-    }
-}
-
 @media(max-width: 1400px) {
     .story__block {
         justify-content: flex-start;
@@ -112,12 +103,6 @@
 @media(max-width: 576px) {
     .story {
         padding: 54px 0px 20px 0px;
-    }
-    .header__h2-left {
-        line-height: 30px;
-    }
-    .header__h3-left {
-        margin-top: 10px;
     }
     .story__slider_descr {
         width: 250px;

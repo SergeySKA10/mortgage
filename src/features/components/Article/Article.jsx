@@ -1,5 +1,7 @@
 import { useSelector } from 'react-redux';
 
+import {Line} from '../Line/Line';
+
 import './Article.scss';
 
 
@@ -13,11 +15,14 @@ const Article = () => {
         if (i < 3) {
             // созаем переменную для обозначения большого блока и передачи в props
             const large = i === 0 ? 'large' : '';
+            // задаем класс активости (пока статично)
+            const active = i === 2 ? 'article-active' : '';
 
             return (
                 <ViewBlock
                     data={el}
                     size={large}
+                    active={active}
                 />
             )
         }
@@ -30,17 +35,17 @@ const Article = () => {
     )
 }
 
-const ViewBlock = (props) => {
-    const {id, subheader, header, descr, avatar, nameSpeaker} = props.data;
-    const large = props.size;
+const ViewBlock = ({data, size, active}) => {
+    const {id, subheader, header, descr, avatar, nameSpeaker} = data;
+    const large = size;
 
     return (
-        <div key={id} className="article__block" data-size={large}>
+        <div key={id} className={`article__block ${active}`} data-size={large}>
             <div className="article__logo roboto-bold">{subheader}</div>
             <h4 className="header__h4 roboto-bold">{header}</h4>
             <div className="article__descr roboto-regular">{descr}</div>
             <div className="article__education__line">
-                <hr className="line_dark"/>
+                <Line/>
             </div>
             <div className="article__by">
                 <div className="article__by_photo">

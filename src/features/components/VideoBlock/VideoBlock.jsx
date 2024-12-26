@@ -1,5 +1,7 @@
 import { useSelector } from 'react-redux';
 
+import { ButtonPlay } from '../Buttons/Buttons';
+
 import './VideoBlock.scss';
 
 const VideoBlock = () => {
@@ -34,9 +36,7 @@ const ViewVideo = ({data, size}) => {
         <div key={id} className="story__presentation_elem" data-size={size}>
             <div className="story__presentation_block">
                 <div className="story__wrapper">
-                    <button className="btn btn__play-white">
-                        <a href="#"><div className="btn__play-white-block"></div></a>
-                    </button>
+                    <ButtonPlay link='#' type='white'/>
                     <p className="story__text  roboto-bold">{descr}</p>
                     <div className="story__time roboto-regular">{time}</div>
                 </div>

@@ -1,5 +1,8 @@
 import { useSelector } from 'react-redux';
 
+import { ButtonPlay } from '../Buttons/Buttons';
+import {Line} from '../Line/Line';
+
 import './GettingBlock.scss';
 import './GettingBlockMedia.scss';
 
@@ -55,9 +58,7 @@ const SpeakerBlock = (props) => {
                     <div className="getting__promo_img">
                         <img src={photo} alt="speaker Jusin"/>
                     </div>
-                    <button className="btn btn__play">
-                        <a href="#"><div className="btn__play-block"></div></a>
-                    </button>
+                    <ButtonPlay link='#'/>
                     <div className="getting__promo_descr roboto-regular">Meet {name}</div>
                 </div>
             </div>
@@ -68,7 +69,7 @@ const SpeakerBlock = (props) => {
                 <p className="getting__descr_text roboto-regular">{descr}</p>
                 <div className="getting__descr_block roboto-bold">Skills</div>
                 <div className="getting__line">
-                    <hr className="line line_dark"/>
+                    <Line/>
                 </div>
                 <div className="getting__descr_skills">
                     {skillsElements}

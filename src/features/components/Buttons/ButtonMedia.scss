@@ -1,0 +1,38 @@
+@media(max-width: 1320px) {
+
+}
+
+@media (max-width: 768px) {
+    .btn {
+        &__main {
+            width: 150px;
+            a {
+                font-size: 14px;
+                line-height: 12px;
+            }
+            div {
+                width: 10px;
+            }
+        }
+        &__white {
+            width: 150px;
+            a {
+                font-size: 14px;
+                line-height: 12px;
+            }
+        }
+    }
+}
+
+@media (max-width: 576px) {
+    .btn__play {
+        width: 40px;
+        height: 40px;
+        &-block::after {
+            top: -4px;
+            left: -3px;
+            border: 6px solid transparent;
+            border-left: 9px solid #ffffff;
+        }
+    }
+}

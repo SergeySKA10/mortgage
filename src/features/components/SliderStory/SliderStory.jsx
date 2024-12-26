@@ -1,5 +1,8 @@
 import { useSelector } from 'react-redux';
 
+import { ButtonArrow } from '../Buttons/Buttons';
+import {Line} from '../Line/Line';
+
 import './SliderStory.scss';
 import './DotsSliderStory.scss';
 
@@ -36,8 +39,8 @@ const SliderStory = () => {
             </div>
 
             <div className="story__slider_arrows">
-                <button className="btn btn__arrow-left"><div></div></button>
-                <button className="btn btn__arrow-right"><div></div></button>
+                <ButtonArrow type='left'/>
+                <ButtonArrow type='right'/>
             </div>
         </div>
     )
@@ -50,7 +53,7 @@ const Slide = ({data, activeClass, current}) => {
             <div className="story__slider_counter roboto-bold">{current}</div>
             <div className="story__slider_header roboto-bold">{header}</div>
             <div className="story__slider_line">
-                <hr className="line_dark"/>
+                <Line/>
             </div>
             <div className="story__slider_descr roboto-regular">{descr}</div>
         </div>

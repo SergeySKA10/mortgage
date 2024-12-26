@@ -1,12 +1,13 @@
+import {LineBurger} from '../Line/Line';
+
 import './Burger.scss';
+import './BurgerMedia.scss';
 
 const Burger = () => {
     return (
         <div className="burger">
             <div className="burger__wrapper">
-                <div className="line__burger"></div>
-                <div className="line__burger"></div>
-                <div className="line__burger"></div>
+                <LineBurger/>
             </div>
         </div>
     )

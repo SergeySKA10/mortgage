@@ -1,3 +1,6 @@
+import { ButtonDownLoad, ButtonWatch } from '../Buttons/Buttons';
+import {Line} from '../Line/Line';
+
 import './Resource.scss';
 import coverBook from '../../../assets/img/book/book_cover.png';
 import book from '../../../assets/img/book/book.png';
@@ -18,13 +21,10 @@ const Resource = () => {
                         </div>
                     </div>
                     <div className="article__resources__line">
-                        <hr className="line_dark"/>
+                        <Line/>
                     </div>
                     <div className="article__resources_button">
-                        <button className="btn btn__watch-download">
-                            <div className="btn btn__watch-download-text roboto-bold">Download</div>
-                            <div className="btn btn__watch-download-arrow"></div>
-                        </button>
+                        <ButtonDownLoad/>
                     </div>
                 </div>
 
@@ -39,14 +39,10 @@ const Resource = () => {
                         </div>
                     </div>
                     <div className="article__resources__line">
-                        <hr className="line_dark"/>
+                        <Line/>
                     </div>
                     <div className="article__resources_button">
-                        <button className="btn btn__watch">
-                            <div className="btn btn__watch-eyelid">
-                                <div className="btn btn__watch-eys"></div>
-                            </div>
-                        </button>
+                        <ButtonWatch/>
                     </div>
                 </div>
             </div>
