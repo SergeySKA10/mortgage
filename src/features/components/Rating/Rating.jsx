@@ -25,6 +25,28 @@ const Rating = () => {
 
 const ViewBlock = ({data}) => {
     const {id, stars, icon, reviews} = data;
+
+    // функция по созданию звезд и заполнения background в соответствии с рейтингом
+    const starsBlock = (str) => {
+        const stars = [];
+        const num = +str.match(/\d(?:\.\d)?/g).join('');
+
+        for (let i = 1; i <= 5; i++) {
+            if (i <= num) {
+                console.log(num, i);
+                stars.push(<div style={{background: 'linear-gradient(90deg, rgba(39,143,180,1) 100%'}}/>)
+            } else if (i > num) {
+                if (num % 1 > 0 && num % 1 < 1) {
+                    stars.push(<div style={{background: `linear-gradient(90deg, rgba(39,143,180,1) ${num % 1 * 100}%`}}/>)
+                } else {
+                    stars.push(<div style={{background: 'linear-gradient(90deg, rgba(39,143,180,1) 0%'}}/>)
+                }
+            }
+        }
+
+        return stars;
+    }
+
     return (
         <div key={id} className="customers__block">
             <div className="customers__block-descr">
@@ -42,11 +64,7 @@ const ViewBlock = ({data}) => {
             </div>
             <div className="line__vertical-mini"></div>
             <div className="customers__block-stars">
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
+                {starsBlock(stars)}
             </div>
         </div> 
     )
