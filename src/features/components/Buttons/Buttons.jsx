@@ -13,8 +13,10 @@ export const Button = ({type, link, text}) => {
 
 export const ButtonPlay = ({type, link}) => {
     const typeBtn = type ? `play-${type}` : 'play';
+    const animationClass = type ? `btn__animation-${type}` : 'btn__animation';
+
     return (
-        <button className={`btn btn__${typeBtn}`}>
+        <button className={`btn btn__${typeBtn} ${animationClass}`}>
             <a href={link}><div className={`btn__${typeBtn}-block`}></div></a>
         </button>
     )
@@ -37,7 +39,7 @@ export const ButtonDownLoad = () => {
 
 export const ButtonWatch = () => {
     return (
-        <button className="btn btn__watch">
+        <button className="btn btn__watch btn__animation">
             <div className="btn btn__watch-eyelid">
                 <div className="btn btn__watch-eys"></div>
             </div>
