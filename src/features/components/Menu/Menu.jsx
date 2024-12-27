@@ -1,3 +1,6 @@
+import { Button } from '../Buttons/Buttons';
+import { Line } from '../Line/Line';
+
 import './Menu.scss';
 import './MenuMedia.scss';
 import logo from '../../../assets/icons/main_page/logo/NAF_Logo.svg';
@@ -6,9 +9,6 @@ const Menu = () => {
     return (
         <div className="menu">
             <div className="menu__block">
-                <div className="menu__block_close">
-                    <div></div>
-                </div>
                 <div className="menu__logo">
                     <img src={logo} alt="logo"/>
                 </div>
@@ -22,16 +22,11 @@ const Menu = () => {
                         <li> <a className="roboto-bold" href="#">Webinar</a></li>
                     </ul>
                     <div className="menu__line">
-                        <hr className="line_dark"/>
+                        <Line/>
                     </div>
                     <div className="menu__buttons">
-                        <button className="btn btn__rct">
-                            <a className="roboto-bold" href="#">Get started</a>
-                            <div></div>
-                        </button>
-                        <button className="btn btn__white">
-                            <a className="roboto-bold" href="#">Schedule a time</a>
-                        </button>
+                        <Button link='#' text='Get Started'/>
+                        <Button type='white' link='#' text='Schedule a time'/>
                     </div>
                 </div>
             </div>

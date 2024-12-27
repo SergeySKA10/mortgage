@@ -33,7 +33,6 @@ const ViewBlock = ({data}) => {
 
         for (let i = 1; i <= 5; i++) {
             if (i <= num) {
-                console.log(num, i);
                 stars.push(<div style={{background: 'linear-gradient(90deg, rgba(39,143,180,1) 100%'}}/>)
             } else if (i > num) {
                 if (num % 1 > 0 && num % 1 < 1) {
