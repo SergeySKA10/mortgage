@@ -1,4 +1,5 @@
 import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
 
 import {Line} from '../Line/Line';
 
@@ -12,7 +13,7 @@ const Rating = () => {
     // формируем блок с рейтингами
     const ratingBlock = ratings.map(el => {
         return (
-            <ViewBlock data={el}/>
+            <ViewBlock key={el.id} data={el}/>
         )
     });
 
@@ -24,30 +25,32 @@ const Rating = () => {
 }
 
 const ViewBlock = ({data}) => {
-    const {id, stars, icon, reviews} = data;
+    const {stars, icon, reviews} = data;
 
-    // функция по созданию звезд и заполнения background в соответствии с рейтингом
-    const starsBlock = (str) => {
-        const stars = [];
-        const num = +str.match(/\d(?:\.\d)?/g).join('');
+    // const starsBlock = [];
 
-        for (let i = 1; i <= 5; i++) {
-            if (i <= num) {
-                stars.push(<div style={{background: 'linear-gradient(90deg, rgba(39,143,180,1) 100%'}}/>)
-            } else if (i > num) {
-                if (num % 1 > 0 && num % 1 < 1) {
-                    stars.push(<div style={{background: `linear-gradient(90deg, rgba(39,143,180,1) ${num % 1 * 100}%`}}/>)
-                } else {
-                    stars.push(<div style={{background: 'linear-gradient(90deg, rgba(39,143,180,1) 0%'}}/>)
-                }
-            }
-        }
+    // // функция по созданию звезд и заполнения background в соответствии с рейтингом
+    // const createStar = (str) => {
+    //     const num = +str.match(/\d(?:\.\d)?/g).join('');
 
-        return stars;
-    }
+    //     for (let i = 1; i <= 5; i++) {
+    //         if (i <= num) {
+    //             console.log(num);
+    //             starsBlock.push(<div key={i} style={{backgroundColor: 'linear-gradient(90deg, rgba(39,143,180,1) 100%, rgba(255,255,255,1) 0%'}}/>)
+    //         } else if (i > num) {
+    //             if (num % 1 > 0 && num % 1 < 1) {
+    //                 starsBlock.push(<div key={i} style={{backgroundColor: `linear-gradient(90deg, rgba(39,143,180,1) ${num % 1 * 100}%`}}/>)
+    //             } else {
+    //                 starsBlock.push(<div key={i} style={{backgroundColor: 'linear-gradient(90deg, rgba(39,143,180,1) 0%'}}/>)
+    //             }
+    //         }
+    //     }
+    // }
+
+    // createStar(stars);
 
     return (
-        <div key={id} className="customers__block">
+        <div className="customers__block">
             <div className="customers__block-descr">
                 <div className="customers__block_text roboto-bold">{stars}</div>
                 <div className="customers__block_img">
@@ -63,7 +66,7 @@ const ViewBlock = ({data}) => {
             </div>
             <div className="line__vertical-mini"></div>
             <div className="customers__block-stars">
-                {starsBlock(stars)}
+                {/* {starsBlock} */}
             </div>
         </div> 
     )

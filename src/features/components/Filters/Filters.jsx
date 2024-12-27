@@ -12,7 +12,7 @@ const Filters = () => {
         const activeClass = i === 0 ? 'filter-active' : '';
 
         return (
-            <Filter data={el} activeClass={activeClass}/>
+            <Filter key={el.id} data={el} activeClass={activeClass}/>
         )
     })
 
@@ -24,9 +24,9 @@ const Filters = () => {
 }
 
 const Filter = (props) => {
-    const {id, name} = props.data;
+    const {name} = props.data;
     return (
-        <a key={id} className={`article__filter roboto-bold ${props.activeClass}`}>{name}</a> 
+        <a className={`article__filter roboto-bold ${props.activeClass}`}>{name}</a> 
     )
 }
 

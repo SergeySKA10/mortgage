@@ -25,7 +25,7 @@ const SliderStory = () => {
         dots.push(<Dot key={i} activeClass={activeClassDots}/>)
 
         return (
-            <Slide data={el} activeClass={activeClassSlide} current={current}/>
+            <Slide key={el.id} data={el} activeClass={activeClassSlide} current={current}/>
         )
     })
 
@@ -47,9 +47,9 @@ const SliderStory = () => {
 }
 
 const Slide = ({data, activeClass, current}) => {
-    const {id, header, descr} = data;
+    const {header, descr} = data;
     return (
-        <div key={id} className={'story__slider_slide ' + activeClass}>
+        <div className={'story__slider_slide ' + activeClass}>
             <div className="story__slider_counter roboto-bold">{current}</div>
             <div className="story__slider_header roboto-bold">{header}</div>
             <div className="story__slider_line">

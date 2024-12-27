@@ -16,6 +16,7 @@ const GettingBlock = () => {
     const speakersCard = speakers.map(el => {
         return (
             <SpeakerBlock
+                key={el.id}
                 data={el}
             />
         )
@@ -37,7 +38,7 @@ const GettingBlock = () => {
 }
 
 const SpeakerBlock = (props) => {
-    const {id, photo, name, quality, descr, skills} = props.data;
+    const {photo, name, quality, descr, skills} = props.data;
 
     // формируем skills для отображения на странице
     const skillsElements = skills.map(el => {
@@ -52,7 +53,7 @@ const SpeakerBlock = (props) => {
     });
 
     return (
-        <div key={id} className="getting__block">
+        <div className="getting__block">
             <div className="getting__promo">
                 <div className="getting__promo_btn">
                     <div className="getting__promo_img">

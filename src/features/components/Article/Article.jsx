@@ -20,6 +20,7 @@ const Article = () => {
 
             return (
                 <ViewBlock
+                    key={el.id}
                     data={el}
                     size={large}
                     active={active}
@@ -36,11 +37,11 @@ const Article = () => {
 }
 
 const ViewBlock = ({data, size, active}) => {
-    const {id, subheader, header, descr, avatar, nameSpeaker} = data;
+    const {subheader, header, descr, avatar, nameSpeaker} = data;
     const large = size;
 
     return (
-        <div key={id} className={`article__block ${active}`} data-size={large}>
+        <div className={`article__block ${active}`} data-size={large}>
             <div className="article__logo roboto-bold">{subheader}</div>
             <h4 className="header__h4 roboto-bold">{header}</h4>
             <div className="article__descr roboto-regular">{descr}</div>

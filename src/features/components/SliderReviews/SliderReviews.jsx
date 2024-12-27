@@ -28,7 +28,7 @@ const SliderReviews = () => {
         dots.push(<Dot key={i} activeClass={activeClassDot}/>)
 
         return (
-            <SlideReviews data={el}/>
+            <SlideReviews key={el.id} data={el}/>
         )
     })
 
@@ -59,10 +59,10 @@ const SliderReviews = () => {
 }
 
 const SlideReviews = ({data}) => {
-    const {id, photo, city, name, profession, icon, review} = data;
+    const {photo, city, name, profession, icon, review} = data;
 
     return (
-        <div key={id} className="customers__slide">
+        <div className="customers__slide">
             <div className="customers__slide-profile">
                 <div className="customers__slide-photo">
                     <img src={photo} alt="photo"/>
@@ -93,7 +93,7 @@ const SlideReviews = ({data}) => {
 
 const Dot = (props) => {
    return (
-        <div key={props.key} className={'customers__slider_dot ' + props.activeClass}></div>
+        <div className={'customers__slider_dot ' + props.activeClass}></div>
    ) 
 }
 

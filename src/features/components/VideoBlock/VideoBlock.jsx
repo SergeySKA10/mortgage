@@ -17,7 +17,7 @@ const VideoBlock = () => {
             const size = i === 1 ? 'videoLarge' : '';
 
             return (
-                <ViewVideo data={el} size={size}/>
+                <ViewVideo key={el.id} data={el} size={size}/>
             )
         }
         
@@ -31,9 +31,9 @@ const VideoBlock = () => {
 }
 
 const ViewVideo = ({data, size}) => {
-    const {id, descr, time} = data;
+    const {descr, time} = data;
     return (
-        <div key={id} className="story__presentation_elem" data-size={size}>
+        <div className="story__presentation_elem" data-size={size}>
             <div className="story__presentation_block">
                 <div className="story__wrapper">
                     <ButtonPlay link='#' type='white'/>
