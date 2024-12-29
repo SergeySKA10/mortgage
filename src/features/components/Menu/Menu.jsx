@@ -1,3 +1,7 @@
+import { useSelector, useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import { menuShowing } from '../Burger/burgerSlice';
+
 import { Button } from '../Buttons/Buttons';
 import { Line } from '../Line/Line';
 
@@ -6,9 +10,39 @@ import './MenuMedia.scss';
 import logo from '../../../assets/icons/main_page/logo/NAF_Logo.svg';
 
 const Menu = () => {
+    // переменные для работы с окном меню
+    const menu = useSelector(state => state.menu.menu),
+          dispatch = useDispatch(),
+          classOpenMenu = menu === 'open' ? 'menu-active' : null,
+          classOpenBlock = menu === 'open' ? 'menu__block-active' : null;
+
+    // обработчик события keydown для закрытия меню
+    useEffect(() => {
+        document.addEventListener('keydown', (e) => closeMenu(e.code));
+        
+        return () => {
+            document.removeEventListener('keydown', (e) => closeMenu(e.code))
+        }
+    }, [menu])
+
+    // функция закрытия меню при событии клика на подложку или нажатия Escape
+    const closeMenu = (target) => {
+        if (menu === 'open' && target === document.querySelector('.menu')) {
+            dispatch(menuShowing('close'))
+            document.body.style.overflow = '';
+        }
+
+        if (menu === 'open' && target === 'Escape') {
+            dispatch(menuShowing('close'))
+            document.body.style.overflow = '';
+        }
+    }
+
     return (
-        <div className="menu">
-            <div className="menu__block">
+        <div className={`menu ${classOpenMenu}`}
+             onClick={(e) => closeMenu(e.target)} 
+            >
+            <div className={`menu__block ${classOpenBlock}`}>
                 <div className="menu__logo">
                     <img src={logo} alt="logo"/>
                 </div>

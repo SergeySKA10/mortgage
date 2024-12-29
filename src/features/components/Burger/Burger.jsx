@@ -1,32 +1,32 @@
-// import {LineBurger} from '../Line/Line';
+import { useSelector, useDispatch } from 'react-redux';
+
+import { menuShowing } from './burgerSlice';
 
 import './Burger.scss';
 import './BurgerMedia.scss';
 
-const Burger = () => {
-    // function click() {
-    //     const menu = document.querySelector('.menu');
-    //     const block = document.querySelector('.menu__block');
-    //     const wrap = document.querySelector('.burger');
-    //     const burger = document.querySelector('.burger__wrapper');
 
-    //     if (burger.classList.contains('open_menu')) {
-    //         menu.classList.remove('menu-active');
-    //         block.classList.remove('menu__block-active');
-    //         wrap.classList.remove('burger_none');
-    //         burger.classList.remove('open_menu');
-    //         document.body.style.overflow = '';
-    //     } else {
-    //         menu.classList.add('menu-active');
-    //         block.classList.add('menu__block-active');
-    //         burger.classList.add('open_menu');
-    //         wrap.classList.add('burger_none');
-    //         document.body.style.overflow = 'hidden';
-    //     }
-    // }
+const Burger = () => {
+    // переменные для работы с компонентом и меню
+    const dispatch = useDispatch(),
+          menu = useSelector(state => state.menu.menu),
+          clazzBurger = `burger ${menu === 'open' ? 'burger_none' : null}`,
+          clazzWrapper = `burger__wrapper ${menu === 'open' ? 'open_menu' : null}`
+    
+    // функция для открытия и скрытия меню
+    const showMenu = () => {
+        if (menu === 'close') {
+            dispatch(menuShowing('open'));
+            document.body.style.overflow = 'hidden';
+        } else {
+            dispatch(menuShowing('close'));
+            document.body.style.overflow = '';
+        }
+    }
+
     return (
-        <div className="burger">
-            <div className="burger__wrapper">
+        <div className={clazzBurger} onClick={() => showMenu()}>
+            <div className={clazzWrapper}>
                 <span/>
             </div>
         </div>
