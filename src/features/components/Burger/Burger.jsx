@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux';
 
-import { menuShowing } from './burgerSlice';
+import { menuOpen } from './burgerSlice';
 
 import './Burger.scss';
 import './BurgerMedia.scss';
@@ -16,11 +16,11 @@ const Burger = () => {
     // функция для открытия и скрытия меню
     const showMenu = () => {
         if (menu === 'close') {
-            dispatch(menuShowing('open'));
-            document.body.style.overflow = 'hidden';
+            dispatch(menuOpen('open'));
+            // document.body.style.overflow = 'hidden';
         } else {
-            dispatch(menuShowing('close'));
-            document.body.style.overflow = '';
+            dispatch(menuOpen('close'));
+            // document.body.style.overflow = '';
         }
     }
 

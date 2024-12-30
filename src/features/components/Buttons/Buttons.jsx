@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 import './Buttons.scss';
 import './ButtonMedia.scss';
 
@@ -5,7 +7,7 @@ export const Button = ({type, link, text}) => {
     const typeBtn = type ? type : 'main';
     return (
         <button className={`btn btn__${typeBtn}`}>
-            <a className="roboto-bold" href={link}>{text}</a>
+            <Link className="roboto-bold" to={link}>{text}</Link>
             {typeBtn === 'main' ? <div></div> : null}
         </button>
     )
@@ -17,7 +19,7 @@ export const ButtonPlay = ({type, link}) => {
 
     return (
         <button className={`btn btn__${typeBtn} ${animationClass}`}>
-            <a href={link}><div className={`btn__${typeBtn}-block`}></div></a>
+            <Link to={link}><div className={`btn__${typeBtn}-block`}></div></Link>
         </button>
     )
 }

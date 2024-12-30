@@ -1,6 +1,7 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
-import { menuShowing } from '../Burger/burgerSlice';
+import { Link } from 'react-router-dom';
+import { menuOpen } from '../Burger/burgerSlice';
 
 import { Button } from '../Buttons/Buttons';
 import { Line } from '../Line/Line';
@@ -28,12 +29,12 @@ const Menu = () => {
     // функция закрытия меню при событии клика на подложку или нажатия Escape
     const closeMenu = (target) => {
         if (menu === 'open' && target === document.querySelector('.menu')) {
-            dispatch(menuShowing('close'))
+            dispatch(menuOpen('close'))
             document.body.style.overflow = '';
         }
 
         if (menu === 'open' && target === 'Escape') {
-            dispatch(menuShowing('close'))
+            dispatch(menuOpen('close'))
             document.body.style.overflow = '';
         }
     }
@@ -48,12 +49,12 @@ const Menu = () => {
                 </div>
                 <div className="menu__content">
                     <ul className="menu__block_list">
-                        <li> <a className="roboto-bold" href="#">Your teachers</a></li>
-                        <li> <a className="roboto-bold" href="#">Your mortgage journey</a></li>
-                        <li> <a className="roboto-bold" href="#">What our customers say</a></li>
-                        <li> <a className="roboto-bold" href="#">Blog</a></li>
-                        <li> <a className="roboto-bold" href="#">Ebook</a></li>
-                        <li> <a className="roboto-bold" href="#">Webinar</a></li>
+                        <li> <Link className="roboto-bold" to="#">Your teachers</Link></li>
+                        <li> <Link className="roboto-bold" to="#">Your mortgage journey</Link></li>
+                        <li> <Link className="roboto-bold" to="#">What our customers say</Link></li>
+                        <li> <Link className="roboto-bold" to="/blog">Blog</Link></li>
+                        <li> <Link className="roboto-bold" to="/ebook">Ebook</Link></li>
+                        <li> <Link className="roboto-bold" to="/webinar">Webinar</Link></li>
                     </ul>
                     <div className="menu__line">
                         <Line/>

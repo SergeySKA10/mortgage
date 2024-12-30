@@ -10,7 +10,7 @@ const burgerSlice = createSlice({
     name: 'menu',
     initialState,
     reducers: {
-        menuShowing: (state, action) => {
+        menuOpen: (state, action) => {
             state.menu = action.payload;
         }
     }
@@ -20,4 +20,4 @@ const {actions, reducer} = burgerSlice;
 
 export default reducer;
 
-export const { menuShowing } = actions;
+export const { menuOpen } = actions;

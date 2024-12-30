@@ -1,15 +1,34 @@
-import MainPage from "../pages/MainPage";
-import Footer from "../components/Footer/Footer";
-import Header from '../components/Header/Header';
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { lazy, Suspense } from "react";
+
+import Spinner from '../components/Spinner/Spinner';
+import PageLayout from "../pages/PageLayout";
+
+const MainPage = lazy(() => import("../pages/MainPage"));
+const BlogPage = lazy(() => import('../pages/BlogPage'));
+const WebinarPage = lazy(() => import('../pages/WebinarPage'));
+const EbookPage = lazy(() => import('../pages/EbookPage'));
+const SecondEbookPage = lazy(() => import('../pages/SecondEbookPage'));
+const ErrorPage = lazy(() => import('../pages/404'));
 
 function App() {
   return (
-    <>
-      <Header/>
-      <MainPage/>
-      <Footer/>
-    </>
-    
+    <Router>
+      <Suspense fallback={<Spinner/>}>
+        <main>
+          <Routes>
+            <Route element={<PageLayout/>}>
+              <Route path="/" element={<MainPage/>}/>
+              <Route path="/blog" element={<BlogPage/>}/>
+              <Route path="/webinar" element={<WebinarPage/>}/>
+              <Route path="/ebook" element={<EbookPage/>}/>
+              <Route path="/secondEbook" element={<SecondEbookPage/>}/>
+            </Route>
+            <Route path="*" element={<ErrorPage/>}/>
+          </Routes>
+        </main>
+      </Suspense>
+    </Router>
   )
 }
 

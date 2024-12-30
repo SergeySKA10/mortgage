@@ -12,9 +12,6 @@ const PromoMain = () => {
             <div className="promo_main__descr">
                 <h2 className="promo_main__subheader roboto-bold">Why a mortgage is so much more than just a rate?</h2>
                 <div className="promo_main__video">
-                    {/* <button className="btn btn__play">
-                        <a href="#"><div className="btn__play-block"></div></a>
-                    </button> */}
                     <ButtonPlay link='#'/>
                     <div className="promo_main__time roboto-regular">0:34</div>
                 </div>

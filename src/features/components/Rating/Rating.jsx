@@ -1,5 +1,6 @@
 import { useSelector } from 'react-redux';
 import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 import {Line} from '../Line/Line';
 
@@ -60,7 +61,7 @@ const ViewBlock = ({data}) => {
                 </div>
                 <div className="customers__block_reviews">
                     <p className="roboto-regular">Based on</p>
-                    <a className="roboto-bold" href="#">{reviews}</a>
+                    <Link className="roboto-bold" to="#">{reviews}</Link>
                 </div>
             </div>
             <div className="line__vertical-mini"></div>

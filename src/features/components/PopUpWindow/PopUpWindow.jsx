@@ -26,8 +26,6 @@ const PopUpWindow = () => {
             </div>
             <div className="story__window_button">
                 <div className="roboto-regular">Have a question?</div>
-                {/* <button className="btn btn__mini"><a className="roboto-bold" href="#">Let's talk</a></button>
-                 */}
                  <Button type='mini' link='#' text="Let's talk"/>
             </div>
         </div>

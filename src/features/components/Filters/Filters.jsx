@@ -1,4 +1,5 @@
 import { useSelector } from 'react-redux';
+import { NavLink } from 'react-router-dom';
 
 import './Filters.scss';
 
@@ -26,7 +27,7 @@ const Filters = () => {
 const Filter = (props) => {
     const {name} = props.data;
     return (
-        <a className={`article__filter roboto-bold ${props.activeClass}`}>{name}</a> 
+        <NavLink className={`article__filter roboto-bold ${props.activeClass}`}>{name}</NavLink> 
     )
 }
 

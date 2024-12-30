@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { Button } from '../Buttons/Buttons';
 
 import './Footer.scss';
@@ -26,23 +27,23 @@ const Footer = () => {
                         <div className="footer__contacts_ul roboto-bold">
                             <div className="footer__contacts_header">Contact us</div>
                             <address className="footer__contacts_list roboto-regular">14511 Myford Road, Suite 100, Tustin, CA 92780</address>
-                            <a className="footer__contacts_list roboto-regular" href="800-450-2010">800-450-2010</a>
-                            <a className="footer__contacts_list roboto-regular" href="customerservice@nafinc.com">customerservice@nafinc.com</a>
+                            <Link className="footer__contacts_list roboto-regular" to="800-450-2010">800-450-2010</Link>
+                            <Link className="footer__contacts_list roboto-regular" to="customerservice@nafinc.com">customerservice@nafinc.com</Link>
                         </div>
                     </div>
                     <nav className="footer__contacts_education">
                         <ul className="footer__contacts_ul roboto-bold">
                             <div className="footer__contacts_header">Education</div>
-                            <li> <a className="footer__contacts_list roboto-regular" href="#">Blog</a></li>
-                            <li><a className="footer__contacts_list roboto-regular" href="#">Ebook</a></li>
-                            <li><a className="footer__contacts_list roboto-regular" href="#">Webinar</a></li>
+                            <li> <Link className="footer__contacts_list roboto-regular" to="/blog">Blog</Link></li>
+                            <li><Link className="footer__contacts_list roboto-regular" to="/ebook">Ebook</Link></li>
+                            <li><Link className="footer__contacts_list roboto-regular" to="/webinar">Webinar</Link></li>
                         </ul>
                     </nav>
                     <nav className="footer__contacts_legal">
                         <ul className="footer__contacts_ul roboto-bold">
                             <div className="footer__contacts_header">Legal</div>
-                            <li><a className="footer__contacts_list roboto-regular" href="#">Terms of use</a></li>
-                            <li><a className="footer__contacts_list roboto-regular" href="#">Privacy policy</a></li>
+                            <li><Link className="footer__contacts_list roboto-regular" to="#">Terms of use</Link></li>
+                            <li><Link className="footer__contacts_list roboto-regular" to="#">Privacy policy</Link></li>
                         </ul>
                     </nav>
                 </div>
