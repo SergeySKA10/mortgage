@@ -1,6 +1,7 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import { Link } from 'react-scroll';
 import { closeMenu, menuActive } from '../Burger/burgerSlice';
 
 import { Button } from '../Buttons/Buttons';
@@ -19,9 +20,9 @@ const Menu = () => {
     ]);
     // создаем state для ссылок на блоки главной страницы
     const [linksBlocks, setLinksBlocks] = useState([
-        {link: '#', text: 'Your teachers'},
-        {link: '#', text: 'Your mortgage journey'},
-        {link: '#', text: 'What our customers say'},
+        {link: 'getting', text: 'Your teachers'},
+        {link: 'story', text: 'Your mortgage journey'},
+        {link: 'customers', text: 'What our customers say'},
     ]);
 
     // создаем ссылки на блоки страницы 
@@ -33,19 +34,24 @@ const Menu = () => {
                     document.body.style.overflow = '';
                 }}     
                 className="roboto-bold" 
-                to={el.link}>{el.text}</Link></li>
+                to={el.link}
+                spy={true}
+                smooth={true}
+                duration={1000}>
+                    {el.text}
+                </Link></li>
     ));
 
     // создаем ссылки на страницы 
     const linksOnPages = linksPages.map(el => (
         <li>
-            <Link 
+            <NavLink 
                 onClick={() => {
                     dispatch(closeMenu()); 
                     document.body.style.overflow = '';
                 }} 
                 className="roboto-bold" 
-                to={el.link}>{el.text}</Link></li>
+                to={el.link}>{el.text}</NavLink></li>
     )); 
 
     const dispatch = useDispatch();

@@ -6,7 +6,7 @@ import './CustomersBlockMedia.scss';
 
 const CustomersBlock = () => {
     return (
-        <section className="customers">
+        <section id='customers' className="customers">
             <h2 className="header__h2-left roboto-bold">What our customers say</h2>
             <h3 className="header__h3-left roboto-regular">Truly reviews from our clients</h3>
 

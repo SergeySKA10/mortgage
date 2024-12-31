@@ -23,7 +23,7 @@ const GettingBlock = () => {
     });
 
     return (
-        <section className="getting">
+        <section id='getting' className="getting">
             <div className="container">
 
                 <h2 className="header__h2 roboto-bold">Getting a mortgage funded takes a village.</h2>
