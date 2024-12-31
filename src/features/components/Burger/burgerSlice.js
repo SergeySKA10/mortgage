@@ -1,8 +1,14 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-// изначальный state для меню
+// объект с состоянием активности меню
+export const menuActive = {
+    open: 'open', 
+    close: 'close'
+}
+
+// изначальный state для демонстрации состояния меню
 const initialState = {
-    menu: 'close'
+    menu: menuActive.close
 }
 
 // создаем срез для формирования action и reducer 
@@ -17,7 +23,9 @@ const burgerSlice = createSlice({
 });
 
 const {actions, reducer} = burgerSlice;
+const { menuOpen } = actions;
 
 export default reducer;
 
-export const { menuOpen } = actions;
+export const openMenu = () => menuOpen(menuActive.open);
+export const closeMenu = () => menuOpen(menuActive.close);
