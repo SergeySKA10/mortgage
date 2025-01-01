@@ -29,10 +29,7 @@ const Menu = () => {
     const linksBlocksOnMainPage = linksBlocks.map(el => (
         <li>
             <Link 
-                onClick={() => {
-                    dispatch(closeMenu()); 
-                    document.body.style.overflow = '';
-                }}     
+                onClick={() => closeMenu(dispatch)}     
                 className="roboto-bold" 
                 to={el.link}
                 spy={true}
@@ -46,10 +43,7 @@ const Menu = () => {
     const linksOnPages = linksPages.map(el => (
         <li>
             <NavLink 
-                onClick={() => {
-                    dispatch(closeMenu()); 
-                    document.body.style.overflow = '';
-                }} 
+                onClick={() => closeMenu(dispatch)} 
                 className="roboto-bold" 
                 to={el.link}>{el.text}</NavLink></li>
     )); 
@@ -73,13 +67,11 @@ const Menu = () => {
     // функция закрытия меню при событии клика на подложку или нажатия Escape
     const hideMenu = (target) => {
         if (menu === menuActive.open && target === document.querySelector('.menu')) {
-            dispatch(closeMenu())
-            document.body.style.overflow = '';
+            closeMenu(dispatch);
         }
 
         if (menu === menuActive.open && target === 'Escape') {
-            dispatch(closeMenu())
-            document.body.style.overflow = '';
+            closeMenu(dispatch);
         }
     }
 

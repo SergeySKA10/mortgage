@@ -27,5 +27,14 @@ const { menuOpen } = actions;
 
 export default reducer;
 
-export const openMenu = () => menuOpen(menuActive.open);
-export const closeMenu = () => menuOpen(menuActive.close);
+// функция для состояния показа меню на 'открыто'
+export const openMenu = (dispatch) => {
+    document.body.style.overflow = 'hidden';
+    dispatch(menuOpen(menuActive.open));
+};
+
+// функция для изменения состояния показа меню на 'скрыто'
+export const closeMenu = (dispatch) => {
+    document.body.style.overflow = '';
+    dispatch(menuOpen(menuActive.close));
+};

@@ -13,14 +13,13 @@ const Burger = () => {
           clazzBurger = `burger ${menu === menuActive.open ? 'burger_none' : null}`,
           clazzWrapper = `burger__wrapper ${menu === menuActive.open ? 'open_menu' : null}`
     
+    
     // функция для открытия и скрытия меню
     const showMenu = () => {
         if (menu === menuActive.close) {
-            dispatch(openMenu());
-            document.body.style.overflow = 'hidden';
+            openMenu(dispatch);
         } else {
-            dispatch(closeMenu());
-            document.body.style.overflow = '';
+            closeMenu(dispatch);
         }
     }
 
