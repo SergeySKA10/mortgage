@@ -1,0 +1,62 @@
+{
+    "mentors": [
+        {
+            "id": "Justin",
+            "photo": "photoJustin",
+            "name": "Justin",
+            "quality": "The master mind",
+            "descr": "Rates change, but every mortgage journey starts with a relationship. (Pssst...it's not just about clicking a button)",
+            "skills": [
+                {
+                    "id": "deelsJustin", 
+                    "icons": "skillDeels", 
+                    "name": "Deels"
+                },
+                {
+                    "id": "WayJustin", 
+                    "icons": "skillRightWay", 
+                    "name": "Find the right way"
+                },
+                {
+                    "id": "databaseJustin", 
+                    "icons": "skillDatabase", 
+                    "name": "Mortgage «database»"
+                },
+                {
+                    "id": "docsJustin", 
+                    "icons": "skillDocs", 
+                    "name": "Docs master"
+                }
+            ]
+        },
+        {
+            "id": "Scott",
+            "photo": "photoScott",
+            "name": "Scott",
+            "quality": "The educator",
+            "descr": "Rates change, but every mortgage journey starts with a relationship. (Pssst...it's not just about clicking a button)",
+            "skills": [
+                {
+                    "id": "linguistScott", 
+                    "icons": "skillLinguist", 
+                    "name": "Linguist"
+                },
+                {
+                    "id": "searcherScott", 
+                    "icons": "skillSeacher", 
+                    "name": "Perfect place searcher"
+                },
+                {
+                    "id": "helperScott", 
+                    "icons": "skillHelper", 
+                    "name": "Helper"
+                },
+                {
+                    "id": "guruScott", 
+                    "icons": "skillGuru", 
+                    "name": "Communication Guru"
+                }
+            ]
+        }
+    ]
+}
