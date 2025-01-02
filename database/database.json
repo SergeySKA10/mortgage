@@ -1,0 +1,96 @@
+{
+    "linksOnPages": [
+        {
+            "id": "blog",
+            "link": "/blog", 
+            "text": "Blog"
+        },
+        {
+            "id": "ebook",
+            "link": "/ebook", 
+            "text": "Ebook"
+        },
+        {
+            "id": "webinar",
+            "link": "/webinar",
+            "text": "Webinar"
+        }
+    ],
+    "linksOnSection": [
+        {
+            "id": "getting",
+            "link": "getting", 
+            "text": "Your teachers"
+        },
+        {
+            "id": "story",
+            "link": "story", 
+            "text": "Your mortgage journey"
+        },
+        {
+            "id": "customers",
+            "link": "customers", 
+            "text": "What our customers say"
+        }
+    ],
+    "mentors": [
+        {
+            "id": "Justin",
+            "photo": "../../../assets/img/main_page/getting_mortgage/Justin.png",
+            "name": "Justin",
+            "quality": "The master mind",
+            "descr": "Rates change, but every mortgage journey starts with a relationship. (Pssst...it's not just about clicking a button)",
+            "skills": [
+                {
+                    "id": "deelsJustin", 
+                    "icons": "../../../assets/icons/main_page/skills_justin/deals.svg", 
+                    "name": "Deels"
+                },
+                {
+                    "id": "WayJustin", 
+                    "icons": "../../../assets/icons/main_page/skills_justin/compass.svg", 
+                    "name": "Find the right way"
+                },
+                {
+                    "id": "databaseJustin", 
+                    "icons": "../../../assets/icons/main_page/skills_justin/database.svg", 
+                    "name": "Mortgage «database»"
+                },
+                {
+                    "id": "docsJustin", 
+                    "icons": "../../../assets/icons/main_page/skills_justin/docs.svg", 
+                    "name": "Docs master"
+                }
+            ]
+        },
+        {
+            "id": "Scott",
+            "photo": "../../../assets/img/main_page/getting_mortgage/Scott.png",
+            "name": "Scott",
+            "quality": "The educator",
+            "descr": "Rates change, but every mortgage journey starts with a relationship. (Pssst...it's not just about clicking a button)",
+            "skills": [
+                {
+                    "id": "linguistScott", 
+                    "icons": "../../../assets/icons/main_page/skills_scott/globe.svg", 
+                    "name": "Linguist"
+                },
+                {
+                    "id": "searcherScott", 
+                    "icons": "../../../assets/icons/main_page/skills_scott/home.svg", 
+                    "name": "Perfect place searcher"
+                },
+                {
+                    "id": "helperScott", 
+                    "icons": "../../../assets/icons/main_page/skills_scott/life-buoy.svg", 
+                    "name": "Helper"
+                },
+                {
+                    "id": "guruScott", 
+                    "icons": "../../../assets/icons/main_page/skills_scott/users.svg", 
+                    "name": "Communication Guru"
+                }
+            ]
+        }
+    ]
+}
