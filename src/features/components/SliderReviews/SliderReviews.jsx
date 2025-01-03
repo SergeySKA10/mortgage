@@ -1,6 +1,10 @@
-import { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useQuery } from '@tanstack/react-query';
+import {useHttp} from '../../../hooks/http.hook';
 
+import { useState } from 'react';
+
+import Spinner from '../Spinner/Spinner';
+import ErrorMessage from '../ErrorMessage/ErrorMessage';
 import { ButtonArrow } from '../Buttons/Buttons';
 import {Line} from '../Line/Line';
 
@@ -8,29 +12,33 @@ import './SliderReviews.scss';
 import rightQuote from '../../../assets/icons/main_page/quote/right-quote.svg';
 
 const SliderReviews = () => {
+    const request = useHttp();
     // получаем слайды
-    const slides = useSelector(state => state.reducer.slidesReviews);
+    const {data, isError, isPending} = useQuery({
+        queryKey: ['slidesReviews'],
+        queryFn: () => request('http://localhost:3001/slidesReviews')
+    });
 
     // создаем state для индекса слайдера
     const [indexSlide, setIndexSlide] = useState(1);
     // создаем state для current
     const [current, setCurrent] = useState(indexSlide < 10 ? `0${indexSlide}` : indexSlide);
     // создаем state для total 
-    const [total, setTotal] = useState(slides.length < 10 ? `0${slides.length}` : slides.length)
+    const [total, setTotal] = useState(data?.length < 10 ? `0${data?.length}` : data?.length);
     // создаем массив для формирования точек
     const dots = [];
 
-    const slidesBlock = slides.map((el, i) => {
-        // добавляем класс активности ???? (пока что статичный)
-        const activeClassDot = i === 0 ? 'dot-active-white' : ''
-
-        // добавляем точки в массив
-        dots.push(<Dot key={i} activeClass={activeClassDot}/>)
-
-        return (
-            <SlideReviews key={el.id} data={el}/>
-        )
-    })
+    const slidesBlock = isError ? <ErrorMessage/>
+                    : isPending ? <Spinner/>
+                    : data?.map((el, i) => {
+                        // добавляем класс активности ???? (пока что статичный)
+                        const activeClassDot = i === 0 ? 'dot-active-white' : ''
+                        // добавляем точки в массив
+                        dots.push(<Dot key={i} activeClass={activeClassDot}/>)
+                        return (
+                            <SlideReviews key={el.id} data={el}/>
+                        )
+                    });
 
     return (
         <div className="customers__slider">

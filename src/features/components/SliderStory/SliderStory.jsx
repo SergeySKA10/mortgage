@@ -8,7 +8,7 @@ import './DotsSliderStory.scss';
 
 const SliderStory = () => {
     // получем слайды из store 
-    const slides = useSelector(state => state.reducer.slidesStory);
+    const slides = useSelector(state => state.sliderStory.slidesStory);
 
     // создаем массив для формирования точек
     const dots = [];
@@ -19,7 +19,7 @@ const SliderStory = () => {
         const activeClassDots =  i === 1 ? 'dot-active' : '';
 
         //задаем current для слайда
-        const current = i < 10 ? `0${i}` : i;
+        const current = i+1 < 10 ? `0${i+1}` : i+1;
 
         // добавляем точки в массив
         dots.push(<Dot key={i} activeClass={activeClassDots}/>)

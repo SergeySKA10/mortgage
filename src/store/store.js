@@ -1,10 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
 
-import reducer from "../reducers/reducer";
 import menu from '../features/components/Burger/burgerSlice';
+import sliderStory from '../features/components/SliderStory/sliderStorySlice';
 
 const store = configureStore({
-    reducer: {reducer, menu},
+    reducer: {menu, sliderStory},
     devTools: process.env.NODE_ENV !== 'production'
 });
 

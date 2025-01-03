@@ -19,6 +19,7 @@ import logo from '../../../assets/icons/main_page/logo/NAF_Logo.svg';
 
 const Menu = () => {
     const dispatch = useDispatch();
+    const request = useHttp();
 
     // переменные для работы с окном меню
     const menu = useSelector(state => state.menu.menu),
@@ -45,7 +46,6 @@ const Menu = () => {
         }
     }
 
-    const request = useHttp();
     // запрос в бд для получения ссылок на секции главной страницы
     const {data: sectionLinks, isError: errorSectionLinks, isPending: loadingSectionLinks} = useQuery({
         queryKey: ['linksOnSection'], 
@@ -59,7 +59,7 @@ const Menu = () => {
 
     // создаем ссылки на блоки страницы 
     const linksOnSection = sectionLinks?.map(el => (
-        <li>
+        <li key={el.id}>
             <Link 
                 onClick={() => closeMenu(dispatch)}     
                 className="roboto-bold" 
@@ -74,7 +74,7 @@ const Menu = () => {
 
     // создаем ссылки на страницы 
     const linksOnPages = pageLinks?.map(el => (
-        <li>
+        <li key={el.id}>
             <NavLink 
                 onClick={() => closeMenu(dispatch)} 
                 className="roboto-bold" 

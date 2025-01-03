@@ -1,26 +1,33 @@
-import { useSelector } from 'react-redux';
+import { useQuery } from '@tanstack/react-query';
+import {useHttp} from '../../../hooks/http.hook';
 
+import Spinner from '../Spinner/Spinner';
+import ErrorMessage from '../ErrorMessage/ErrorMessage';
 import { ButtonPlay } from '../Buttons/Buttons';
 import {Line} from '../Line/Line';
 
 import './GettingBlock.scss';
 import './GettingBlockMedia.scss';
 
-
-
 const GettingBlock = () => {
+    const request = useHttp();
     // получаем спикеров для формирования карточек
-    const speakers = useSelector(state => state.reducer.speakers);
+    const {data, isError, isPending} = useQuery({
+        queryKey: ['mentors'],
+        queryFn: () => request('http://localhost:3001/mentors')
+    });
 
     // формируем карточки для отображения в Main Page
-    const speakersCard = speakers.map(el => {
-        return (
-            <SpeakerBlock
-                key={el.id}
-                data={el}
-            />
-        )
-    });
+    const speakersCard = isError ? <ErrorMessage/>
+                        : isPending ? <Spinner/>
+                        : data.map(el => {
+                            return (
+                                <SpeakerBlock
+                                    key={el.id}
+                                    data={el}
+                                />
+                            )
+                        });
 
     return (
         <section id='getting' className="getting">
@@ -38,7 +45,7 @@ const GettingBlock = () => {
 }
 
 const SpeakerBlock = (props) => {
-    const {photo, name, quality, descr, skills} = props.data;
+    const {photo, link, name, quality, descr, skills} = props.data;
 
     // формируем skills для отображения на странице
     const skillsElements = skills.map(el => {
@@ -51,15 +58,15 @@ const SpeakerBlock = (props) => {
             </div>
         )
     });
-
+    
     return (
         <div className="getting__block">
             <div className="getting__promo">
                 <div className="getting__promo_btn">
                     <div className="getting__promo_img">
-                        <img src={photo} alt="speaker Jusin"/>
+                        <img src={photo} alt={`speaker ${name}`}/>
                     </div>
-                    <ButtonPlay link='#'/>
+                    <ButtonPlay link={link}/>
                     <div className="getting__promo_descr roboto-regular">Meet {name}</div>
                 </div>
             </div>

@@ -1,22 +1,30 @@
-import { useSelector } from 'react-redux';
-import { useEffect } from 'react';
+import { useQuery } from '@tanstack/react-query';
+import {useHttp} from '../../../hooks/http.hook';
+
 import { Link } from 'react-router-dom';
 
+import Spinner from '../Spinner/Spinner';
+import ErrorMessage from '../ErrorMessage/ErrorMessage';
 import {Line} from '../Line/Line';
 
 import './Rating.scss';
 
-
 const Rating = () => {
+    const request = useHttp();
     // получаем рейтинги для отображения в Main Page
-    const ratings = useSelector(state => state.reducer.ratings)
+    const {data, isError, isPending} = useQuery({
+        queryKey: ['rating'],
+        queryFn: () => request('http://localhost:3001/ratings')
+    }) 
 
     // формируем блок с рейтингами
-    const ratingBlock = ratings.map(el => {
-        return (
-            <ViewBlock key={el.id} data={el}/>
-        )
-    });
+    const ratingBlock = isError ? <ErrorMessage/>
+                    : isPending ? <Spinner/>
+                    : data.map(el => {
+                        return (
+                            <ViewBlock key={el.id} data={el}/>
+                        )
+                    });
 
     return (
         <div className="customers__rating">

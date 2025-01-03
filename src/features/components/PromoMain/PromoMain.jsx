@@ -7,6 +7,7 @@ import './PromoMainMedia.scss';
 import logo from '../../../assets/icons/main_page/logo/NAF_Logo.svg'
 
 const PromoMain = () => {
+
     return (
         <section className="promo_main"> 
             <div className="promo_main__descr">

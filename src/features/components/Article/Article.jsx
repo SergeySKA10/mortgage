@@ -1,33 +1,42 @@
-import { useSelector } from 'react-redux';
+import { useQuery } from '@tanstack/react-query';
+import {useHttp} from '../../../hooks/http.hook';
 
+import Spinner from '../Spinner/Spinner';
+import ErrorMessage from '../ErrorMessage/ErrorMessage';
 import {Line} from '../Line/Line';
 
 import './Article.scss';
 
-
 const Article = () => {
+    const request = useHttp();
     // получаем из store массив для создания articleBlocks
-    const articles = useSelector(state => state.reducer.articles);
+    const {data, isError, isPending} = useQuery({
+        queryKey: ['articleMain'],
+        queryFn: () => request('http://localhost:3001/articles')
+    });
 
     // создаем блок article для Main Page
-    const articleBlock = articles.map((el, i) => {
-        // делаем ограничение до 3-х блоков
-        if (i < 3) {
-            // созаем переменную для обозначения большого блока и передачи в props
-            const large = i === 0 ? 'large' : '';
-            // задаем класс активости (пока статично)
-            const active = i === 2 ? 'article-active' : '';
-
-            return (
-                <ViewBlock
-                    key={el.id}
-                    data={el}
-                    size={large}
-                    active={active}
-                />
-            )
-        }
-    })
+    const articleBlock = isError ? <ErrorMessage/>
+                        : isPending ? <Spinner/>
+                        : data.map((el, i) => {
+                            // делаем ограничение до 3-х блоков
+                            if (i < 3) {
+                                // созаем переменную для обозначения большого блока и передачи в props
+                                const large = i === 0 ? 'large' : '';
+                                // задаем класс активости (пока статично)
+                                const active = i === 2 ? 'article-active' : '';
+                                return (
+                                    <ViewBlock
+                                        key={el.id}
+                                        data={el}
+                                        size={large}
+                                        active={active}
+                                    />
+                                )
+                            } else {
+                                return null;
+                            }
+                        });
 
     return (
         <div className="article__education_wrapper">
@@ -37,7 +46,7 @@ const Article = () => {
 }
 
 const ViewBlock = ({data, size, active}) => {
-    const {subheader, header, descr, avatar, nameSpeaker} = data;
+    const {link, subheader, header, descr, avatar, nameSpeaker} = data;
     const large = size;
 
     return (
