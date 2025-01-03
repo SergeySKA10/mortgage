@@ -1,9 +1,15 @@
+import { useQuery } from '@tanstack/react-query';
+import {useHttp} from '../../../hooks/http.hook';
+
 import { useSelector, useDispatch } from 'react-redux';
-import { useEffect, useState } from 'react';
-import { NavLink } from 'react-router-dom';
-import { Link } from 'react-scroll';
+import { useEffect } from 'react';
 import { closeMenu, menuActive } from '../Burger/burgerSlice';
 
+import { NavLink } from 'react-router-dom';
+import { Link } from 'react-scroll';
+
+import Spinner from '../Spinner/Spinner';
+import ErrorMessage from '../ErrorMessage/ErrorMessage';
 import { Button } from '../Buttons/Buttons';
 import { Line } from '../Line/Line';
 
@@ -12,42 +18,6 @@ import './MenuMedia.scss';
 import logo from '../../../assets/icons/main_page/logo/NAF_Logo.svg';
 
 const Menu = () => {
-    // создаем state для ссылок на страницы
-    const [linksPages, setLinksPages] = useState([
-        {link: '/blog', text: 'Blog'},
-        {link: '/ebook', text: 'Ebook'},
-        {link: '/webinar', text: 'Webinar'}
-    ]);
-    // создаем state для ссылок на блоки главной страницы
-    const [linksBlocks, setLinksBlocks] = useState([
-        {link: 'getting', text: 'Your teachers'},
-        {link: 'story', text: 'Your mortgage journey'},
-        {link: 'customers', text: 'What our customers say'},
-    ]);
-
-    // создаем ссылки на блоки страницы 
-    const linksBlocksOnMainPage = linksBlocks.map(el => (
-        <li>
-            <Link 
-                onClick={() => closeMenu(dispatch)}     
-                className="roboto-bold" 
-                to={el.link}
-                spy={true}
-                smooth={true}
-                duration={1000}>
-                    {el.text}
-                </Link></li>
-    ));
-
-    // создаем ссылки на страницы 
-    const linksOnPages = linksPages.map(el => (
-        <li>
-            <NavLink 
-                onClick={() => closeMenu(dispatch)} 
-                className="roboto-bold" 
-                to={el.link}>{el.text}</NavLink></li>
-    )); 
-
     const dispatch = useDispatch();
 
     // переменные для работы с окном меню
@@ -75,6 +45,52 @@ const Menu = () => {
         }
     }
 
+    const request = useHttp();
+    // запрос в бд для получения ссылок на секции главной страницы
+    const {data: sectionLinks, isError: errorSectionLinks, isPending: loadingSectionLinks} = useQuery({
+        queryKey: ['linksOnSection'], 
+        queryFn: () => request('http://localhost:3001/linksOnSection')
+    });
+    // запрос в бд для получения ссылок на страницы
+    const {data: pageLinks, isError: errorPageLinks, isPending: loadingPageLinks} = useQuery({
+        queryKey: ['linksOnPage'],
+        queryFn: () => request('http://localhost:3001/linksOnPages')
+    });
+
+    // создаем ссылки на блоки страницы 
+    const linksOnSection = sectionLinks?.map(el => (
+        <li>
+            <Link 
+                onClick={() => closeMenu(dispatch)}     
+                className="roboto-bold" 
+                to={el.link}
+                spy={true}
+                smooth={true}
+                duration={1000}>
+                    {el.text}
+            </Link>
+        </li>
+    ));
+
+    // создаем ссылки на страницы 
+    const linksOnPages = pageLinks?.map(el => (
+        <li>
+            <NavLink 
+                onClick={() => closeMenu(dispatch)} 
+                className="roboto-bold" 
+                to={el.link}>{el.text}
+            </NavLink>
+        </li>
+    )); 
+
+    // создаем переменную для отображения статуса загрузки, ошибки или полученных данных
+    const content = loadingSectionLinks || loadingPageLinks ? <Spinner/>
+                    : errorSectionLinks || errorPageLinks ? <ErrorMessage/>
+                    :   <ul className="menu__block_list">
+                            {linksOnSection}
+                            {linksOnPages}
+                        </ul>;
+
     return (
         <div className={`menu ${classOpenMenu}`}
              onClick={(e) => hideMenu(e.target)} 
@@ -84,10 +100,7 @@ const Menu = () => {
                     <img src={logo} alt="logo"/>
                 </div>
                 <div className="menu__content">
-                    <ul className="menu__block_list">
-                        {linksBlocksOnMainPage}
-                        {linksOnPages}
-                    </ul>
+                    {content}
                     <div className="menu__line">
                         <Line/>
                     </div>

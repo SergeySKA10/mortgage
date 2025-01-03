@@ -1,3 +1,5 @@
+import { QueryClientProvider } from "@tanstack/react-query";
+import { queryClient } from "../api/query-client";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { lazy, Suspense } from "react";
 
@@ -13,22 +15,24 @@ const ErrorPage = lazy(() => import('../pages/404'));
 
 function App() {
   return (
-    <Router>
-      <Suspense fallback={<Spinner/>}>
-        <main>
-          <Routes>
-            <Route element={<PageLayout/>}>
-              <Route path="/" element={<MainPage/>}/>
-              <Route path="/blog" element={<BlogPage/>}/>
-              <Route path="/webinar" element={<WebinarPage/>}/>
-              <Route path="/ebook" element={<EbookPage/>}/>
-              <Route path="/secondEbook" element={<SecondEbookPage/>}/>
-            </Route>
-            <Route path="*" element={<ErrorPage/>}/>
-          </Routes>
-        </main>
-      </Suspense>
-    </Router>
+    <QueryClientProvider client={queryClient}>
+      <Router>
+        <Suspense fallback={<Spinner/>}>
+          <main>
+            <Routes>
+              <Route element={<PageLayout/>}>
+                <Route path="/" element={<MainPage/>}/>
+                <Route path="/blog" element={<BlogPage/>}/>
+                <Route path="/webinar" element={<WebinarPage/>}/>
+                <Route path="/ebook" element={<EbookPage/>}/>
+                <Route path="/secondEbook" element={<SecondEbookPage/>}/>
+              </Route>
+              <Route path="*" element={<ErrorPage/>}/>
+            </Routes>
+          </main>
+        </Suspense>
+      </Router>
+    </QueryClientProvider>
   )
 }
 
