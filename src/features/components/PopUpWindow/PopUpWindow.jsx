@@ -16,7 +16,7 @@ const PopUpWindow = () => {
                 </p>
                 <div className="story__window_profile">
                     <div className="story__window_profile-photo">
-                        <img src="#" alt="Justin"/>
+                        <img src={avatarJustin} alt="Justin"/>
                     </div>
                     <div className="story__window_profile-name roboto-bold">Justin</div>
                 </div>

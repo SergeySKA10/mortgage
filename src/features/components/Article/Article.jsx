@@ -1,5 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import {useHttp} from '../../../hooks/http.hook';
+import { NavLink } from 'react-router-dom';
 
 import Spinner from '../Spinner/Spinner';
 import ErrorMessage from '../ErrorMessage/ErrorMessage';
@@ -50,7 +51,7 @@ const ViewBlock = ({data, size, active}) => {
     const large = size;
 
     return (
-        <div className={`article__block ${active}`} data-size={large}>
+        <NavLink to={link} className={`article__block ${active}`} data-size={large}>
             <div className="article__logo roboto-bold">{subheader}</div>
             <h4 className="header__h4 roboto-bold">{header}</h4>
             <div className="article__descr roboto-regular">{descr}</div>
@@ -66,7 +67,7 @@ const ViewBlock = ({data, size, active}) => {
                     <div className="roboto-bold">{nameSpeaker}</div>
                 </div>
             </div>
-        </div>
+        </NavLink>
     )
 }
 

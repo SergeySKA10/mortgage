@@ -1,6 +1,8 @@
 import { useQuery } from '@tanstack/react-query';
 import {useHttp} from '../../../hooks/http.hook';
 
+import { useState, useEffect } from 'react';
+
 import { Link } from 'react-router-dom';
 
 import Spinner from '../Spinner/Spinner';
@@ -36,26 +38,31 @@ const Rating = () => {
 const ViewBlock = ({data}) => {
     const {stars, icon, reviews} = data;
 
-    
+    const [starsBlock, setStars] = useState([]);
 
-    // // функция по созданию звезд и заполнения background в соответствии с рейтингом
-    // const createStar = (str) => {
-    //     const stars = [];
-    //     const num = +str.match(/\d(?:\.\d)?/g).join('');
-    //     for (let i = 1; i <= 5; i++) {
-    //         if (i <= num) {
-    //             console.log(num, i);
-    //             stars.push(<div style={{background: 'red'}}/>)
-    //         } else if (i > num) {
-    //             if (num % 1 > 0 && num % 1 < 1) {
-    //                 stars.push(<div style={{background: `linear-gradient(90deg, rgba(39,143,180,1) ${num % 1 * 100}%`}}/>)
-    //             } else {
-    //                 stars.push(<div style={{background: 'linear-gradient(90deg, rgba(39,143,180,1) 0%'}}/>)
-    //             }
-    //         }
-    //     }
-    //     return stars;
-    // }
+    useEffect(() => {
+        setStars(starsBlock => createStars(stars));
+    }, [])
+
+    // функция по созданию звезд и заполнения background в соответствии с рейтингом
+    const createStars = (str) => {
+        const stars = [];
+        const num = +str.match(/\d(?:\.\d)?/g).join('');
+        for (let i = 1; i <= 5; i++) {
+            if (i <= num) {
+                stars.push(<div key={i} style={{background: 'rgba(39,143,180,1)'}}/>)
+            } else if (i > num) {
+                if (num % 1 > 0 && num % 1 < 1) {
+                    const gradientBlue = (num % 1) * 100;
+                    const gradientWhite = 100 - gradientBlue;
+                    stars.push(<div key={i} style={{background: `linear-gradient(90deg, rgba(39,143,180,1) ${gradientBlue}%, rgba(255,255,255,1) ${gradientWhite}%)`}}/>)
+                } else {
+                    stars.push(<div key={i} style={{background: '#ffffff'}}/>)
+                }
+            }
+        }
+        return stars;
+    }
 
     return (
         <div className="customers__block">
@@ -74,7 +81,7 @@ const ViewBlock = ({data}) => {
             </div>
             <div className="line__vertical-mini"></div>
             <div className="customers__block-stars">
-                {/* {createStar(stars)} */}
+                {starsBlock}
             </div>
         </div> 
     )

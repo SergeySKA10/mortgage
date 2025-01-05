@@ -18,6 +18,8 @@
         border-radius: 4px;
         padding: 28px 32px 32px 32px;
         box-shadow: 0px 15px 30px 0px rgba(0, 0, 0, 0.1);
+        text-decoration: none;
+        cursor: pointer;
         h4 {
             margin-top: 82px;
             text-align: left;
@@ -126,7 +128,6 @@
 }
 
 .article-active {
-    cursor: pointer;
     background-color: $main_color;
     .line_dark {
         background-color: rgb(255, 255, 255, 0.2);

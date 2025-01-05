@@ -17,6 +17,7 @@
         border-radius: 4px;
         padding: 28px 30px 44px 40px;
         margin-bottom: 22px;
+        cursor: pointer;
     }
     &_counter {
         color: $main_color;
@@ -60,7 +61,6 @@
     padding: 28px 0px 44px 40px;
     left: 16px;
     background-color: $main_color;
-    cursor: pointer;
     .story__slider_counter {
         color: rgb(255, 255, 255, 0.5);
         font-size: 11px;
