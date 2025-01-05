@@ -1,12 +1,38 @@
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+
+import { showWindow, windowActive } from './popUpWindowSlice';
 import { Button } from '../Buttons/Buttons';
 
 import './PopUpWindow.scss';
 import quote from '../../../assets/icons/main_page/quote/left-quote.svg';
-import avatarJustin from '../../../assets/img/main_page/avatar_consultant/avatar_justin.png';
 
 const PopUpWindow = () => {
+    const dispatch = useDispatch();
+    
+    // получение состояния всплывающего окна
+    const popUpWindow = useSelector(state => state.window.popUpWindow);
+
+    // функция изменения состояния демонстрации всплывающего окна
+    const changeStylePopUpWindow = () => {
+        if (document.documentElement.scrollTop > 1450) {
+            showWindow(dispatch);
+        }
+    }
+
+    // создание стилей для окна
+    const clazz = popUpWindow === windowActive.show ? `story__window ${windowActive.show}` : "story__window";
+
+    useEffect(() => {
+        window.addEventListener('scroll', changeStylePopUpWindow);
+
+        return () => {
+            window.removeEventListener('scroll', changeStylePopUpWindow)
+        }
+    }, [])
+
     return (
-        <div className="story__window">
+        <div className={clazz}>
             <div className="story__window_wrapper">
                 <div className="story__window_quote">
                     <img src={quote} alt="quote"/>
@@ -16,7 +42,7 @@ const PopUpWindow = () => {
                 </p>
                 <div className="story__window_profile">
                     <div className="story__window_profile-photo">
-                        <img src={avatarJustin} alt="Justin"/>
+                        <img src='https://github.com/SergeySKA10/mortgage/blob/assets/src/assets/img/main_page/avatar_consultant/avatar_justin.png?raw=true' alt="Justin"/>
                     </div>
                     <div className="story__window_profile-name roboto-bold">Justin</div>
                 </div>

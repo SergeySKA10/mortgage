@@ -36,7 +36,7 @@
     "mentors": [
         {
             "id": "Justin",
-            "photo": "https://github.com/SergeySKA10/mortgage/blob/dev/src/assets/img/main_page/getting_mortgage/Justin.png?raw=true",
+            "photo": "https://github.com/SergeySKA10/mortgage/blob/assets/src/assets/img/main_page/getting_mortgage/Justin.png?raw=true",
             "link": "#",
             "name": "Justin",
             "quality": "The master mind",
@@ -44,29 +44,29 @@
             "skills": [
                 {
                     "id": "deelsJustin", 
-                    "icons": "https://raw.githubusercontent.com/SergeySKA10/mortgage/c251a68582893e5d632372e37e7e4c026c8c3afe/src/assets/icons/main_page/skills_justin/deals.svg", 
+                    "icons": "https://raw.githubusercontent.com/SergeySKA10/mortgage/3389c7e5e6085b7e584408deee2e34a7e920ea10/src/assets/icons/main_page/skills_justin/deals.svg", 
                     "name": "Deels"
                 },
                 {
                     "id": "WayJustin", 
-                    "icons": "https://raw.githubusercontent.com/SergeySKA10/mortgage/c251a68582893e5d632372e37e7e4c026c8c3afe/src/assets/icons/main_page/skills_justin/compass.svg", 
+                    "icons": "https://raw.githubusercontent.com/SergeySKA10/mortgage/3389c7e5e6085b7e584408deee2e34a7e920ea10/src/assets/icons/main_page/skills_justin/compass.svg", 
                     "name": "Find the right way"
                 },
                 {
                     "id": "databaseJustin", 
-                    "icons": "https://raw.githubusercontent.com/SergeySKA10/mortgage/c251a68582893e5d632372e37e7e4c026c8c3afe/src/assets/icons/main_page/skills_justin/database.svg", 
+                    "icons": "https://raw.githubusercontent.com/SergeySKA10/mortgage/3389c7e5e6085b7e584408deee2e34a7e920ea10/src/assets/icons/main_page/skills_justin/database.svg", 
                     "name": "Mortgage «database»"
                 },
                 {
                     "id": "docsJustin", 
-                    "icons": "https://raw.githubusercontent.com/SergeySKA10/mortgage/c251a68582893e5d632372e37e7e4c026c8c3afe/src/assets/icons/main_page/skills_justin/docs.svg", 
+                    "icons": "https://raw.githubusercontent.com/SergeySKA10/mortgage/3389c7e5e6085b7e584408deee2e34a7e920ea10/src/assets/icons/main_page/skills_justin/docs.svg", 
                     "name": "Docs master"
                 }
             ]
         },
         {
             "id": "Scott",
-            "photo": "https://github.com/SergeySKA10/mortgage/blob/dev/src/assets/img/main_page/getting_mortgage/Scott.png?raw=true",
+            "photo": "https://github.com/SergeySKA10/mortgage/blob/assets/src/assets/img/main_page/getting_mortgage/Scott.png?raw=true",
             "link": "#",
             "name": "Scott",
             "quality": "The educator",
@@ -74,22 +74,22 @@
             "skills": [
                 {
                     "id": "linguistScott", 
-                    "icons": "https://raw.githubusercontent.com/SergeySKA10/mortgage/c251a68582893e5d632372e37e7e4c026c8c3afe/src/assets/icons/main_page/skills_scott/globe.svg", 
+                    "icons": "https://raw.githubusercontent.com/SergeySKA10/mortgage/3389c7e5e6085b7e584408deee2e34a7e920ea10/src/assets/icons/main_page/skills_scott/globe.svg", 
                     "name": "Linguist"
                 },
                 {
                     "id": "searcherScott", 
-                    "icons": "https://raw.githubusercontent.com/SergeySKA10/mortgage/c251a68582893e5d632372e37e7e4c026c8c3afe/src/assets/icons/main_page/skills_scott/life-buoy.svg", 
+                    "icons": "https://raw.githubusercontent.com/SergeySKA10/mortgage/3389c7e5e6085b7e584408deee2e34a7e920ea10/src/assets/icons/main_page/skills_scott/life-buoy.svg", 
                     "name": "Perfect place searcher"
                 },
                 {
                     "id": "helperScott", 
-                    "icons": "https://raw.githubusercontent.com/SergeySKA10/mortgage/c251a68582893e5d632372e37e7e4c026c8c3afe/src/assets/icons/main_page/skills_scott/home.svg", 
+                    "icons": "https://raw.githubusercontent.com/SergeySKA10/mortgage/3389c7e5e6085b7e584408deee2e34a7e920ea10/src/assets/icons/main_page/skills_scott/home.svg", 
                     "name": "Helper"
                 },
                 {
                     "id": "guruScott", 
-                    "icons": "https://raw.githubusercontent.com/SergeySKA10/mortgage/c251a68582893e5d632372e37e7e4c026c8c3afe/src/assets/icons/main_page/skills_scott/users.svg", 
+                    "icons": "https://raw.githubusercontent.com/SergeySKA10/mortgage/3389c7e5e6085b7e584408deee2e34a7e920ea10/src/assets/icons/main_page/skills_scott/users.svg", 
                     "name": "Communication Guru"
                 }
             ]
@@ -118,92 +118,92 @@
     "slidesReviews": [
         {
             "id": "Emely1",
-            "photo": "https://github.com/SergeySKA10/mortgage/blob/dev/src/assets/img/main_page/customers/Emily.png?raw=true",
+            "photo": "https://github.com/SergeySKA10/mortgage/blob/assets/src/assets/img/main_page/customers/Emily.png?raw=true",
             "city": "New York",
             "name": "Emily Pearson",
             "profession": "Engeneer",
-            "icon": "https://raw.githubusercontent.com/SergeySKA10/mortgage/c251a68582893e5d632372e37e7e4c026c8c3afe/src/assets/icons/main_page/customers/G.svg",
+            "icon": "https://raw.githubusercontent.com/SergeySKA10/mortgage/3389c7e5e6085b7e584408deee2e34a7e920ea10/src/assets/icons/main_page/customers/G.svg",
             "review": "Terms of your offer, how quickly you can turn things around and who your lenders is. advising, calling listing agents, to get your deal done, Offer-Stage advising, calling listing agents, to get your deal done."
         },
         {
             "id": "Michael1",
-            "photo": "https://github.com/SergeySKA10/mortgage/blob/dev/src/assets/img/main_page/customers/Michael.png?raw=true",
+            "photo": "https://github.com/SergeySKA10/mortgage/blob/assets/src/assets/img/main_page/customers/Michael.png?raw=true",
             "city": "Los angeles",
             "name": "Michael Bronson",
             "profession": "Product designe",
-            "icon": "https://raw.githubusercontent.com/SergeySKA10/mortgage/c251a68582893e5d632372e37e7e4c026c8c3afe/src/assets/icons/main_page/customers/G.svg",
+            "icon": "https://raw.githubusercontent.com/SergeySKA10/mortgage/3389c7e5e6085b7e584408deee2e34a7e920ea10/src/assets/icons/main_page/customers/G.svg",
             "review": "Terms of your offer, how quickly you can turn things around and who your lenders is. advising, calling listing agents, to get your deal done, Offer-Stage advising, calling listing agents, to get your deal done."
         },
         {
             "id": "Emely2",
-            "photo": "https://github.com/SergeySKA10/mortgage/blob/dev/src/assets/img/main_page/customers/Emily.png?raw=true",
+            "photo": "https://github.com/SergeySKA10/mortgage/blob/assets/src/assets/img/main_page/customers/Emily.png?raw=true",
             "city": "New York",
             "name": "Emily Pearson",
             "profession": "Engeneer",
-            "icon": "https://raw.githubusercontent.com/SergeySKA10/mortgage/c251a68582893e5d632372e37e7e4c026c8c3afe/src/assets/icons/main_page/customers/G.svg",
+            "icon": "https://raw.githubusercontent.com/SergeySKA10/mortgage/3389c7e5e6085b7e584408deee2e34a7e920ea10/src/assets/icons/main_page/customers/G.svg",
             "review": "Terms of your offer, how quickly you can turn things around and who your lenders is. advising, calling listing agents, to get your deal done, Offer-Stage advising, calling listing agents, to get your deal done."
         },
         {
             "id": "Michael2",
-            "photo": "https://github.com/SergeySKA10/mortgage/blob/dev/src/assets/img/main_page/customers/Michael.png?raw=true",
+            "photo": "https://github.com/SergeySKA10/mortgage/blob/assets/src/assets/img/main_page/customers/Michael.png?raw=true",
             "city": "Los angeles",
             "name": "Michael Bronson",
             "profession": "Product designe",
-            "icon": "https://raw.githubusercontent.com/SergeySKA10/mortgage/c251a68582893e5d632372e37e7e4c026c8c3afe/src/assets/icons/main_page/customers/G.svg",
+            "icon": "https://raw.githubusercontent.com/SergeySKA10/mortgage/3389c7e5e6085b7e584408deee2e34a7e920ea10/src/assets/icons/main_page/customers/G.svg",
             "review": "Terms of your offer, how quickly you can turn things around and who your lenders is. advising, calling listing agents, to get your deal done, Offer-Stage advising, calling listing agents, to get your deal done."
         },
         {
             "id": "Emely3",
-            "photo": "https://github.com/SergeySKA10/mortgage/blob/dev/src/assets/img/main_page/customers/Emily.png?raw=true",
+            "photo": "https://github.com/SergeySKA10/mortgage/blob/assets/src/assets/img/main_page/customers/Emily.png?raw=true",
             "city": "New York",
             "name": "Emily Pearson",
             "profession": "Engeneer",
-            "icon": "https://raw.githubusercontent.com/SergeySKA10/mortgage/c251a68582893e5d632372e37e7e4c026c8c3afe/src/assets/icons/main_page/customers/G.svg",
+            "icon": "https://raw.githubusercontent.com/SergeySKA10/mortgage/3389c7e5e6085b7e584408deee2e34a7e920ea10/src/assets/icons/main_page/customers/G.svg",
             "review": "Terms of your offer, how quickly you can turn things around and who your lenders is. advising, calling listing agents, to get your deal done, Offer-Stage advising, calling listing agents, to get your deal done."
         },
         {
             "id": "Michael3",
-            "photo": "https://github.com/SergeySKA10/mortgage/blob/dev/src/assets/img/main_page/customers/Michael.png?raw=true",
+            "photo": "https://github.com/SergeySKA10/mortgage/blob/assets/src/assets/img/main_page/customers/Michael.png?raw=true",
             "city": "Los angeles",
             "name": "Michael Bronson",
             "profession": "Product designe",
-            "icon": "https://raw.githubusercontent.com/SergeySKA10/mortgage/c251a68582893e5d632372e37e7e4c026c8c3afe/src/assets/icons/main_page/customers/G.svg",
+            "icon": "https://raw.githubusercontent.com/SergeySKA10/mortgage/3389c7e5e6085b7e584408deee2e34a7e920ea10/src/assets/icons/main_page/customers/G.svg",
             "review": "Terms of your offer, how quickly you can turn things around and who your lenders is. advising, calling listing agents, to get your deal done, Offer-Stage advising, calling listing agents, to get your deal done."
         },
         {
             "id": "Emely4",
-            "photo": "https://github.com/SergeySKA10/mortgage/blob/dev/src/assets/img/main_page/customers/Emily.png?raw=true",
+            "photo": "https://github.com/SergeySKA10/mortgage/blob/assets/src/assets/img/main_page/customers/Emily.png?raw=true",
             "city": "New York",
             "name": "Emily Pearson",
             "profession": "Engeneer",
-            "icon": "https://raw.githubusercontent.com/SergeySKA10/mortgage/c251a68582893e5d632372e37e7e4c026c8c3afe/src/assets/icons/main_page/customers/G.svg",
+            "icon": "https://raw.githubusercontent.com/SergeySKA10/mortgage/3389c7e5e6085b7e584408deee2e34a7e920ea10/src/assets/icons/main_page/customers/G.svg",
             "review": "Terms of your offer, how quickly you can turn things around and who your lenders is. advising, calling listing agents, to get your deal done, Offer-Stage advising, calling listing agents, to get your deal done."
         },
         {
             "id": "Michael4",
-            "photo": "https://github.com/SergeySKA10/mortgage/blob/dev/src/assets/img/main_page/customers/Michael.png?raw=true",
+            "photo": "https://github.com/SergeySKA10/mortgage/blob/assets/src/assets/img/main_page/customers/Michael.png?raw=true",
             "city": "Los angeles",
             "name": "Michael Bronson",
             "profession": "Product designe",
-            "icon": "https://raw.githubusercontent.com/SergeySKA10/mortgage/c251a68582893e5d632372e37e7e4c026c8c3afe/src/assets/icons/main_page/customers/G.svg",
+            "icon": "https://raw.githubusercontent.com/SergeySKA10/mortgage/3389c7e5e6085b7e584408deee2e34a7e920ea10/src/assets/icons/main_page/customers/G.svg",
             "review": "Terms of your offer, how quickly you can turn things around and who your lenders is. advising, calling listing agents, to get your deal done, Offer-Stage advising, calling listing agents, to get your deal done."
         },
         {
             "id": "Emely5",
-            "photo": "https://github.com/SergeySKA10/mortgage/blob/dev/src/assets/img/main_page/customers/Emily.png?raw=true",
+            "photo": "https://github.com/SergeySKA10/mortgage/blob/assets/src/assets/img/main_page/customers/Emily.png?raw=true",
             "city": "New York",
             "name": "Emily Pearson",
             "profession": "Engeneer",
-            "icon": "https://raw.githubusercontent.com/SergeySKA10/mortgage/c251a68582893e5d632372e37e7e4c026c8c3afe/src/assets/icons/main_page/customers/G.svg",
+            "icon": "https://raw.githubusercontent.com/SergeySKA10/mortgage/3389c7e5e6085b7e584408deee2e34a7e920ea10/src/assets/icons/main_page/customers/G.svg",
             "review": "Terms of your offer, how quickly you can turn things around and who your lenders is. advising, calling listing agents, to get your deal done, Offer-Stage advising, calling listing agents, to get your deal done."
         },
         {
             "id": "Michael5",
-            "photo": "https://github.com/SergeySKA10/mortgage/blob/dev/src/assets/img/main_page/customers/Michael.png?raw=true",
+            "photo": "https://github.com/SergeySKA10/mortgage/blob/assets/src/assets/img/main_page/customers/Michael.png?raw=true",
             "city": "Los angeles",
             "name": "Michael Bronson",
             "profession": "Product designe",
-            "icon": "https://raw.githubusercontent.com/SergeySKA10/mortgage/c251a68582893e5d632372e37e7e4c026c8c3afe/src/assets/icons/main_page/customers/G.svg",
+            "icon": "https://raw.githubusercontent.com/SergeySKA10/mortgage/3389c7e5e6085b7e584408deee2e34a7e920ea10/src/assets/icons/main_page/customers/G.svg",
             "review": "Terms of your offer, how quickly you can turn things around and who your lenders is. advising, calling listing agents, to get your deal done, Offer-Stage advising, calling listing agents, to get your deal done."
         }  
     ],
@@ -211,13 +211,13 @@
         {
             "id": "google",
             "stars": "4.5 stars rating",
-            "icon": "https://github.com/SergeySKA10/mortgage/blob/dev/src/assets/icons/main_page/customers/rating/google.png?raw=true",
+            "icon": "https://github.com/SergeySKA10/mortgage/blob/assets/src/assets/icons/main_page/customers/rating/google.png?raw=true",
             "reviews": "85 reviews"
         },
         {
             "id": "zillow",
             "stars": "4 stars rating",
-            "icon": "https://github.com/SergeySKA10/mortgage/blob/dev/src/assets/icons/main_page/customers/rating/zillow.png?raw=true",
+            "icon": "https://github.com/SergeySKA10/mortgage/blob/assets/src/assets/icons/main_page/customers/rating/zillow.png?raw=true",
             "reviews": "22 reviews"
         }
     ],
@@ -228,7 +228,7 @@
             "subheader": "Blog",
             "header": "Article #1",
             "descr": "Terms of your offer, how quickly you can turn things around and who your lenders is advising.",
-            "avatar": "https://github.com/SergeySKA10/mortgage/blob/dev/src/assets/img/main_page/avatar_consultant/avatar_scott.png?raw=true",
+            "avatar": "https://github.com/SergeySKA10/mortgage/blob/assets/src/assets/img/main_page/avatar_consultant/avatar_scott.png?raw=true",
             "nameSpeaker": "Scott Johnson"
         },
         {
@@ -237,7 +237,7 @@
             "subheader": "Blog",
             "header": "Article #2",
             "descr": "Terms of your offer, how quickly you can turn things around and who your lenders is advising.",
-            "avatar": "https://github.com/SergeySKA10/mortgage/blob/dev/src/assets/img/main_page/avatar_consultant/avatar_scott.png?raw=true",
+            "avatar": "https://github.com/SergeySKA10/mortgage/blob/assets/src/assets/img/main_page/avatar_consultant/avatar_scott.png?raw=true",
             "nameSpeaker": "Scott Johnson"
         },
         {
@@ -246,7 +246,7 @@
             "subheader": "Blog",
             "header": "Article #3",
             "descr": "Terms of your offer, how quickly you can turn things around and who your lenders is advising.",
-            "avatar": "https://github.com/SergeySKA10/mortgage/blob/dev/src/assets/img/main_page/avatar_consultant/avatar_justin.png?raw=true",
+            "avatar": "https://github.com/SergeySKA10/mortgage/blob/assets/src/assets/img/main_page/avatar_consultant/avatar_justin.png?raw=true",
             "nameSpeaker": "Justin Roberts"
         },
         {
@@ -255,7 +255,7 @@
             "subheader": "Blog",
             "header": "Article #4",
             "descr": "Terms of your offer, how quickly you can turn things around and who your lenders is advising.",
-            "avatar": "https://github.com/SergeySKA10/mortgage/blob/dev/src/assets/img/main_page/avatar_consultant/avatar_scott.png?raw=true",
+            "avatar": "https://github.com/SergeySKA10/mortgage/blob/assets/src/assets/img/main_page/avatar_consultant/avatar_scott.png?raw=true",
             "nameSpeaker": "Scott Johnson"
         },
         {
@@ -264,7 +264,7 @@
             "subheader": "Blog",
             "header": "Article #5",
             "descr": "Terms of your offer, how quickly you can turn things around and who your lenders is advising.",
-            "avatar": "https://github.com/SergeySKA10/mortgage/blob/dev/src/assets/img/main_page/avatar_consultant/avatar_scott.png?raw=true",
+            "avatar": "https://github.com/SergeySKA10/mortgage/blob/assets/src/assets/img/main_page/avatar_consultant/avatar_scott.png?raw=true",
             "nameSpeaker": "Scott Johnson"
         },
         {
@@ -273,7 +273,7 @@
             "subheader": "Blog",
             "header": "Article #6",
             "descr": "Terms of your offer, how quickly you can turn things around and who your lenders is advising.",
-            "avatar": "https://github.com/SergeySKA10/mortgage/blob/dev/src/assets/img/main_page/avatar_consultant/avatar_justin.png?raw=true",
+            "avatar": "https://github.com/SergeySKA10/mortgage/blob/assets/src/assets/img/main_page/avatar_consultant/avatar_justin.png?raw=true",
             "nameSpeaker": "Justin Roberts"
         },
         {
@@ -282,7 +282,7 @@
             "subheader": "Blog",
             "header": "Article #7",
             "descr": "Terms of your offer, how quickly you can turn things around and who your lenders is advising.",
-            "avatar": "",
+            "avatar": "https://github.com/SergeySKA10/mortgage/blob/assets/src/assets/img/main_page/avatar_consultant/avatar_scott.png?raw=true",
             "nameSpeaker": "Scott Johnson"
         },
         {
@@ -291,7 +291,7 @@
             "subheader": "Blog",
             "header": "Article #8",
             "descr": "Terms of your offer, how quickly you can turn things around and who your lenders is advising.",
-            "avatar": "https://github.com/SergeySKA10/mortgage/blob/dev/src/assets/img/main_page/avatar_consultant/avatar_scott.png?raw=true",
+            "avatar": "https://github.com/SergeySKA10/mortgage/blob/assets/src/assets/img/main_page/avatar_consultant/avatar_scott.png?raw=true",
             "nameSpeaker": "Scott Johnson"
         },
         {
@@ -300,7 +300,7 @@
             "subheader": "Blog",
             "header": "Article #9",
             "descr": "Terms of your offer, how quickly you can turn things around and who your lenders is advising.",
-            "avatar": "https://github.com/SergeySKA10/mortgage/blob/dev/src/assets/img/main_page/avatar_consultant/avatar_justin.png?raw=true",
+            "avatar": "https://github.com/SergeySKA10/mortgage/blob/assets/src/assets/img/main_page/avatar_consultant/avatar_justin.png?raw=true",
             "nameSpeaker": "Justin Roberts"
         },
         {
@@ -309,7 +309,7 @@
             "subheader": "Blog",
             "header": "Article #10",
             "descr": "Terms of your offer, how quickly you can turn things around and who your lenders is advising.",
-            "avatar": "https://github.com/SergeySKA10/mortgage/blob/dev/src/assets/img/main_page/avatar_consultant/avatar_justin.png?raw=true",
+            "avatar": "https://github.com/SergeySKA10/mortgage/blob/assets/src/assets/img/main_page/avatar_consultant/avatar_justin.png?raw=true",
             "nameSpeaker": "Justin Roberts"
         }
     ],

@@ -1,13 +1,14 @@
 .story__window {
     position: absolute;
     bottom: 23px;
-    right: 50px;
+    right: calc(100% + 50px);
     width: 409px;
     min-height: 140px;
     border-radius: 4px 48px 4px 4px;
     background-color:#ffffff;
     padding: 24px 24px 12px 24px;
     box-shadow: 0px 15px 30px 0px rgba(0, 0, 0, 0.1);
+    transition: all 0.5s;
     &_wrapper {
         display: flex;
         justify-content: space-between;
@@ -55,3 +56,8 @@
         }
     }
 }
+
+.popUpActive {
+    right: 50px;
+}
+
