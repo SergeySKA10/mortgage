@@ -26,8 +26,7 @@
         top: 50%;
         transform: translateY(-50%);
         button {
-            left: 50%;
-            transform: translateX(-50%);
+            left: calc(50% - 30px)
         }
     }
     &__text {

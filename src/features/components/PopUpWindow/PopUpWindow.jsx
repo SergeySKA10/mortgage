@@ -16,7 +16,7 @@ const PopUpWindow = () => {
                 </p>
                 <div className="story__window_profile">
                     <div className="story__window_profile-photo">
-                        <img src={avatarJustin} alt="Justin"/>
+                        <img src="#" alt="Justin"/>
                     </div>
                     <div className="story__window_profile-name roboto-bold">Justin</div>
                 </div>
@@ -26,7 +26,7 @@ const PopUpWindow = () => {
             </div>
             <div className="story__window_button">
                 <div className="roboto-regular">Have a question?</div>
-                 <Button type='mini' link='#' text="Let's talk"/>
+                 <Button type='mini' link='avatarJustin' text="Let's talk"/>
             </div>
         </div>
     )

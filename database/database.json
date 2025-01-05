@@ -36,7 +36,7 @@
     "mentors": [
         {
             "id": "Justin",
-            "photo": "/static/media/Justin.a0467b95b32173f84f80.png",
+            "photo": "https://github.com/SergeySKA10/mortgage/blob/dev/src/assets/img/main_page/getting_mortgage/Justin.png?raw=true",
             "link": "#",
             "name": "Justin",
             "quality": "The master mind",
@@ -44,29 +44,29 @@
             "skills": [
                 {
                     "id": "deelsJustin", 
-                    "icons": "/static/media/deals.7c2b37d7b00098d1e1cd408fd38b5f8b.svg", 
+                    "icons": "https://raw.githubusercontent.com/SergeySKA10/mortgage/c251a68582893e5d632372e37e7e4c026c8c3afe/src/assets/icons/main_page/skills_justin/deals.svg", 
                     "name": "Deels"
                 },
                 {
                     "id": "WayJustin", 
-                    "icons": "/static/media/compass.394bce58305e6fda17b0d493ad47bd03.svg", 
+                    "icons": "https://raw.githubusercontent.com/SergeySKA10/mortgage/c251a68582893e5d632372e37e7e4c026c8c3afe/src/assets/icons/main_page/skills_justin/compass.svg", 
                     "name": "Find the right way"
                 },
                 {
                     "id": "databaseJustin", 
-                    "icons": "/static/media/database.fe6b2b2eb53b31a27113c05173873bc3.svg", 
+                    "icons": "https://raw.githubusercontent.com/SergeySKA10/mortgage/c251a68582893e5d632372e37e7e4c026c8c3afe/src/assets/icons/main_page/skills_justin/database.svg", 
                     "name": "Mortgage «database»"
                 },
                 {
                     "id": "docsJustin", 
-                    "icons": "/static/media/docs.c1c30051556b878273254da5056ea786.svg", 
+                    "icons": "https://raw.githubusercontent.com/SergeySKA10/mortgage/c251a68582893e5d632372e37e7e4c026c8c3afe/src/assets/icons/main_page/skills_justin/docs.svg", 
                     "name": "Docs master"
                 }
             ]
         },
         {
             "id": "Scott",
-            "photo": "/static/media/Scott.51c83b3162240a31078b.png",
+            "photo": "https://github.com/SergeySKA10/mortgage/blob/dev/src/assets/img/main_page/getting_mortgage/Scott.png?raw=true",
             "link": "#",
             "name": "Scott",
             "quality": "The educator",
@@ -74,22 +74,22 @@
             "skills": [
                 {
                     "id": "linguistScott", 
-                    "icons": "/static/media/globe.de9dd6599498d9ec0f58823f78e43744.svg", 
+                    "icons": "https://raw.githubusercontent.com/SergeySKA10/mortgage/c251a68582893e5d632372e37e7e4c026c8c3afe/src/assets/icons/main_page/skills_scott/globe.svg", 
                     "name": "Linguist"
                 },
                 {
                     "id": "searcherScott", 
-                    "icons": "/static/media/home.21977c82264de752832cd6baed81260d.svg", 
+                    "icons": "https://raw.githubusercontent.com/SergeySKA10/mortgage/c251a68582893e5d632372e37e7e4c026c8c3afe/src/assets/icons/main_page/skills_scott/life-buoy.svg", 
                     "name": "Perfect place searcher"
                 },
                 {
                     "id": "helperScott", 
-                    "icons": "/static/media/life-buoy.e55a594220a7c29adfaafb2772000add.svg", 
+                    "icons": "https://raw.githubusercontent.com/SergeySKA10/mortgage/c251a68582893e5d632372e37e7e4c026c8c3afe/src/assets/icons/main_page/skills_scott/home.svg", 
                     "name": "Helper"
                 },
                 {
                     "id": "guruScott", 
-                    "icons": "/static/media/users.defbdf6511109c37d81b4958521d050a.svg", 
+                    "icons": "https://raw.githubusercontent.com/SergeySKA10/mortgage/c251a68582893e5d632372e37e7e4c026c8c3afe/src/assets/icons/main_page/skills_scott/users.svg", 
                     "name": "Communication Guru"
                 }
             ]
@@ -118,92 +118,92 @@
     "slidesReviews": [
         {
             "id": "Emely1",
-            "photo": "/static/media/Emily.b99ec7b98425ecee05b7.png",
+            "photo": "https://github.com/SergeySKA10/mortgage/blob/dev/src/assets/img/main_page/customers/Emily.png?raw=true",
             "city": "New York",
             "name": "Emily Pearson",
             "profession": "Engeneer",
-            "icon": "/static/media/G.34f1010123e1801408f953c9abc4a4fb.svg ",
+            "icon": "https://raw.githubusercontent.com/SergeySKA10/mortgage/c251a68582893e5d632372e37e7e4c026c8c3afe/src/assets/icons/main_page/customers/G.svg",
             "review": "Terms of your offer, how quickly you can turn things around and who your lenders is. advising, calling listing agents, to get your deal done, Offer-Stage advising, calling listing agents, to get your deal done."
         },
         {
             "id": "Michael1",
-            "photo": "/static/media/Michael.4105e611c59a1f631167.png",
+            "photo": "https://github.com/SergeySKA10/mortgage/blob/dev/src/assets/img/main_page/customers/Michael.png?raw=true",
             "city": "Los angeles",
             "name": "Michael Bronson",
             "profession": "Product designe",
-            "icon": "/static/media/G.34f1010123e1801408f953c9abc4a4fb.svg ",
+            "icon": "https://raw.githubusercontent.com/SergeySKA10/mortgage/c251a68582893e5d632372e37e7e4c026c8c3afe/src/assets/icons/main_page/customers/G.svg",
             "review": "Terms of your offer, how quickly you can turn things around and who your lenders is. advising, calling listing agents, to get your deal done, Offer-Stage advising, calling listing agents, to get your deal done."
         },
         {
             "id": "Emely2",
-            "photo": "/static/media/Emily.b99ec7b98425ecee05b7.png",
+            "photo": "https://github.com/SergeySKA10/mortgage/blob/dev/src/assets/img/main_page/customers/Emily.png?raw=true",
             "city": "New York",
             "name": "Emily Pearson",
             "profession": "Engeneer",
-            "icon": "/static/media/G.34f1010123e1801408f953c9abc4a4fb.svg ",
+            "icon": "https://raw.githubusercontent.com/SergeySKA10/mortgage/c251a68582893e5d632372e37e7e4c026c8c3afe/src/assets/icons/main_page/customers/G.svg",
             "review": "Terms of your offer, how quickly you can turn things around and who your lenders is. advising, calling listing agents, to get your deal done, Offer-Stage advising, calling listing agents, to get your deal done."
         },
         {
             "id": "Michael2",
-            "photo": "/static/media/Michael.4105e611c59a1f631167.png",
+            "photo": "https://github.com/SergeySKA10/mortgage/blob/dev/src/assets/img/main_page/customers/Michael.png?raw=true",
             "city": "Los angeles",
             "name": "Michael Bronson",
             "profession": "Product designe",
-            "icon": "/static/media/G.34f1010123e1801408f953c9abc4a4fb.svg ",
+            "icon": "https://raw.githubusercontent.com/SergeySKA10/mortgage/c251a68582893e5d632372e37e7e4c026c8c3afe/src/assets/icons/main_page/customers/G.svg",
             "review": "Terms of your offer, how quickly you can turn things around and who your lenders is. advising, calling listing agents, to get your deal done, Offer-Stage advising, calling listing agents, to get your deal done."
         },
         {
             "id": "Emely3",
-            "photo": "/static/media/Emily.b99ec7b98425ecee05b7.png",
+            "photo": "https://github.com/SergeySKA10/mortgage/blob/dev/src/assets/img/main_page/customers/Emily.png?raw=true",
             "city": "New York",
             "name": "Emily Pearson",
             "profession": "Engeneer",
-            "icon": "/static/media/G.34f1010123e1801408f953c9abc4a4fb.svg ",
+            "icon": "https://raw.githubusercontent.com/SergeySKA10/mortgage/c251a68582893e5d632372e37e7e4c026c8c3afe/src/assets/icons/main_page/customers/G.svg",
             "review": "Terms of your offer, how quickly you can turn things around and who your lenders is. advising, calling listing agents, to get your deal done, Offer-Stage advising, calling listing agents, to get your deal done."
         },
         {
             "id": "Michael3",
-            "photo": "/static/media/Michael.4105e611c59a1f631167.png",
+            "photo": "https://github.com/SergeySKA10/mortgage/blob/dev/src/assets/img/main_page/customers/Michael.png?raw=true",
             "city": "Los angeles",
             "name": "Michael Bronson",
             "profession": "Product designe",
-            "icon": "/static/media/G.34f1010123e1801408f953c9abc4a4fb.svg ",
+            "icon": "https://raw.githubusercontent.com/SergeySKA10/mortgage/c251a68582893e5d632372e37e7e4c026c8c3afe/src/assets/icons/main_page/customers/G.svg",
             "review": "Terms of your offer, how quickly you can turn things around and who your lenders is. advising, calling listing agents, to get your deal done, Offer-Stage advising, calling listing agents, to get your deal done."
         },
         {
             "id": "Emely4",
-            "photo": "/static/media/Emily.b99ec7b98425ecee05b7.png",
+            "photo": "https://github.com/SergeySKA10/mortgage/blob/dev/src/assets/img/main_page/customers/Emily.png?raw=true",
             "city": "New York",
             "name": "Emily Pearson",
             "profession": "Engeneer",
-            "icon": "/static/media/G.34f1010123e1801408f953c9abc4a4fb.svg ",
+            "icon": "https://raw.githubusercontent.com/SergeySKA10/mortgage/c251a68582893e5d632372e37e7e4c026c8c3afe/src/assets/icons/main_page/customers/G.svg",
             "review": "Terms of your offer, how quickly you can turn things around and who your lenders is. advising, calling listing agents, to get your deal done, Offer-Stage advising, calling listing agents, to get your deal done."
         },
         {
             "id": "Michael4",
-            "photo": "/static/media/Michael.4105e611c59a1f631167.png",
+            "photo": "https://github.com/SergeySKA10/mortgage/blob/dev/src/assets/img/main_page/customers/Michael.png?raw=true",
             "city": "Los angeles",
             "name": "Michael Bronson",
             "profession": "Product designe",
-            "icon": "/static/media/G.34f1010123e1801408f953c9abc4a4fb.svg ",
+            "icon": "https://raw.githubusercontent.com/SergeySKA10/mortgage/c251a68582893e5d632372e37e7e4c026c8c3afe/src/assets/icons/main_page/customers/G.svg",
             "review": "Terms of your offer, how quickly you can turn things around and who your lenders is. advising, calling listing agents, to get your deal done, Offer-Stage advising, calling listing agents, to get your deal done."
         },
         {
             "id": "Emely5",
-            "photo": "/static/media/Emily.b99ec7b98425ecee05b7.png",
+            "photo": "https://github.com/SergeySKA10/mortgage/blob/dev/src/assets/img/main_page/customers/Emily.png?raw=true",
             "city": "New York",
             "name": "Emily Pearson",
             "profession": "Engeneer",
-            "icon": "/static/media/G.34f1010123e1801408f953c9abc4a4fb.svg ",
+            "icon": "https://raw.githubusercontent.com/SergeySKA10/mortgage/c251a68582893e5d632372e37e7e4c026c8c3afe/src/assets/icons/main_page/customers/G.svg",
             "review": "Terms of your offer, how quickly you can turn things around and who your lenders is. advising, calling listing agents, to get your deal done, Offer-Stage advising, calling listing agents, to get your deal done."
         },
         {
             "id": "Michael5",
-            "photo": "/static/media/Michael.4105e611c59a1f631167.png",
+            "photo": "https://github.com/SergeySKA10/mortgage/blob/dev/src/assets/img/main_page/customers/Michael.png?raw=true",
             "city": "Los angeles",
             "name": "Michael Bronson",
             "profession": "Product designe",
-            "icon": "/static/media/G.34f1010123e1801408f953c9abc4a4fb.svg ",
+            "icon": "https://raw.githubusercontent.com/SergeySKA10/mortgage/c251a68582893e5d632372e37e7e4c026c8c3afe/src/assets/icons/main_page/customers/G.svg",
             "review": "Terms of your offer, how quickly you can turn things around and who your lenders is. advising, calling listing agents, to get your deal done, Offer-Stage advising, calling listing agents, to get your deal done."
         }  
     ],
@@ -211,13 +211,13 @@
         {
             "id": "google",
             "stars": "4.5 stars rating",
-            "icon": "",
+            "icon": "https://github.com/SergeySKA10/mortgage/blob/dev/src/assets/icons/main_page/customers/rating/google.png?raw=true",
             "reviews": "85 reviews"
         },
         {
             "id": "zillow",
             "stars": "4 stars rating",
-            "icon": "",
+            "icon": "https://github.com/SergeySKA10/mortgage/blob/dev/src/assets/icons/main_page/customers/rating/zillow.png?raw=true",
             "reviews": "22 reviews"
         }
     ],
@@ -228,7 +228,7 @@
             "subheader": "Blog",
             "header": "Article #1",
             "descr": "Terms of your offer, how quickly you can turn things around and who your lenders is advising.",
-            "avatar": "data:image/png;base64,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",
+            "avatar": "https://github.com/SergeySKA10/mortgage/blob/dev/src/assets/img/main_page/avatar_consultant/avatar_scott.png?raw=true",
             "nameSpeaker": "Scott Johnson"
         },
         {
@@ -237,7 +237,7 @@
             "subheader": "Blog",
             "header": "Article #2",
             "descr": "Terms of your offer, how quickly you can turn things around and who your lenders is advising.",
-            "avatar": "",
+            "avatar": "https://github.com/SergeySKA10/mortgage/blob/dev/src/assets/img/main_page/avatar_consultant/avatar_scott.png?raw=true",
             "nameSpeaker": "Scott Johnson"
         },
         {
@@ -246,7 +246,7 @@
             "subheader": "Blog",
             "header": "Article #3",
             "descr": "Terms of your offer, how quickly you can turn things around and who your lenders is advising.",
-            "avatar": "data:image/png;base64,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",
+            "avatar": "https://github.com/SergeySKA10/mortgage/blob/dev/src/assets/img/main_page/avatar_consultant/avatar_justin.png?raw=true",
             "nameSpeaker": "Justin Roberts"
         },
         {
@@ -255,7 +255,7 @@
             "subheader": "Blog",
             "header": "Article #4",
             "descr": "Terms of your offer, how quickly you can turn things around and who your lenders is advising.",
-            "avatar": "",
+            "avatar": "https://github.com/SergeySKA10/mortgage/blob/dev/src/assets/img/main_page/avatar_consultant/avatar_scott.png?raw=true",
             "nameSpeaker": "Scott Johnson"
         },
         {
@@ -264,7 +264,7 @@
             "subheader": "Blog",
             "header": "Article #5",
             "descr": "Terms of your offer, how quickly you can turn things around and who your lenders is advising.",
-            "avatar": "",
+            "avatar": "https://github.com/SergeySKA10/mortgage/blob/dev/src/assets/img/main_page/avatar_consultant/avatar_scott.png?raw=true",
             "nameSpeaker": "Scott Johnson"
         },
         {
@@ -273,7 +273,7 @@
             "subheader": "Blog",
             "header": "Article #6",
             "descr": "Terms of your offer, how quickly you can turn things around and who your lenders is advising.",
-            "avatar": "",
+            "avatar": "https://github.com/SergeySKA10/mortgage/blob/dev/src/assets/img/main_page/avatar_consultant/avatar_justin.png?raw=true",
             "nameSpeaker": "Justin Roberts"
         },
         {
@@ -291,7 +291,7 @@
             "subheader": "Blog",
             "header": "Article #8",
             "descr": "Terms of your offer, how quickly you can turn things around and who your lenders is advising.",
-            "avatar": "data:image/png;base64,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",
+            "avatar": "https://github.com/SergeySKA10/mortgage/blob/dev/src/assets/img/main_page/avatar_consultant/avatar_scott.png?raw=true",
             "nameSpeaker": "Scott Johnson"
         },
         {
@@ -300,7 +300,7 @@
             "subheader": "Blog",
             "header": "Article #9",
             "descr": "Terms of your offer, how quickly you can turn things around and who your lenders is advising.",
-            "avatar": "",
+            "avatar": "https://github.com/SergeySKA10/mortgage/blob/dev/src/assets/img/main_page/avatar_consultant/avatar_justin.png?raw=true",
             "nameSpeaker": "Justin Roberts"
         },
         {
@@ -309,7 +309,7 @@
             "subheader": "Blog",
             "header": "Article #10",
             "descr": "Terms of your offer, how quickly you can turn things around and who your lenders is advising.",
-            "avatar": "",
+            "avatar": "https://github.com/SergeySKA10/mortgage/blob/dev/src/assets/img/main_page/avatar_consultant/avatar_justin.png?raw=true",
             "nameSpeaker": "Justin Roberts"
         }
     ],
