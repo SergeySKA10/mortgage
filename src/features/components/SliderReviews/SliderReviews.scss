@@ -11,7 +11,10 @@
         border-radius: 4px;
         gap: 31px;
         &_inner {
-            height: 100%;
+            position: relative;
+            top: -100px;
+            height: 390px;
+            overflow: hidden;
         }
         &_counter {
             display: flex;
@@ -35,7 +38,7 @@
         &_dots {
             margin-top: 22px;
             position: relative;
-            top: -100px;
+            top: 10px;
             left: 240px;
             width: 556px;
             height: 20px;
@@ -54,16 +57,15 @@
         }
     }
     &__slides {
-        min-height: 318px;
+        min-height: 310px;
         border-radius: 4px;
-        overflow: hidden;
         display: flex;
         gap: 24px;
         position: relative;
-        top: -100px;
+        transition: all 0.5s;
     }
     &__slide {
-        width: 479px;
+        width: 473px;
         height: 310px;
         background-color: #ffffff;
         padding: 24px 32px 28px 32px;

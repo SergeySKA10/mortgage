@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import {useHttp} from '../../../hooks/http.hook';
 
-import { useState } from 'react';
+import { useState, useEffect, act } from 'react';
 
 import Spinner from '../Spinner/Spinner';
 import ErrorMessage from '../ErrorMessage/ErrorMessage';
@@ -13,6 +13,7 @@ import rightQuote from '../../../assets/icons/main_page/quote/right-quote.svg';
 
 const SliderReviews = () => {
     const request = useHttp();
+    
     // получаем слайды
     const {data, isError, isPending} = useQuery({
         queryKey: ['slidesReviews'],
@@ -21,35 +22,149 @@ const SliderReviews = () => {
 
     // создаем state для индекса слайдера
     const [indexSlide, setIndexSlide] = useState(1);
-    // создаем state для current
-    const [current, setCurrent] = useState(indexSlide < 10 ? `0${indexSlide}` : indexSlide);
-    // создаем state для total 
-    const [total, setTotal] = useState(data?.length < 10 ? `0${data?.length}` : data?.length);
-    // создаем массив для формирования точек
-    const dots = [];
 
+    //state для отслеживания состояния кнопок и точек для переключения слайдов
+    const [pressNextButton, setPressNextButton] = useState(false);
+    const [pressPrevButton, setPressPrevButton] = useState(false);
+    const [pressDot, setPressDot] = useState(false);
+
+    // создаем state для расчета offset
+    const [offset, setOffset] = useState(0);
+
+    // создаем state для получения ширины слайда
+    const [width, setWidth] = useState(0);
+
+    // создаем state для max значения offset
+    const [maxOffset, setMaxOffset] = useState(0);
+
+    // создаем state для получения элемента обертки слайдов
+    const [wrapperSlides, setWrapperSlides] = useState(null);
+
+    // state для получаем 1-ый слайд
+    const [slide, setSlide] = useState(null);
+
+    // создаем state для current
+    const [current, setCurrent] = useState(1);
+
+    // создаем state для total 
+    const [total, setTotal] = useState(0);
+
+    // создаем state для dots
+    const [dots, setDots] = useState([])
+
+    // функция преобразования строки в число
+    function stringToDigits(str) {
+        return +str.replace(/\D/g, '');
+    }
+
+    // получаем ширину слайда и обертку и устанавливаем max значение offset
+    useEffect(() => {
+        setSlide(document.querySelector('.customers__slide'));
+        setWrapperSlides(document.querySelector('.customers__slides'));
+        if (slide) {
+            setWidth(stringToDigits(window.getComputedStyle(slide).width) + 24);
+        }
+        setMaxOffset(width * (data?.length - 1));
+    }, [slide, wrapperSlides, data, width]);
+
+
+    // установка total  
+    useEffect(() => {
+        setTotal(data?.length < 10 ? `0${data?.length}` : data?.length)
+    }, [data])
+
+    // установка current
+    useEffect(() => {
+        const num = indexSlide < 10 ? `0${indexSlide}` : indexSlide;
+        setCurrent(num);
+    }, [indexSlide])
+
+    // переменная для рендера состояния запроса данных
     const slidesBlock = isError ? <ErrorMessage/>
                     : isPending ? <Spinner/>
-                    : data?.map((el, i) => {
-                        // добавляем класс активности ???? (пока что статичный)
-                        const activeClassDot = i === 0 ? 'dot-active-white' : ''
-                        // добавляем точки в массив
-                        dots.push(<Dot key={i} activeClass={activeClassDot}/>)
+                    : data?.map((el) => {
                         return (
                             <SlideReviews key={el.id} data={el}/>
                         )
                     });
 
+    
+    // функция переключения слайдера на другой слайд
+    const showNewSlide = () => {
+        if (wrapperSlides) {
+            wrapperSlides.style.transform = `translateX(-${offset}px)`;
+        }
+    }
+
+    // функция для перелистывания слайдов вперед
+    const nextSlide = () => {
+        if (wrapperSlides) {
+            wrapperSlides.style.transform = `translateX(-${offset}px)`;
+        } 
+    }
+
+    // функция для перелистывания слайдов назад
+    const prevSlide = () => {
+        if (wrapperSlides) {
+            wrapperSlides.style.transform = `translateX(-${offset}px)`;
+        }  
+    }
+
+    // переход на слайд при взаимодействии с dots или стрелками
+    useEffect(() => {
+        showNewSlide();
+    }, [offset, pressDot, pressPrevButton, pressNextButton]);
+
+    // формирование точек
+    useEffect(() => {
+        if (data) {
+            setDots(dots =>  data.map((el, i) => {
+                    const activeClass = i === indexSlide ? 'dot-active-white' : '';
+                    return (
+                        <Dot 
+                            key={i}
+                            data={i}
+                            activeClass={activeClass}
+                            setIndexSlide={setIndexSlide}
+                            width={width}
+                            setOffset={setOffset}
+                            setPressDot={setPressDot}
+                        />
+                    )
+                })
+            )
+        }
+    }, [data, width, indexSlide])
+
     return (
         <div className="customers__slider">
             <div className="customers__slider_counter">
                 <div className="customers__slider_current">
-                    <span id="current-customers" className="roboto-bold">{current}</span>
+                    <span id="current-customers" className="roboto-bold">{indexSlide < 10 ? `0${indexSlide}` : indexSlide}</span>
                     <span id="total-customers" className="roboto-bold">/{total}</span>
                 </div>
                 <div className="customers__slider_arrows">
-                    <ButtonArrow type='left'/>
-                    <ButtonArrow type='right'/>
+                    <ButtonArrow 
+                        type='left' 
+                        data='prev'
+                        offset={offset}
+                        setOffset={setOffset} 
+                        maxOffset={maxOffset}
+                        setIndexSlide={setIndexSlide}
+                        width={width}
+                        setPressButton={setPressPrevButton}
+                        indexSlide={indexSlide}
+                        />
+                    <ButtonArrow 
+                        type='right' 
+                        data='next'
+                        offset={offset}
+                        setOffset={setOffset}
+                        setIndexSlide={setIndexSlide}
+                        indexSlide={indexSlide} 
+                        maxOffset={maxOffset}
+                        width={width}
+                        setPressButton={setPressNextButton}/>
                 </div>
             </div>
         
@@ -99,9 +214,17 @@ const SlideReviews = ({data}) => {
     )
 }
 
-const Dot = (props) => {
+const Dot = ({activeClass, data, width, setOffset, setIndexSlide, setPressDot}) => {
+    // функция установки offset при клике на dots
+    const initialOffset = (target) => {
+        const numSlide = target.getAttribute('data-slide-to');
+        setOffset(width * numSlide);
+        setIndexSlide(numSlide)
+        setPressDot(true);
+    }
+
    return (
-        <div className={'customers__slider_dot ' + props.activeClass}></div>
+        <div className={'customers__slider_dot ' + activeClass} data-slide-to={data} onClick={(e) => initialOffset(e.target)}></div>
    ) 
 }
 
