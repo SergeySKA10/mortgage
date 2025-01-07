@@ -33,7 +33,8 @@ export const ButtonArrow = ({type, data, offset, setOffset, maxOffset, width, se
             } else {
                 setOffset(offset => offset + width)
             }
-            setPressButton(true);
+            
+            setPressButton(true); // отслеживание нажатия на кнопку
 
             if (indexSlide === maxOffset / width + 1) {
                 setIndexSlide(1);
@@ -48,7 +49,9 @@ export const ButtonArrow = ({type, data, offset, setOffset, maxOffset, width, se
             } else {
                 setOffset(offset => offset - width);
             }
-            setPressButton(true);
+
+            setPressButton(true); // отслеживание нажатия на кнопку
+
             if (indexSlide === 1) {
                 setIndexSlide(maxOffset / width + 1);
             } else {

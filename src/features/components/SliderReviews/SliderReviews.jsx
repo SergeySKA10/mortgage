@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import {useHttp} from '../../../hooks/http.hook';
 
-import { useState, useEffect, act } from 'react';
+import { useState, useEffect } from 'react';
 
 import Spinner from '../Spinner/Spinner';
 import ErrorMessage from '../ErrorMessage/ErrorMessage';
@@ -24,9 +24,7 @@ const SliderReviews = () => {
     const [indexSlide, setIndexSlide] = useState(1);
 
     //state для отслеживания состояния кнопок и точек для переключения слайдов
-    const [pressNextButton, setPressNextButton] = useState(false);
-    const [pressPrevButton, setPressPrevButton] = useState(false);
-    const [pressDot, setPressDot] = useState(false);
+    const [pressButton, setPressButton] = useState(false);
 
     // создаем state для расчета offset
     const [offset, setOffset] = useState(0);
@@ -42,9 +40,6 @@ const SliderReviews = () => {
 
     // state для получаем 1-ый слайд
     const [slide, setSlide] = useState(null);
-
-    // создаем state для current
-    const [current, setCurrent] = useState(1);
 
     // создаем state для total 
     const [total, setTotal] = useState(0);
@@ -71,13 +66,7 @@ const SliderReviews = () => {
     // установка total  
     useEffect(() => {
         setTotal(data?.length < 10 ? `0${data?.length}` : data?.length)
-    }, [data])
-
-    // установка current
-    useEffect(() => {
-        const num = indexSlide < 10 ? `0${indexSlide}` : indexSlide;
-        setCurrent(num);
-    }, [indexSlide])
+    }, [data]);
 
     // переменная для рендера состояния запроса данных
     const slidesBlock = isError ? <ErrorMessage/>
@@ -96,30 +85,16 @@ const SliderReviews = () => {
         }
     }
 
-    // функция для перелистывания слайдов вперед
-    const nextSlide = () => {
-        if (wrapperSlides) {
-            wrapperSlides.style.transform = `translateX(-${offset}px)`;
-        } 
-    }
-
-    // функция для перелистывания слайдов назад
-    const prevSlide = () => {
-        if (wrapperSlides) {
-            wrapperSlides.style.transform = `translateX(-${offset}px)`;
-        }  
-    }
-
     // переход на слайд при взаимодействии с dots или стрелками
     useEffect(() => {
         showNewSlide();
-    }, [offset, pressDot, pressPrevButton, pressNextButton]);
+    }, [offset, pressButton]);
 
     // формирование точек
     useEffect(() => {
         if (data) {
             setDots(dots =>  data.map((el, i) => {
-                    const activeClass = i === indexSlide ? 'dot-active-white' : '';
+                    const activeClass = i === indexSlide - 1 ? 'dot-active-white' : '';
                     return (
                         <Dot 
                             key={i}
@@ -128,7 +103,7 @@ const SliderReviews = () => {
                             setIndexSlide={setIndexSlide}
                             width={width}
                             setOffset={setOffset}
-                            setPressDot={setPressDot}
+                            setPressDot={setPressButton}
                         />
                     )
                 })
@@ -152,7 +127,7 @@ const SliderReviews = () => {
                         maxOffset={maxOffset}
                         setIndexSlide={setIndexSlide}
                         width={width}
-                        setPressButton={setPressPrevButton}
+                        setPressButton={setPressButton}
                         indexSlide={indexSlide}
                         />
                     <ButtonArrow 
@@ -164,7 +139,7 @@ const SliderReviews = () => {
                         indexSlide={indexSlide} 
                         maxOffset={maxOffset}
                         width={width}
-                        setPressButton={setPressNextButton}/>
+                        setPressButton={setPressButton}/>
                 </div>
             </div>
         
@@ -215,12 +190,12 @@ const SlideReviews = ({data}) => {
 }
 
 const Dot = ({activeClass, data, width, setOffset, setIndexSlide, setPressDot}) => {
-    // функция установки offset при клике на dots
+    // функция установки offset и indexSlide при клике на dots
     const initialOffset = (target) => {
-        const numSlide = target.getAttribute('data-slide-to');
+        const numSlide = +target.getAttribute('data-slide-to');
         setOffset(width * numSlide);
-        setIndexSlide(numSlide)
-        setPressDot(true);
+        setIndexSlide(numSlide + 1);
+        setPressDot(true); // отслеживание нажатия на dot
     }
 
    return (
