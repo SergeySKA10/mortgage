@@ -2,21 +2,27 @@
 
 .story__slider {
     display: flex;
-    width: 436px;
+    width: 452px;
     gap: 29px;
-    margin-right: 64px;
+    margin-right: 48px;
     &_wrapper {
+        height: 680px;
+        overflow: hidden;
+        width: 396px;
+    }
+    &_inner {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+        gap: 22px;
         width: 380px;
-        min-height: 678px;
+        transition: all 0.5s;
     }
     &_slide {
         border: 1px solid rgba(0, 0, 0, 0.1);
         border-radius: 4px;
         padding: 28px 30px 44px 40px;
-        margin-bottom: 22px;
+        // margin-bottom: 22px;
         cursor: pointer;
     }
     &_counter {
