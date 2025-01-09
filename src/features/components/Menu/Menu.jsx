@@ -166,9 +166,9 @@ const Menu = () => {
              onClick={(e) => hideMenu(e.target)} 
             >
             <div className={`menu__block ${classOpenBlock}`}>
-                <div className="menu__logo">
+                <NavLink to='/' className="menu__logo" onClick={() => closeMenu(dispatch)}>
                     <img src={logo} alt="logo"/>
-                </div>
+                </NavLink>
                 <div className="menu__content">
                     {content}
                     <div className="menu__line">
