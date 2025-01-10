@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 
 import { ButtonArrow } from '../Buttons/Buttons';
 import {Line} from '../Line/Line';
@@ -8,6 +8,9 @@ import './SliderStory.scss';
 import './DotsSliderStory.scss';
 
 const SliderStory = () => {
+    // создаем реф для передачи слайдеру и последующей отмены события scroll окна браузера
+    const refForScroll = useRef();
+
     // получем слайды из store 
     const slides = useSelector(state => state.sliderStory.slidesStory);
 
@@ -15,7 +18,7 @@ const SliderStory = () => {
     const [indexSlide, setIndexSlide] = useState(2);
 
     // создаем state для расчета offset
-    const [offset, setOffset] = useState(-234);
+    const [offset, setOffset] = useState(234);
 
     // создаем state для постоянного шага offset
     const [width, setWidth] = useState(234);
@@ -32,12 +35,21 @@ const SliderStory = () => {
     // создаем state для slidesBlock
     const [slidesBlock, setSlidesBlock] = useState([]);
 
-    //state для отслеживания состояния кнопок и точек для переключения слайдов
-    const [pressButton, setPressButton] = useState(false);
+    // функция для отмены стандартного поведения браузера
+    const noScrollWindow = (e) => e.preventDefault();
+
+    // эффект отмены стандартного поведения браузера при скролле слайдера
+    useEffect(() => {
+        refForScroll.current.addEventListener('wheel', noScrollWindow);
+
+        return () => {
+            refForScroll.current.removeEventListener('wheel', noScrollWindow);
+        }
+    }, [refForScroll])
 
     // получаем элемент обертки слайдов
     useEffect(() => {
-        setWrapperSlides(document.querySelector('.story__slider_inner'))
+        setWrapperSlides(document.querySelector('.story__slider_inner'));
     }, [])
 
     // формируем slidesBlock
@@ -59,7 +71,6 @@ const SliderStory = () => {
     useEffect(() => {
         if (slides) {
             setDots(dots => slides.map((el, i) => {
-                    // console.log(offset, maxOffset)
                     const activeClass = i === indexSlide - 1 ? 'dot-active' : '';
                     return (
                         <Dot 
@@ -68,7 +79,6 @@ const SliderStory = () => {
                             activeClass={activeClass}
                             setIndexSlide={setIndexSlide}
                             setOffset={setOffset}
-                            setPressButton={setPressButton}
                             width={width}
                         />
                     )
@@ -77,13 +87,12 @@ const SliderStory = () => {
         }
     }, [slides, indexSlide]);
 
-    // функция по изменению offset в зависимости от scroll 
+    // функция по изменению offset в зависимости от события scroll на обертке слайдеров
     const onScrollChangeOffset = (target) => {
-        // window.scrollTo(1500)
         if (target > 0) {
             if (offset === maxOffset) {
                 setOffset(0);
-            } else {
+            }  else {
                 setOffset(offset => offset + width);
             }
 
@@ -127,10 +136,8 @@ const SliderStory = () => {
                 {dots}
             </div>
             <div className="story__slider_wrapper">
-                <div className="story__slider_inner" onWheel={(e) => {
-                        // e.preventDefault();
-                        // onScrollChangeOffset(e.deltaY)
-                    }}>
+                <div ref={refForScroll} className="story__slider_inner"
+                    onWheel={(e) => onScrollChangeOffset(e.deltaY)}>
                     {slidesBlock}
                 </div>
             </div>
@@ -157,13 +164,12 @@ const Slide = ({data, activeClass, current}) => {
     )
 }
 
-const Dot = ({data, activeClass, setIndexSlide, setOffset, setPressButton, width}) => {
+const Dot = ({data, activeClass, setIndexSlide, setOffset, width}) => {
     // функция установки offset и indexSlide при клике на dots
     const initialOffset = (target) => {
         const numSlide = +target.getAttribute('data-slide-to');
         setOffset(width * numSlide);
         setIndexSlide(numSlide + 1);
-        setPressButton(true); // отслеживание нажатия на dot
     }
 
     return (

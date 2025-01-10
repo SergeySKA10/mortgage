@@ -67,14 +67,17 @@ const Article = () => {
 
 const ViewBlock = ({data, size, active, index, onChangeActive}) => {
     const {link, subheader, header, descr, avatar, nameSpeaker} = data;
-    const large = size;
+
+    // стили для большего активного блока
+    const style = size && active ? {background: "#278FB4"} : null;
 
     return (
         <NavLink 
             to={link} 
             className={`article__block ${active}`} 
-            data-size={large} 
+            data-size={size} 
             data-index={index}
+            style={style}
             onClick={(e) => onChangeActive(e.target)}
             >
             <div className="article__logo roboto-bold">{subheader}</div>
