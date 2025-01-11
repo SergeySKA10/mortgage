@@ -73,15 +73,24 @@ export const ButtonArrow = ({type, data, offset, setOffset, maxOffset, width, se
 
 export const ButtonDownLoad = ({path, name}) => {
     // функция скачивания pdf файла 
-    const downloadFile = (path) => {
+    const downloadFile = async (path) => {
+        // делаем запрос для получения файла
+        const res = await fetch('/database/mortgage.pdf');
+        const blob = await res.blob();
+
+        // создаем ссылку, добавляем атрибуты и формируем url файла
         const link = document.createElement('a');
-        link.setAttribute('href', path);
+        link.setAttribute('href', URL.createObjectURL(blob));
         link.setAttribute('download', name);
         link.style.display = 'none';
 
+        // добавляем ссылку на сайт и кликаем на нее
         document.body.append(link);
         link.click();
+
+        // удаляем ссылку и url для удаления файла сборщиком мусора
         link.remove();
+        URL.revokeObjectURL(link.href);
     }
 
     return (

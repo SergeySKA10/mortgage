@@ -24,7 +24,7 @@ const Resource = () => {
                         <Line/>
                     </div>
                     <div className="article__resources_button">
-                        <ButtonDownLoad/>
+                        <ButtonDownLoad path='https://github.com/SergeySKA10/mortgage/blob/assets/database/download/Download_me.pdf' name='mortgage.pdf'/>
                     </div>
                 </div>
 
