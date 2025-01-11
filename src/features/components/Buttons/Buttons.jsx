@@ -71,9 +71,21 @@ export const ButtonArrow = ({type, data, offset, setOffset, maxOffset, width, se
     )
 }
 
-export const ButtonDownLoad = () => {
+export const ButtonDownLoad = ({path, name}) => {
+    // функция скачивания pdf файла 
+    const downloadFile = (path) => {
+        const link = document.createElement('a');
+        link.setAttribute('href', path);
+        link.setAttribute('download', name);
+        link.style.display = 'none';
+
+        document.body.append(link);
+        link.click();
+        link.remove();
+    }
+
     return (
-        <button className="btn btn__watch-download">
+        <button className="btn btn__watch-download" onClick={() => downloadFile(path)}>
             <div className="btn btn__watch-download-text roboto-bold">Download</div>
             <div className="btn btn__watch-download-arrow"></div>
         </button>

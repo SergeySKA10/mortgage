@@ -50,7 +50,16 @@ const Article = () => {
                 }
             }));
         }
-    }, [data, activeClazz])
+    }, [data, activeClazz]);
+
+    // функция сортировки по дате:
+    // const sortByDate = (data) => {
+    //     const result = [];
+
+    //     for (let i = 0; i < data.length; i++) {
+            
+    //     }
+    // }
 
     
     // создаем блок article для Main Page
