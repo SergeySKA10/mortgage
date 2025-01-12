@@ -14,7 +14,7 @@ const GettingBlock = () => {
     // получаем спикеров для формирования карточек
     const {data, isError, isPending} = useQuery({
         queryKey: ['mentors'],
-        queryFn: () => request('http://localhost:3001/mentors')
+        queryFn: () => request({url: 'http://localhost:3001/mentors'})
     });
 
     // формируем карточки для отображения в Main Page

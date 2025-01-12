@@ -12,7 +12,7 @@ const Filters = () => {
     // получаем фильтры из store
     const {data, isError, isPending} = useQuery({
         queryKey: ['filters'],
-        queryFn: () => request('http://localhost:3001/filters')
+        queryFn: () => request({url: 'http://localhost:3001/filters'})
     });
 
     // создаем блок с фильтрами

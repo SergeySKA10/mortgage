@@ -1,5 +1,6 @@
 export const useHttp = () => {
-    const request = async (url, method = 'GET', body = null, headers = {'Content-Type': 'application/json'}) => {
+    const request = async (meta) => {
+        const {url, method = 'GET', body = null, headers = {'Content-Type': 'application/json'}, format = 'json'} = meta;
 
         try {
             const response = await fetch(url, {method, body, headers});
@@ -7,8 +8,20 @@ export const useHttp = () => {
             if (!response.ok) {
                 throw new Error(`Could not fetch ${url}, status: ${response.status}`);
             }
+            
+            let data;
 
-            const data = await response.json();
+            switch (format) {
+                case 'json':
+                    data = await response.json();
+                    break;
+                case 'blob':
+                    data = await response.blob();
+                    break;
+                default: 
+                    throw new Error ('Invalid format specified for request');
+            }
+            
 
             return data;
 

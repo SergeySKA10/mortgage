@@ -280,6 +280,9 @@
             box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
             transform: rotate(35deg);
         }
+        &:disabled {
+            opacity: 0.5;
+        }
     }
     &__ebook {
         display: block;

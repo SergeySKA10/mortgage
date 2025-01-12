@@ -54,12 +54,12 @@ const Menu = () => {
     // запрос в бд для получения ссылок на секции главной страницы
     const {data: sectionLinks, isError: errorSectionLinks, isPending: loadingSectionLinks} = useQuery({
         queryKey: ['linksOnSection'], 
-        queryFn: () => request('http://localhost:3001/linksOnSection')
+        queryFn: () => request({url: 'http://localhost:3001/linksOnSection'})
     });
     // запрос в бд для получения ссылок на страницы
     const {data: pageLinks, isError: errorPageLinks, isPending: loadingPageLinks} = useQuery({
         queryKey: ['linksOnPage'],
-        queryFn: () => request('http://localhost:3001/linksOnPages')
+        queryFn: () => request({url: 'http://localhost:3001/linksOnPages'})
     });
 
     // создаем ссылки на блоки страницы 
