@@ -230,7 +230,7 @@
             "descr": "Terms of your offer, how quickly you can turn things around and who your lenders is advising.",
             "avatar": "https://github.com/SergeySKA10/mortgage/blob/assets/src/assets/img/main_page/avatar_consultant/avatar_scott.png?raw=true",
             "nameSpeaker": "Scott Johnson",
-            "date": "25.01.2024"
+            "creation_time": "2024-01-25"
         },
         {
             "id": "Article2",
@@ -240,7 +240,7 @@
             "descr": "Terms of your offer, how quickly you can turn things around and who your lenders is advising.",
             "avatar": "https://github.com/SergeySKA10/mortgage/blob/assets/src/assets/img/main_page/avatar_consultant/avatar_scott.png?raw=true",
             "nameSpeaker": "Scott Johnson",
-            "date": "25.04.2024"
+            "creation_time": "2024-04-25"
         },
         {
             "id": "Article3",
@@ -250,7 +250,7 @@
             "descr": "Terms of your offer, how quickly you can turn things around and who your lenders is advising.",
             "avatar": "https://github.com/SergeySKA10/mortgage/blob/assets/src/assets/img/main_page/avatar_consultant/avatar_justin.png?raw=true",
             "nameSpeaker": "Justin Roberts",
-            "date": "25.09.2024"
+            "creation_time": "2024-09-25"
         },
         {
             "id": "Article4",
@@ -260,7 +260,7 @@
             "descr": "Terms of your offer, how quickly you can turn things around and who your lenders is advising.",
             "avatar": "https://github.com/SergeySKA10/mortgage/blob/assets/src/assets/img/main_page/avatar_consultant/avatar_scott.png?raw=true",
             "nameSpeaker": "Scott Johnson",
-            "date": "25.03.2024"
+            "creation_time": "2024-03-25"
         },
         {
             "id": "Article5",
@@ -270,7 +270,7 @@
             "descr": "Terms of your offer, how quickly you can turn things around and who your lenders is advising.",
             "avatar": "https://github.com/SergeySKA10/mortgage/blob/assets/src/assets/img/main_page/avatar_consultant/avatar_scott.png?raw=true",
             "nameSpeaker": "Scott Johnson",
-            "date": "25.11.2024"
+            "creation_time": "2024-11-25"
         },
         {
             "id": "Article6",
@@ -280,7 +280,7 @@
             "descr": "Terms of your offer, how quickly you can turn things around and who your lenders is advising.",
             "avatar": "https://github.com/SergeySKA10/mortgage/blob/assets/src/assets/img/main_page/avatar_consultant/avatar_justin.png?raw=true",
             "nameSpeaker": "Justin Roberts",
-            "date": "10.01.2025"
+            "creation_time": "2025-01-10"
         },
         {
             "id": "Article7",
@@ -290,7 +290,7 @@
             "descr": "Terms of your offer, how quickly you can turn things around and who your lenders is advising.",
             "avatar": "https://github.com/SergeySKA10/mortgage/blob/assets/src/assets/img/main_page/avatar_consultant/avatar_scott.png?raw=true",
             "nameSpeaker": "Scott Johnson",
-            "date": "05.01.2025"
+            "creation_time": "2025-01-05"
         },
         {
             "id": "Article8",
@@ -300,7 +300,7 @@
             "descr": "Terms of your offer, how quickly you can turn things around and who your lenders is advising.",
             "avatar": "https://github.com/SergeySKA10/mortgage/blob/assets/src/assets/img/main_page/avatar_consultant/avatar_scott.png?raw=true",
             "nameSpeaker": "Scott Johnson",
-            "date": "25.12.2024"
+            "creation_time": "2024-12-25"
         },
         {
             "id": "Article9",
@@ -310,7 +310,7 @@
             "descr": "Terms of your offer, how quickly you can turn things around and who your lenders is advising.",
             "avatar": "https://github.com/SergeySKA10/mortgage/blob/assets/src/assets/img/main_page/avatar_consultant/avatar_justin.png?raw=true",
             "nameSpeaker": "Justin Roberts",
-            "date": "25.06.2024"
+            "creation_time": "2024-06-25"
         },
         {
             "id": "Article10",
@@ -320,7 +320,7 @@
             "descr": "Terms of your offer, how quickly you can turn things around and who your lenders is advising.",
             "avatar": "https://github.com/SergeySKA10/mortgage/blob/assets/src/assets/img/main_page/avatar_consultant/avatar_justin.png?raw=true",
             "nameSpeaker": "Justin Roberts",
-            "date": "25.08.2024"
+            "creation_time": "2024-08-25"
         }
     ],
     "filters": [

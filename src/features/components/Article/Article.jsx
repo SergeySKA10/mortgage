@@ -28,7 +28,8 @@ const Article = () => {
 
     useEffect(() => {
         if (data) {
-            setArticles(articles => data.map((el, i) => {
+            const sortData = sortByDate(data);
+            setArticles(articles => sortData.map((el, i) => {
                 // делаем ограничение до 3-х блоков
                 if (i < 3) {
                     // созаем переменную для обозначения большого блока и передачи в props
@@ -52,14 +53,40 @@ const Article = () => {
         }
     }, [data, activeClazz]);
 
-    // функция сортировки по дате:
-    // const sortByDate = (data) => {
-    //     const result = [];
+    // функции для сортировки блоков article по дате:
+    const sortByDate = (data) => {
+        // функция разделения массивов
+        function mergeSort(data) {
+            if (data.length < 2) {
+                return data;
+            } else {
+                const middle = Math.floor(data.length / 2);
+                const left = data.slice(0, middle);
+                const right = data.slice(middle, data.length);
+                
+                return merge( mergeSort(left), mergeSort(right) );
+            }
+        }
 
-    //     for (let i = 0; i < data.length; i++) {
-            
-    //     }
-    // }
+        // функция по сравнению и формированию массива
+        function merge(left, right) {
+            const res = [];
+            let i = 0;
+            let j = 0;
+
+            while (i < left.length && j < right.length) {
+                if (Date.parse(left[i].creation_time) > Date.parse(right[j].creation_time)) {
+                    res.push(left[i++]);
+                } else {
+                    res.push(right[j++]);
+                }
+            }
+
+            return res.concat(left.slice(i), right.slice(j))
+        }
+
+        return mergeSort(data);
+    }
 
     
     // создаем блок article для Main Page
