@@ -3,7 +3,7 @@ import { queryClient } from "../api/query-client";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { lazy, Suspense } from "react";
 
-import Spinner from '../components/Spinner/Spinner';
+import Spinner from '../components/ui/Spinner/Spinner';
 import PageLayout from "../pages/PageLayout";
 
 const MainPage = lazy(() => import("../pages/MainPage"));

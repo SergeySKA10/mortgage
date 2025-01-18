@@ -1,6 +1,6 @@
-import SliderStory from "../SliderStory/SliderStory";
+import SliderStory from "../ui/SliderStory/SliderStory";
 import VideoBlock from "../VideoBlock/VideoBlock";
-import PopUpWindow from "../PopUpWindow/PopUpWindow";
+import PopUpWindow from "../ui/PopUpWindow/PopUpWindow";
 
 import './StoryBlock.scss';
 import './StoryBlockMedia.scss';

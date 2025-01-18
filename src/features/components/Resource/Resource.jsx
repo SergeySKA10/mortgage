@@ -1,5 +1,6 @@
-import { ButtonDownLoad, ButtonWatch } from '../Buttons/Buttons';
-import {Line} from '../Line/Line';
+import { ButtonDownLoad } from '../ui/Buttons/ButtonDownload';
+import { ButtonWatch } from '../ui/Buttons/ButtonWatch';
+import {Line} from '../ui/Line/Line';
 
 import './Resource.scss';
 import coverBook from '../../../assets/img/book/book_cover.png';

@@ -1,28 +1,34 @@
-@import '../../../style/variables/variables.scss';
+@import '../../../../style/variables/variables.scss';
 
 .story__slider {
     display: flex;
     width: 452px;
     gap: 29px;
     margin-right: 48px;
-    &_wrapper {
-        height: 680px;
-        overflow: hidden;
-        width: 396px;
-    }
     &_inner {
+        height: 700px;
+        width: 396px;
+        overflow: hidden;
+    }
+    &_wrapper {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         gap: 22px;
-        width: 380px;
+        width: 396px;
         transition: all 0.5s;
+        overflow-y: scroll;
+        scroll-behavior: smooth;
+        height: 700px;
+        &::-webkit-scrollbar {
+            width: 0;
+        }
     }
     &_slide {
+        width: 380px;
         border: 1px solid rgba(0, 0, 0, 0.1);
         border-radius: 4px;
         padding: 28px 30px 44px 40px;
-        // margin-bottom: 22px;
         cursor: pointer;
     }
     &_counter {

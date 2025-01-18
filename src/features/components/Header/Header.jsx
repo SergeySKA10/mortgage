@@ -1,5 +1,5 @@
-import Burger from "../Burger/Burger";
-import Menu from "../Menu/Menu";
+import Burger from "../ui/Burger/Burger";
+import Menu from "../ui/Menu/Menu";
 
 import './Header.scss';
 import './HeaderMedia.scss';

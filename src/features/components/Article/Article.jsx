@@ -1,12 +1,11 @@
 import { useQuery } from '@tanstack/react-query';
 import {useHttp} from '../../../hooks/http.hook';
-import { NavLink } from 'react-router-dom';
 
 import { useState, useEffect } from 'react';
 
-import Spinner from '../Spinner/Spinner';
-import ErrorMessage from '../ErrorMessage/ErrorMessage';
-import {Line} from '../Line/Line';
+import Spinner from '../ui/Spinner/Spinner';
+import ErrorMessage from '../ui/ErrorMessage/ErrorMessage';
+import ArticleCard from '../ui/ArticleCard/ArticleCard';
 
 import './Article.scss';
 
@@ -37,7 +36,7 @@ const Article = () => {
                     // задаем класс активости
                     const active = i === activeClazz ? 'article-active' : '';
                     return (
-                        <ViewBlock
+                        <ArticleCard
                             key={el.id}
                             data={el}
                             index={i}
@@ -98,40 +97,6 @@ const Article = () => {
         <div className="article__education_wrapper">
             {articleBlock}
         </div>
-    )
-}
-
-const ViewBlock = ({data, size, active, index, onChangeActive}) => {
-    const {link, subheader, header, descr, avatar, nameSpeaker} = data;
-
-    // стили для большего активного блока
-    const style = size && active ? {background: "#278FB4"} : null;
-
-    return (
-        <NavLink 
-            to={link} 
-            className={`article__block ${active}`} 
-            data-size={size} 
-            data-index={index}
-            style={style}
-            onClick={(e) => onChangeActive(e.target)}
-            >
-            <div className="article__logo roboto-bold">{subheader}</div>
-            <h4 className="header__h4 roboto-bold">{header}</h4>
-            <div className="article__descr roboto-regular">{descr}</div>
-            <div className="article__education__line">
-                <Line/>
-            </div>
-            <div className="article__by">
-                <div className="article__by_photo">
-                    <img src={avatar} alt="photo"/>
-                </div>
-                <div className="article__by_name roboto-regular">
-                    by
-                    <div className="roboto-bold">{nameSpeaker}</div>
-                </div>
-            </div>
-        </NavLink>
     )
 }
 

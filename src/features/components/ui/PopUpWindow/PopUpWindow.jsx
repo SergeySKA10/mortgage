@@ -2,10 +2,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 
 import { showWindow, windowActive } from './popUpWindowSlice';
-import { Button } from '../Buttons/Buttons';
+import { Button } from '../Buttons/Button';
 
 import './PopUpWindow.scss';
-import quote from '../../../assets/icons/main_page/quote/left-quote.svg';
+import quote from '../../../../assets/icons/main_page/quote/left-quote.svg';
 
 const PopUpWindow = () => {
     const dispatch = useDispatch();

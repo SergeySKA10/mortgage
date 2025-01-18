@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import { useHttp } from '../../../hooks/http.hook';
+import { useHttp } from '../../../../hooks/http.hook';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
@@ -10,12 +10,12 @@ import { Link } from 'react-scroll';
 
 import Spinner from '../Spinner/Spinner';
 import ErrorMessage from '../ErrorMessage/ErrorMessage';
-import { Button } from '../Buttons/Buttons';
+import { Button } from '../Buttons/Button';
 import { Line } from '../Line/Line';
 
 import './Menu.scss';
 import './MenuMedia.scss';
-import logo from '../../../assets/icons/main_page/logo/NAF_Logo.svg';
+import logo from '../../../../assets/icons/main_page/logo/NAF_Logo.svg';
 
 const Menu = () => {
     const dispatch = useDispatch();

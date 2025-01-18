@@ -1,5 +1,5 @@
 import Rating from '../Rating/Rating';
-import SliderReviews from '../SliderReviews/SliderReviews';
+import SliderReviews from '../ui/SliderReviews/SliderReviews';
 
 import './CustomersBlock.scss';
 import './CustomersBlockMedia.scss';

@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux';
 import { useEffect, useState, useRef } from 'react';
 
-import { ButtonArrow } from '../Buttons/Buttons';
+import { ButtonArrow } from '../Buttons/ButtonArrows';
 import {Line} from '../Line/Line';
 
 import './SliderStory.scss';
@@ -17,15 +17,6 @@ const SliderStory = () => {
     // создаем state для индекса слайдера
     const [indexSlide, setIndexSlide] = useState(2);
 
-    // создаем state для расчета offset
-    const [offset, setOffset] = useState(234);
-
-    // создаем state для постоянного шага offset
-    const [width, setWidth] = useState(234);
-
-    // создаем state для max значения offset
-    const [maxOffset, setMaxOffset] = useState((slides.length - 1) * width);
-
     // создаем state для получения элемента обертки слайдов
     const [wrapperSlides, setWrapperSlides] = useState(null);
 
@@ -36,20 +27,16 @@ const SliderStory = () => {
     const [slidesBlock, setSlidesBlock] = useState([]);
 
     // функция для отмены стандартного поведения браузера
-    const noScrollWindow = (e) => e.preventDefault();
+    const onScrollWindow = (e) => e.preventDefault();
 
     // эффект отмены стандартного поведения браузера при скролле слайдера
     useEffect(() => {
-        refForScroll.current.addEventListener('wheel', noScrollWindow);
-
-        return () => {
-            refForScroll.current.removeEventListener('wheel', noScrollWindow);
-        }
+        refForScroll.current.addEventListener('mouseenter', onScrollWindow);
     }, [refForScroll])
 
     // получаем элемент обертки слайдов
     useEffect(() => {
-        setWrapperSlides(document.querySelector('.story__slider_inner'));
+        setWrapperSlides(document.querySelector('.story__slider_wrapper'));
     }, [])
 
     // формируем slidesBlock
@@ -69,7 +56,7 @@ const SliderStory = () => {
 
     // формируем dots
     useEffect(() => {
-        if (slides) {
+        if (slides && wrapperSlides) {
             setDots(dots => slides.map((el, i) => {
                     const activeClass = i === indexSlide - 1 ? 'dot-active' : '';
                     return (
@@ -77,70 +64,49 @@ const SliderStory = () => {
                             key={i} 
                             data={i}
                             activeClass={activeClass}
-                            setIndexSlide={setIndexSlide}
-                            setOffset={setOffset}
-                            width={width}
+                            wrapper={wrapperSlides}
                         />
                     )
                 })
             )
         }
-    }, [slides, indexSlide]);
+    }, [slides, wrapperSlides, indexSlide]);
 
-    // функция по изменению offset в зависимости от события scroll на обертке слайдеров
-    const onScrollChangeOffset = (target) => {
-        if (target > 0) {
-            if (offset === maxOffset) {
-                setOffset(0);
-            }  else {
-                setOffset(offset => offset + width);
-            }
+    // функция перелистывания слайдов
+    const onScrollChange = (target) => {
+        console.log(wrapperSlides.scrollTop);
+        let scroll = wrapperSlides.scrollTop;
 
-            if (indexSlide === maxOffset / width + 1) {
-                setIndexSlide(1);
-            } else {
-                setIndexSlide(indexSlide => indexSlide + 1);
-            }
-        }
-
-        if (target < 0) {
-            if (offset === 0) {
-                setOffset(maxOffset);
-            } else {
-                setOffset(offset => offset - width);
-            }
-
-            if (indexSlide === 1) {
-                setIndexSlide(maxOffset / width + 1);
-            } else {
-                setIndexSlide(indexSlide => indexSlide - 1);
-            }
+        if (scroll === 0) {
+            setIndexSlide(1);
+            wrapperSlides.style.transform = `translateY(234px)`;
+        } else if (scroll > 0 && scroll <= 170) {
+            setIndexSlide(2);
+            wrapperSlides.style.transform = `translateY(0px)`;
+        } else if (scroll > 170 && scroll <= 340) {
+            setIndexSlide(3);
+        } else if (scroll > 340 && scroll <= 510) {
+            setIndexSlide(4);
+        } else if (scroll > 510 && scroll <= 680) {
+            setIndexSlide(5);
+            wrapperSlides.style.transform = `translateY(0px)`;
+         } else if (scroll > 680) {
+            setIndexSlide(6);
+            wrapperSlides.style.transform = `translateY(-234px)`
         }
     }
-
-    // эффект показа нового слайда
-    useEffect(() => {
-        if (wrapperSlides) {
-            if (offset === 0) {
-                wrapperSlides.style.transform = `translateY(234px)`;
-            } else {
-                wrapperSlides.style.transform = `translateY(-${offset - 234}px)`;
-            }
-        }
-    }, [offset])
-
 
     return (
         <div className="story__slider">
             <div className="dots">
                 {dots}
             </div>
-            <div className="story__slider_wrapper">
-                <div ref={refForScroll} className="story__slider_inner"
-                    onWheel={(e) => onScrollChangeOffset(e.deltaY)}>
+            <div className="story__slider_inner">
+                <div ref={refForScroll} className="story__slider_wrapper" onScroll={onScrollChange}>
                     {slidesBlock}
                 </div>
             </div>
+            
 
             <div className="story__slider_arrows">
                 <ButtonArrow type='left'/>
@@ -164,16 +130,21 @@ const Slide = ({data, activeClass, current}) => {
     )
 }
 
-const Dot = ({data, activeClass, setIndexSlide, setOffset, width}) => {
+const Dot = ({data, activeClass, wrapper}) => {
     // функция установки offset и indexSlide при клике на dots
-    const initialOffset = (target) => {
-        const numSlide = +target.getAttribute('data-slide-to');
-        setOffset(width * numSlide);
-        setIndexSlide(numSlide + 1);
+    const initialScroll = (e) => {
+        const numSlide = +e.target.getAttribute('data-slide-to');
+        let top = 170 * numSlide;
+        console.log(top);
+        wrapper.scrollTo({
+            top: top,
+            left: 0,
+            behavior: 'smooth'
+        })
     }
 
     return (
-        <div className={"dots-dot " + activeClass} data-slide-to={data} onClick={(e) => initialOffset(e.target)}></div>
+        <div className={"dots-dot " + activeClass} data-slide-to={data} onClick={initialScroll}></div>
     )
 }
 

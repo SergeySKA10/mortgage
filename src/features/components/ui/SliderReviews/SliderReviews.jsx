@@ -1,15 +1,15 @@
 import { useQuery } from '@tanstack/react-query';
-import {useHttp} from '../../../hooks/http.hook';
+import {useHttp} from '../../../../hooks/http.hook';
 
 import { useState, useEffect } from 'react';
 
 import Spinner from '../Spinner/Spinner';
 import ErrorMessage from '../ErrorMessage/ErrorMessage';
-import { ButtonArrow } from '../Buttons/Buttons';
+import { ButtonArrow } from '../Buttons/ButtonArrows';
 import {Line} from '../Line/Line';
 
 import './SliderReviews.scss';
-import rightQuote from '../../../assets/icons/main_page/quote/right-quote.svg';
+import rightQuote from '../../../../assets/icons/main_page/quote/right-quote.svg';
 
 const SliderReviews = () => {
     const request = useHttp();

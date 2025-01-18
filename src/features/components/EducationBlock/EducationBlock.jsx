@@ -1,4 +1,4 @@
-import Filters from '../Filters/Filters';
+import Filters from '../ui/Filters/Filters';
 import Article from '../Article/Article';
 import Resource from '../Resource/Resource';
 

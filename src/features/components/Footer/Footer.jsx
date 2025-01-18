@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom';
-import { Button } from '../Buttons/Buttons';
+
+import { Button } from '../ui/Buttons/Button';
+import { Line } from '../ui/Line/Line';
 
 import './Footer.scss';
 import './FooterMedia.scss';
@@ -18,7 +20,7 @@ const Footer = () => {
             </header>
 
             <div className="footer__line">
-                <hr className="line_dark"/>
+                <Line/>
             </div>
         
             <div className="footer__info">
@@ -59,7 +61,7 @@ const Footer = () => {
 
             </div>
 
-        <hr className="line_dark"/>
+        <Line/>
         
         <div className="footer__descr roboto-light">
             If you received a letter from New American Funding and would like to be removed from our mailing list, please call 800-450-2010. © 2018 Broker Solutions, Inc. 

@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import {useHttp} from '../../../hooks/http.hook';
+import {useHttp} from '../../../../hooks/http.hook';
 
 import { NavLink } from 'react-router-dom';
 import Spinner from '../Spinner/Spinner';

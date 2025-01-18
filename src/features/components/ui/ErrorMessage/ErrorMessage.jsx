@@ -1,4 +1,4 @@
-import errorIcon from '../../../assets/icons/error/errorMessage.png';
+import errorIcon from '../../../../assets/icons/error/errorMessage.png';
 
 const ErrorMessage = () => {
     return (

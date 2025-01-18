@@ -1,5 +1,6 @@
-import { Button, ButtonPlay } from '../Buttons/Buttons';
-import {Line} from '../Line/Line';
+import { Button } from '../ui/Buttons/Button';
+import { ButtonPlay } from '../ui/Buttons/ButtonPlay';
+import {Line} from '../ui/Line/Line';
 
 import './PromoMain.scss';
 import './PromoMainMedia.scss';
