@@ -51,16 +51,19 @@ const Menu = () => {
         }
     }
 
-    // запрос в бд для получения ссылок на секции главной страницы
-    const {data: sectionLinks, isError: errorSectionLinks, isPending: loadingSectionLinks} = useQuery({
-        queryKey: ['linksOnSection'], 
-        queryFn: () => request({url: 'http://localhost:3001/linksOnSection'})
-    });
-    // запрос в бд для получения ссылок на страницы
-    const {data: pageLinks, isError: errorPageLinks, isPending: loadingPageLinks} = useQuery({
-        queryKey: ['linksOnPage'],
-        queryFn: () => request({url: 'http://localhost:3001/linksOnPages'})
-    });
+    // получение ссылок на секции из state
+    const sectionLinks = useSelector(state => state.links.linksOnSection);
+    // const {data: sectionLinks, isError: errorSectionLinks, isPending: loadingSectionLinks} = useQuery({
+    //     queryKey: ['linksOnSection'], 
+    //     queryFn: () => request({url: 'http://localhost:3001/linksOnSection'})
+    // });
+
+    // получение ссылок на страницы из state
+    const pageLinks = useSelector(state => state.links.linksOnPages);
+    // const {data: pageLinks, isError: errorPageLinks, isPending: loadingPageLinks} = useQuery({
+    //     queryKey: ['linksOnPage'],
+    //     queryFn: () => request({url: 'http://localhost:3001/linksOnPages'})
+    // });
 
     // создаем ссылки на блоки страницы 
     // useEffect(() => {
@@ -154,12 +157,10 @@ const Menu = () => {
     // }, [links])
 
     // создаем переменную для отображения статуса загрузки, ошибки или полученных данных
-    const content = loadingSectionLinks || loadingPageLinks ? <Spinner/>
-                    : errorSectionLinks || errorPageLinks ? <ErrorMessage/>
-                    :   <ul className="menu__block_list">
-                            {linksOnSection}
-                            {linksOnPages}
-                        </ul>;
+    const content = <ul className="menu__block_list">
+                        {linksOnSection}
+                        {linksOnPages}
+                    </ul>;
 
     return (
         <div className={`menu ${classOpenMenu}`}

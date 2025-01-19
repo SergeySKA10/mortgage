@@ -1,0 +1,22 @@
+{
+    "video": [
+        {
+            "id": "video1",
+            "link": "#",
+            "descr": "The difference between «fixed rate» and «adjustable»",
+            "time": "0:29"
+        },
+        {
+            "id": "video2",
+            "link": "#",
+            "descr": "What are points and credits?",
+            "time": "0:27"
+        },
+        {
+            "id": "video3",
+            "link": "#",
+            "descr": "What are points and credits?",
+            "time": "0:27"
+        }
+    ]
+}

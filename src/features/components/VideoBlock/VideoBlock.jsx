@@ -12,7 +12,7 @@ const VideoBlock = () => {
     // получаем видео из store для формирования блока с видео
     const {data, isError, isPending} = useQuery({
         queryKey: ['videoMain'],
-        queryFn: () => request({url: 'http://localhost:3001/videoBlocks'})
+        queryFn: () => request({url: 'http://localhost:3002/video'})
     })
 
     // формируем блок с видео

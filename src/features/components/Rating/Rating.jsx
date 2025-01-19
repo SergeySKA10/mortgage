@@ -12,7 +12,7 @@ const Rating = () => {
     // получаем рейтинги для отображения в Main Page
     const {data, isError, isPending} = useQuery({
         queryKey: ['rating'],
-        queryFn: () => request({url: 'http://localhost:3001/ratings'})
+        queryFn: () => request({url: 'http://localhost:3003/ratings'})
     }) 
 
     // формируем блок с рейтингами

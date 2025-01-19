@@ -14,7 +14,7 @@ const Article = () => {
     // получаем из store массив для создания articleBlocks
     const {data, isError, isPending} = useQuery({
         queryKey: ['articleMain'],
-        queryFn: () => request({url:'http://localhost:3001/articles'})
+        queryFn: () => request({url:'http://localhost:3006/articles'})
     });
 
     const [articles, setArticles] = useState([]);

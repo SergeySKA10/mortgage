@@ -17,7 +17,7 @@ const SliderReviews = () => {
     // получаем слайды
     const {data, isError, isPending} = useQuery({
         queryKey: ['slidesReviews'],
-        queryFn: () => request({url: 'http://localhost:3001/slidesReviews'})
+        queryFn: () => request({url: 'http://localhost:3004/slidesReviews'})
     });
 
     // создаем state для индекса слайдера
