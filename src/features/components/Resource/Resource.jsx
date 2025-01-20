@@ -3,8 +3,6 @@ import { ButtonWatch } from '../ui/Buttons/ButtonWatch';
 import {Line} from '../ui/Line/Line';
 
 import './Resource.scss';
-import coverBook from '../../../assets/img/book/book_cover.png';
-import book from '../../../assets/img/book/book.png';
 
 const Resource = () => {
     return (
@@ -14,7 +12,7 @@ const Resource = () => {
                 <div className="article__resources_block">
                     <div className="article__resources_descr">
                         <div className="article__resources_descr-img">
-                            <img src={book} alt="book"/>
+                            <img src='https://github.com/SergeySKA10/mortgage/blob/assets/src/assets/img/book/book.png?raw=true' alt="book"/>
                         </div>
                         <div className="article__resources_descr-book">
                             <div className="article__logo roboto-bold">Resources</div>
@@ -32,7 +30,7 @@ const Resource = () => {
                 <div className="article__resources_block">
                     <div className="article__resources_descr">
                         <div className="article__resources_descr-img">
-                            <img src={coverBook} alt="book"/>
+                            <img src='https://github.com/SergeySKA10/mortgage/blob/assets/src/assets/img/book/book_cover.png?raw=true' alt="book"/>
                         </div>
                         <div className="article__resources_descr-book">
                             <div className="article__logo roboto-bold">Resources</div>

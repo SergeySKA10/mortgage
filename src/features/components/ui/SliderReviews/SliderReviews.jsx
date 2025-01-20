@@ -9,7 +9,6 @@ import { ButtonArrow } from '../Buttons/ButtonArrows';
 import {Line} from '../Line/Line';
 
 import './SliderReviews.scss';
-import rightQuote from '../../../../assets/icons/main_page/quote/right-quote.svg';
 
 const SliderReviews = () => {
     const request = useHttp();
@@ -179,7 +178,7 @@ const SlideReviews = ({data}) => {
             </div>
             <div className="customers__slide-descr">
                 <div className="customers__slide-quote">
-                    <img src={rightQuote} alt="quote"/>
+                    <img src='https://raw.githubusercontent.com/SergeySKA10/mortgage/18d084c5ee990382bec9cf9c3f8875f856f339e0/src/assets/icons/main_page/quote/right-quote.svg' alt="quote"/>
                 </div>
                 <p className="customers__slide-text roboto-regular">
                     {review}

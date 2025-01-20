@@ -2,7 +2,7 @@ import { ButtonPlay } from '../Buttons/ButtonPlay';
 
 import './VideoCard.scss';
 
-const VideoCard = ({data, size}) => {
+const VideoCard = ({data, size = ''}) => {
     const {descr, time, link} = data;
     return (
         <div className="story__presentation_elem" data-size={size}>

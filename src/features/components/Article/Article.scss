@@ -12,58 +12,5 @@
     }
 }
 
-// #article-big_left {
-[data-size = "large"] {
-    padding-right: 178px;
-    grid-column-start: 1;
-    grid-column-end: 3;
-    background: url('../../../assets/img/main_page/education/living_room.png') center/cover no-repeat;
-    .line_dark {
-        background-color: rgb(255, 255, 255, 0.2);
-        width: 100%;
-    }
-    .article__logo {
-        color: rgb(255, 255, 255, 0.5);
-    }
-    .article__descr {
-        color: rgb(255, 255, 255, 0.5);
-        padding-right: 214px;
-    }
-    .article__by_name {
-        color: rgb(255, 255, 255, 0.5);
-        div {
-            color: rgb(255, 255, 255);
-        }
-    }
-    h4 {
-        color: rgb(255, 255, 255);
-    }
-}
 
-// #article-big_right
-[data-size = "large-right"] {
-    padding-right: 178px;
-    grid-column-start: 2;
-    grid-column-end: 4;
-    background: url('../../../assets/img/main_page/education/living_room.png') center/cover no-repeat;
-    .line_dark {
-        background-color: rgb(255, 255, 255, 0.2);
-    }
-    .article__logo {
-        color: rgb(255, 255, 255, 0.5);
-    }
-    .article__descr {
-        color: rgb(255, 255, 255, 0.5);
-        padding-right: 214px;
-    }
-    .article__by_name {
-        color: rgb(255, 255, 255, 0.5);
-        div {
-            color: rgb(255, 255, 255);
-        }
-    }
-    h4 {
-        color: rgb(255, 255, 255);
-    }
-}
 

@@ -1,0 +1,16 @@
+import './PromoBlog.scss';
+import './PromoBlogMedia.scss';
+
+import logo from '../../../assets/icons/main_page/logo/NAF_Logo.svg';
+
+const PromoBlog = () => {
+    return (
+        <section class="promo_blog">
+            <header class="promo_blog__header">
+                <img src={logo} alt="logo"/>
+            </header>
+        </section> 
+    )
+}
+
+export default PromoBlog;

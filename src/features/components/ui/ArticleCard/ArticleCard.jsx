@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import {Line} from '../Line/Line';
 import './ArticleCard.scss';
 
-const ArticleCard = ({data, size, active, index, onChangeActive}) => {
+const ArticleCard = ({data, size, active, index, onChangeActive, order = null}) => {
     const {link, subheader, header, descr, avatar, nameSpeaker} = data;
 
     // стили для большего активного блока
@@ -15,7 +15,7 @@ const ArticleCard = ({data, size, active, index, onChangeActive}) => {
             className={`article__block ${active}`} 
             data-size={size} 
             data-index={index}
-            style={style}
+            style={{...style, ...order}}
             onClick={(e) => onChangeActive(e.target)}
             >
             <div className="article__logo roboto-bold">{subheader}</div>

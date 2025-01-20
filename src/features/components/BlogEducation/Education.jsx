@@ -7,19 +7,21 @@ import Spinner from '../ui/Spinner/Spinner';
 import ErrorMessage from '../ui/ErrorMessage/ErrorMessage';
 import ArticleCard from '../ui/ArticleCard/ArticleCard';
 
-import './Article.scss';
+import './Education.scss';
+import './EducationMedia.scss';
 
-const Article = () => {
+const Education = () => {
     const request = useHttp();
-    // получаем из store массив для создания articleBlocks
-    const {data, isError, isPending} = useQuery({
+
+    // получаем данные из бд
+    const {data, isPending, isError} = useQuery({
         queryKey: ['article'],
-        queryFn: () => request({url:'http://localhost:3006/articles'})
+        queryFn: () => request({url:'http://localhost:3006/articles'}) 
     });
 
     const [articles, setArticles] = useState([]);
 
-    const [activeClazz, setActiveClazz] = useState(2);
+    const [activeClazz, setActiveClazz] = useState(1);
 
     const onChangeActive = (target) => {
         setActiveClazz(+target.getAttribute('data-index'));
@@ -29,30 +31,42 @@ const Article = () => {
         if (data) {
             const sortData = sortByDate(data);
             setArticles(articles => sortData.map((el, i) => {
-                // делаем ограничение до 3-х блоков
-                if (i < 3) {
-                    // созаем переменную для обозначения большого блока и передачи в props
-                    const large = i === 0 ? 'large' : '';
-                    // задаем класс активости
-                    const active = i === activeClazz ? 'article-active' : '';
-                    return (
-                        <ArticleCard
-                            key={el.id}
-                            data={el}
-                            index={i}
-                            size={large}
-                            active={active}
-                            onChangeActive={onChangeActive}
-                        />
-                    )
-                } else {
-                    return null;
+                const large = i === 0 ? 'large' : i === 6 ?  'large-right' : '';
+                let order;
+
+                switch (i) {
+                    case 1:
+                        order = {order: "3"};
+                        break;
+                    case 2: 
+                        order = {order: "4"};
+                        break;
+                    case 3:
+                        order = {order: "2"};
+                        break;
+                    default:
+                        order = {order: `${i+ 1}`}
                 }
+
+                // задаем класс активости
+                const active = i === activeClazz ? 'article-active' : '';
+
+                return (
+                    <ArticleCard
+                        key={el.id}
+                        data={el}
+                        index={i}
+                        size={large}
+                        active={active}
+                        onChangeActive={onChangeActive}
+                        order={order}
+                    />
+                )
             }));
         }
     }, [data, activeClazz]);
 
-    // функции для сортировки блоков article по дате:
+    // функции для сортировки по дате:
     const sortByDate = (data) => {
         // функция разделения массивов
         function mergeSort(data) {
@@ -94,10 +108,15 @@ const Article = () => {
                         : articles
 
     return (
-        <div className="article__education_wrapper">
-            {articleBlock}
-        </div>
+        <section class="blog_education">
+            <div class="container">
+                <h2 class="header__h2-left roboto-bold">Education</h2>
+                <div class="blog_education__wrapper">
+                    {articleBlock}
+                </div>
+            </div>
+        </section>
     )
 }
 
-export default Article;
+export default Education;

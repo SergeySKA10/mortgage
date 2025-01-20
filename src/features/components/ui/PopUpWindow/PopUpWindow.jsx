@@ -5,7 +5,6 @@ import { showWindow, windowActive } from './popUpWindowSlice';
 import { Button } from '../Buttons/Button';
 
 import './PopUpWindow.scss';
-import quote from '../../../../assets/icons/main_page/quote/left-quote.svg';
 
 const PopUpWindow = () => {
     const dispatch = useDispatch();
@@ -35,7 +34,7 @@ const PopUpWindow = () => {
         <div className={clazz}>
             <div className="story__window_wrapper">
                 <div className="story__window_quote">
-                    <img src={quote} alt="quote"/>
+                    <img src='https://raw.githubusercontent.com/SergeySKA10/mortgage/18d084c5ee990382bec9cf9c3f8875f856f339e0/src/assets/icons/main_page/quote/left-quote.svg' alt="quote"/>
                 </div>
                 <p className="story__window_descr roboto-regular">
                     A mortgage isn't just about a rate. It's about building a strategy to help you leverage your wealth.
