@@ -8,7 +8,7 @@ const BlogPage = () => {
         <>
             <PromoBlog/>
             <Steps/>
-            {/* <Books/> */}
+            <Books/>
             <Education/>
         </>
     )

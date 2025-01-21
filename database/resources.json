@@ -1,0 +1,24 @@
+{
+    "resources": {
+        "books": [
+            {
+                "id": "book/things",
+                "name": "9 Things You Must Know About Buying Your First Home",
+                "picture": "https://github.com/SergeySKA10/mortgage/blob/assets/src/assets/img/book/book.png?raw=true",
+                "category": "Resources",
+                "type": "download",
+                "link": "/database/mortgage.pdf"
+            }
+        ],
+        "webinar": [
+            {
+                "id": "webinar/one",
+                "name": "Webinar name",
+                "picture": "https://github.com/SergeySKA10/mortgage/blob/assets/src/assets/img/book/book_cover.png?raw=true",
+                "category": "Resources",
+                "type": "video",
+                "link": "#"
+            }
+        ] 
+    }
+}

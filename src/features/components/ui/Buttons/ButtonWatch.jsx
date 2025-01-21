@@ -1,12 +1,17 @@
+import { Link } from 'react-router-dom';
+
 import './Buttons.scss';
 import './ButtonMedia.scss';
 
-export const ButtonWatch = () => {
+export const ButtonWatch = ({link}) => {
     return (
         <button className="btn btn__watch btn__animation">
-            <div className="btn btn__watch-eyelid">
-                <div className="btn btn__watch-eys"></div>
-            </div>
+            <Link to={link} style={{textDecoration: "none"}}>
+                <div className="btn btn__watch-eyelid">
+                    <div className="btn btn__watch-eys"></div>
+                </div>
+            </Link>
+            
         </button>
     )
 }

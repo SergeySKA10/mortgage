@@ -1,3 +1,10 @@
+import { useQuery } from '@tanstack/react-query';
+import { useHttp } from '../../../hooks/http.hook';
+
+import Spinner from '../ui/Spinner/Spinner';
+import ErrorMessage from '../ui/ErrorMessage/ErrorMessage';
+import BookCard from '../ui/BookCard/BookCard';
+
 import { ButtonDownLoad } from '../ui/Buttons/ButtonDownload';
 import { ButtonWatch } from '../ui/Buttons/ButtonWatch';
 import {Line} from '../ui/Line/Line';
@@ -5,6 +12,15 @@ import {Line} from '../ui/Line/Line';
 import './Resource.scss';
 
 const Resource = () => {
+    const  request = useHttp();
+
+    const {data, isPending, isError} = useQuery({
+        queryKey: ['books'],
+        queryFn: () => request({url: 'http://localhost:3007/resources'})
+    });
+
+    // const books = 
+
     return (
         <div className="article__resources">
             <h2 className="header__h2-left roboto-bold">Resources</h2>
