@@ -11,7 +11,7 @@ const VideoBlock = () => {
     const request = useHttp();
     // получаем видео из store для формирования блока с видео
     const {data, isError, isPending} = useQuery({
-        queryKey: ['videoMain'],
+        queryKey: ['video'],
         queryFn: () => request({url: 'http://localhost:3002/video'})
     })
 
