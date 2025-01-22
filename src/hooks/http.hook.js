@@ -1,6 +1,11 @@
+import { useState } from "react";
+
 export const useHttp = () => {
+    const [process, setProcess] = useState('waiting');
+
     const request = async (meta) => {
         const {url, method = 'GET', body = null, headers = {'Content-Type': 'application/json'}, format = 'json'} = meta;
+        setProcess('render');
 
         try {
             const response = await fetch(url, {method, body, headers});
@@ -30,5 +35,5 @@ export const useHttp = () => {
         }
     };
 
-    return request;
+    return {request, process}
 }

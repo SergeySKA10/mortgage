@@ -2,7 +2,7 @@ import { useHttp } from "../hooks/http.hook";
 import { useQuery } from "@tanstack/react-query";
 
 const useGetQueryServices = () => {
-    const request = useHttp();
+    const {request, process} = useHttp();
 
     // получение mentors из бд
     const getMentors = useQuery({
@@ -47,6 +47,7 @@ const useGetQueryServices = () => {
     });
 
     return {
+        process,
         getMentors,
         getArticles,
         getFilters,
