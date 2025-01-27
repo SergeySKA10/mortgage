@@ -5,7 +5,7 @@ import './Buttons.scss';
 import './ButtonMedia.scss';
 
 export const ButtonDownLoad = ({path, name}) => {
-    const request = useHttp();
+    const {request} = useHttp();
 
     // создаем state для отслеживания нажатия на кнопку
     const [pressBtn, setPressBtn] = useState(false);
@@ -49,8 +49,9 @@ export const ButtonDownLoad = ({path, name}) => {
             link.remove();
             URL.revokeObjectURL(link.href);
             setPressBtn(pressBtn => !pressBtn);
-        } catch {
+        } catch(e) {
             setErrorMessage(true);
+            console.log(e);
         }
         
     }

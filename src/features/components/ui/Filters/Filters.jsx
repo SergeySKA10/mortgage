@@ -1,35 +1,36 @@
-import { useQuery } from '@tanstack/react-query';
-import {useHttp} from '../../../../hooks/http.hook';
+import useGetData from '../../../../services/useGetData';
+import setContent from '../../../../utils/setContent';
+
+import { useState, useEffect } from 'react';
 
 import { NavLink } from 'react-router-dom';
-import Spinner from '../Spinner/Spinner';
-import ErrorMessage from '../ErrorMessage/ErrorMessage';
 
 import './Filters.scss';
 
 const Filters = () => {
-    const request = useHttp();
-    // получаем фильтры из store
-    const {data, isError, isPending} = useQuery({
-        queryKey: ['filters'],
-        queryFn: () => request({url: 'http://localhost:3005/filters'})
-    });
+     // делаем запрос для получения данных
+     const {process, getData: {data, isError, isPending}} = useGetData('filters', 5);
+
+     // стейт для фильтров
+     const [filters, setFilters] = useState([]);
 
     // создаем блок с фильтрами
-    const filterBlock = isError ? <ErrorMessage/>
-                    : isPending ? <Spinner/>
-                    : data.map((el, i) => {
-                        // добавляем класс активности ???? (пока что статичный)
-                        const activeClass = i === 0 ? 'filter-active' : '';
+    useEffect(() => {
+        if (data) {
+            setFilters(filters => data.map((el, i) => {
+                // добавляем класс активности ???? (пока что статичный)
+                const activeClass = i === 0 ? 'filter-active' : '';
 
-                        return (
-                            <Filter key={el.id} data={el} activeClass={activeClass}/>
-                        )
-                    });
+                return (
+                    <Filter key={el.id} data={el} activeClass={activeClass}/>
+                )
+            }))
+        }
+    }, [data])
 
     return (
         <div className="article__filters">
-            {filterBlock}
+            {setContent({process, isError, isPending, Components: filters})}
         </div>
     )
 }

@@ -1,32 +1,34 @@
-import { useQuery } from '@tanstack/react-query';
-import {useHttp} from '../../../hooks/http.hook';
+import useGetData from '../../../services/useGetData';
+import setContent from '../../../utils/setContent';
 
-import Spinner from '../ui/Spinner/Spinner';
-import ErrorMessage from '../ui/ErrorMessage/ErrorMessage';
+import { useState, useEffect } from 'react';
+
 import RatingCard from '../ui/RatingCard/RatingCard';
 
 import './Rating.scss';
 
 const Rating = () => {
-    const request = useHttp();
-    // получаем рейтинги для отображения в Main Page
-    const {data, isError, isPending} = useQuery({
-        queryKey: ['rating'],
-        queryFn: () => request({url: 'http://localhost:3003/ratings'})
-    }) 
 
-    // формируем блок с рейтингами
-    const ratingBlock = isError ? <ErrorMessage/>
-                    : isPending ? <Spinner/>
-                    : data.map(el => {
-                        return (
-                            <RatingCard key={el.id} data={el}/>
-                        )
-                    });
+    // делаем запрос для получения данных
+    const {process, getData: {data, isError, isPending}} = useGetData('ratings', 3);
+
+    // создаем изначальное состояние для сблоков рейтинга 
+    const [ratings, setRatings] = useState([]);
+
+    // заполняем блоки рейтингов полученными данными
+    useEffect(() => {
+        if (data) {
+            setRatings(ratings => data.map(el => {
+                return (
+                    <RatingCard key={el.id} data={el}/>
+                )
+            }))
+        }
+    }, [data])
 
     return (
         <div className="customers__rating">
-            {ratingBlock}
+            {setContent({process, isError, isPending, Components: ratings})}
         </div>
     )
 }

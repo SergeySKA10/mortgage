@@ -1,23 +1,20 @@
-import { useQuery } from '@tanstack/react-query';
-import {useHttp} from '../../../../hooks/http.hook';
+import useGetData from '../../../../services/useGetData';
+import setContent from '../../../../utils/setContent';
 
 import { useState, useEffect } from 'react';
 
-import Spinner from '../Spinner/Spinner';
-import ErrorMessage from '../ErrorMessage/ErrorMessage';
 import { ButtonArrow } from '../Buttons/ButtonArrows';
 import {Line} from '../Line/Line';
 
 import './SliderReviews.scss';
 
 const SliderReviews = () => {
-    const request = useHttp();
-    
-    // получаем слайды
-    const {data, isError, isPending} = useQuery({
-        queryKey: ['slidesReviews'],
-        queryFn: () => request({url: 'http://localhost:3004/slidesReviews'})
-    });
+
+    // делаем запрос для получения данных
+    const {process, getData: {data, isError, isPending}} = useGetData('slidesReviews', 4);
+
+    // стейт для слайдеров
+    const [slides, setSlides] = useState([]);
 
     // создаем state для индекса слайдера
     const [indexSlide, setIndexSlide] = useState(1);
@@ -37,7 +34,7 @@ const SliderReviews = () => {
     // создаем state для получения элемента обертки слайдов
     const [wrapperSlides, setWrapperSlides] = useState(null);
 
-    // state для получаем 1-ый слайд
+    // state для получения 1-ого слайд
     const [slide, setSlide] = useState(null);
 
     // создаем state для total 
@@ -67,16 +64,20 @@ const SliderReviews = () => {
         setTotal(data?.length < 10 ? `0${data?.length}` : data?.length)
     }, [data]);
 
-    // переменная для рендера состояния запроса данных
-    const slidesBlock = isError ? <ErrorMessage/>
-                    : isPending ? <Spinner/>
-                    : data?.map((el) => {
-                        return (
-                            <SlideReviews key={el.id} data={el}/>
-                        )
-                    });
+    // формирование слайдов
+    useEffect(() => {
+        if (data) {
+            setSlides(slides => data?.map((el) => {
+                return (
+                    <SlideReviews key={el.id} data={el}/>
+                )
+            }));
+        }
+    }, [data, offset]);
 
-    
+    // переменная для рендера состояния запроса данных
+    const slidesBlock = setContent({process, isError, isPending, Components: slides})
+
     // функция переключения слайдера на другой слайд
     const showNewSlide = () => {
         if (wrapperSlides) {

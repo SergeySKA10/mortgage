@@ -1,33 +1,31 @@
-import { useQuery } from '@tanstack/react-query';
-import {useHttp} from '../../../hooks/http.hook';
+import useGetData from '../../../services/useGetData';
+import setContent from '../../../utils/setContent';
 
 import { useState, useEffect } from 'react';
 import { sortByDate } from '../../../utils/sortByDate';
 
-import Spinner from '../ui/Spinner/Spinner';
-import ErrorMessage from '../ui/ErrorMessage/ErrorMessage';
 import ArticleCard from '../ui/ArticleCard/ArticleCard';
 
 import './Article.scss';
 
 const Article = () => {
-    const request = useHttp();
-    // получаем из store массив для создания articleBlocks
-    const {data, isError, isPending} = useQuery({
-        queryKey: ['article'],
-        queryFn: () => request({url:'http://localhost:3006/articles'})
-    });
+    // делаем запрос для получения данных
+    const {process, getData: {data, isError, isPending}} = useGetData('articles', 6);
 
+    // создаем изначальное состояние для статей 
     const [articles, setArticles] = useState([]);
-
+    // задаем изначальный акивный класс
     const [activeClazz, setActiveClazz] = useState(2);
 
+    //функция изменения активного класса
     const onChangeActive = (target) => {
         setActiveClazz(+target.getAttribute('data-index'));
     }
 
+    // добавляем данные в статьи
     useEffect(() => {
         if (data) {
+            // сортируем по дате создания
             const sortData = sortByDate(data);
             setArticles(articles => sortData.map((el, i) => {
                 // делаем ограничение до 3-х блоков
@@ -52,15 +50,10 @@ const Article = () => {
             }));
         }
     }, [data, activeClazz]);
-    
-    // создаем блок article для Main Page
-    const articleBlock = isError ? <ErrorMessage/>
-                        : isPending || articles.length === 0  ? <Spinner/>
-                        : articles
 
     return (
         <div className="article__education_wrapper">
-            {articleBlock}
+            {setContent({process, isError, isPending, Components: articles})}
         </div>
     )
 }

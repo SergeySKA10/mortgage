@@ -7,7 +7,8 @@
                 "picture": "https://github.com/SergeySKA10/mortgage/blob/assets/src/assets/img/book/book.png?raw=true",
                 "category": "Resources",
                 "type": "download",
-                "link": "/database/mortgage.pdf"
+                "link": "/database/mortgage.pdf",
+                "descr": "So you're about to get into the world of homeownership. It's okay...everyone feels lost during this process, but the more preparation you do upfront, the smoother your journey will be."
             }
         ],
         "webinars": [

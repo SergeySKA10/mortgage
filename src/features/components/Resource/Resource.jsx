@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import useGetQueryServices from '../../../services/useGetQueryServices';
+import useGetData from '../../../services/useGetData';
 import setContent from '../../../utils/setContent';
 
 import BookCard from '../ui/BookCard/BookCard';
@@ -10,16 +10,12 @@ const Resource = () => {
     const [books, setBooks] = useState(null);
     const [webinars, setWebinars] = useState(null);
 
-    const {process, getResources: {data, isError, isPending}} = useGetQueryServices();
+    const {process, getData: {data, isError, isPending}} = useGetData('resources', 7);
 
     useEffect(() => {
         if (data) {
-            setBooks(books => data.books.map(el => {
-                return <BookCard data={el}/>
-            }));
-            setWebinars(webinars => data.webinars.map(el => {
-                return <BookCard data={el}/>
-            }))
+            setBooks(<BookCard key={data.books[0].id} data={data.books[0]}/>);
+            setWebinars(<BookCard key={data.webinars[0].id} data={data.webinars[0]}/>)
         }
         
     }, [data])
@@ -33,7 +29,7 @@ const Resource = () => {
         <div className="article__resources">
             <h2 className="header__h2-left roboto-bold">Resources</h2>
             <div className="article__resources_wrapper">
-                {setContent(process, isError, isPending, viewBlock)}
+                {setContent({process, isError, isPending, Components: viewBlock})}
             </div>
         </div>
     )

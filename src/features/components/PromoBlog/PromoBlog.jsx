@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 import './PromoBlog.scss';
 import './PromoBlogMedia.scss';
 
@@ -7,7 +9,9 @@ const PromoBlog = () => {
     return (
         <section class="promo_blog">
             <header class="promo_blog__header">
-                <img src={logo} alt="logo"/>
+                <Link to="/">
+                    <img src={logo} alt="logo"/>
+                </Link>
             </header>
         </section> 
     )
