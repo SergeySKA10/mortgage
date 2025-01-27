@@ -1,14 +1,16 @@
 import useGetData from '../../../services/useGetData';
 import setContent from '../../../utils/setContent';
+
 import { Button } from '../ui/Buttons/Button';
 
 import './AboutEbook.scss';
 import './AboutEbookMedia.scss';
 
 const AboutEbook = () => {
+    // получение данных
     const {process, getData: {data, isError, isPending}} = useGetData('resources', 7);
 
-    const content = setContent({process, isError, isPending, Components: <ViewWrapper data={data}/>})
+    const content = setContent({process, isError, isPending, Components: <ViewWrapper data={data?.books[0]}/>})
 
     return (
         <section class="about_ebook">
