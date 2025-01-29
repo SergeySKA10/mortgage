@@ -25,7 +25,7 @@ function App() {
                 <Route path="/blog" element={<BlogPage/>}/>
                 <Route path="/webinar" element={<WebinarPage/>}/>
                 <Route path="/ebook" element={<EbookPage/>}/>
-                <Route path="/secondEbook" element={<SecondEbookPage/>}/>
+                <Route path="/secondebook" element={<SecondEbookPage/>}/>
               </Route>
               <Route path="*" element={<ErrorPage/>}/>
             </Routes>

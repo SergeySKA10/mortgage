@@ -67,7 +67,7 @@ const SliderReviews = () => {
     // формирование слайдов
     useEffect(() => {
         if (data) {
-            setSlides(slides => data?.map((el) => {
+            setSlides(slides => data.map((el) => {
                 return (
                     <SlideReviews key={el.id} data={el}/>
                 )

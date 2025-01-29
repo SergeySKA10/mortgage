@@ -1,10 +1,14 @@
-
+import SecondEbookPromo from "../components/PromoSecondEbook/SecondEbookPromo";
+import Info from "../components/Info/Info";
+import Article from "../components/Article/Article";
 
 const SecondEbookPage = () => {
     return (
-        <div>
-            there will be SecondEbookPage here
-        </div>
+        <>
+            <SecondEbookPromo/>
+            <Info/>
+            <Article/>
+        </>
     )
 }
 

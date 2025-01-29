@@ -19,7 +19,8 @@ const Author = () => {
         if(data) {
             setAuthor(author => <AuthorCard key={data[0].id} data={data[0]}/>);
         }
-    }, [data])
+    }, [data]);
+    
     return (
         <section class="about_author">
             <h2 class="header__h2 roboto-bold">About author</h2>

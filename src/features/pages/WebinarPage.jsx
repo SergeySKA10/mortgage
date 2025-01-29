@@ -1,8 +1,16 @@
-
+import PromoWebinar from "../components/PromoWebinar/PromoWebinar";
+import Report from '../components/Report/Report';
+import Author from '../components/Author/Author';
+import Start from '../components/Start/Start';
 
 const WebinarPage = () => {
     return (
-        <div>There will be WebinarPage here</div>
+        <>
+            <PromoWebinar/>
+            <Report/>
+            <Author/>
+            <Start/>
+        </>
     )
 }
 
