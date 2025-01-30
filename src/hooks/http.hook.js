@@ -7,8 +7,6 @@ export const useHttp = () => {
         const {url, method = 'GET', body = null, headers = {'Content-Type': 'application/json'}, format = 'json'} = meta;
         setProcess('render');
 
-        console.log(url);
-
         try {
             const response = await fetch(url, {method, body, headers});
 

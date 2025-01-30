@@ -1,6 +1,7 @@
 import useGetData from '../../../services/useGetData';
 import setContent from '../../../utils/setContent';
 
+import { useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import AuthorCard from '../ui/AuthorCard/AuthorCard';
 
@@ -11,20 +12,33 @@ const Author = () => {
     // делаем запрос для получения данных
     const {process, getData: {data, isError, isPending}} = useGetData('mentors', 1);
 
-    // создаем изначальное состояние для карточки автора
-    const [author, setAuthor] = useState([]);
+    // создаем изначальное состояние для карточки автора книги 
+    const [authorBook, setAuthorBook] = useState([]);
 
-    // добавляем в карточки полученные данные
+    // создаем изначальное состояние для карточки автора книги 
+    const [authorWebinar, setAuthorWebinar] = useState([]);
+
+    // получаем локацию страницы для рендера соответсвующего контента
+    const location = useLocation();
+
+    // добавляем в state полученные данные
     useEffect(() => {
         if(data) {
-            setAuthor(author => <AuthorCard key={data[0].id} data={data[0]}/>);
+            setAuthorBook(authorBook => <AuthorCard key={data[0].id} data={data[0]}/>);
+            setAuthorWebinar(authorWebinar => <AuthorCard key={data[1].id} data={data[1]}/>)
         }
     }, [data]);
+
+    const content = location.pathname === '/ebook' ?
+                    setContent({process, isError, isPending, Components: authorBook})
+                    : location.pathname === '/webinar' ?
+                    setContent({process, isError, isPending, Components: authorWebinar})
+                    : null;
     
     return (
         <section class="about_author">
             <h2 class="header__h2 roboto-bold">About author</h2>
-            {setContent({process, isError, isPending, Components: author})}
+            {content}
         </section>
     )
 }

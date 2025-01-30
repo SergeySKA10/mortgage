@@ -2,8 +2,10 @@ import { ButtonDownLoad } from '../Buttons/ButtonDownload';
 import { ButtonWatch } from '../Buttons/ButtonWatch';
 import {Line} from '../Line/Line';
 
+import './BookCard.scss';
+
 const BookCard = ({data}) => {
-    const {name, picture, category, link, type} = data;
+    const {name, pictures, category, link, type} = data;
 
     const button = type === 'download' ? <ButtonDownLoad path={link} name={`${name}.pdf`}/>
                 : type === 'video' ? <ButtonWatch link={link}/>
@@ -12,7 +14,7 @@ const BookCard = ({data}) => {
         <div className="article__resources_block">
             <div className="article__resources_descr">
                 <div className="article__resources_descr-img">
-                    <img src={picture} alt={name}/>
+                    <img src={pictures[0]} alt={name}/>
                 </div>
                 <div className="article__resources_descr-book">
                     <div className="article__logo roboto-bold">{category}</div>
