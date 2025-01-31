@@ -133,12 +133,8 @@ const Education = () => {
                     : null;
 
     return (
-        <section class="blog_education">
+        <section id='education/blog' class="blog_education">
             <div class="container">
-                {/* <h2 class="header__h2-left roboto-bold">Education</h2>
-                <div class="blog_education__wrapper">
-                    {setContent({process, isError, isPending, Components: articles})}
-                </div> */}
                 {content}
             </div>
         </section>

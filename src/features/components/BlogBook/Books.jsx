@@ -34,7 +34,7 @@ const Books = () => {
                         </>
 
     return (
-        <section className="blog_books">
+        <section id='resourse/blog' className="blog_books">
             <div className="container">
                 <div className="blog_books__resources">
                     <h2 className="header__h2-left roboto-bold">Resources</h2>

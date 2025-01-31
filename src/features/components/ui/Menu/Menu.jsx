@@ -1,15 +1,10 @@
-import { useQuery } from '@tanstack/react-query';
-import { useHttp } from '../../../../hooks/http.hook';
-
 import { useSelector, useDispatch } from 'react-redux';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { closeMenu, menuActive } from '../Burger/burgerSlice';
 
 import { NavLink, useLocation } from 'react-router-dom';
 import { Link } from 'react-scroll';
 
-import Spinner from '../Spinner/Spinner';
-import ErrorMessage from '../ErrorMessage/ErrorMessage';
 import { Button } from '../Buttons/Button';
 import { Line } from '../Line/Line';
 
@@ -19,12 +14,9 @@ import logo from '../../../../assets/icons/main_page/logo/NAF_Logo.svg';
 
 const Menu = () => {
     const dispatch = useDispatch();
-    const request = useHttp();
-    // const location = useLocation();
+    const location = useLocation();
 
-    // создание state для ссылок на секции
-    // const [linksOnSection, setLinksOnSection] = useState({linksOnSection:{}});
-    // const [links, setLinks] = useState([])
+    // const [linksOnSection, setLinksOnSection] = useState([]);
 
     // переменные для работы с окном меню
     const menu = useSelector(state => state.menu.menu),
@@ -53,82 +45,40 @@ const Menu = () => {
 
     // получение ссылок на секции из state
     const sectionLinks = useSelector(state => state.links.linksOnSection);
-    // const {data: sectionLinks, isError: errorSectionLinks, isPending: loadingSectionLinks} = useQuery({
-    //     queryKey: ['linksOnSection'], 
-    //     queryFn: () => request({url: 'http://localhost:3001/linksOnSection'})
-    // });
 
     // получение ссылок на страницы из state
     const pageLinks = useSelector(state => state.links.linksOnPages);
-    // const {data: pageLinks, isError: errorPageLinks, isPending: loadingPageLinks} = useQuery({
-    //     queryKey: ['linksOnPage'],
-    //     queryFn: () => request({url: 'http://localhost:3001/linksOnPages'})
-    // });
 
-    // создаем ссылки на блоки страницы 
-    // useEffect(() => {
-    //     if (sectionLinks) {
-    //         setLinksOnSection(linksOnSection => ({
-    //             linksOnSection: {...sectionLinks}
-    //         }))
-    //     }
-    // }, [sectionLinks]);
+    // функция создания ссылок на блоки страницы
+    const createLinksonSection = (arr) => {
+        return arr.map(el => (
+            <li key={el.id}>
+                <Link 
+                    onClick={() => closeMenu(dispatch)}     
+                    className="roboto-bold" 
+                    to={el.link}
+                    spy={true}
+                    smooth={true}
+                    duration={1000}>
+                        {el.text}
+                </Link>
+            </li>
+        ));
+    }
 
-
-    // useEffect(() => {
-    //     if ("main" in linksOnSection.linksOnSection) {
-    //         console.log(location)
-    //         if (location.pathname === '/') {
-    //             setLinks(links => linksOnSection.linksOnSection.main.map(el => (
-    //                     <li key={el.id}>
-    //                         <Link 
-    //                             onClick={() => closeMenu(dispatch)}     
-    //                             className="roboto-bold" 
-    //                             to={el.link}
-    //                             spy={true}
-    //                             smooth={true}
-    //                             duration={1000}>
-    //                                 {el.text}
-    //                         </Link>
-    //                     </li>
-    //                 )))
-    //         } else if (location.pathname === '/blog') {
-    //             console.log(location)
-    //             setLinks(links => linksOnSection.linksOnSection.blog.map(el => (
-    //                 <li key={el.id}>
-    //                     <Link 
-    //                         onClick={() => closeMenu(dispatch)}     
-    //                         className="roboto-bold" 
-    //                         to={el.link}
-    //                         spy={true}
-    //                         smooth={true}
-    //                         duration={1000}>
-    //                             {el.text}
-    //                     </Link>
-    //                 </li>
-    //             )))
-    //         }
-    //     }
-
-    // }, [linksOnSection, location]);
-
-    // создаем ссылки на блоки страницы 
-    const linksOnSection = sectionLinks?.map(el => (
-        <li key={el.id}>
-            <Link 
-                onClick={() => closeMenu(dispatch)}     
-                className="roboto-bold" 
-                to={el.link}
-                spy={true}
-                smooth={true}
-                duration={1000}>
-                    {el.text}
-            </Link>
-        </li>
-    ));
+    // создаем ссылки на блоки главной страницы 
+    const linksMain = createLinksonSection(sectionLinks.main);
+    // создаем ссылки на блоки Blog страницы  
+    const linksBlog = createLinksonSection(sectionLinks.blog);
+    // создаем ссылки на блоки Webinar страницы  
+    const linksWebinar = createLinksonSection(sectionLinks.webinar);
+    // создаем ссылки на блоки Webinar страницы  
+    const linksBook = createLinksonSection(sectionLinks.book);
+    // создаем ссылки на блоки Webinar страницы  
+    const linksSecondBook = createLinksonSection(sectionLinks.secondBook);
 
     // создаем ссылки на страницы 
-    const linksOnPages = pageLinks?.map(el => (
+    const linksOnPages = pageLinks.map(el => (
         <li key={el.id}>
             <NavLink 
                 onClick={() => closeMenu(dispatch)} 
@@ -138,27 +88,27 @@ const Menu = () => {
         </li>
     )); 
 
-    // const [content, setContent] = useState(null);
-
-    // useEffect(() => {
-    //     console.log(links)
-    //     if ((loadingSectionLinks || loadingPageLinks) && links.length === 0) {
-    //         setContent(<Spinner/>);
-    //     } else if (errorSectionLinks || errorPageLinks) {
-    //         setContent(<ErrorMessage/>)
-    //     } else {
-    //         setContent(content => (
-    //             <ul className="menu__block_list">
-    //                 {links}
-    //                 {linksOnPages}
-    //             </ul>
-    //         ))
-    //     }
-    // }, [links])
+    // функция рендера ссылок на секции в зависимости от страницы
+    const renderLinksonSection = () => {
+        switch (location.pathname) {
+            case "/":
+                return linksMain;
+            case "/blog":
+                return linksBlog;
+            case "/webinar":
+                return linksWebinar;
+            case "/ebook":
+                return linksBook;
+            case "/secondebook":
+                return linksSecondBook;
+            default: 
+                return null;
+        }
+    }
 
     // создаем переменную для отображения статуса загрузки, ошибки или полученных данных
     const content = <ul className="menu__block_list">
-                        {linksOnSection}
+                        {renderLinksonSection()}
                         {linksOnPages}
                     </ul>;
 
