@@ -3,6 +3,7 @@ import setContent from '../../../utils/setContent';
 
 import { Button } from '../ui/Buttons/Button';
 import { ButtonPlay } from '../ui/Buttons/ButtonPlay';
+import { Link } from 'react-router-dom';
 
 import './PromoWebinar.scss';
 import './PromoWebinarMedia.scss';
@@ -15,7 +16,9 @@ const PromoWebinar = () => {
     return (
         <section class="promo_webinar">
             <header class="promo_webinar__header">
-                <img src={logo} alt="logo"/>
+                <Link to="/">
+                    <img src={logo} alt="logo"/>
+                </Link>
             </header>
             {setContent({process, isError, isPending, Components: <ContentView data={data?.webinars[0]}/> })}
         </section>

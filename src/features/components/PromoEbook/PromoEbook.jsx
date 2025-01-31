@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 import './PromoEbook.scss';
 import './PromoEbookMedia.scss';
 import logo from '../../../assets/icons/main_page/logo/logo_white.svg'
@@ -6,7 +8,9 @@ const PromoEbook = ({author, nameBook}) => {
     return (
         <section class="promo_ebook">
             <header class="promo_ebook__header">
-                <img src={logo} alt="logo"/>
+                <Link to='/' style={{display: 'block', width: '340px'}}>
+                    <img src={logo} alt="logo"/>
+                </Link>
             </header>
             <h1 class="promo_ebook__name header__h1 roboto-bold">{nameBook}</h1>
             <div class="promo_ebook__descr">

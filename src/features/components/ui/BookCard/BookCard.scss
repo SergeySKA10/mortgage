@@ -1,12 +1,21 @@
 @import '../../../../style/variables/variables.scss';
 
 .article {
+    &__logo-book {
+        margin-bottom: 17px;
+        color: $main_color;
+        font-size: 11px;
+        line-height: 13px;
+        letter-spacing: 2px;
+        text-align: left;
+        text-transform: uppercase;
+    }
     &__book {
         padding-right: 10px;
-        margin-top: 17px;
         color: $dark_color;
         font-size: 20px;
         line-height: 26px;
+        text-decoration: none;
     }
     &__resources {
         &__line {

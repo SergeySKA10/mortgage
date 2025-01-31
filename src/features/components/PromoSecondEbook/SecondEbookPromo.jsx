@@ -8,7 +8,7 @@ const SecondEbookPromo = ({author, nameBook}) => {
     return (
         <section class="second_ebook__promo">
             <header class="second_ebook__header">
-                <Link to='/'>
+                <Link to='/' style={{display: 'block', width: '340px'}}>
                     <img src={logo} alt="logo"/>
                 </Link>
             </header>
