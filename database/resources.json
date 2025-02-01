@@ -9,6 +9,7 @@
                 "category": "Resources",
                 "type": "download",
                 "link": "/database/mortgage.pdf",
+                "format": ["PDF", "ePUB"],
                 "descr": [
                     "So you're about to get into the world of homeownership. It's okay...everyone feels lost during this process, but the more preparation you do upfront, the smoother your journey will be."
                 ]
@@ -24,6 +25,7 @@
                 "category": "Resources",
                 "type": "",
                 "link": "",
+                "format": ["ePUB"],
                 "descr": [
                     "So you're about to get into the world of homeownership. It's okay...everyone feels lost during this process, but the more preparation you do upfront, the smoother your journey will be.",
                     "So you're about to get into the world of homeownership. It's okay...everyone feels lost during this process, but the more preparation you do upfront, the smoother your journey will be. So you're about to get into the world of homeownership. It's okay...everyone feels lost during this process, but the more preparation you do upfront, the smoother your journey will be.So you're about to get into the world of homeownership. It's okay...everyone feels lost during this process, but the more preparation you do upfront, the smoother your journey will be.So you're about to get into the world of homeownership.",

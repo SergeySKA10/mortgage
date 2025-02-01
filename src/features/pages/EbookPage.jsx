@@ -10,11 +10,19 @@ const EbookPage = () => {
     // создание state для имени автора и названия книги для передачи в компонент promo
     const [author, setAuthor] = useState('');
     const [nameBook, setNameBook] = useState('');
+    const [format, setFormat] = useState([]);
 
     return (
         <>
-            <PromoEbook author={author} nameBook={nameBook}/>
-            <AboutEbook setAuthor={setAuthor} setNameBook={setNameBook}/>
+            <PromoEbook 
+                author={author} 
+                nameBook={nameBook}
+                format={format}/>
+            <AboutEbook 
+                setAuthor={setAuthor} 
+                setNameBook={setNameBook} 
+                setFormat={setFormat} 
+                format={format}/>
             <Report/>
             <Author/>
             <Start/>

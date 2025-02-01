@@ -3,12 +3,12 @@ import setContent from '../../../utils/setContent';
 
 import { useEffect } from 'react';
 
-import { Button } from '../ui/Buttons/Button';
+import Form from '../ui/Form/Form';
 
 import './AboutEbook.scss';
 import './AboutEbookMedia.scss';
 
-const AboutEbook = ({setAuthor, setNameBook}) => {
+const AboutEbook = ({setAuthor, setNameBook, setFormat, format}) => {
     // получение данных
     const {process, getData: {data, isError, isPending}} = useGetData('resources', 7);
 
@@ -19,6 +19,7 @@ const AboutEbook = ({setAuthor, setNameBook}) => {
         if(data) {
             setAuthor(data.books[0].author);
             setNameBook(data.books[0].name);
+            setFormat(format => format.concat(data.books[0].format))
         }
     }, [data])
 
@@ -38,10 +39,7 @@ const ViewWrapper = ({data: {pictures, descr}}) => {
             <div class="about_ebook__content">
                 <h2 class="header__h2-left roboto-bold">About the book</h2>
                 <p class="about_ebook__descr roboto-regular">{descr[0]}</p>
-                <form class="about_ebook__form" action="">
-                    <input class="roboto-light" name="email" placeholder="Your Email" type="text" required/>
-                    <Button link={'#'} text={'Get the eBook'}/>
-                </form>
+                <Form id='book-form' text='Get the eBook'/>
             </div>
         </div>
 )

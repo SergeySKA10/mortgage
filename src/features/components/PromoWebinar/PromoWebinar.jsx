@@ -1,9 +1,9 @@
 import useGetData from '../../../services/useGetData';
 import setContent from '../../../utils/setContent';
 
-import { Button } from '../ui/Buttons/Button';
 import { ButtonPlay } from '../ui/Buttons/ButtonPlay';
 import { Link } from 'react-router-dom';
+import Form from '../ui/Form/Form';
 
 import './PromoWebinar.scss';
 import './PromoWebinarMedia.scss';
@@ -32,10 +32,7 @@ const ContentView = ({data: {name, author, descr, link}}) => {
                 <h1 class="header__h1 roboto-bold">{name}</h1>
                 <div class="promo_webinar__author roboto-bold">{author}</div>
                 <div class="promo_webinar__descr roboto-regular">{descr[0]}</div>
-                <form class="promo_webinar__form" action="">
-                    <input class="roboto-light" name="email" placeholder="Your Email" type="text" required/>
-                    <Button link='#' text='Get the webinar'/>
-                </form>
+                <Form id='webinar-form' text='Get the webinar'/>
             </div>
             <div class="promo_webinar__macbook">
                 <img src="https://github.com/SergeySKA10/mortgage/blob/assets/src/assets/img/webinar_page/promo/top-macbook.png?raw=true" alt="macbook"/>
