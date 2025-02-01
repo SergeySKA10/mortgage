@@ -1,20 +1,18 @@
 import useGetData from '../../../../services/useGetData';
-import setContent from '../../../../utils/setContent';
 
 import { useState, useEffect } from 'react';
 
 import { ButtonArrow } from '../Buttons/ButtonArrows';
 import {Line} from '../Line/Line';
+import ErrorMessage from '../ErrorMessage/ErrorMessage';
+import Spinner from '../Spinner/Spinner';
 
 import './SliderReviews.scss';
 
 const SliderReviews = () => {
 
     // делаем запрос для получения данных
-    const {process, getData: {data, isError, isPending}} = useGetData('slidesReviews', 4);
-
-    // стейт для слайдеров
-    const [slides, setSlides] = useState([]);
+    const {getData: {data, isError, isPending}} = useGetData('slidesReviews', 4);
 
     // создаем state для индекса слайдера
     const [indexSlide, setIndexSlide] = useState(1);
@@ -64,19 +62,14 @@ const SliderReviews = () => {
         setTotal(data?.length < 10 ? `0${data?.length}` : data?.length)
     }, [data]);
 
-    // формирование слайдов
-    useEffect(() => {
-        if (data) {
-            setSlides(slides => data.map((el) => {
-                return (
-                    <SlideReviews key={el.id} data={el}/>
-                )
-            }));
-        }
-    }, [data, offset]);
-
-    // переменная для рендера состояния запроса данных
-    const slidesBlock = setContent({process, isError, isPending, Components: slides})
+    const slidesBlock = isError ? <ErrorMessage/>
+                        : isPending ? <Spinner/>
+                        : data?.map((el) => {
+                            return (
+                                <SlideReviews key={el.id} data={el}/>
+                            )
+                        });
+   
 
     // функция переключения слайдера на другой слайд
     const showNewSlide = () => {

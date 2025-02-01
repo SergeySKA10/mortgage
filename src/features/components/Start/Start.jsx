@@ -1,3 +1,4 @@
+import { useLocation } from 'react-router-dom';
 import { Line } from '../ui/Line/Line';
 import { Button } from '../ui/Buttons/Button';
 
@@ -5,8 +6,15 @@ import './Start.scss';
 import './StartMedia.scss';
 
 const Start = () => {
+    const location = useLocation();
+
+    // создаем уникальный идентификатор для секции
+    const id = location.pathname === '/ebook' ? 'started/book'
+    : location.pathname === '/webinar' ? 'started/webinar'
+    : '';
+
     return (
-        <section class="start">
+        <section id={id} class="start">
             <div class="container">
                 <div class="start__wrapper">
                     <div class="start__info">

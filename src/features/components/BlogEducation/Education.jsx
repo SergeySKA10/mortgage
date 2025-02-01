@@ -132,8 +132,13 @@ const Education = () => {
                     </>
                     : null;
 
+    // создаем уникальный идентификатор для секции
+    const id = location.pathname === '/blog' ? 'education/blog'
+    : location.pathname === '/secondebook' ? 'secondbook/articles'
+    : '';
+
     return (
-        <section id='education/blog' class="blog_education">
+        <section id={id} class="blog_education">
             <div class="container">
                 {content}
             </div>

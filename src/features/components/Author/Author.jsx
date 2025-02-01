@@ -29,14 +29,21 @@ const Author = () => {
         }
     }, [data]);
 
+    // создаем уникальный идентификатор для секции
+    const id = location.pathname === '/ebook' ? 'author/book'
+                : location.pathname === '/webinar' ? 'author/webinar'
+                : '';
+
+    // формируем соответствующий контент
     const content = location.pathname === '/ebook' ?
                     setContent({process, isError, isPending, Components: authorBook})
                     : location.pathname === '/webinar' ?
                     setContent({process, isError, isPending, Components: authorWebinar})
                     : null;
+
     
     return (
-        <section class="about_author">
+        <section id={id} class="about_author">
             <h2 class="header__h2 roboto-bold">About author</h2>
             {content}
         </section>
