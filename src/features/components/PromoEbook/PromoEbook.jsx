@@ -1,22 +1,18 @@
-import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import './PromoEbook.scss';
 import './PromoEbookMedia.scss';
 import logo from '../../../assets/icons/main_page/logo/logo_white.svg'
 
-const PromoEbook = ({author, nameBook, format}) => {
-    // state для активного индекса
-    const [indexActive, setIndexActive] = useState();
-
+const PromoEbook = ({author, nameBook, format, indexActiveFormat, setIndexActiveFormat}) => {
     // функция по изменению активного класса
     const onActive = (e) => {
-        setIndexActive(+e.target.getAttribute('data-index'));
+        setIndexActiveFormat(+e.target.getAttribute('data-index'));
     }
 
     // формируем форматы книг
     const formats = format.map((el, i) => {
-        const active = i === indexActive ? 'format-active' : '';
+        const active = i === indexActiveFormat ? 'format-active' : '';
         return (
             <div class={`btn btn__ebook ${active}`} data-index={i} onClick={onActive}>
                 {el}

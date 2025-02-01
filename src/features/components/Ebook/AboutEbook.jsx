@@ -8,11 +8,11 @@ import Form from '../ui/Form/Form';
 import './AboutEbook.scss';
 import './AboutEbookMedia.scss';
 
-const AboutEbook = ({setAuthor, setNameBook, setFormat, format}) => {
+const AboutEbook = ({setAuthor, setNameBook, setFormat, format, indexActiveFormat}) => {
     // получение данных
     const {process, getData: {data, isError, isPending}} = useGetData('resources', 7);
 
-    const content = setContent({process, isError, isPending, Components: <ViewWrapper data={data?.books[0]}/>})
+    const content = setContent({process, isError, isPending, Components: <ViewWrapper format={format} index={indexActiveFormat} data={data?.books[0]}/>})
 
     // запись в state автора и название книги
     useEffect(() => {
@@ -30,7 +30,7 @@ const AboutEbook = ({setAuthor, setNameBook, setFormat, format}) => {
     )
 }
 
-const ViewWrapper = ({data: {pictures, descr}}) => {
+const ViewWrapper = ({format, index, data: {pictures, descr}}) => {
     return (
         <div class="about_ebook__wrapper">
             <div class="about_ebook__cover">
@@ -39,7 +39,7 @@ const ViewWrapper = ({data: {pictures, descr}}) => {
             <div class="about_ebook__content">
                 <h2 class="header__h2-left roboto-bold">About the book</h2>
                 <p class="about_ebook__descr roboto-regular">{descr[0]}</p>
-                <Form id='book-form' text='Get the eBook'/>
+                <Form format={format} index={index} id='book-form' text='Get the eBook'/>
             </div>
         </div>
 )
