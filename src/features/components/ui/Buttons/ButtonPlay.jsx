@@ -9,7 +9,7 @@ export const ButtonPlay = ({type, link}) => {
 
     return (
         <button className={`btn btn__${typeBtn} ${animationClass}`}>
-            <Link to={link}><div className={`btn__${typeBtn}-block`}></div></Link>
+            <Link to={link} target={'_blank'}><div className={`btn__${typeBtn}-block`}></div></Link>
         </button>
     )
 }

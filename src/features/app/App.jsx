@@ -11,6 +11,7 @@ const BlogPage = lazy(() => import('../pages/BlogPage'));
 const WebinarPage = lazy(() => import('../pages/WebinarPage'));
 const EbookPage = lazy(() => import('../pages/EbookPage'));
 const SecondEbookPage = lazy(() => import('../pages/SecondEbookPage'));
+const VideoPage = lazy(() => import('../pages/VideoPage'));
 const ErrorPage = lazy(() => import('../pages/404'));
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
                 <Route path="/ebook" element={<EbookPage/>}/>
                 <Route path="/secondebook" element={<SecondEbookPage/>}/>
               </Route>
+              <Route path="/video/:videoid" element={<VideoPage/>}/>
               <Route path="*" element={<ErrorPage/>}/>
             </Routes>
           </main>
