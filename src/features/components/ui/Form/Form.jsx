@@ -1,41 +1,24 @@
 import { useForm } from "react-hook-form";
 import { nanoid } from "@reduxjs/toolkit";
 
-import { useMutation } from "@tanstack/react-query";
-import { useHttp } from "../../../../hooks/http.hook";
+import { useState, useEffect } from "react";
+
+import usePostData from "../../../../services/usePostData";
 
 import { ButtonForm } from "../Buttons/ButtonForm";
+import Spinner from '../Spinner/Spinner';
 import './Form.scss';
 import './FormMedia.scss';
 
 const Form = ({id, text, format = null, index = ''}) => {
+    // используем reactHookForm
     const { register, handleSubmit, formState, reset } = useForm({
         mode: 'onChange'
     });
 
-    const { request } = useHttp();
-
-    const mutationBook = useMutation({
-        mutationFn: (body) => request({
-            url: 'http://localhost:3008/book',
-            method: 'POST',
-            body: body,
-        }),
-        onSuccess: (data) => {
-          console.log(data);
-        }
-      })
-
-    const mutationWebinar = useMutation({
-        mutationFn: (body) => request({
-            url: 'http://localhost:3008/webinar',
-            method: 'POST',
-            body: body,
-        }),
-        onSuccess: (data) => {
-            console.log(data, 'POST - success');
-        }
-    })
+    // POST запросы для книг и вебинаров
+    const mutationBook = usePostData('book');
+    const mutationWebinar = usePostData('webinar');
 
     // выводим ошибку при заполнении формы
     const emailError = formState.errors['email']?.message;
@@ -77,6 +60,27 @@ const Form = ({id, text, format = null, index = ''}) => {
         reset();
     }
 
+    //создаем state для отображения статуса отправки формы
+    const [userNotification, setUserNotification] = useState(null);
+
+    useEffect(() => {
+        let timer;
+
+        if(mutationBook.isError || mutationWebinar.isError) {
+            setUserNotification(<p className="roboto-regular error_msg">There was an error sending data. Please try again later...</p>)
+            timer = setTimeout(userNotification => setUserNotification(null), 4000);
+        } else if (mutationBook.isPending || mutationWebinar.isPending) {
+            setUserNotification(<Spinner/>)
+            timer = setTimeout(userNotification => setUserNotification(null), 4000);
+        } else if (mutationBook.isSuccess || mutationWebinar.isSuccess) {
+            setUserNotification(<p className="roboto-regular success_msg">Successfully. We will reply to you shortly.</p>)
+            timer = setTimeout(userNotification => setUserNotification(null), 4000);
+        }
+        console.log(timer);
+
+        return () => clearTimeout(timer);
+    }, [mutationBook.isError, mutationWebinar.isError, mutationBook.isPending, mutationWebinar.isPending, mutationBook.isSuccess, mutationWebinar.isSuccess]);
+
     return (
         <>
             <form 
@@ -98,6 +102,8 @@ const Form = ({id, text, format = null, index = ''}) => {
                 <ButtonForm text={text}/>
             </form>
             {emailError ? <p className="roboto-regular error_msg">{emailError}</p> : null}
+            {userNotification}
+            
         </>
     )
 }
