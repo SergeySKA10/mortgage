@@ -1,10 +1,9 @@
-import { QueryClientProvider } from "@tanstack/react-query";
-import { queryClient } from "../api/query-client";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useEffect } from "react";
 
 import Spinner from '../components/ui/Spinner/Spinner';
 import PageLayout from "../pages/PageLayout";
+// import { useGetVideoDetailes } from "../api/youtubeApi";
 
 const MainPage = lazy(() => import("../pages/MainPage"));
 const BlogPage = lazy(() => import('../pages/BlogPage'));
@@ -15,8 +14,16 @@ const VideoPage = lazy(() => import('../pages/VideoPage'));
 const ErrorPage = lazy(() => import('../pages/404'));
 
 function App() {
+  // const {data} = useGetVideoDetailes('https://www.youtube.com/watch?v=JPR6TEYp5tg');
+  
+  // useEffect(() => {
+  //   if (data) {
+  //     console.log(data.items[0].contentDetails.duration);
+  //   }
+  // }, data)
+  
   return (
-    <QueryClientProvider client={queryClient}>
+    <>
       <Router>
         <Suspense fallback={<Spinner/>}>
           <main>
@@ -34,7 +41,7 @@ function App() {
           </main>
         </Suspense>
       </Router>
-    </QueryClientProvider>
+    </>
   )
 }
 
