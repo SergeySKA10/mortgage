@@ -1,3 +1,5 @@
+import { useGetDurationVideo } from '../../api/youtubeApi';
+
 import { Button } from '../ui/Buttons/Button';
 import { ButtonPlay } from '../ui/Buttons/ButtonPlay';
 import {Line} from '../ui/Line/Line';
@@ -8,6 +10,7 @@ import './PromoMainMedia.scss';
 import logo from '../../../assets/icons/main_page/logo/NAF_Logo.svg'
 
 const PromoMain = () => {
+    const time = useGetDurationVideo('https://www.youtube.com/watch?v=JPR6TEYp5tg');
 
     return (
         <section className="promo_main"> 
@@ -15,7 +18,7 @@ const PromoMain = () => {
                 <h2 className="promo_main__subheader roboto-bold">Why a mortgage is so much more than just a rate?</h2>
                 <div className="promo_main__video">
                     <ButtonPlay link='https://www.youtube.com/watch?v=JPR6TEYp5tg'/>
-                    <div className="promo_main__time roboto-regular">0:34</div>
+                    <div className="promo_main__time roboto-regular">{time}</div>
                 </div>
             </div>
 

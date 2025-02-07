@@ -1,5 +1,6 @@
 import useGetData from '../../../services/useGetData';
 import setContent from '../../../utils/setContent';
+import { useGetDurationVideo } from '../../api/youtubeApi';
 
 import { ButtonPlay } from '../ui/Buttons/ButtonPlay';
 import { Link } from 'react-router-dom';
@@ -26,6 +27,7 @@ const PromoWebinar = () => {
 }
 
 const ContentView = ({data: {name, author, descr, link}}) => {
+    const time = useGetDurationVideo(link);
     return (
         <div class="promo_webinar__wrapper">
             <div class="promo_webinar__info">
@@ -38,7 +40,7 @@ const ContentView = ({data: {name, author, descr, link}}) => {
                 <img src="https://github.com/SergeySKA10/mortgage/blob/assets/src/assets/img/webinar_page/promo/top-macbook.png?raw=true" alt="macbook"/>
                 <div class="promo_webinar__macbook-play">
                     <ButtonPlay link={link}/>
-                    <div class="promo_webinar__time roboto-regular">Play demo (1:34)</div>
+                    <div class="promo_webinar__time roboto-regular">{`Play demo: ${time}`}</div>
                 </div>
             </div>
         </div>

@@ -1,5 +1,6 @@
 import { useHttp } from "../../hooks/http.hook";
 import { useQuery } from "@tanstack/react-query";
+import { useState, useEffect } from "react";
 
 export const useGetVideoDetailes = (url) => {
     const _apiBase = 'https://www.googleapis.com/youtube/v3/videos?'
@@ -12,4 +13,19 @@ export const useGetVideoDetailes = (url) => {
     });
 
    return getData;
+}
+
+
+export const useGetDurationVideo  = (url) => {
+    const [time, setTime] = useState('PT00M00S');
+
+    const {data} = useGetVideoDetailes(url);
+
+    useEffect(() => {
+        if (data) {
+            setTime(data.items[0].contentDetails.duration);
+        }
+    }, [data]);
+
+    return time.slice(2, time.length - 1).replace(/\D/g, ':');
 }

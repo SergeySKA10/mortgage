@@ -1,9 +1,12 @@
+import { useGetDurationVideo } from '../../../api/youtubeApi';
 import { ButtonPlay } from '../Buttons/ButtonPlay';
 
 import './VideoCard.scss';
 
 const VideoCard = ({data, size = ''}) => {
-    const {descr, time, link} = data;
+    const {descr, link} = data;
+    const time = useGetDurationVideo(link);
+
     return (
         <div className="story__presentation_elem" data-size={size}>
             <div className="story__presentation_block">
