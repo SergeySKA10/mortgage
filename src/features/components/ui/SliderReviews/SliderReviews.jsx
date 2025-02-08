@@ -8,6 +8,7 @@ import ErrorMessage from '../ErrorMessage/ErrorMessage';
 import Spinner from '../Spinner/Spinner';
 
 import './SliderReviews.scss';
+import './SliderReciewsMedia.scss';
 
 const SliderReviews = () => {
 

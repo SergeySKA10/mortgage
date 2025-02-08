@@ -12,9 +12,6 @@
 @media(max-width: 992px) {
     .article {
         margin-top: 50px;
-        h2 {
-            text-align: center;
-        }
     }
     .article__info {
         grid-template-columns: minmax(397px, 0);
@@ -66,6 +63,10 @@
     }
     .article__resources_wrapper {
         grid-template-columns: minmax(310px, 0px);
+    }
+    .article__resources__line {
+        width: 250px;
+        overflow: hidden;
     }
     .article__filters {
         padding-right: 10px;

@@ -52,16 +52,22 @@
         }
     }
     .about_author {
-        padding-left: 0px;
+        padding-left: 20px;
         padding-right: 0px;
     }
     .about_author__wrapper {
+        align-items: flex-start;
         padding-right: 10px;
-        padding-left: 50px;
     }
     .about_author__photo {
         width: 288px;
         height: 197px;
+    }
+    .about_author__descr {
+        width: 300px;
+    }
+    .about_author__info {
+        width: 250px;
     }
 }
 
@@ -72,5 +78,8 @@
     .about_author__photo {
         width: 238px;
         height: 167px;
+    }
+    .about_author__btn {
+        width: 200px;
     }
 }

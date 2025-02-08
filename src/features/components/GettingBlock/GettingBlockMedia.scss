@@ -21,14 +21,8 @@
             padding-right: 156px;
         }
     }
-    .header__h2 {
-        font-size: 32px;
-    }
-    .header__h3 {
-        font-size: 15px;
-    }
     .getting__block {
-        padding: 0 150px;
+        padding: 0 10px;
     }
 }
 
@@ -38,6 +32,9 @@
             padding-left: 37px;
             padding-right: 56px;
         }
+    }
+    .getting__speakers {
+        padding: 0px;
     }
 }
 
@@ -94,9 +91,13 @@
     .getting__descr_skills {
         gap: 20px;
     }
+    .getting__block {
+        padding: 0 0px;
+    }
     .getting h3 {
         width: 200px;
         display: block;
         margin: 0 auto;
+        margin-top: 20px;
     }
 }

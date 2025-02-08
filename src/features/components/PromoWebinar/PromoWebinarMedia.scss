@@ -21,21 +21,15 @@
 }
 
 @media (max-width: 1320px) {
-    .promo_webinar__form {
-        button {
-            padding: 11px 15px 15px 15px;
-        }
-        input {
-            height: 43px;
-            width: 300px;
-        }
-    }
     .promo_webinar__macbook {
         transform: translate(0px , 0px);
     } 
 }
 
 @media (max-width: 1200px) {
+    .promo_webinar__info {
+        max-width: 500px;
+    }
     .promo_webinar__macbook-play {
         top: -160px;
     }
@@ -55,9 +49,6 @@
         text-align: center;
         margin-top: 47px;
     }
-    .promo_webinar__form {
-        justify-content: center;
-    }
     .promo_webinar__wrapper {
         flex-direction: column;
     }
@@ -65,6 +56,9 @@
         display: block;
         margin: 0 auto;
         padding-top: 20px;
+    }
+    .promo_webinar__info h1 {
+        margin-top: 27px;
     }
 }
 
@@ -74,10 +68,6 @@
     }
     .promo_webinar__descr {
         margin-top: 10px;
-    }
-    .promo_webinar__form button {
-        font-size: 14px;
-        padding: 11px 10px 15px 10px;
     }
 }
 
@@ -89,11 +79,11 @@
     .promo_webinar__header img {
         width: 200px;
     }
-    .promo_webinar__form input {
-        width: 200px;
+    .promo_webinar__info h1 {
+        margin-top: 17px;
     }
-    .promo_webinar__form button {
-        width: 122px;
+    .promo_webinar__info form {
+        margin-top: 5px;
     }
 }
 
@@ -103,10 +93,6 @@
     }
     .promo_webinar__macbook img {
         width: 300px;
-    }
-    .promo_webinar__form button {
-        font-size: 12px;
-        padding: 11px 0px 15px 0px;
     }
     .promo_webinar__macbook-play {
         top: -130px;
