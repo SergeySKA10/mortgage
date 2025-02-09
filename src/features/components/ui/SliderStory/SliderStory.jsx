@@ -14,6 +14,9 @@ const SliderStory = () => {
     // получем слайды из store 
     const slides = useSelector(state => state.sliderStory.slidesStory);
 
+     // state для получения 1-ого слайд
+     const [slide, setSlide] = useState(null);
+
     // создаем state для индекса слайдера
     const [indexSlide, setIndexSlide] = useState(2);
 
@@ -37,7 +40,8 @@ const SliderStory = () => {
     // получаем элемент обертки слайдов
     useEffect(() => {
         setWrapperSlides(document.querySelector('.story__slider_wrapper'));
-    }, [])
+        setSlide(document.querySelector('.story__slider_slide'));
+    }, [wrapperSlides])
 
     // формируем slidesBlock
     useEffect(() => {
@@ -53,24 +57,6 @@ const SliderStory = () => {
             )
         }))
     }, [slides, indexSlide]);
-
-    // формируем dots
-    useEffect(() => {
-        if (slides && wrapperSlides) {
-            setDots(dots => slides.map((el, i) => {
-                    const activeClass = i === indexSlide - 1 ? 'dot-active' : '';
-                    return (
-                        <Dot 
-                            key={i} 
-                            data={i}
-                            activeClass={activeClass}
-                            wrapper={wrapperSlides}
-                        />
-                    )
-                })
-            )
-        }
-    }, [slides, wrapperSlides, indexSlide]);
 
     // функция перелистывания слайдов
     const onScrollChange = (target) => {
@@ -96,6 +82,66 @@ const SliderStory = () => {
         }
     }
 
+    // РАБОТА СЛАЙДЕРА НА МОБИЛЬНЫХ УСТРОЙСТВАХ
+
+    // создаем state для расчета offset
+    const [offset, setOffset] = useState(394);
+    //state для отслеживания состояния кнопок и точек для переключения слайдов
+    const [pressButton, setPressButton] = useState(false);
+    // создаем state для получения ширины слайда
+    const [width, setWidth] = useState(0);
+    // создаем state для max значения offset
+    const [maxOffset, setMaxOffset] = useState(0);
+
+    // функция преобразования строки в число
+    function stringToDigits(str) {
+        return +str.replace(/\D/g, '');
+    }
+
+    // получаем ширину слайда и устанавливаем max значение offset
+    useEffect(() => {
+        if (slide) {
+            setWidth(stringToDigits(window.getComputedStyle(slide).width) + 22);
+        }
+        setMaxOffset(width * (slides.length - 1));
+    }, [slide, width]);
+
+    // функция переключения слайдера на другой слайд
+    const showNewSlide = () => {
+        if (wrapperSlides) {
+            console.log(offset, indexSlide);
+            wrapperSlides.style.transform = `translateX(-${offset}px)`;
+        }
+    }
+
+    // переход на слайд при взаимодействии с dots или стрелками
+    useEffect(() => {
+        showNewSlide();
+    }, [offset, pressButton]);
+
+    
+    // ФОРМИРОВАНИЕ и РАБОТА С dots
+    useEffect(() => {
+        if (slides && wrapperSlides) {
+            setDots(dots => slides.map((el, i) => {
+                    const activeClass = i === indexSlide - 1 ? 'dot-active' : '';
+                    return (
+                        <Dot 
+                            key={i} 
+                            data={i}
+                            activeClass={activeClass}
+                            wrapper={wrapperSlides}
+                            setOffset={setOffset}
+                            width={width}
+                            setIndexSlide={setIndexSlide}
+                            setPressDot={setPressButton}
+                        />
+                    )
+                })
+            )
+        }
+    }, [slides, wrapperSlides, indexSlide]);
+
     return (
         <div className="story__slider">
             <div className="dots">
@@ -109,12 +155,31 @@ const SliderStory = () => {
             
 
             <div className="story__slider_arrows">
-                <ButtonArrow type='left'/>
-                <ButtonArrow type='right'/>
+                <ButtonArrow 
+                    type='left'
+                    data='prev'
+                    offset={offset}
+                    setOffset={setOffset}
+                    maxOffset={maxOffset}
+                    width={width}
+                    setPressButton={setPressButton}
+                    setIndexSlide={setIndexSlide}
+                    indexSlide={indexSlide}/>
+                <ButtonArrow 
+                    type='right'
+                    data='next'
+                    offset={offset}
+                    setOffset={setOffset}
+                    maxOffset={maxOffset}
+                    width={width}
+                    setPressButton={setPressButton}
+                    setIndexSlide={setIndexSlide}
+                    indexSlide={indexSlide}/>
             </div>
         </div>
     )
 }
+
 
 const Slide = ({data, activeClass, current}) => {
     const {header, descr} = data;
@@ -130,17 +195,25 @@ const Slide = ({data, activeClass, current}) => {
     )
 }
 
-const Dot = ({data, activeClass, wrapper}) => {
+const Dot = ({data, activeClass, wrapper, setOffset, setIndexSlide, setPressDot, width}) => {
     // функция установки offset и indexSlide при клике на dots
     const initialScroll = (e) => {
-        const numSlide = +e.target.getAttribute('data-slide-to');
-        let top = 170 * numSlide;
-        console.log(top);
-        wrapper.scrollTo({
-            top: top,
-            left: 0,
-            behavior: 'smooth'
-        })
+        if (document.documentElement.clientWidth <= 1200) {
+            const numSlide = +e.target.getAttribute('data-slide-to');
+            setOffset(width * numSlide);
+            setIndexSlide(numSlide + 1);
+            setPressDot(true); // отслеживание нажатия на dot
+        } else {
+            const numSlide = +e.target.getAttribute('data-slide-to');
+            let top = 170 * numSlide;
+            console.log(top);
+            wrapper.scrollTo({
+                top: top,
+                left: 0,
+                behavior: 'smooth'
+            })
+        }
+        
     }
 
     return (

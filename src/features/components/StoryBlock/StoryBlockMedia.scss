@@ -27,16 +27,16 @@
         align-items: center;
         &_inner {
             height: 260px;
+            width: 372px;
         }
         &_wrapper {
             height: 260px;
-        }
-        &_wrapper {
             margin-top: 20px;
             flex-direction: row;
             min-height: 210px;
             width: 372px;
-            overflow: hidden;
+            transform: translateX(-394px);
+            overflow: visible;
         }
         &_arrows {
             display: flex;
@@ -69,6 +69,7 @@
     }
     .slide-active {
         left: 0px;
+        padding-right: 30px;
     }
 }
 
