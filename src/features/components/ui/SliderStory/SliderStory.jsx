@@ -85,7 +85,7 @@ const SliderStory = () => {
     // РАБОТА СЛАЙДЕРА НА МОБИЛЬНЫХ УСТРОЙСТВАХ
 
     // создаем state для расчета offset
-    const [offset, setOffset] = useState(394);
+    const [offset, setOffset] = useState(0);
     //state для отслеживания состояния кнопок и точек для переключения слайдов
     const [pressButton, setPressButton] = useState(false);
     // создаем state для получения ширины слайда
@@ -103,6 +103,7 @@ const SliderStory = () => {
         if (slide) {
             setWidth(stringToDigits(window.getComputedStyle(slide).width) + 22);
         }
+        setOffset(width);
         setMaxOffset(width * (slides.length - 1));
     }, [slide, width]);
 
@@ -112,6 +113,15 @@ const SliderStory = () => {
             console.log(offset, indexSlide);
             wrapperSlides.style.transform = `translateX(-${offset}px)`;
         }
+    }
+
+    // установка изначального отступа
+    let styleOffset;
+
+    if (document.documentElement.clientWidth <= 1200) {
+        styleOffset = {transform: `translateX(-${width}px)`}
+    } else {
+        styleOffset = null;
     }
 
     // переход на слайд при взаимодействии с dots или стрелками
@@ -148,7 +158,7 @@ const SliderStory = () => {
                 {dots}
             </div>
             <div className="story__slider_inner">
-                <div ref={refForScroll} className="story__slider_wrapper" onScroll={onScrollChange}>
+                <div ref={refForScroll} className="story__slider_wrapper" style={styleOffset} onScroll={onScrollChange}>
                     {slidesBlock}
                 </div>
             </div>

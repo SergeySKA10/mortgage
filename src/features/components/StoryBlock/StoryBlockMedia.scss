@@ -35,7 +35,6 @@
             flex-direction: row;
             min-height: 210px;
             width: 372px;
-            transform: translateX(-394px);
             overflow: visible;
         }
         &_arrows {
@@ -117,6 +116,11 @@
     }
     .slide-active {
         width: 300px;
+        padding-left: 30px;
+        .story__slider_descr {
+            width: 250px;
+            font-size: 12px;
+        }
     }
     .story__window {
         right: 10px;
