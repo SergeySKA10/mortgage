@@ -107,21 +107,12 @@ const SliderStory = () => {
         setMaxOffset(width * (slides.length - 1));
     }, [slide, width]);
 
-    // функция переключения слайдера на другой слайд
+    // функция переключения слайдера на другой слайд и установки изначального отступа
     const showNewSlide = () => {
-        if (wrapperSlides) {
-            console.log(offset, indexSlide);
+        if (wrapperSlides && document.documentElement.clientWidth <= 1200) {
+            console.log('offset')
             wrapperSlides.style.transform = `translateX(-${offset}px)`;
         }
-    }
-
-    // установка изначального отступа
-    let styleOffset;
-
-    if (document.documentElement.clientWidth <= 1200) {
-        styleOffset = {transform: `translateX(-${width}px)`}
-    } else {
-        styleOffset = null;
     }
 
     // переход на слайд при взаимодействии с dots или стрелками
@@ -158,7 +149,7 @@ const SliderStory = () => {
                 {dots}
             </div>
             <div className="story__slider_inner">
-                <div ref={refForScroll} className="story__slider_wrapper" style={styleOffset} onScroll={onScrollChange}>
+                <div ref={refForScroll} className="story__slider_wrapper" onScroll={onScrollChange}>
                     {slidesBlock}
                 </div>
             </div>

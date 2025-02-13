@@ -7,8 +7,8 @@ import logo from '../../../assets/icons/main_page/logo/NAF_Logo.svg';
 
 const PromoBlog = () => {
     return (
-        <section class="promo_blog">
-            <header class="promo_blog__header">
+        <section className="promo_blog">
+            <header className="promo_blog__header">
                 <Link to="/">
                     <img src={logo} alt="logo"/>
                 </Link>

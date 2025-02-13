@@ -15,8 +15,8 @@ const PromoWebinar = () => {
     const {process, getData: {data, isError, isPending}} = useGetData('resources', 7);
 
     return (
-        <section class="promo_webinar">
-            <header class="promo_webinar__header">
+        <section className="promo_webinar">
+            <header className="promo_webinar__header">
                 <Link to="/">
                     <img src={logo} alt="logo"/>
                 </Link>
@@ -29,18 +29,18 @@ const PromoWebinar = () => {
 const ContentView = ({data: {name, author, descr, link}}) => {
     const time = useGetDurationVideo(link);
     return (
-        <div class="promo_webinar__wrapper">
-            <div class="promo_webinar__info">
-                <h1 class="header__h1 roboto-bold">{name}</h1>
-                <div class="promo_webinar__author roboto-bold">{author}</div>
-                <div class="promo_webinar__descr roboto-regular">{descr[0]}</div>
+        <div className="promo_webinar__wrapper">
+            <div className="promo_webinar__info">
+                <h1 className="header__h1 roboto-bold">{name}</h1>
+                <div className="promo_webinar__author roboto-bold">{author}</div>
+                <div className="promo_webinar__descr roboto-regular">{descr[0]}</div>
                 <Form id='webinar-form' text='Get the webinar'/>
             </div>
-            <div class="promo_webinar__macbook">
+            <div className="promo_webinar__macbook">
                 <img src="https://github.com/SergeySKA10/mortgage/blob/assets/src/assets/img/webinar_page/promo/top-macbook.png?raw=true" alt="macbook"/>
-                <div class="promo_webinar__macbook-play">
+                <div className="promo_webinar__macbook-play">
                     <ButtonPlay link={link}/>
-                    <div class="promo_webinar__time roboto-regular">{`Play demo: ${time}`}</div>
+                    <div className="promo_webinar__time roboto-regular">{`Play demo: ${time}`}</div>
                 </div>
             </div>
         </div>

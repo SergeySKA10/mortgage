@@ -43,8 +43,8 @@ const Author = () => {
 
     
     return (
-        <section id={id} class="about_author">
-            <h2 class="header__h2 roboto-bold">About author</h2>
+        <section id={id} className="about_author">
+            <h2 className="header__h2 roboto-bold">About author</h2>
             {content}
         </section>
     )

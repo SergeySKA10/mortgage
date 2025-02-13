@@ -24,7 +24,7 @@ const AboutEbook = ({setAuthor, setNameBook, setFormat, format, indexActiveForma
     }, [data])
 
     return (
-        <section class="about_ebook">
+        <section className="about_ebook">
             {content}
         </section>
     )
@@ -32,13 +32,13 @@ const AboutEbook = ({setAuthor, setNameBook, setFormat, format, indexActiveForma
 
 const ViewWrapper = ({format, index, data: {pictures, descr}}) => {
     return (
-        <div class="about_ebook__wrapper">
-            <div class="about_ebook__cover">
+        <div className="about_ebook__wrapper">
+            <div className="about_ebook__cover">
                 <img src={pictures[0]} alt="cover"/>
             </div>
-            <div class="about_ebook__content">
-                <h2 class="header__h2-left roboto-bold">About the book</h2>
-                <p class="about_ebook__descr roboto-regular">{descr[0]}</p>
+            <div className="about_ebook__content">
+                <h2 className="header__h2-left roboto-bold">About the book</h2>
+                <p className="about_ebook__descr roboto-regular">{descr[0]}</p>
                 <Form format={format} index={index} id='book-form' text='Get the eBook'/>
             </div>
         </div>

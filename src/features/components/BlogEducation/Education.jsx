@@ -118,15 +118,15 @@ const Education = () => {
     // формирование отображаемого контента
     const content = location.pathname === '/blog' ?
                     <>
-                       <h2 class="header__h2-left roboto-bold">Education</h2>
-                        <div class="blog_education__wrapper">
+                       <h2 className="header__h2-left roboto-bold">Education</h2>
+                        <div className="blog_education__wrapper">
                             {setContent({process, isError, isPending, Components: articlesBlog})}
                         </div> 
                     </>
                     : location.pathname === '/secondebook' ?
                     <>
-                        <h2 class="header__h2 roboto-bold">More articles</h2>
-                        <div class="blog_education__wrapper">
+                        <h2 className="header__h2 roboto-bold">More articles</h2>
+                        <div className="blog_education__wrapper">
                             {setContent({process, isError, isPending, Components: articlesBook})}
                         </div>
                     </>
@@ -138,8 +138,8 @@ const Education = () => {
     : '';
 
     return (
-        <section id={id} class="blog_education">
-            <div class="container">
+        <section id={id} className="blog_education">
+            <div className="container">
                 {content}
             </div>
         </section>

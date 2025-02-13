@@ -14,21 +14,21 @@ const Start = () => {
     : '';
 
     return (
-        <section id={id} class="start">
-            <div class="container">
-                <div class="start__wrapper">
-                    <div class="start__info">
-                        <h2 class="header__h2-left roboto-bold">Get started with us</h2>
-                        <p class="start__descr roboto-regular">Rates change, but every mortgage journey starts with a relationship. (Pssst...it's not just about clicking a button)</p>
-                        <div class="start__line">
+        <section id={id} className="start">
+            <div className="container">
+                <div className="start__wrapper">
+                    <div className="start__info">
+                        <h2 className="header__h2-left roboto-bold">Get started with us</h2>
+                        <p className="start__descr roboto-regular">Rates change, but every mortgage journey starts with a relationship. (Pssst...it's not just about clicking a button)</p>
+                        <div className="start__line">
                             <Line/>
                         </div>
-                        <div class="start__btns">
+                        <div className="start__btns">
                             <Button text='Get started' link='#'/>
                             <Button type='white' text='Schedule a time' link='#'/>
                         </div>
                     </div>
-                    <div class="start__img">
+                    <div className="start__img">
                         <img src="https://github.com/SergeySKA10/mortgage/blob/assets/src/assets/img/ebook_page/cat.png?raw=true" alt="house"/>
                     </div>
                 </div>

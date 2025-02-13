@@ -14,23 +14,23 @@ const PromoEbook = ({author, nameBook, format, indexActiveFormat, setIndexActive
     const formats = format.map((el, i) => {
         const active = i === indexActiveFormat ? 'format-active' : '';
         return (
-            <div class={`btn btn__ebook ${active}`} data-index={i} onClick={onActive}>
+            <div className={`btn btn__ebook ${active}`} data-index={i} onClick={onActive}>
                 {el}
             </div>
         )
     })
 
     return (
-        <section class="promo_ebook">
-            <header class="promo_ebook__header">
+        <section className="promo_ebook">
+            <header className="promo_ebook__header">
                 <Link to='/' style={{display: 'block', width: '340px'}}>
                     <img src={logo} alt="logo"/>
                 </Link>
             </header>
-            <h1 class="promo_ebook__name header__h1 roboto-bold">{nameBook}</h1>
-            <div class="promo_ebook__descr">
-                <div class="promo_ebook__author roboto-bold">{author}</div>
-                <div class="promo_ebook__btns">
+            <h1 className="promo_ebook__name header__h1 roboto-bold">{nameBook}</h1>
+            <div className="promo_ebook__descr">
+                <div className="promo_ebook__author roboto-bold">{author}</div>
+                <div className="promo_ebook__btns">
                     {formats}
                 </div>
             </div>

@@ -9,9 +9,9 @@ const Report = () => {
     const reportsWrapper = reports.map(el => <ReportCard key={el.id} data={el}/>);
 
     return (
-        <section class="report">
-            <h2 class="header__h2 roboto-bold">What's in the report</h2>
-            <div class="report__wrapper">
+        <section className="report">
+            <h2 className="header__h2 roboto-bold">What's in the report</h2>
+            <div className="report__wrapper">
                 {reportsWrapper}
             </div>
         </section>
