@@ -1,0 +1,15 @@
+.article {
+    position: relative;
+    min-height: 764px;
+    margin-top: 109px;
+    
+    &__info {
+        display: grid;
+        grid-template-columns: minmax(818px, 0) minmax(397px, 0);
+        column-gap: 24px;
+        justify-content: center;
+    }
+}
+
+
+

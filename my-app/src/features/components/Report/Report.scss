@@ -1,0 +1,15 @@
+.report {
+    min-height: 300px;
+    padding-left: 20px;
+    padding-right: 20px;
+    h2 {
+        padding-right: 15px;
+    }
+    &__wrapper {
+        margin-top: 27px;
+        display: flex;
+        justify-content: center;
+        gap: 39px;
+        flex-wrap: wrap;
+    }
+}

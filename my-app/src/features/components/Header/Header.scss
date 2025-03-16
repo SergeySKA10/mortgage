@@ -1,0 +1,50 @@
+@import '../../../style/variables/variables.scss';
+
+.header {
+    &__main {
+        position: absolute;
+        z-index: 10;
+        width: 80px;
+        padding-top: 24px;
+        padding-left: 24px;
+        display: flex;
+        height: 76px;
+    }
+    &__h1 {
+        width: 579px;
+        min-height: 120px;
+        font-size: 48px;
+        line-height: 60px;
+        color: #342F45;
+        span {
+            color: $main_color;
+        }
+    }
+    &__h2 {
+        color: $dark_color;
+        font-size: 36px;
+        line-height: 60px;
+        text-align: center;
+        &-left {
+            color: $dark_color;
+            font-size: 36px;
+            line-height: 60px;
+        }
+    }
+    &__h3 {
+        color: rgb(0, 0, 0, 0.5);
+        font-size: 18px;
+        line-height: 21px;
+        text-align: center;
+        &-left {
+            color: rgb(0, 0, 0, 0.5);
+            font-size: 18px;
+            line-height: 21px;
+        }
+    }
+    &__h4 {
+        color: rgb(52, 47, 69);
+        font-size: 28px;
+        line-height: 28px;
+    }
+}

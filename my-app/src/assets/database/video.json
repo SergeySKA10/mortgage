@@ -1,0 +1,40 @@
+{
+    "video": [
+        {
+            "id": "video1",
+            "link": "https://www.youtube.com/watch?v=QKryqvikLJI",
+            "descr": "The difference between «fixed rate» and «adjustable»",
+            "creation_time": "2024-03-25"
+        },
+        {
+            "id": "video2",
+            "link": "https://www.youtube.com/watch?v=9Nknk78-dV4",
+            "descr": "What are points and credits?",
+            "creation_time": "2024-01-25"
+        },
+        {
+            "id": "video3",
+            "link": "https://www.youtube.com/watch?v=3CRRlyjFUqs",
+            "descr": "What are points and credits?",
+            "creation_time": "2024-08-24"
+        },
+        {
+            "id": "video4",
+            "link": "https://www.youtube.com/watch?v=MYKhfwGHVwY",
+            "descr": "The difference between «fixed rate» and «adjustable»",
+            "creation_time": "2024-04-24"
+        },
+        {
+            "id": "video5",
+            "link": "https://www.youtube.com/watch?v=DJh2uTejzTI",
+            "descr": "What are points and credits?",
+            "creation_time": "2024-12-24"
+        },
+        {
+            "id": "video6",
+            "link": "https://www.youtube.com/watch?v=qFBj8BCOYnA",
+            "descr": "What are points and credits?",
+            "creation_time": "2024-07-24"
+        }
+    ]
+}

@@ -1,0 +1,27 @@
+@media (max-width: 1320px) {
+    [data-size = "large-right"] {
+        grid-column-start: auto;
+        grid-column-end: auto;
+        padding-right: 32px;
+        .article__descr {
+            padding-right: 0px;
+        }
+    }
+}
+
+@media (max-width: 992px) {
+    [data-size = "large"] {
+        grid-column-start: auto;
+        grid-column-end: auto;
+        padding-right: 32px;
+        .article__descr {
+            padding-right: 0px;
+        }
+    }
+}
+
+@media (max-width: 375px) {
+    .blog_education__wrapper {
+        grid-template-columns: repeat(auto-fill, minmax(310px, 0));
+    }
+}

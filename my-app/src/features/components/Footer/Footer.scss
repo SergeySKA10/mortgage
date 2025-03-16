@@ -1,0 +1,97 @@
+@import '../../../style/variables/variables.scss';
+
+.footer {
+    margin-top: 76px;
+    padding: 2px 100px 35px 95px;
+    min-height: 462px;
+    background-color: $blue_color; 
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        min-height: 60px;
+        .btn {
+            background-color:rgb(255, 255, 255, 0.2);
+            border: none;
+            a {
+                color: #ffffff;
+            }
+        }
+    }
+    &__logo {
+        position: relative;
+        left: -95px;
+    }
+    &__info {
+        margin-top: 31px;
+        padding: 0px 3px;
+        margin-bottom: 27px;
+        display: flex;
+        justify-content: center;
+        gap: 100px;
+        &_descr {
+            max-width: 499px;
+            min-height: 144px;
+            display: flex;
+            flex-direction: column;
+            padding-top: 3px;
+            gap: 24px;
+            div {
+                color: rgb(255, 255, 255, 0.7);
+                font-size: 10px;
+                line-height: 20px;
+                text-align: left;
+                a {
+                    text-decoration: none;
+                    color: rgb(255, 255, 255, 0.7);
+                }
+            }
+        }
+    }
+    &__contacts {
+        width: 650px;
+        min-height: 144px;
+        display: flex;
+        justify-content: space-between;
+        gap: 90px;
+        &_company {
+            min-width: 299px;
+        }
+        &_education {
+            min-width: 75px;
+        }
+        &_legal {
+            min-width: 100px;
+        }
+        &_header {
+            margin-bottom: 8px;
+        }
+        &_ul {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            color: #ffffff;
+            font-size: 15px;
+            line-height: 18px;
+            list-style-type: none;
+        }
+        &_list {
+            color: rgb(255, 255, 255, 0.7);
+            font-size: 14px;
+            line-height: 24px;
+            text-decoration: none;
+        }
+    }
+    &__descr {
+        display: block;
+        margin: 0 auto;
+        margin-top: 43px;
+        width: 672px;
+        min-height: 48px;
+        color: rgb(255, 255, 255);
+        font-size: 12px;
+        line-height: 24px;
+        text-align: center;
+    }
+    
+}

@@ -1,0 +1,61 @@
+@media (max-width: 1320px) {
+    .promo_ebook__name {
+        width: 500px;
+    }
+}
+
+@media (max-width:1200px) {
+    .promo_ebook {
+        padding-right: 50px;
+        &__name {
+            margin-left: 200px;
+        }
+        &__descr {
+            margin-left: 200px;
+        }
+    }
+}
+
+@media (max-width:992px) {
+    .promo_ebook {
+        padding-right: 50px;
+        &__name {
+            margin-left: 100px;
+        }
+        &__descr {
+            margin-left: 100px;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .promo_ebook__name {
+        width: 300px;
+    }
+}
+
+@media (max-width: 576px) {
+    .promo_ebook {
+        padding-right: 10px;
+    }
+    .promo_ebook__header {
+        img {
+            width: 300px;
+        }
+    }
+    .promo_ebook__name {
+        margin-left: 50px;
+    }
+    .promo_ebook__descr {
+        margin-left: 50px;
+    }
+}
+
+@media (max-width: 375px) {
+    .promo_ebook__name {
+        margin-left: 10px;
+    }
+    .promo_ebook__descr {
+        margin-left: 10px;
+    }
+}
