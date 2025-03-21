@@ -1,0 +1,372 @@
+{
+    "articles": [
+        {
+            "id": "Article1",
+            "link": "#",
+            "subheader": "Blog",
+            "header": "Article #1",
+            "descr": "Terms of your offer, how quickly you can turn things around and who your lenders is advising.",
+            "avatar": "https://github.com/SergeySKA10/mortgage/blob/assets/src/assets/img/main_page/avatar_consultant/avatar_scott.png?raw=true",
+            "name": "Scott Johnson",
+            "creation_time": "2024-01-25"
+        },
+        {
+            "id": "Article2",
+            "link": "#",
+            "subheader": "Blog",
+            "header": "Article #2",
+            "descr": "Terms of your offer, how quickly you can turn things around and who your lenders is advising.",
+            "avatar": "https://github.com/SergeySKA10/mortgage/blob/assets/src/assets/img/main_page/avatar_consultant/avatar_scott.png?raw=true",
+            "name": "Scott Johnson",
+            "creation_time": "2024-04-25"
+        },
+        {
+            "id": "Article3",
+            "link": "#",
+            "subheader": "Blog",
+            "header": "Article #3",
+            "descr": "Terms of your offer, how quickly you can turn things around and who your lenders is advising.",
+            "avatar": "https://github.com/SergeySKA10/mortgage/blob/assets/src/assets/img/main_page/avatar_consultant/avatar_justin.png?raw=true",
+            "name": "Justin Roberts",
+            "creation_time": "2024-09-25"
+        },
+        {
+            "id": "Article4",
+            "link": "#",
+            "subheader": "Blog",
+            "header": "Article #4",
+            "descr": "Terms of your offer, how quickly you can turn things around and who your lenders is advising.",
+            "avatar": "https://github.com/SergeySKA10/mortgage/blob/assets/src/assets/img/main_page/avatar_consultant/avatar_scott.png?raw=true",
+            "name": "Scott Johnson",
+            "creation_time": "2024-03-25"
+        },
+        {
+            "id": "Article5",
+            "link": "#",
+            "subheader": "Blog",
+            "header": "Article #5",
+            "descr": "Terms of your offer, how quickly you can turn things around and who your lenders is advising.",
+            "avatar": "https://github.com/SergeySKA10/mortgage/blob/assets/src/assets/img/main_page/avatar_consultant/avatar_scott.png?raw=true",
+            "name": "Scott Johnson",
+            "creation_time": "2024-11-25"
+        },
+        {
+            "id": "Article6",
+            "link": "#",
+            "subheader": "Blog",
+            "header": "Article #6",
+            "descr": "Terms of your offer, how quickly you can turn things around and who your lenders is advising.",
+            "avatar": "https://github.com/SergeySKA10/mortgage/blob/assets/src/assets/img/main_page/avatar_consultant/avatar_justin.png?raw=true",
+            "name": "Justin Roberts",
+            "creation_time": "2025-01-10"
+        },
+        {
+            "id": "Article7",
+            "link": "#",
+            "subheader": "Blog",
+            "header": "Article #7",
+            "descr": "Terms of your offer, how quickly you can turn things around and who your lenders is advising.",
+            "avatar": "https://github.com/SergeySKA10/mortgage/blob/assets/src/assets/img/main_page/avatar_consultant/avatar_scott.png?raw=true",
+            "name": "Scott Johnson",
+            "creation_time": "2025-01-05"
+        },
+        {
+            "id": "Article8",
+            "link": "#",
+            "subheader": "Blog",
+            "header": "Article #8",
+            "descr": "Terms of your offer, how quickly you can turn things around and who your lenders is advising.",
+            "avatar": "https://github.com/SergeySKA10/mortgage/blob/assets/src/assets/img/main_page/avatar_consultant/avatar_scott.png?raw=true",
+            "name": "Scott Johnson",
+            "creation_time": "2024-12-25"
+        },
+        {
+            "id": "Article9",
+            "link": "#",
+            "subheader": "Blog",
+            "header": "Article #9",
+            "descr": "Terms of your offer, how quickly you can turn things around and who your lenders is advising.",
+            "avatar": "https://github.com/SergeySKA10/mortgage/blob/assets/src/assets/img/main_page/avatar_consultant/avatar_justin.png?raw=true",
+            "name": "Justin Roberts",
+            "creation_time": "2024-06-25"
+        },
+        {
+            "id": "Article10",
+            "link": "#",
+            "subheader": "Blog",
+            "header": "Article #10",
+            "descr": "Terms of your offer, how quickly you can turn things around and who your lenders is advising.",
+            "avatar": "https://github.com/SergeySKA10/mortgage/blob/assets/src/assets/img/main_page/avatar_consultant/avatar_justin.png?raw=true",
+            "name": "Justin Roberts",
+            "creation_time": "2024-08-25"
+        }
+    ],
+    "filters": [
+        {
+            "id": "all",
+            "name": "All articles"
+        }
+    ],
+    "mentors": [
+        {
+            "id": "Justin",
+            "photo": "https://github.com/SergeySKA10/mortgage/blob/assets/src/assets/img/main_page/getting_mortgage/Justin.png?raw=true",
+            "link": "https://www.youtube.com/watch?v=mU69g6Ao47A",
+            "name": "Justin",
+            "quality": "The master mind",
+            "descr": "Rates change, but every mortgage journey starts with a relationship. (Pssst...it's not just about clicking a button)",
+            "skills": [
+                {
+                    "id": "deelsJustin",
+                    "icons": "https://raw.githubusercontent.com/SergeySKA10/mortgage/3389c7e5e6085b7e584408deee2e34a7e920ea10/src/assets/icons/main_page/skills_justin/deals.svg",
+                    "skill": "Deels"
+                },
+                {
+                    "id": "WayJustin",
+                    "icon": "https://raw.githubusercontent.com/SergeySKA10/mortgage/3389c7e5e6085b7e584408deee2e34a7e920ea10/src/assets/icons/main_page/skills_justin/compass.svg",
+                    "skill": "Find the right way"
+                },
+                {
+                    "id": "databaseJustin",
+                    "icon": "https://raw.githubusercontent.com/SergeySKA10/mortgage/3389c7e5e6085b7e584408deee2e34a7e920ea10/src/assets/icons/main_page/skills_justin/database.svg",
+                    "skill": "Mortgage «database»"
+                },
+                {
+                    "id": "docsJustin",
+                    "icon": "https://raw.githubusercontent.com/SergeySKA10/mortgage/3389c7e5e6085b7e584408deee2e34a7e920ea10/src/assets/icons/main_page/skills_justin/docs.svg",
+                    "skill": "Docs master"
+                }
+            ]
+        },
+        {
+            "id": "Scott",
+            "photo": "https://github.com/SergeySKA10/mortgage/blob/assets/src/assets/img/main_page/getting_mortgage/Scott.png?raw=true",
+            "link": "https://www.youtube.com/watch?v=Q9An1Guxhy0",
+            "name": "Scott",
+            "quality": "The educator",
+            "descr": "Rates change, but every mortgage journey starts with a relationship. (Pssst...it's not just about clicking a button)",
+            "skills": [
+                {
+                    "id": "linguistScott",
+                    "icon": "https://raw.githubusercontent.com/SergeySKA10/mortgage/3389c7e5e6085b7e584408deee2e34a7e920ea10/src/assets/icons/main_page/skills_scott/globe.svg",
+                    "skill": "Linguist"
+                },
+                {
+                    "id": "searcherScott",
+                    "icon": "https://raw.githubusercontent.com/SergeySKA10/mortgage/3389c7e5e6085b7e584408deee2e34a7e920ea10/src/assets/icons/main_page/skills_scott/life-buoy.svg",
+                    "skill": "Perfect place searcher"
+                },
+                {
+                    "id": "helperScott",
+                    "icon": "https://raw.githubusercontent.com/SergeySKA10/mortgage/3389c7e5e6085b7e584408deee2e34a7e920ea10/src/assets/icons/main_page/skills_scott/home.svg",
+                    "skill": "Helper"
+                },
+                {
+                    "id": "guruScott",
+                    "icon": "https://raw.githubusercontent.com/SergeySKA10/mortgage/3389c7e5e6085b7e584408deee2e34a7e920ea10/src/assets/icons/main_page/skills_scott/users.svg",
+                    "skill": "Communication Guru"
+                }
+            ]
+        }
+    ],
+    "ratings": [
+        {
+            "id": "google",
+            "stars": "4.5 stars rating",
+            "icon": "https://github.com/SergeySKA10/mortgage/blob/assets/src/assets/icons/main_page/customers/rating/google.png?raw=true",
+            "review": "85 reviews"
+        },
+        {
+            "id": "zillow",
+            "stars": "4 stars rating",
+            "icon": "https://github.com/SergeySKA10/mortgage/blob/assets/src/assets/icons/main_page/customers/rating/zillow.png?raw=true",
+            "review": "22 reviews"
+        }
+    ],
+    "resources": {
+        "books": [
+            {
+                "id": "book/things",
+                "name": "9 Things You Must Know About Buying Your First Home",
+                "author": "Justin Roberts",
+                "pictures": [
+                    "https://github.com/SergeySKA10/mortgage/blob/assets/src/assets/img/book/book.png?raw=true"
+                ],
+                "category": "Resources",
+                "type": "download",
+                "link": "/database/mortgage.pdf",
+                "format": ["PDF", "ePUB"],
+                "descr": [
+                    "So you're about to get into the world of homeownership. It's okay...everyone feels lost during this process, but the more preparation you do upfront, the smoother your journey will be."
+                ]
+            },
+            {
+                "id": "book/second",
+                "name": "Second Book",
+                "author": "Justin Roberts",
+                "pictures": [
+                    "https://github.com/SergeySKA10/mortgage/blob/assets/src/assets/img/ebook_page/things/mountains.png?raw=true",
+                    "https://github.com/SergeySKA10/mortgage/blob/assets/src/assets/img/ebook_page/things/space.png?raw=true"
+                ],
+                "category": "Resources",
+                "type": "",
+                "link": "",
+                "format": ["ePUB"],
+                "descr": [
+                    "So you're about to get into the world of homeownership. It's okay...everyone feels lost during this process, but the more preparation you do upfront, the smoother your journey will be.",
+                    "So you're about to get into the world of homeownership. It's okay...everyone feels lost during this process, but the more preparation you do upfront, the smoother your journey will be. So you're about to get into the world of homeownership. It's okay...everyone feels lost during this process, but the more preparation you do upfront, the smoother your journey will be.So you're about to get into the world of homeownership. It's okay...everyone feels lost during this process, but the more preparation you do upfront, the smoother your journey will be.So you're about to get into the world of homeownership.",
+                    "So you're about to get into the world of homeownership. It's okay...everyone feels lost during this process, but the more preparation you do upfront, the smoother your journey will be. So you're about to get into the world of homeownership. It's okay...everyone feels lost during this process, but the more preparation you do upfront, the smoother your journey will be.So you're about to get into the world of homeownership. It's okay...everyone feels lost during this process, but the more preparation you do upfront, the smoother your journey will be.So you're about to get into the world of homeownership."
+                ]
+            }
+        ],
+        "webinars": [
+            {
+                "id": "webinar/one",
+                "name": "Webinar name",
+                "author": "Scott Johnson",
+                "pictures": [
+                    "https://github.com/SergeySKA10/mortgage/blob/assets/src/assets/img/book/book_cover.png?raw=true"
+                ],
+                "category": "Resources",
+                "type": "video",
+                "link": "https://www.youtube.com/watch?v=ZRcfHk3unR8",
+                "format": [],
+                "descr": [
+                    "So you're about to get into the world of homeownership. It's okay...everyone feels lost during this process, but the more preparation you do upfront, the smoother your journey will be."
+                ]
+            }
+        ]
+    },
+    "slidesReviews": [
+        {
+            "id": "Emely1",
+            "photo": "https://github.com/SergeySKA10/mortgage/blob/assets/src/assets/img/main_page/customers/Emily.png?raw=true",
+            "city": "New York",
+            "name": "Emily Pearson",
+            "profession": "Engeneer",
+            "icon": "https://raw.githubusercontent.com/SergeySKA10/mortgage/3389c7e5e6085b7e584408deee2e34a7e920ea10/src/assets/icons/main_page/customers/G.svg",
+            "review": "Terms of your offer, how quickly you can turn things around and who your lenders is. advising, calling listing agents, to get your deal done, Offer-Stage advising, calling listing agents, to get your deal done."
+        },
+        {
+            "id": "Michael1",
+            "photo": "https://github.com/SergeySKA10/mortgage/blob/assets/src/assets/img/main_page/customers/Michael.png?raw=true",
+            "city": "Los angeles",
+            "name": "Michael Bronson",
+            "profession": "Product designe",
+            "icon": "https://raw.githubusercontent.com/SergeySKA10/mortgage/3389c7e5e6085b7e584408deee2e34a7e920ea10/src/assets/icons/main_page/customers/G.svg",
+            "review": "Terms of your offer, how quickly you can turn things around and who your lenders is. advising, calling listing agents, to get your deal done, Offer-Stage advising, calling listing agents, to get your deal done."
+        },
+        {
+            "id": "Emely2",
+            "photo": "https://github.com/SergeySKA10/mortgage/blob/assets/src/assets/img/main_page/customers/Emily.png?raw=true",
+            "city": "New York",
+            "name": "Emily Pearson",
+            "profession": "Engeneer",
+            "icon": "https://raw.githubusercontent.com/SergeySKA10/mortgage/3389c7e5e6085b7e584408deee2e34a7e920ea10/src/assets/icons/main_page/customers/G.svg",
+            "review": "Terms of your offer, how quickly you can turn things around and who your lenders is. advising, calling listing agents, to get your deal done, Offer-Stage advising, calling listing agents, to get your deal done."
+        },
+        {
+            "id": "Michael2",
+            "photo": "https://github.com/SergeySKA10/mortgage/blob/assets/src/assets/img/main_page/customers/Michael.png?raw=true",
+            "city": "Los angeles",
+            "name": "Michael Bronson",
+            "profession": "Product designe",
+            "icon": "https://raw.githubusercontent.com/SergeySKA10/mortgage/3389c7e5e6085b7e584408deee2e34a7e920ea10/src/assets/icons/main_page/customers/G.svg",
+            "review": "Terms of your offer, how quickly you can turn things around and who your lenders is. advising, calling listing agents, to get your deal done, Offer-Stage advising, calling listing agents, to get your deal done."
+        },
+        {
+            "id": "Emely3",
+            "photo": "https://github.com/SergeySKA10/mortgage/blob/assets/src/assets/img/main_page/customers/Emily.png?raw=true",
+            "city": "New York",
+            "name": "Emily Pearson",
+            "profession": "Engeneer",
+            "icon": "https://raw.githubusercontent.com/SergeySKA10/mortgage/3389c7e5e6085b7e584408deee2e34a7e920ea10/src/assets/icons/main_page/customers/G.svg",
+            "review": "Terms of your offer, how quickly you can turn things around and who your lenders is. advising, calling listing agents, to get your deal done, Offer-Stage advising, calling listing agents, to get your deal done."
+        },
+        {
+            "id": "Michael3",
+            "photo": "https://github.com/SergeySKA10/mortgage/blob/assets/src/assets/img/main_page/customers/Michael.png?raw=true",
+            "city": "Los angeles",
+            "name": "Michael Bronson",
+            "profession": "Product designe",
+            "icon": "https://raw.githubusercontent.com/SergeySKA10/mortgage/3389c7e5e6085b7e584408deee2e34a7e920ea10/src/assets/icons/main_page/customers/G.svg",
+            "review": "Terms of your offer, how quickly you can turn things around and who your lenders is. advising, calling listing agents, to get your deal done, Offer-Stage advising, calling listing agents, to get your deal done."
+        },
+        {
+            "id": "Emely4",
+            "photo": "https://github.com/SergeySKA10/mortgage/blob/assets/src/assets/img/main_page/customers/Emily.png?raw=true",
+            "city": "New York",
+            "name": "Emily Pearson",
+            "profession": "Engeneer",
+            "icon": "https://raw.githubusercontent.com/SergeySKA10/mortgage/3389c7e5e6085b7e584408deee2e34a7e920ea10/src/assets/icons/main_page/customers/G.svg",
+            "review": "Terms of your offer, how quickly you can turn things around and who your lenders is. advising, calling listing agents, to get your deal done, Offer-Stage advising, calling listing agents, to get your deal done."
+        },
+        {
+            "id": "Michael4",
+            "photo": "https://github.com/SergeySKA10/mortgage/blob/assets/src/assets/img/main_page/customers/Michael.png?raw=true",
+            "city": "Los angeles",
+            "name": "Michael Bronson",
+            "profession": "Product designe",
+            "icon": "https://raw.githubusercontent.com/SergeySKA10/mortgage/3389c7e5e6085b7e584408deee2e34a7e920ea10/src/assets/icons/main_page/customers/G.svg",
+            "review": "Terms of your offer, how quickly you can turn things around and who your lenders is. advising, calling listing agents, to get your deal done, Offer-Stage advising, calling listing agents, to get your deal done."
+        },
+        {
+            "id": "Emely5",
+            "photo": "https://github.com/SergeySKA10/mortgage/blob/assets/src/assets/img/main_page/customers/Emily.png?raw=true",
+            "city": "New York",
+            "name": "Emily Pearson",
+            "profession": "Engeneer",
+            "icon": "https://raw.githubusercontent.com/SergeySKA10/mortgage/3389c7e5e6085b7e584408deee2e34a7e920ea10/src/assets/icons/main_page/customers/G.svg",
+            "review": "Terms of your offer, how quickly you can turn things around and who your lenders is. advising, calling listing agents, to get your deal done, Offer-Stage advising, calling listing agents, to get your deal done."
+        },
+        {
+            "id": "Michael5",
+            "photo": "https://github.com/SergeySKA10/mortgage/blob/assets/src/assets/img/main_page/customers/Michael.png?raw=true",
+            "city": "Los angeles",
+            "name": "Michael Bronson",
+            "profession": "Product designe",
+            "icon": "https://raw.githubusercontent.com/SergeySKA10/mortgage/3389c7e5e6085b7e584408deee2e34a7e920ea10/src/assets/icons/main_page/customers/G.svg",
+            "review": "Terms of your offer, how quickly you can turn things around and who your lenders is. advising, calling listing agents, to get your deal done, Offer-Stage advising, calling listing agents, to get your deal done."
+        }
+    ],
+    "video": [
+        {
+            "id": "video1",
+            "link": "https://www.youtube.com/watch?v=QKryqvikLJI",
+            "descr": "The difference between «fixed rate» and «adjustable»",
+            "creation_time": "2024-03-25"
+        },
+        {
+            "id": "video2",
+            "link": "https://www.youtube.com/watch?v=9Nknk78-dV4",
+            "descr": "What are points and credits?",
+            "creation_time": "2024-01-25"
+        },
+        {
+            "id": "video3",
+            "link": "https://www.youtube.com/watch?v=3CRRlyjFUqs",
+            "descr": "What are points and credits?",
+            "creation_time": "2024-08-24"
+        },
+        {
+            "id": "video4",
+            "link": "https://www.youtube.com/watch?v=MYKhfwGHVwY",
+            "descr": "The difference between «fixed rate» and «adjustable»",
+            "creation_time": "2024-04-24"
+        },
+        {
+            "id": "video5",
+            "link": "https://www.youtube.com/watch?v=DJh2uTejzTI",
+            "descr": "What are points and credits?",
+            "creation_time": "2024-12-24"
+        },
+        {
+            "id": "video6",
+            "link": "https://www.youtube.com/watch?v=qFBj8BCOYnA",
+            "descr": "What are points and credits?",
+            "creation_time": "2024-07-24"
+        }
+    ],
+    "book": [],
+    "webinar": []
+}

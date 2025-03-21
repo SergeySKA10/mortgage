@@ -19,7 +19,7 @@ export default function RootLayout({
             <body className={`${robotoSans.variable}`}>
                 <Header />
                 {children}
-                <Footer />
+                {/* <Footer /> */}
             </body>
         </html>
     );
