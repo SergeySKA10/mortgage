@@ -1,4 +1,6 @@
-// import { useGetDurationVideo } from '../../api/youtubeApi';
+// 'use client';
+// import { useGetDurationVideo } from '@/features/api/youtubeApi';
+import Image from 'next/image';
 
 import { Button } from '../ui/Buttons/Button';
 import { ButtonPlay } from '../ui/Buttons/ButtonPlay';
@@ -7,10 +9,10 @@ import { Line } from '../ui/Line/Line';
 import './PromoMain.scss';
 import './PromoMainMedia.scss';
 
-// import logo from '../../../../public/logo/NAF_Logo.svg';
-
 const PromoMain = () => {
-    // const time = useGetDurationVideo('https://www.youtube.com/watch?v=JPR6TEYp5tg');
+    // const time = useGetDurationVideo(
+    //     'https://www.youtube.com/watch?v=JPR6TEYp5tg'
+    // );
 
     return (
         <section className="promo_main">
@@ -21,6 +23,7 @@ const PromoMain = () => {
                 <div className="promo_main__video">
                     <ButtonPlay link="https://www.youtube.com/watch?v=JPR6TEYp5tg" />
                     <div className="promo_main__time roboto-regular">
+                        {/* {time} */}
                         {'00:00'}
                     </div>
                 </div>
@@ -28,7 +31,12 @@ const PromoMain = () => {
 
             <div className="promo_main__info">
                 <div className="promo_main__logo">
-                    <img src={'awd'} alt="logo" />
+                    <Image
+                        src={'/logo/NAF_Logo.svg'}
+                        width={240}
+                        height={43}
+                        alt="logo"
+                    />
                 </div>
 
                 <h1 className="header__h1 roboto-bold">

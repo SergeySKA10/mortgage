@@ -1,3 +1,5 @@
+'use client';
+
 import { useHttp } from '../../hooks/http.hook';
 import { useQuery } from '@tanstack/react-query';
 import { useState, useEffect } from 'react';
@@ -19,7 +21,7 @@ export const useGetVideoDetailes = (url: string) => {
 };
 
 export const useGetDurationVideo = (url: string) => {
-    const [time, setTime] = useState('PT00M00S');
+    const [time, setTime] = useState<string>('PT00M00S');
 
     const { data } = useGetVideoDetailes(url);
 

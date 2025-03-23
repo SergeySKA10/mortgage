@@ -1,17 +1,15 @@
-@import '../../../style/variables/variables.scss';
-
 .footer {
     margin-top: 76px;
     padding: 2px 100px 35px 95px;
     min-height: 462px;
-    background-color: $blue_color; 
+    background-color: $blue_color;
     &__header {
         display: flex;
         justify-content: space-between;
         align-items: center;
         min-height: 60px;
         .btn {
-            background-color:rgb(255, 255, 255, 0.2);
+            background-color: rgb(255, 255, 255, 0.2);
             border: none;
             a {
                 color: #ffffff;
@@ -93,5 +91,4 @@
         line-height: 24px;
         text-align: center;
     }
-    
 }

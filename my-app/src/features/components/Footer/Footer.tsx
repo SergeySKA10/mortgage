@@ -1,16 +1,21 @@
+import Image from 'next/image';
 import { Button } from '../ui/Buttons/Button';
 import { Line } from '../ui/Line/Line';
 
 import './Footer.scss';
 import './FooterMedia.scss';
-// import logo from '@/assets/logo/logo_white.svg';
 
 const Footer = () => {
     return (
         <footer className="footer">
             <header className="footer__header">
                 <div className="footer__logo">
-                    <img src={'@/assets/logo/logo_white.svg'} alt="logo" />
+                    <Image
+                        src={'/logo/logo_white.svg'}
+                        width={240}
+                        height={43}
+                        alt="logo"
+                    />
                 </div>
                 <div className="footer__btn">
                     <Button type="white" text="Schedule a time" link="#" />

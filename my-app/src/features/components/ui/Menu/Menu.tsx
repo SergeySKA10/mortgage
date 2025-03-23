@@ -1,27 +1,31 @@
-import { useSelector, useDispatch } from 'react-redux';
-import { useEffect } from 'react';
-import { closeMenu, menuActive } from '../Burger/burgerSlice';
+'use client';
 
-// import { NavLink, useLocation } from 'react-router-dom';
-// import { Link } from 'react-scroll';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import Image from 'next/image';
+
+import { useAppDispatch, useAppSelector } from '@/hooks/redux.hooks';
+import { useEffect } from 'react';
+import { closeMenu } from '../Burger/burgerSlice';
+
+import type { ILink } from '@/shared/shared-components/linkMenuType';
 
 import { Button } from '../Buttons/Button';
 import { Line } from '../Line/Line';
 
 import './Menu.scss';
 import './MenuMedia.scss';
-import logo from '../../../../assets/icons/main_page/logo/NAF_Logo.svg';
 
 const Menu = () => {
-    const dispatch = useDispatch();
-    const location = useLocation();
+    const dispatch = useAppDispatch();
+    const location = usePathname();
 
     // const [linksOnSection, setLinksOnSection] = useState([]);
 
     // переменные для работы с окном меню
-    const menu = useSelector((state) => state.menu.menu),
-        classOpenMenu = menu === menuActive.open ? 'menu-active' : null,
-        classOpenBlock = menu === menuActive.open ? 'menu__block-active' : null;
+    const menu = useAppSelector((state) => state.menu.menu),
+        classOpenMenu = menu === 'open' ? 'menu-active' : null,
+        classOpenBlock = menu === 'open' ? 'menu__block-active' : null;
 
     // обработчик события keydown для закрытия меню
     useEffect(() => {
@@ -33,39 +37,33 @@ const Menu = () => {
     }, [menu]);
 
     // функция закрытия меню при событии клика на подложку или нажатия Escape
-    const hideMenu = (target) => {
-        if (
-            menu === menuActive.open &&
-            target === document.querySelector('.menu')
-        ) {
+    const hideMenu = (target: EventTarget | KeyboardEvent['code']): void => {
+        if (menu === 'open' && target === document.querySelector('.menu')) {
             closeMenu(dispatch);
         }
 
-        if (menu === menuActive.open && target === 'Escape') {
+        if (menu === 'open' && target === 'Escape') {
             closeMenu(dispatch);
         }
     };
 
     // получение ссылок на секции из state
-    const sectionLinks = useSelector((state) => state.links.linksOnSection);
+    const sectionLinks = useAppSelector((state) => state.links.linksOnSection);
 
     // получение ссылок на страницы из state
-    const pageLinks = useSelector((state) => state.links.linksOnPages);
+    const pageLinks = useAppSelector((state) => state.links.linksOnPages.pages);
 
     // функция создания ссылок на блоки страницы
-    const createLinksonSection = (arr) => {
+    const createLinksonSection = (arr: ILink[]) => {
         return arr.map((el) => (
             <li key={el.id}>
-                <Link
+                <a
                     onClick={() => closeMenu(dispatch)}
                     className="roboto-bold"
-                    to={el.link}
-                    spy={true}
-                    smooth={true}
-                    duration={1000}
+                    href={el.link}
                 >
                     {el.text}
-                </Link>
+                </a>
             </li>
         ));
     };
@@ -84,19 +82,19 @@ const Menu = () => {
     // создаем ссылки на страницы
     const linksOnPages = pageLinks.map((el) => (
         <li key={el.id}>
-            <NavLink
+            <Link
                 onClick={() => closeMenu(dispatch)}
                 className="roboto-bold"
-                to={el.link}
+                href={el.link}
             >
                 {el.text}
-            </NavLink>
+            </Link>
         </li>
     ));
 
     // функция рендера ссылок на секции в зависимости от страницы
     const renderLinksonSection = () => {
-        switch (location.pathname) {
+        switch (location) {
             case '/':
                 return linksMain;
             case '/blog':
@@ -126,13 +124,18 @@ const Menu = () => {
             onClick={(e) => hideMenu(e.target)}
         >
             <div className={`menu__block ${classOpenBlock}`}>
-                <NavLink
-                    to="/"
+                <Link
+                    href="/"
                     className="menu__logo"
                     onClick={() => closeMenu(dispatch)}
                 >
-                    <img src={logo} alt="logo" />
-                </NavLink>
+                    <Image
+                        src={'/logo/NAF_Logo.svg'}
+                        width={240}
+                        height={43}
+                        alt="logo"
+                    />
+                </Link>
                 <div className="menu__content">
                     {content}
                     <div className="menu__line">

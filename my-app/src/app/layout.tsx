@@ -1,6 +1,10 @@
 import type { Metadata } from 'next';
 import robotoSans from './fonts';
 
+// import { QueryClientProvider } from '@tanstack/react-query';
+// import { queryClient } from '@/features/api/query-client';
+import Providers from './tanstackQuery-provider';
+import StoreProvider from './StoreProvider';
 import Header from '@/features/components/Header/Header';
 import Footer from '@/features/components/Footer/Footer';
 
@@ -17,9 +21,13 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body className={`${robotoSans.variable}`}>
-                <Header />
-                {children}
-                {/* <Footer /> */}
+                <Providers>
+                    <StoreProvider>
+                        <Header />
+                        {children}
+                        <Footer />
+                    </StoreProvider>
+                </Providers>
             </body>
         </html>
     );
