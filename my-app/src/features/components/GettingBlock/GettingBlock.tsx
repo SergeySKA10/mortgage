@@ -1,7 +1,7 @@
+'use client';
+
 import useGetData from '../../../services/useGetData';
 import setContent from '../../../utils/setContent';
-
-import { useState, useEffect } from 'react';
 
 import SpeakerCard from '../ui/SpeakerCard/SpeakerCard';
 
@@ -13,21 +13,7 @@ const GettingBlock = () => {
     const {
         process,
         getData: { data, isError, isPending },
-    } = useGetData('mentors', 1);
-
-    // создаем изначальное состояние для карточек менторов
-    const [mentors, setMentors] = useState([]);
-
-    // добавляем в карточки полученные данные
-    useEffect(() => {
-        if (data) {
-            setMentors((mentors) =>
-                data.map((el) => {
-                    return <SpeakerCard key={el.id} data={el} />;
-                })
-            );
-        }
-    }, [data]);
+    } = useGetData('mentors');
 
     return (
         <section id="getting" className="getting">
@@ -45,7 +31,8 @@ const GettingBlock = () => {
                         process,
                         isError,
                         isPending,
-                        Components: mentors,
+                        data: data,
+                        Component: SpeakerCard,
                     })}
                 </div>
             </div>

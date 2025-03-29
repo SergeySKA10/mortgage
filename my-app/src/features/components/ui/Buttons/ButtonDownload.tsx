@@ -1,39 +1,42 @@
+'use client';
+
 import { useHttp } from '../../../../hooks/http.hook';
 import { useState, useEffect } from 'react';
+import type { IButtonDownload } from '@/shared/shared-components/componentsTypes';
 
 import './Buttons.scss';
 import './ButtonMedia.scss';
 
-export const ButtonDownLoad = ({path, name}) => {
-    const {request} = useHttp();
+export const ButtonDownLoad = ({ path, name }: IButtonDownload) => {
+    const { request } = useHttp();
 
     // создаем state для отслеживания нажатия на кнопку
-    const [pressBtn, setPressBtn] = useState(false);
+    const [pressBtn, setPressBtn] = useState<boolean>(false);
 
     // создаем state для формирования оповещения ошибки
-    const [errorMessage, setErrorMessage] = useState(false);
+    const [errorMessage, setErrorMessage] = useState<boolean>(false);
 
     // функция удаления ошибки
     const deleteError = () => {
         setErrorMessage(false);
-    }
+    };
 
     // запуск таймаута для удаления ошибки и возвращению кнопки
     useEffect(() => {
-        let timerID;
-        if(errorMessage) {
+        let timerID: NodeJS.Timeout;
+        if (errorMessage) {
             timerID = setTimeout(deleteError, 3000);
-            setPressBtn(pressBtn => !pressBtn);
+            setPressBtn((pressBtn) => !pressBtn);
         }
 
         return () => clearTimeout(timerID);
     }, [errorMessage]);
 
-    // функция скачивания pdf файла 
-    const downloadFile = async (path) => {
+    // функция скачивания pdf файла
+    const downloadFile = async (path: IButtonDownload['path']) => {
         // делаем запрос для получения файла
         try {
-            const data = await request({url: path, format: 'blob'});
+            const data = await request({ url: path, format: 'blob' });
 
             // создаем ссылку, добавляем атрибуты и формируем url файла
             const link = document.createElement('a');
@@ -48,13 +51,12 @@ export const ButtonDownLoad = ({path, name}) => {
             // удаляем ссылку и url
             link.remove();
             URL.revokeObjectURL(link.href);
-            setPressBtn(pressBtn => !pressBtn);
-        } catch(e) {
+            setPressBtn((pressBtn) => !pressBtn);
+        } catch (e) {
             setErrorMessage(true);
             console.log(e);
         }
-        
-    }
+    };
 
     // скачивание файла при клике на кнопку
     useEffect(() => {
@@ -65,14 +67,29 @@ export const ButtonDownLoad = ({path, name}) => {
 
     return (
         <>
-            {errorMessage ? 
-                <p className='roboto-regular' style={{fontSize: '14px', color: 'red', marginTop: '15px'}}>File not found. Please try again later...</p>
-                :   <button className={`btn btn__watch-download`} disabled={pressBtn} onClick={() => setPressBtn(pressBtn => !pressBtn)}>
-                        <div className="btn btn__watch-download-text roboto-bold">Download</div>
-                        <div className="btn btn__watch-download-arrow"></div>
-                    </button>
-            }
+            {errorMessage ? (
+                <p
+                    className="roboto-regular"
+                    style={{
+                        fontSize: '14px',
+                        color: 'red',
+                        marginTop: '15px',
+                    }}
+                >
+                    File not found. Please try again later...
+                </p>
+            ) : (
+                <button
+                    className={`btn btn__watch-download`}
+                    disabled={pressBtn}
+                    onClick={() => setPressBtn((pressBtn) => !pressBtn)}
+                >
+                    <div className="btn btn__watch-download-text roboto-bold">
+                        Download
+                    </div>
+                    <div className="btn btn__watch-download-arrow"></div>
+                </button>
+            )}
         </>
-        
-    )
-}
+    );
+};

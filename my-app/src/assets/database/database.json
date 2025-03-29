@@ -118,7 +118,7 @@
             "skills": [
                 {
                     "id": "deelsJustin",
-                    "icons": "https://raw.githubusercontent.com/SergeySKA10/mortgage/3389c7e5e6085b7e584408deee2e34a7e920ea10/src/assets/icons/main_page/skills_justin/deals.svg",
+                    "icon": "https://raw.githubusercontent.com/SergeySKA10/mortgage/3389c7e5e6085b7e584408deee2e34a7e920ea10/src/assets/icons/main_page/skills_justin/deals.svg",
                     "skill": "Deels"
                 },
                 {
@@ -174,7 +174,8 @@
             "id": "google",
             "stars": "4.5 stars rating",
             "icon": "https://github.com/SergeySKA10/mortgage/blob/assets/src/assets/icons/main_page/customers/rating/google.png?raw=true",
-            "review": "85 reviews"
+            "review": "85 reviews",
+            "link": "#"
         },
         {
             "id": "zillow",
@@ -194,7 +195,7 @@
                 ],
                 "category": "Resources",
                 "type": "download",
-                "link": "/database/mortgage.pdf",
+                "link": "src/assets/database/mortgage.pdf",
                 "format": ["PDF", "ePUB"],
                 "descr": [
                     "So you're about to get into the world of homeownership. It's okay...everyone feels lost during this process, but the more preparation you do upfront, the smoother your journey will be."
@@ -245,7 +246,7 @@
             "name": "Emily Pearson",
             "profession": "Engeneer",
             "icon": "https://raw.githubusercontent.com/SergeySKA10/mortgage/3389c7e5e6085b7e584408deee2e34a7e920ea10/src/assets/icons/main_page/customers/G.svg",
-            "review": "Terms of your offer, how quickly you can turn things around and who your lenders is. advising, calling listing agents, to get your deal done, Offer-Stage advising, calling listing agents, to get your deal done."
+            "reviews": "Terms of your offer, how quickly you can turn things around and who your lenders is. advising, calling listing agents, to get your deal done, Offer-Stage advising, calling listing agents, to get your deal done."
         },
         {
             "id": "Michael1",
@@ -254,7 +255,7 @@
             "name": "Michael Bronson",
             "profession": "Product designe",
             "icon": "https://raw.githubusercontent.com/SergeySKA10/mortgage/3389c7e5e6085b7e584408deee2e34a7e920ea10/src/assets/icons/main_page/customers/G.svg",
-            "review": "Terms of your offer, how quickly you can turn things around and who your lenders is. advising, calling listing agents, to get your deal done, Offer-Stage advising, calling listing agents, to get your deal done."
+            "reviews": "Terms of your offer, how quickly you can turn things around and who your lenders is. advising, calling listing agents, to get your deal done, Offer-Stage advising, calling listing agents, to get your deal done."
         },
         {
             "id": "Emely2",
@@ -263,7 +264,7 @@
             "name": "Emily Pearson",
             "profession": "Engeneer",
             "icon": "https://raw.githubusercontent.com/SergeySKA10/mortgage/3389c7e5e6085b7e584408deee2e34a7e920ea10/src/assets/icons/main_page/customers/G.svg",
-            "review": "Terms of your offer, how quickly you can turn things around and who your lenders is. advising, calling listing agents, to get your deal done, Offer-Stage advising, calling listing agents, to get your deal done."
+            "reviews": "Terms of your offer, how quickly you can turn things around and who your lenders is. advising, calling listing agents, to get your deal done, Offer-Stage advising, calling listing agents, to get your deal done."
         },
         {
             "id": "Michael2",
@@ -272,7 +273,7 @@
             "name": "Michael Bronson",
             "profession": "Product designe",
             "icon": "https://raw.githubusercontent.com/SergeySKA10/mortgage/3389c7e5e6085b7e584408deee2e34a7e920ea10/src/assets/icons/main_page/customers/G.svg",
-            "review": "Terms of your offer, how quickly you can turn things around and who your lenders is. advising, calling listing agents, to get your deal done, Offer-Stage advising, calling listing agents, to get your deal done."
+            "reviews": "Terms of your offer, how quickly you can turn things around and who your lenders is. advising, calling listing agents, to get your deal done, Offer-Stage advising, calling listing agents, to get your deal done."
         },
         {
             "id": "Emely3",
@@ -281,7 +282,7 @@
             "name": "Emily Pearson",
             "profession": "Engeneer",
             "icon": "https://raw.githubusercontent.com/SergeySKA10/mortgage/3389c7e5e6085b7e584408deee2e34a7e920ea10/src/assets/icons/main_page/customers/G.svg",
-            "review": "Terms of your offer, how quickly you can turn things around and who your lenders is. advising, calling listing agents, to get your deal done, Offer-Stage advising, calling listing agents, to get your deal done."
+            "reviews": "Terms of your offer, how quickly you can turn things around and who your lenders is. advising, calling listing agents, to get your deal done, Offer-Stage advising, calling listing agents, to get your deal done."
         },
         {
             "id": "Michael3",
@@ -290,7 +291,7 @@
             "name": "Michael Bronson",
             "profession": "Product designe",
             "icon": "https://raw.githubusercontent.com/SergeySKA10/mortgage/3389c7e5e6085b7e584408deee2e34a7e920ea10/src/assets/icons/main_page/customers/G.svg",
-            "review": "Terms of your offer, how quickly you can turn things around and who your lenders is. advising, calling listing agents, to get your deal done, Offer-Stage advising, calling listing agents, to get your deal done."
+            "reviews": "Terms of your offer, how quickly you can turn things around and who your lenders is. advising, calling listing agents, to get your deal done, Offer-Stage advising, calling listing agents, to get your deal done."
         },
         {
             "id": "Emely4",
@@ -299,7 +300,7 @@
             "name": "Emily Pearson",
             "profession": "Engeneer",
             "icon": "https://raw.githubusercontent.com/SergeySKA10/mortgage/3389c7e5e6085b7e584408deee2e34a7e920ea10/src/assets/icons/main_page/customers/G.svg",
-            "review": "Terms of your offer, how quickly you can turn things around and who your lenders is. advising, calling listing agents, to get your deal done, Offer-Stage advising, calling listing agents, to get your deal done."
+            "reviews": "Terms of your offer, how quickly you can turn things around and who your lenders is. advising, calling listing agents, to get your deal done, Offer-Stage advising, calling listing agents, to get your deal done."
         },
         {
             "id": "Michael4",
@@ -308,7 +309,7 @@
             "name": "Michael Bronson",
             "profession": "Product designe",
             "icon": "https://raw.githubusercontent.com/SergeySKA10/mortgage/3389c7e5e6085b7e584408deee2e34a7e920ea10/src/assets/icons/main_page/customers/G.svg",
-            "review": "Terms of your offer, how quickly you can turn things around and who your lenders is. advising, calling listing agents, to get your deal done, Offer-Stage advising, calling listing agents, to get your deal done."
+            "reviews": "Terms of your offer, how quickly you can turn things around and who your lenders is. advising, calling listing agents, to get your deal done, Offer-Stage advising, calling listing agents, to get your deal done."
         },
         {
             "id": "Emely5",
@@ -317,7 +318,7 @@
             "name": "Emily Pearson",
             "profession": "Engeneer",
             "icon": "https://raw.githubusercontent.com/SergeySKA10/mortgage/3389c7e5e6085b7e584408deee2e34a7e920ea10/src/assets/icons/main_page/customers/G.svg",
-            "review": "Terms of your offer, how quickly you can turn things around and who your lenders is. advising, calling listing agents, to get your deal done, Offer-Stage advising, calling listing agents, to get your deal done."
+            "reviews": "Terms of your offer, how quickly you can turn things around and who your lenders is. advising, calling listing agents, to get your deal done, Offer-Stage advising, calling listing agents, to get your deal done."
         },
         {
             "id": "Michael5",
@@ -326,7 +327,7 @@
             "name": "Michael Bronson",
             "profession": "Product designe",
             "icon": "https://raw.githubusercontent.com/SergeySKA10/mortgage/3389c7e5e6085b7e584408deee2e34a7e920ea10/src/assets/icons/main_page/customers/G.svg",
-            "review": "Terms of your offer, how quickly you can turn things around and who your lenders is. advising, calling listing agents, to get your deal done, Offer-Stage advising, calling listing agents, to get your deal done."
+            "reviews": "Terms of your offer, how quickly you can turn things around and who your lenders is. advising, calling listing agents, to get your deal done, Offer-Stage advising, calling listing agents, to get your deal done."
         }
     ],
     "video": [

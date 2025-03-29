@@ -1,4 +1,4 @@
-import errorIcon from '../../../../assets/icons/error/errorMessage.png';
+import Image from 'next/image';
 
 const ErrorMessage = () => {
     return (
@@ -9,8 +9,10 @@ const ErrorMessage = () => {
                 textAlign: 'center',
             }}
         >
-            <img
-                src={errorIcon}
+            <Image
+                src={'/error/errorMessage.png'}
+                width={100}
+                height={100}
                 alt="error"
                 style={{
                     display: 'block',

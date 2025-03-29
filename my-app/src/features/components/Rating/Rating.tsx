@@ -1,36 +1,30 @@
-// import useGetData from '../../../services/useGetData';
-// import setContent from '../../../utils/setContent';
+'use client';
 
-// import { useState, useEffect } from 'react';
+import useGetData from '../../../services/useGetData';
+import setContent from '../../../utils/setContent';
 
-// import RatingCard from '../ui/RatingCard/RatingCard';
+import RatingCard from '../ui/RatingCard/RatingCard';
 
-// import './Rating.scss';
+import './Rating.scss';
 
-// const Rating = () => {
+const Rating = () => {
+    // делаем запрос для получения данных
+    const {
+        process,
+        getData: { data, isError, isPending },
+    } = useGetData('ratings');
 
-//     // делаем запрос для получения данных
-//     const {process, getData: {data, isError, isPending}} = useGetData('ratings', 3);
+    return (
+        <div className="customers__rating">
+            {setContent({
+                process,
+                isError,
+                isPending,
+                data: data,
+                Component: RatingCard,
+            })}
+        </div>
+    );
+};
 
-//     // создаем изначальное состояние для сблоков рейтинга
-//     const [ratings, setRatings] = useState([]);
-
-//     // заполняем блоки рейтингов полученными данными
-//     useEffect(() => {
-//         if (data) {
-//             setRatings(ratings => data.map(el => {
-//                 return (
-//                     <RatingCard key={el.id} data={el}/>
-//                 )
-//             }))
-//         }
-//     }, [data])
-
-//     return (
-//         <div className="customers__rating">
-//             {setContent({process, isError, isPending, Components: ratings})}
-//         </div>
-//     )
-// }
-
-// export default Rating;
+export default Rating;

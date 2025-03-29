@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
-import type { ILink } from '@/shared/shared-components/linkMenuType';
+import type { ILink } from '@/shared/shared-components/componentsTypes';
 
 import { linksState } from './linksState';
 

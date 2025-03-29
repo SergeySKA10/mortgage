@@ -1,19 +1,24 @@
-interface ISkills {
+interface ISkillDB {
     id: string;
     icon: string;
     skill: string;
 }
 
-interface BooksOrWebinars {
+export interface BooksOrWebinarsDB {
     id: string;
     name: string;
     author: string;
     pictures: string[];
     category: string;
     type: string;
-    link: string;
+    link: `src/assets/database/${string}` | '';
     format: string[];
     descr: string[];
+}
+
+export interface IResourcesDB {
+    books: BooksOrWebinarsDB[];
+    webinars: BooksOrWebinarsDB[];
 }
 
 interface GeneralData {
@@ -26,17 +31,17 @@ interface GeneralData {
     avatar: string;
     name: string;
     creation_time: string;
-    skills: ISkills;
+    skills: ISkillDB[];
     stars: string;
     icon: string;
     reviews: string;
-    books: BooksOrWebinars[];
+    books: IResourcesDB;
     photo: string;
     city: string;
     profession: string;
 }
 
-export type Articles = Pick<
+export type ArticlesDB = Pick<
     GeneralData,
     | 'id'
     | 'link'
@@ -48,23 +53,45 @@ export type Articles = Pick<
     | 'creation_time'
 >;
 
-export type Filters = Pick<GeneralData, 'id' | 'name'>;
+export type FiltersDB = Pick<GeneralData, 'id' | 'name'>;
 
-export type Mentors = Pick<
+export type MentorsDB = Pick<
     GeneralData,
     'id' | 'photo' | 'link' | 'name' | 'quality' | 'descr' | 'skills'
 >;
 
-export type Ratings = Pick<GeneralData, 'id' | 'stars' | 'icon' | 'reviews'>;
+export type RatingsDB = Pick<
+    GeneralData,
+    'id' | 'stars' | 'icon' | 'reviews' | 'link'
+>;
 
-export type Resources = Pick<GeneralData, 'books'>;
+export type ResourcesDB = Pick<GeneralData, 'books'>;
 
-export type SlidesReviews = Pick<
+export type SlidesReviewsDB = Pick<
     GeneralData,
     'id' | 'photo' | 'city' | 'name' | 'profession' | 'icon' | 'reviews'
 >;
 
-export type Video = Pick<
+export type VideoDB = Pick<
     GeneralData,
     'id' | 'link' | 'descr' | 'creation_time'
 >;
+
+export type QueryData =
+    | ArticlesDB[]
+    | FiltersDB[]
+    | MentorsDB[]
+    | RatingsDB[]
+    | BooksOrWebinarsDB[]
+    | SlidesReviewsDB[]
+    | VideoDB[]
+    | IResourcesDB;
+
+// export type Data =
+//     | ArticlesDB[]
+//     | FiltersDB[]
+//     | MentorsDB[]
+//     | RatingsDB[]
+//     | BooksOrWebinarsDB[]
+//     | SlidesReviewsDB[]
+//     | VideoDB[];

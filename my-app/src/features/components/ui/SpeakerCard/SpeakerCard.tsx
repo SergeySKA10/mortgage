@@ -1,9 +1,14 @@
+'use client';
+
+import type { ISpeakerCardProps } from '@/shared/shared-components/componentsTypes';
+
+import Image from 'next/image';
 import { ButtonPlay } from '../Buttons/ButtonPlay';
 import { Line } from '../Line/Line';
 
 import './SpeakerCard.scss';
 
-const SpeakerCard = (props) => {
+const SpeakerCard = (props: ISpeakerCardProps) => {
     const { photo, link, name, quality, descr, skills } = props.data;
 
     // формируем skills для отображения на странице
@@ -11,9 +16,14 @@ const SpeakerCard = (props) => {
         return (
             <div key={el.id} className="getting__descr_skill">
                 <div>
-                    <img src={el.icons} alt={el.name} />
+                    <Image
+                        width={22}
+                        height={22}
+                        src={el.icon}
+                        alt={el.skill}
+                    />
                 </div>
-                <p className="roboto-regular">{el.name}</p>
+                <p className="roboto-regular">{el.skill}</p>
             </div>
         );
     });
@@ -23,7 +33,12 @@ const SpeakerCard = (props) => {
             <div className="getting__promo">
                 <div className="getting__promo_btn">
                     <div className="getting__promo_img">
-                        <img src={photo} alt={`speaker ${name}`} />
+                        <Image
+                            height={100}
+                            width={100}
+                            src={photo}
+                            alt={`speaker ${name}`}
+                        />
                     </div>
                     <ButtonPlay link={link} />
                     <div className="getting__promo_descr roboto-regular">

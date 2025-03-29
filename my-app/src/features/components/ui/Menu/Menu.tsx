@@ -8,7 +8,7 @@ import { useAppDispatch, useAppSelector } from '@/hooks/redux.hooks';
 import { useEffect } from 'react';
 import { closeMenu } from '../Burger/burgerSlice';
 
-import type { ILink } from '@/shared/shared-components/linkMenuType';
+import type { ILink } from '@/shared/shared-components/componentsTypes';
 
 import { Button } from '../Buttons/Button';
 import { Line } from '../Line/Line';

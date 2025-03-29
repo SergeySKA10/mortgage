@@ -3,8 +3,8 @@ import robotoSans from './fonts';
 
 // import { QueryClientProvider } from '@tanstack/react-query';
 // import { queryClient } from '@/features/api/query-client';
-import Providers from './tanstackQuery-provider';
-import StoreProvider from './StoreProvider';
+import Providers from './lib/tanstackQuery-provider';
+import StoreProvider from './lib/StoreProvider';
 import Header from '@/features/components/Header/Header';
 import Footer from '@/features/components/Footer/Footer';
 

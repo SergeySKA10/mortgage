@@ -1,5 +1,3 @@
-@import '../../../../style/variables/variables.scss';
-
 .article {
     &__education__line {
         margin-top: 20px;
@@ -86,12 +84,12 @@
     }
 }
 
-
-[data-size = "large"] {
+[data-size='large'] {
     padding-right: 178px;
     grid-column-start: 1;
     grid-column-end: 3;
-    background: url('https://github.com/SergeySKA10/mortgage/blob/assets/src/assets/img/main_page/education/living_room.png?raw=true') center/cover no-repeat;
+    background: url('https://github.com/SergeySKA10/mortgage/blob/assets/src/assets/img/main_page/education/living_room.png?raw=true')
+        center/cover no-repeat;
     .line_dark {
         background-color: rgb(255, 255, 255, 0.2);
         width: 100%;
@@ -114,11 +112,12 @@
     }
 }
 
-[data-size = "large-right"] {
+[data-size='large-right'] {
     padding-right: 178px;
     grid-column-start: 2;
     grid-column-end: 4;
-    background: url('https://github.com/SergeySKA10/mortgage/blob/assets/src/assets/img/main_page/education/living_room.png?raw=true') center/cover no-repeat;
+    background: url('https://github.com/SergeySKA10/mortgage/blob/assets/src/assets/img/main_page/education/living_room.png?raw=true')
+        center/cover no-repeat;
     .line_dark {
         background-color: rgb(255, 255, 255, 0.2);
     }

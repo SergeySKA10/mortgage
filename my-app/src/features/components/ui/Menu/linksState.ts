@@ -1,4 +1,4 @@
-import type { ILinks } from '@/shared/shared-components/linkMenuType';
+import type { ILinks } from '@/shared/shared-components/componentsTypes';
 
 export const linksState: ILinks = {
     linksOnPages: {

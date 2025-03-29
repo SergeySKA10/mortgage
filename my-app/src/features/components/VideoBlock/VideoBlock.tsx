@@ -1,45 +1,34 @@
-// import useGetData from '../../../services/useGetData';
-// import setContent from '../../../utils/setContent';
+'use client';
 
-// import { useState, useEffect } from 'react';
+import useGetData from '../../../services/useGetData';
+import setContent from '../../../utils/setContent';
 
-// import { sortByDate } from '../../../utils/sortByDate';
+import type { VideoDB } from '@/shared/shared-components/dataTypesFromSQL';
 
-// import VideoCard from '../ui/VideoCard/VideoCard';
+import { sortByDate } from '../../../utils/sortByDate';
 
-// import './VideoBlock.scss';
+import VideoCard from '../ui/VideoCard/VideoCard';
 
-// const VideoBlock = () => {
-//     // делаем запрос для получения данных
-//     const {process, getData: {data, isError, isPending}} = useGetData('video', 2);
+import './VideoBlock.scss';
 
-//     // создаем изначальное состояние для видео блоков
-//     const [videos, setVideos] = useState([]);
+const VideoBlock = () => {
+    // делаем запрос для получения данных
+    const {
+        process,
+        getData: { data, isError, isPending },
+    } = useGetData('video');
 
-//     // добавляем в блоки полученные данные
-//     useEffect(() => {
-//         if(data) {
-//             const sortData = sortByDate(data);
-//             setVideos(videos => sortData.map((el, i) => {
-//                 // ограничиваем для отображения только 3-х видео
-//                 if (i < 3) {
-//                     // созаем переменную для обозначения большого блока и передачи в props
-//                     const size = i === 1 ? 'videoLarge' : '';
-//                     return (
-//                         <VideoCard key={el.id} data={el} size={size}/>
-//                     )
-//                 } else {
-//                     return null;
-//                 }
-//             }))
-//         }
-//     }, [data])
+    return (
+        <div className="story__presentation">
+            {setContent({
+                process,
+                isError,
+                isPending,
+                data: sortByDate(data as VideoDB[], 'creation_time'),
+                Component: VideoCard,
+            })}
+        </div>
+    );
+};
 
-//     return (
-//         <div className="story__presentation">
-//             {setContent({process, isError, isPending, Components: videos})}
-//         </div>
-//     )
-// }
-
-// export default VideoBlock;
+export default VideoBlock;

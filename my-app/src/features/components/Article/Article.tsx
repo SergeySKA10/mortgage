@@ -1,37 +1,46 @@
-import useGetData from '../../../services/useGetData';
-import setContent from '../../../utils/setContent';
+'use client';
 
-import { useState, useEffect } from 'react';
+import useGetData from '../../../services/useGetData';
+
+import { useState, useEffect, JSX, MouseEvent } from 'react';
 import { sortByDate } from '../../../utils/sortByDate';
 
+import type { ArticlesDB } from '@/shared/shared-components/dataTypesFromSQL';
+
 import ArticleCard from '../ui/ArticleCard/ArticleCard';
+import ErrorMessage from '../ui/ErrorMessage/ErrorMessage';
 
 import './Article.scss';
 
 const Article = () => {
     // делаем запрос для получения данных
     const {
-        process,
         getData: { data, isError, isPending },
-    } = useGetData('articles', 6);
+    } = useGetData('articles');
 
-    // создаем изначальное состояние для статей
-    const [articles, setArticles] = useState([]);
+    // // создаем изначальное состояние для статей
+    const [articles, setArticles] = useState<(JSX.Element | null)[]>([]);
     // задаем изначальный акивный класс
-    const [activeClazz, setActiveClazz] = useState(2);
+    const [activeClazz, setActiveClazz] = useState<number>(2);
 
     //функция изменения активного класса
-    const onChangeActive = (target) => {
-        setActiveClazz(+target.getAttribute('data-index'));
+    const onChangeActive = (
+        e: MouseEvent<HTMLAnchorElement, globalThis.MouseEvent>
+    ) => {
+        if (e.target && (e.target as HTMLElement).getAttribute('data-index')) {
+            setActiveClazz(
+                +(e.target as HTMLElement).getAttribute('data-index')!
+            );
+        }
     };
 
     // добавляем данные в статьи
     useEffect(() => {
         if (data) {
             // сортируем по дате создания
-            const sortData = sortByDate(data);
-            setArticles((articles) =>
-                sortData.map((el, i) => {
+            const sortData = sortByDate(data as ArticlesDB[], 'creation_time');
+            setArticles(() =>
+                (sortData as ArticlesDB[]).map((el, i) => {
                     // делаем ограничение до 3-х блоков
                     if (i < 3) {
                         // созаем переменную для обозначения большого блока и передачи в props
@@ -42,7 +51,7 @@ const Article = () => {
                         return (
                             <ArticleCard
                                 key={el.id}
-                                data={el}
+                                data={el as ArticlesDB}
                                 index={i}
                                 size={large}
                                 active={active}
@@ -59,7 +68,13 @@ const Article = () => {
 
     return (
         <div className="article__education_wrapper">
-            {setContent({ process, isError, isPending, Components: articles })}
+            {isError ? (
+                <ErrorMessage />
+            ) : isPending ? (
+                <div>Loading...</div>
+            ) : (
+                articles
+            )}
         </div>
     );
 };

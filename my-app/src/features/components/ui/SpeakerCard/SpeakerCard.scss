@@ -1,5 +1,3 @@
-@import '../../../../style/variables/variables.scss';
-
 .getting {
     &__block {
         min-width: 512px;
@@ -10,7 +8,6 @@
         padding-left: 35px;
         &_img {
             width: 284px;
-            
         }
         &_btn {
             display: flex;
@@ -24,7 +21,7 @@
             font-size: 13px;
             line-height: 15px;
         }
-    }        
+    }
     &__descr {
         position: relative;
         display: block;
