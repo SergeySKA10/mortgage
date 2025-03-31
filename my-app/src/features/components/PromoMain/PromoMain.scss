@@ -4,7 +4,8 @@
     display: grid;
     grid-template-columns: 587px 1fr;
     min-height: 720px;
-    background: url('https://github.com/SergeySKA10/mortgage/blob/assets/src/assets/img/main_page/promo/promo.png?raw=true') 0 0 / contain no-repeat;
+    background: url('https://github.com/SergeySKA10/mortgage/blob/assets/src/assets/img/main_page/promo/promo.png?raw=true')
+        0 0 / contain no-repeat;
     background-color: #ffffff;
     &__descr {
         min-height: 720px;
@@ -26,6 +27,7 @@
         height: 43px;
         color: rgb(255, 255, 255);
         font-size: 18px;
+        font-weight: 700;
         line-height: 21px;
         text-align: left;
     }
@@ -40,6 +42,7 @@
     &__time {
         height: 16px;
         font-size: 13px;
+        font-weight: 400;
         color: #ffffff;
     }
     &__info {
@@ -61,6 +64,7 @@
             height: 48px;
             color: rgb(0, 0, 0, 0.5);
             font-size: 14px;
+            font-weight: 400;
             line-height: 24px;
         }
     }
@@ -83,9 +87,9 @@
             height: 43px;
             color: rgb(0, 0, 0);
             font-size: 18px;
+            font-weight: 700;
             line-height: 21px;
             text-align: left;
         }
     }
 }
-

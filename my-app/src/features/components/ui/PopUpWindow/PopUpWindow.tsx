@@ -42,8 +42,8 @@ const PopUpWindow = () => {
                 <div className="story__window_quote">
                     <Image
                         src="https://raw.githubusercontent.com/SergeySKA10/mortgage/18d084c5ee990382bec9cf9c3f8875f856f339e0/src/assets/icons/main_page/quote/left-quote.svg"
-                        width={10}
-                        height={10}
+                        width={27}
+                        height={21}
                         alt="quote"
                     />
                 </div>
@@ -56,8 +56,8 @@ const PopUpWindow = () => {
                         <Image
                             src="https://github.com/SergeySKA10/mortgage/blob/assets/src/assets/img/main_page/avatar_consultant/avatar_justin.png?raw=true"
                             alt="Justin"
-                            width={20}
-                            height={20}
+                            width={64}
+                            height={64}
                         />
                     </div>
                     <div className="story__window_profile-name roboto-bold">

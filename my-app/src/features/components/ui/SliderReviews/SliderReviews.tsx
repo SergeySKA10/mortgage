@@ -191,7 +191,7 @@ const SlideReviews = ({ data }: ISlideReview) => {
         <div className="customers__slide">
             <div className="customers__slide-profile">
                 <div className="customers__slide-photo">
-                    <Image src={photo} alt="photo" height={50} width={50} />
+                    <Image src={photo} alt="photo" height={110} width={110} />
                 </div>
                 <div className="customers__slide-info">
                     <div className="customers__slide-city roboto-bold">
@@ -205,7 +205,7 @@ const SlideReviews = ({ data }: ISlideReview) => {
                     </div>
                 </div>
                 <div className="customers__slide-social">
-                    <Image src={icon} alt="social" height={50} width={50} />
+                    <Image src={icon} alt="social" height={20} width={20} />
                 </div>
             </div>
             <div className="customers__slide_line">
@@ -216,8 +216,8 @@ const SlideReviews = ({ data }: ISlideReview) => {
                     <Image
                         src="https://raw.githubusercontent.com/SergeySKA10/mortgage/18d084c5ee990382bec9cf9c3f8875f856f339e0/src/assets/icons/main_page/quote/right-quote.svg"
                         alt="quote"
-                        height={50}
-                        width={50}
+                        height={25}
+                        width={32}
                     />
                 </div>
                 <p className="customers__slide-text roboto-regular">

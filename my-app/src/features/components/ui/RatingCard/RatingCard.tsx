@@ -64,7 +64,7 @@ const RatingCard = ({ data }: IRatingsProps) => {
             <div className="customers__block-descr">
                 <div className="customers__block_text roboto-bold">{stars}</div>
                 <div className="customers__block_img">
-                    <Image src={icon} alt="google" width={30} height={30} />
+                    <Image src={icon} alt="google" width={100} height={42} />
                 </div>
                 <div className="customers__block_line">
                     <Line />

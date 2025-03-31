@@ -21,11 +21,25 @@
             min-height: 336px;
             li {
                 a {
+                    transition: all 0.3s ease-out;
                     color: rgb(52, 47, 69);
                     font-size: 22px;
+                    font-weight: 700;
                     line-height: 28px;
                     text-decoration: none;
+                    background-image: linear-gradient(
+                        currentColor,
+                        currentColor
+                    );
+                    background-position: 0% 100%;
+                    background-repeat: no-repeat;
+                    background-size: 0% 2px;
                     cursor: pointer;
+                    &:hover {
+                        font-size: 23px;
+                        color: $main_color;
+                        background-size: 100% 2px;
+                    }
                 }
             }
         }

@@ -45,16 +45,13 @@ const Article = () => {
                     if (i < 3) {
                         // созаем переменную для обозначения большого блока и передачи в props
                         const large = i === 0 ? 'large' : '';
-                        // задаем класс активости
-                        const active =
-                            i === activeClazz ? 'article-active' : '';
+
                         return (
                             <ArticleCard
                                 key={el.id}
                                 data={el as ArticlesDB}
                                 index={i}
                                 size={large}
-                                active={active}
                                 onChangeActive={onChangeActive}
                             />
                         );

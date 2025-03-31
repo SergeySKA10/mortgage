@@ -35,8 +35,8 @@ const BookCard = ({ data }: IBookCardProps) => {
                     <Image
                         src={pictures[0]}
                         alt={name}
-                        width={50}
-                        height={50}
+                        width={96}
+                        height={125}
                     />
                 </div>
                 <div className="article__resources_descr-book">

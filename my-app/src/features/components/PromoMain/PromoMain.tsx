@@ -39,8 +39,21 @@ const PromoMain = () => {
                 </div>
 
                 <h1 className="header__h1 roboto-bold">
-                    Finding a mortgage is so <span>much more</span> than{' '}
-                    <span> just a rate</span>
+                    Finding a mortgage is so{' '}
+                    <span
+                        className="header__h1-span_more"
+                        data-text="much more"
+                    >
+                        much more
+                    </span>{' '}
+                    than{' '}
+                    <span
+                        className="header__h1-span_just"
+                        data-text="just a rate"
+                    >
+                        {' '}
+                        just a rate
+                    </span>
                 </h1>
 
                 <p className="promo_main__info_text roboto-regular">

@@ -92,8 +92,7 @@ export interface IFilterProps {
 
 export interface IArticleCardProps {
     data: ArticlesDB;
-    size: 'large' | '';
-    active: 'article-active' | '';
+    size: 'large' | 'large-right' | '';
     index: number;
     onChangeActive: (
         e: MouseEvent<HTMLAnchorElement, globalThis.MouseEvent>

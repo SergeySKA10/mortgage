@@ -3,6 +3,7 @@
         margin-top: 20px;
     }
     &__block {
+        transition: all 0.5s ease-in;
         background-color: #ffffff;
         border-radius: 4px;
         padding: 28px 32px 32px 32px;
@@ -16,10 +17,33 @@
         .line {
             width: 260px;
         }
+        &:hover {
+            background-color: $main_color;
+            box-shadow: 0px 15px 30px 0px rgba(52, 47, 69, 0.7);
+            .line_dark {
+                background-color: rgb(255, 255, 255, 0.2);
+            }
+            .article__logo {
+                color: rgb(255, 255, 255, 0.5);
+            }
+            .article__descr {
+                color: rgb(255, 255, 255, 0.5);
+            }
+            .article__by_name {
+                color: rgb(255, 255, 255, 0.5);
+                div {
+                    color: rgb(255, 255, 255);
+                }
+            }
+            h4 {
+                color: rgb(255, 255, 255);
+            }
+        }
     }
     &__logo {
         color: $main_color;
         font-size: 11px;
+        font-weight: 700;
         line-height: 13px;
         letter-spacing: 2px;
         text-align: left;
@@ -29,6 +53,7 @@
         margin-top: 18px;
         color: rgb(0, 0, 0, 0.5);
         font-size: 14px;
+        font-weight: 400;
         line-height: 24px;
     }
     &__by {
@@ -47,6 +72,7 @@
             transform: translateY(10px);
             color: rgb(0, 0, 0, 0.5);
             font-size: 14px;
+            font-weight: 400;
             line-height: 14px;
             text-align: left;
             div {
@@ -55,6 +81,7 @@
                 font-size: 16px;
                 line-height: 16px;
                 text-align: left;
+                font-weight: 700;
                 width: 106px;
                 height: 16px;
             }
@@ -62,29 +89,30 @@
     }
 }
 
-.article-active {
-    background-color: $main_color;
-    .line_dark {
-        background-color: rgb(255, 255, 255, 0.2);
-    }
-    .article__logo {
-        color: rgb(255, 255, 255, 0.5);
-    }
-    .article__descr {
-        color: rgb(255, 255, 255, 0.5);
-    }
-    .article__by_name {
-        color: rgb(255, 255, 255, 0.5);
-        div {
-            color: rgb(255, 255, 255);
-        }
-    }
-    h4 {
-        color: rgb(255, 255, 255);
-    }
-}
+// .article-active {
+//     background-color: $main_color;
+//     .line_dark {
+//         background-color: rgb(255, 255, 255, 0.2);
+//     }
+//     .article__logo {
+//         color: rgb(255, 255, 255, 0.5);
+//     }
+//     .article__descr {
+//         color: rgb(255, 255, 255, 0.5);
+//     }
+//     .article__by_name {
+//         color: rgb(255, 255, 255, 0.5);
+//         div {
+//             color: rgb(255, 255, 255);
+//         }
+//     }
+//     h4 {
+//         color: rgb(255, 255, 255);
+//     }
+// }
 
 [data-size='large'] {
+    transition: all 0.5s ease-in;
     padding-right: 178px;
     grid-column-start: 1;
     grid-column-end: 3;
@@ -110,9 +138,31 @@
     h4 {
         color: rgb(255, 255, 255);
     }
+    &:hover {
+        background: $main_color;
+        .line_dark {
+            background-color: rgb(255, 255, 255, 0.2);
+        }
+        .article__logo {
+            color: rgb(255, 255, 255, 0.5);
+        }
+        .article__descr {
+            color: rgb(255, 255, 255, 0.5);
+        }
+        .article__by_name {
+            color: rgb(255, 255, 255, 0.5);
+            div {
+                color: rgb(255, 255, 255);
+            }
+        }
+        h4 {
+            color: rgb(255, 255, 255);
+        }
+    }
 }
 
 [data-size='large-right'] {
+    transition: all 0.5s ease-in;
     padding-right: 178px;
     grid-column-start: 2;
     grid-column-end: 4;
@@ -136,5 +186,26 @@
     }
     h4 {
         color: rgb(255, 255, 255);
+    }
+    &:hover {
+        background: $main_color;
+        .line_dark {
+            background-color: rgb(255, 255, 255, 0.2);
+        }
+        .article__logo {
+            color: rgb(255, 255, 255, 0.5);
+        }
+        .article__descr {
+            color: rgb(255, 255, 255, 0.5);
+        }
+        .article__by_name {
+            color: rgb(255, 255, 255, 0.5);
+            div {
+                color: rgb(255, 255, 255);
+            }
+        }
+        h4 {
+            color: rgb(255, 255, 255);
+        }
     }
 }

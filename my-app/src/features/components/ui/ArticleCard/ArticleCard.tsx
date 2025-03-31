@@ -9,7 +9,6 @@ import './ArticleCard.scss';
 const ArticleCard = ({
     data,
     size,
-    active,
     index,
     onChangeActive,
     order = { order: '' },
@@ -17,15 +16,15 @@ const ArticleCard = ({
     const { link, subheader, header, descr, avatar, name } = data;
 
     // стили для большего активного блока
-    const style = size && active ? { background: '#278FB4' } : null;
+    // const style = size && active ? { background: '#278FB4' } : null;
 
     return (
         <Link
             href={`${link}`}
-            className={`article__block ${active}`}
+            className={`article__block`}
             data-size={size}
             data-index={index}
-            style={{ ...style, ...order }}
+            style={{ ...order }}
             onClick={(e) => {
                 onChangeActive(e);
             }}
@@ -38,7 +37,7 @@ const ArticleCard = ({
             </div>
             <div className="article__by">
                 <div className="article__by_photo">
-                    <Image src={avatar} alt="photo" height={50} width={50} />
+                    <Image src={avatar} alt="photo" height={48} width={48} />
                 </div>
                 <div className="article__by_name roboto-regular">
                     by

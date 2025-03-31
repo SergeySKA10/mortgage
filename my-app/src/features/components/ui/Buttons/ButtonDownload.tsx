@@ -79,16 +79,18 @@ export const ButtonDownLoad = ({ path, name }: IButtonDownload) => {
                     File not found. Please try again later...
                 </p>
             ) : (
-                <button
-                    className={`btn btn__watch-download`}
-                    disabled={pressBtn}
-                    onClick={() => setPressBtn((pressBtn) => !pressBtn)}
-                >
-                    <div className="btn btn__watch-download-text roboto-bold">
-                        Download
-                    </div>
-                    <div className="btn btn__watch-download-arrow"></div>
-                </button>
+                <div className="btn-wrapper">
+                    <button
+                        className={`btn btn__watch-download`}
+                        disabled={pressBtn}
+                        onClick={() => setPressBtn((pressBtn) => !pressBtn)}
+                    >
+                        <div className="btn btn__watch-download-text roboto-bold">
+                            Download
+                        </div>
+                        <div className="btn btn__watch-download-arrow"></div>
+                    </button>
+                </div>
             )}
         </>
     );

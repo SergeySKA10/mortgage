@@ -34,8 +34,8 @@ const SpeakerCard = (props: ISpeakerCardProps) => {
                 <div className="getting__promo_btn">
                     <div className="getting__promo_img">
                         <Image
-                            height={100}
-                            width={100}
+                            height={273}
+                            width={389}
                             src={photo}
                             alt={`speaker ${name}`}
                         />

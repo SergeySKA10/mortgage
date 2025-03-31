@@ -1,7 +1,12 @@
 .promo_webinar {
     min-height: 500px;
     padding: 29px 100px 0px 100px;
-    background: linear-gradient(90deg, rgba(255,255,255,1) 62%, rgba(39,143,180,1) 61%, rgba(18,104,147,1) 89%);
+    background: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 1) 62%,
+        rgba(39, 143, 180, 1) 61%,
+        rgba(18, 104, 147, 1) 89%
+    );
     margin-bottom: 105px;
     &__wrapper {
         width: 100%;
@@ -20,6 +25,7 @@
         margin-top: 15px;
         color: rgb(0, 0, 0, 0.7);
         font-size: 16px;
+        font-weight: 700;
         line-height: 16px;
     }
     &__descr {
@@ -27,11 +33,13 @@
         max-width: 478px;
         color: rgb(0, 0, 0, 0.5);
         font-size: 14px;
+        font-weight: 400;
         line-height: 24px;
     }
     &__time {
         height: 16px;
         font-size: 13px;
+        font-weight: 400;
         color: #ffffff;
     }
     &__macbook {

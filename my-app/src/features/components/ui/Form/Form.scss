@@ -3,10 +3,11 @@
     display: flex;
     input {
         padding: 16px 19px 21px 19px;
+        font-weight: 300;
         height: 56px;
         width: 380px;
         border-radius: 4px;
-        border: 1px solid rgb(0, 0, 0, 0.2)
+        border: 1px solid rgb(0, 0, 0, 0.2);
     }
 }
 
@@ -15,6 +16,7 @@
     padding-left: 20px;
     color: red;
     font-size: 14px;
+    font-weight: 400;
 }
 
 .success_msg {
@@ -22,4 +24,5 @@
     padding-left: 20px;
     color: green;
     font-size: 14px;
+    font-weight: 400;
 }
