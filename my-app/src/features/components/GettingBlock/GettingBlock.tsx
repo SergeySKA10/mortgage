@@ -1,19 +1,12 @@
-'use client';
-
-import useGetData from '../../../services/useGetData';
-import setContent from '../../../utils/setContent';
-
-import SpeakerCard from '../ui/SpeakerCard/SpeakerCard';
+import { HydrationBoundary, dehydrate } from '@tanstack/react-query';
+import { getQueryClient } from '@/app/lib/getQueryClient';
+import GettingInfo from './GettingInfo';
 
 import './GettingBlock.scss';
 import './GettingBlockMedia.scss';
 
 const GettingBlock = () => {
-    // делаем запрос для получения данных
-    const {
-        process,
-        getData: { data, isError, isPending },
-    } = useGetData('mentors');
+    const queryClient = getQueryClient();
 
     return (
         <section id="getting" className="getting">
@@ -27,13 +20,9 @@ const GettingBlock = () => {
                 </h3>
 
                 <div className="getting__speakers">
-                    {setContent({
-                        process,
-                        isError,
-                        isPending,
-                        data: data,
-                        Component: SpeakerCard,
-                    })}
+                    <HydrationBoundary state={dehydrate(queryClient)}>
+                        <GettingInfo />
+                    </HydrationBoundary>
                 </div>
             </div>
         </section>
