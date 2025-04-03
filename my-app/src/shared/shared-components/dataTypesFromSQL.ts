@@ -87,11 +87,11 @@ export type QueryData =
     | VideoDB[]
     | IResourcesDB;
 
-// export type Data =
-//     | ArticlesDB[]
-//     | FiltersDB[]
-//     | MentorsDB[]
-//     | RatingsDB[]
-//     | BooksOrWebinarsDB[]
-//     | SlidesReviewsDB[]
-//     | VideoDB[];
+export type Data =
+    | ArticlesDB[]
+    | FiltersDB[]
+    | MentorsDB[]
+    | RatingsDB[]
+    | BooksOrWebinarsDB[]
+    | SlidesReviewsDB[]
+    | VideoDB[];

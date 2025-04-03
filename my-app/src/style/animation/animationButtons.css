@@ -88,3 +88,19 @@
         max-width: 0;
     }
 }
+
+@keyframes skeleton {
+    from {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.animation-skeleton {
+    animation: skeleton 2s ease-in-out infinite;
+}

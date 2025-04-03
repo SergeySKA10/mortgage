@@ -4,6 +4,8 @@ import GettingInfo from './GettingInfo';
 
 import './GettingBlock.scss';
 import './GettingBlockMedia.scss';
+import { Suspense } from 'react';
+import { SkeletonGettingBlock } from './SkeletonGettingBlock';
 
 const GettingBlock = () => {
     const queryClient = getQueryClient();
@@ -20,9 +22,14 @@ const GettingBlock = () => {
                 </h3>
 
                 <div className="getting__speakers">
-                    <HydrationBoundary state={dehydrate(queryClient)}>
-                        <GettingInfo />
-                    </HydrationBoundary>
+                    <Suspense
+                        key={'mentors'}
+                        fallback={<SkeletonGettingBlock />}
+                    >
+                        <HydrationBoundary state={dehydrate(queryClient)}>
+                            <GettingInfo />
+                        </HydrationBoundary>
+                    </Suspense>
                 </div>
             </div>
         </section>

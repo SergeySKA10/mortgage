@@ -6,16 +6,15 @@ import setContent from '../../../utils/setContent';
 import SpeakerCard from '../ui/SpeakerCard/SpeakerCard';
 
 const GettingInfo = () => {
-    const { data, isError, isPending } = useSuspenseQuery(
-        getOptions('mentors')
-    );
+    const { data } = useSuspenseQuery(getOptions('mentors'));
 
     return (
         <>
             {setContent({
-                process: 'render',
-                isError,
-                isPending,
+                // process: 'render',
+                // isError,
+                // isPending,
+                // Skeleton: SkeletonSpeakerCard,
                 data: data,
                 Component: SpeakerCard,
             })}
