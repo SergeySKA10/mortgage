@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import useGetData from '../../../../services/useGetData';
 import { useState, useEffect, JSX } from 'react';
+import { FiltersSkeleton } from './FiltersSkeleton';
 
 import type { FiltersDB } from '@/shared/shared-components/dataTypesFromSQL';
 import type { IFilterProps } from '@/shared/shared-components/componentsTypes';
@@ -22,7 +23,6 @@ const Filters = () => {
         if (data) {
             setFilters(() =>
                 (data as FiltersDB[]).map((el, i) => {
-                    // добавляем класс активности ???? (пока что статичный)
                     const activeClass = i === 0 ? 'filter-active' : '';
 
                     return (
@@ -40,9 +40,18 @@ const Filters = () => {
     return (
         <div className="article__filters">
             {isPending ? (
-                <div>Loading filters...</div>
+                <>
+                    <FiltersSkeleton />
+                    <FiltersSkeleton />
+                    <FiltersSkeleton />
+                </>
             ) : isError ? (
-                <div>Filters not loaded, please try again later...</div>
+                <>
+                    <div className="filters-error">
+                        There was an error loading filters
+                    </div>
+                    <button className="btn btn__mini">Upload again</button>
+                </>
             ) : (
                 filters
             )}

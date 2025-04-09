@@ -10,13 +10,9 @@ const ArticleCard = ({
     data,
     size,
     index,
-    onChangeActive,
     order = { order: '' },
 }: IArticleCardProps) => {
     const { link, subheader, header, descr, avatar, name } = data;
-
-    // стили для большего активного блока
-    // const style = size && active ? { background: '#278FB4' } : null;
 
     return (
         <Link
@@ -25,9 +21,6 @@ const ArticleCard = ({
             data-size={size}
             data-index={index}
             style={{ ...order }}
-            onClick={(e) => {
-                onChangeActive(e);
-            }}
         >
             <div className="article__logo roboto-bold">{subheader}</div>
             <h4 className="header__h4 roboto-bold">{header}</h4>

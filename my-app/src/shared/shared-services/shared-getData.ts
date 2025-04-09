@@ -1,7 +1,9 @@
 import { UseQueryResult } from '@tanstack/react-query';
 import { QueryData } from '../shared-components/dataTypesFromSQL';
 
-export type GetData = (key: string) => {
-    process: string;
+type Key = 'slidesReviews' | 'filters';
+
+export type GetData = (key: Key) => {
+    process: 'waiting' | 'render';
     getData: UseQueryResult<QueryData, Error>;
 };

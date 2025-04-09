@@ -6,6 +6,7 @@
             min-width: 512px;
             border-radius: 4px;
             background-color: #ffffff;
+            border: 1px solid rgba(0, 0, 0, 0.1);
             box-shadow: 0px 15px 30px 0px rgba(0, 0, 0, 0.1);
         }
     }
@@ -15,9 +16,11 @@
         &_img {
             width: 284px;
             &-skeleton {
+                display: flex;
+                align-items: center;
                 width: 284px;
                 height: 273px;
-                background-color: rgba(0, 0, 0, 0.1);
+                background-color: #ffffff;
                 border-radius: 5px;
             }
             img {
@@ -47,9 +50,10 @@
             line-height: 15px;
             &-skeleton {
                 margin-top: 105px;
+                margin-left: 10px;
                 border-radius: 4px;
                 background-color: rgba(0, 0, 0, 0.1);
-                width: 80px;
+                width: 50px;
                 height: 15px;
             }
         }

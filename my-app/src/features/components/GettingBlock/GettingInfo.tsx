@@ -1,7 +1,7 @@
 'use client';
 
 import { useSuspenseQuery } from '@tanstack/react-query';
-import { getOptions } from './getOptions';
+import { getOptions } from '../../../services/getOptions';
 import setContent from '../../../utils/setContent';
 import SpeakerCard from '../ui/SpeakerCard/SpeakerCard';
 
@@ -11,10 +11,6 @@ const GettingInfo = () => {
     return (
         <>
             {setContent({
-                // process: 'render',
-                // isError,
-                // isPending,
-                // Skeleton: SkeletonSpeakerCard,
                 data: data,
                 Component: SpeakerCard,
             })}

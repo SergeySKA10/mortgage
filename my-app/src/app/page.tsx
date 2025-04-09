@@ -10,9 +10,9 @@ export default function Home() {
         <>
             <PromoMain />
             <GettingBlock />
-            {/* <StoryBlock />
+            <StoryBlock />
             <CustomersBlock />
-            <EducationBlock /> */}
+            <EducationBlock />
         </>
     );
 }

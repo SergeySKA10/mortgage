@@ -23,7 +23,7 @@ const GettingBlock = () => {
 
                 <div className="getting__speakers">
                     <Suspense
-                        key={'mentors'}
+                        key={'mentorsBlock'}
                         fallback={<SkeletonGettingBlock />}
                     >
                         <HydrationBoundary state={dehydrate(queryClient)}>

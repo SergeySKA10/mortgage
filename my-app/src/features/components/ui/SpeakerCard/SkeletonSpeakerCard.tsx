@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import './SpeakerCard.scss';
 
 export const SkeletonSpeakerCard = () => {
@@ -5,7 +6,15 @@ export const SkeletonSpeakerCard = () => {
         <div className="getting__block-skeleton animation-skeleton">
             <div className="getting__promo">
                 <div className="getting__promo_btn">
-                    <div className="getting__promo_img-skeleton animation-skeleton"></div>
+                    <div className="getting__promo_img-skeleton">
+                        <Image
+                            className="animation-skeleton"
+                            src="/icons/profile.png"
+                            width={184}
+                            height={173}
+                            alt="mentors"
+                        />
+                    </div>
                     <button className="getting__promo_btn-skeleton animation-skeleton"></button>
                     <div className="getting__promo_descr-skeleton animation-skeleton"></div>
                 </div>

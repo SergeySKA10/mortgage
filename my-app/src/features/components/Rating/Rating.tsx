@@ -1,29 +1,23 @@
-'use client';
-
-import useGetData from '../../../services/useGetData';
-import setContent from '../../../utils/setContent';
-
-import RatingCard from '../ui/RatingCard/RatingCard';
+import { HydrationBoundary, dehydrate } from '@tanstack/react-query';
+import { getQueryClient } from '@/app/lib/getQueryClient';
+import { RatingInfo } from './RatingInfo';
+import { Suspense } from 'react';
+import { RatingSkeleton } from './RatingSkeleton';
 
 import './Rating.scss';
 
 const Rating = () => {
     // делаем запрос для получения данных
-    const {
-        process,
-        getData: { data, isError, isPending },
-    } = useGetData('ratings');
+    const queryClient = getQueryClient();
 
     return (
-        <div className="customers__rating">
-            {setContent({
-                process,
-                isError,
-                isPending,
-                data: data,
-                Component: RatingCard,
-            })}
-        </div>
+        <Suspense key={'ratingsBlock'} fallback={<RatingSkeleton />}>
+            <div className="customers__rating">
+                <HydrationBoundary state={dehydrate(queryClient)}>
+                    <RatingInfo />
+                </HydrationBoundary>
+            </div>
+        </Suspense>
     );
 };
 

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { IRequestConfig } from '@/shared/shared-hooks/requestConfig';
 
 export const useHttp = () => {
-    const [process, setProcess] = useState<string>('waiting');
+    const [process, setProcess] = useState<'waiting' | 'render'>('waiting');
 
     const request = async (meta: IRequestConfig) => {
         const {
@@ -13,7 +13,7 @@ export const useHttp = () => {
             format = 'json',
         } = meta;
         setProcess('render');
-
+        await new Promise((resolve) => setTimeout(resolve, 5000));
         try {
             const response = await fetch(url, { method, body, headers });
 

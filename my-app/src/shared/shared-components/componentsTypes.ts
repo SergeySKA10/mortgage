@@ -6,7 +6,6 @@ import type { FiltersDB } from '@/shared/shared-components/dataTypesFromSQL';
 import type { ArticlesDB } from '@/shared/shared-components/dataTypesFromSQL';
 import { BooksOrWebinarsDB } from '@/shared/shared-components/dataTypesFromSQL';
 import type { SlidesReviewsDB } from '@/shared/shared-components/dataTypesFromSQL';
-import type { MouseEvent } from 'react';
 
 export interface ILink {
     id: string;
@@ -94,9 +93,6 @@ export interface IArticleCardProps {
     data: ArticlesDB;
     size: 'large' | 'large-right' | '';
     index: number;
-    onChangeActive: (
-        e: MouseEvent<HTMLAnchorElement, globalThis.MouseEvent>
-    ) => void;
     order?: { order: string };
 }
 
@@ -105,8 +101,9 @@ export interface IBookCardProps {
 }
 
 export interface IButtonProps {
-    type?: 'white' | '';
+    type?: 'white' | 'mini' | '';
     link: string;
+    text: string;
 }
 
 export type IButtonWatchProps = Pick<IButtonProps, 'link'>;

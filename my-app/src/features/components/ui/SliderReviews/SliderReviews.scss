@@ -71,6 +71,15 @@
         background-color: #ffffff;
         padding: 24px 32px 28px 32px;
         box-shadow: 0px -4px 20px -1px rgba(0, 0, 0, 0.1);
+        &-skeleton {
+            width: 473px;
+            height: 310px;
+            padding: 24px 32px 28px 32px;
+            background-color: #ffffff;
+            border: 1px solid rgb(0, 0, 0, 0.1);
+            box-shadow: 0px 15px 30px 0px rgba(0, 0, 0, 0.1);
+            border-radius: 4px;
+        }
         &-profile {
             display: flex;
             gap: 11px;
@@ -97,6 +106,13 @@
             letter-spacing: 2px;
             text-align: left;
             text-transform: uppercase;
+            &-skeleton {
+                margin-top: 11px;
+                border-radius: 4px;
+                background-color: rgba(0, 0, 0, 0.1);
+                width: 80px;
+                height: 13px;
+            }
         }
         &-name {
             margin-top: 9px;
@@ -105,6 +121,13 @@
             font-weight: 700;
             line-height: 28px;
             text-align: left;
+            &-skeleton {
+                margin-top: 9px;
+                border-radius: 4px;
+                background-color: rgba(0, 0, 0, 0.1);
+                width: 80px;
+                height: 28px;
+            }
         }
         &-proff {
             margin-top: 14px;
@@ -113,9 +136,25 @@
             font-weight: 400;
             line-height: 16px;
             text-align: left;
+            &-skeleton {
+                margin-top: 14px;
+                border-radius: 4px;
+                background-color: rgba(0, 0, 0, 0.1);
+                width: 80px;
+                height: 16px;
+            }
         }
         &-social {
             padding-top: 41px;
+            height: 20px;
+            width: 20px;
+            &-skeleton {
+                margin-top: 41px;
+                height: 20px;
+                width: 20px;
+                border-radius: 4px;
+                background-color: rgba(0, 0, 0, 0.1);
+            }
             img {
                 height: 20px;
                 width: 20px;
@@ -140,6 +179,20 @@
             line-height: 24px;
             letter-spacing: 0px;
             text-align: left;
+            &-skeleton {
+                width: 346px;
+                height: 96px;
+                border-radius: 4px;
+                background-color: rgba(0, 0, 0, 0.1);
+            }
+        }
+        &-quote {
+            &-skeleton {
+                height: 32px;
+                width: 25px;
+                border-radius: 4px;
+                background-color: rgba(0, 0, 0, 0.1);
+            }
         }
     }
 }

@@ -3,13 +3,14 @@
 import Image from 'next/image';
 import useGetData from '../../../../services/useGetData';
 import setContent from '@/utils/setContent';
+import { SliderSkeleton } from './SlideSkeleton';
+
 import type { SlidesReviewsDB } from '@/shared/shared-components/dataTypesFromSQL';
 
 import { useState, useEffect, JSX, MouseEvent } from 'react';
 
 import { ButtonArrow } from '../Buttons/ButtonArrows';
 import { Line } from '../Line/Line';
-// import ErrorMessage from '../ErrorMessage/ErrorMessage';
 
 import type {
     IDotReview,
@@ -17,7 +18,7 @@ import type {
 } from '@/shared/shared-components/componentsTypes';
 
 import './SliderReviews.scss';
-import './SliderReciewsMedia.scss';
+import './SliderReviewsMedia.scss';
 
 const SliderReviews = () => {
     // делаем запрос для получения данных
@@ -173,6 +174,7 @@ const SliderReviews = () => {
                         process,
                         isError,
                         isPending,
+                        Skeleton: SliderSkeleton,
                         data: data,
                         Component: SlideReviews,
                     })}

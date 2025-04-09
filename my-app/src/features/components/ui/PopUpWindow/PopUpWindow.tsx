@@ -70,7 +70,7 @@ const PopUpWindow = () => {
             </div>
             <div className="story__window_button">
                 <div className="roboto-regular">Have a question?</div>
-                <Button type="mini" link="avatarJustin" text="Let's talk" />
+                <Button type="mini" link="#" text="Let's talk" />
             </div>
         </div>
     );

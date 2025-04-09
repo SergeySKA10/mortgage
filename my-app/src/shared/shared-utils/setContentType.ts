@@ -15,6 +15,10 @@ interface ContentProps {
 // }
 
 export interface IContent {
+    process?: 'waiting' | 'render' | null;
+    isError?: boolean | null;
+    isPending?: boolean | null;
+    Skeleton?: () => JSX.Element;
     data: QueryData | undefined;
     Component: (props: ContentProps) => JSX.Element;
 }
