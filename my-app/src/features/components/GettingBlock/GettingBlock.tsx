@@ -13,10 +13,10 @@ const GettingBlock = () => {
     return (
         <section id="/getting" className="getting">
             <div className="container">
-                <h2 className="header__h2 roboto-bold">
+                <h2 tabIndex={0} className="header__h2 roboto-bold">
                     Getting a mortgage funded takes a village.
                 </h2>
-                <h3 className="header__h3 roboto-regular">
+                <h3 tabIndex={0} className="header__h3 roboto-regular">
                     Well, not quite a village, but two of the villages best
                     lending heroes!
                 </h3>

@@ -6,8 +6,8 @@ import './ButtonMedia.scss';
 export const Button = ({ type, link, text }: IButtonProps) => {
     const typeBtn = type ? type : 'main';
     return (
-        <button className={`btn btn__${typeBtn}`}>
-            <Link className="roboto-bold" href={link}>
+        <button tabIndex={0} className={`btn btn__${typeBtn}`}>
+            <Link tabIndex={-1} className="roboto-bold" href={link}>
                 {text}
             </Link>
             {typeBtn === 'main' ? <div></div> : null}

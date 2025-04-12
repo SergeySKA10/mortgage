@@ -21,6 +21,7 @@ const ErrorMessage = ({ message, path, refetch, reset }: ErrorProps) => {
             }}
         >
             <Image
+                tabIndex={0}
                 src={'/error/errorMessage.png'}
                 width={50}
                 height={50}
@@ -34,7 +35,7 @@ const ErrorMessage = ({ message, path, refetch, reset }: ErrorProps) => {
                 }}
             />
             <p
-                className="roboto-regular"
+                tabIndex={0}
                 style={{
                     display: 'block',
                     margin: '0 auto',
@@ -50,6 +51,7 @@ const ErrorMessage = ({ message, path, refetch, reset }: ErrorProps) => {
             </p>
             {path ? (
                 <button
+                    tabIndex={0}
                     className="btn btn__mini"
                     style={{ marginTop: '20px' }}
                     onClick={() => redirect(`${path}`)}
@@ -59,6 +61,7 @@ const ErrorMessage = ({ message, path, refetch, reset }: ErrorProps) => {
             ) : null}
             {refetch ? (
                 <button
+                    tabIndex={0}
                     className="btn btn__mini"
                     style={{ marginTop: '20px' }}
                     onClick={() => refetch()}
@@ -68,6 +71,7 @@ const ErrorMessage = ({ message, path, refetch, reset }: ErrorProps) => {
             ) : null}
             {reset ? (
                 <button
+                    tabIndex={0}
                     className="btn btn__mini"
                     style={{ marginTop: '20px' }}
                     onClick={() => reset()}

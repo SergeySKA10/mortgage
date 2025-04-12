@@ -11,6 +11,7 @@ const Footer = () => {
             <header className="footer__header">
                 <div className="footer__logo">
                     <Image
+                        tabIndex={0}
                         src={'/logo/logo_white.svg'}
                         width={335}
                         height={100}
@@ -30,19 +31,27 @@ const Footer = () => {
                 <div className="footer__contacts">
                     <div className="footer__contacts_company">
                         <div className="footer__contacts_ul roboto-bold">
-                            <div className="footer__contacts_header">
+                            <div
+                                tabIndex={0}
+                                className="footer__contacts_header"
+                            >
                                 Contact us
                             </div>
-                            <address className="footer__contacts_list roboto-regular">
+                            <address
+                                tabIndex={0}
+                                className="footer__contacts_list roboto-regular"
+                            >
                                 14511 Myford Road, Suite 100, Tustin, CA 92780
                             </address>
                             <a
+                                tabIndex={0}
                                 className="footer__contacts_list roboto-regular"
                                 href="800-450-2010"
                             >
                                 800-450-2010
                             </a>
                             <a
+                                tabIndex={0}
                                 className="footer__contacts_list roboto-regular"
                                 href="customerservice@nafinc.com"
                             >
@@ -52,12 +61,16 @@ const Footer = () => {
                     </div>
                     <nav className="footer__contacts_education">
                         <ul className="footer__contacts_ul roboto-bold">
-                            <div className="footer__contacts_header">
+                            <div
+                                tabIndex={0}
+                                className="footer__contacts_header"
+                            >
                                 Education
                             </div>
                             <li>
                                 {' '}
                                 <a
+                                    tabIndex={0}
                                     className="footer__contacts_list roboto-regular"
                                     href="/blog"
                                 >
@@ -66,6 +79,7 @@ const Footer = () => {
                             </li>
                             <li>
                                 <a
+                                    tabIndex={0}
                                     className="footer__contacts_list roboto-regular"
                                     href="/ebook"
                                 >
@@ -74,6 +88,7 @@ const Footer = () => {
                             </li>
                             <li>
                                 <a
+                                    tabIndex={0}
                                     className="footer__contacts_list roboto-regular"
                                     href="/webinar"
                                 >
@@ -84,9 +99,15 @@ const Footer = () => {
                     </nav>
                     <nav className="footer__contacts_legal">
                         <ul className="footer__contacts_ul roboto-bold">
-                            <div className="footer__contacts_header">Legal</div>
+                            <div
+                                tabIndex={0}
+                                className="footer__contacts_header"
+                            >
+                                Legal
+                            </div>
                             <li>
                                 <a
+                                    tabIndex={0}
                                     className="footer__contacts_list roboto-regular"
                                     href="#"
                                 >
@@ -95,6 +116,7 @@ const Footer = () => {
                             </li>
                             <li>
                                 <a
+                                    tabIndex={0}
                                     className="footer__contacts_list roboto-regular"
                                     href="#"
                                 >
@@ -106,7 +128,7 @@ const Footer = () => {
                 </div>
 
                 <div className="footer__info_descr">
-                    <div className="roboto-light">
+                    <div tabIndex={0} className="roboto-light">
                         New American Funding makes Customer Service our number
                         one priority. We encourage you to call our Corporate
                         Customer Service department at 800-450-2010 ext. 7100
@@ -114,13 +136,16 @@ const Footer = () => {
                         customerservice@nafinc.com for any complaint resolution
                         you may have regarding the origination of your loan.
                     </div>
-                    <div className="roboto-light">
+                    <div tabIndex={0} className="roboto-light">
                         This site is not authorized by the New York State
                         Department of Financial Services. No mortgage
                         solicitation activity or loan applications for
                         properties located in the State of New York can be
                         facilitated through this site. Read more at{' '}
-                        <a href="https://www.newamericanfunding.com/#SsSswc4OzfksTC0E.99">
+                        <a
+                            tabIndex={0}
+                            href="https://www.newamericanfunding.com/#SsSswc4OzfksTC0E.99"
+                        >
                             https://www.newamericanfunding.com/#SsSswc4OzfksTC0E.99
                         </a>
                     </div>
@@ -129,7 +154,7 @@ const Footer = () => {
 
             <Line />
 
-            <div className="footer__descr roboto-light">
+            <div tabIndex={0} className="footer__descr roboto-light">
                 If you received a letter from New American Funding and would
                 like to be removed from our mailing list, please call
                 800-450-2010. © 2018 Broker Solutions, Inc. DBA New American

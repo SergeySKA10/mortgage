@@ -1,4 +1,5 @@
 .burger {
+    transition: all 0.3s;
     position: relative;
     z-index: 10;
     display: block;
@@ -7,8 +8,17 @@
     height: 52px;
     background-color: #ffffff;
     border-radius: 4px;
+    border: none;
     box-shadow: 0px 5px 17px 0px rgba(0, 0, 0, 0.1);
     cursor: pointer;
+    &:hover {
+        background-color: rgba(255, 255, 255, 0.8);
+        box-shadow: 0px 5px 17px 0px $main-color;
+    }
+    &:focus {
+        background-color: rgba(255, 255, 255, 0.8);
+        box-shadow: 0px 5px 17px 0px $main-color;
+    }
     &__wrapper {
         display: flex;
         justify-content: center;
@@ -22,8 +32,8 @@
             background-color: rgb(151, 151, 151);
             border-radius: 20px;
             position: relative;
-            transition-duration: .25s;
-            transition-delay: .25s;    
+            transition-duration: 0.25s;
+            transition-delay: 0.25s;
         }
         span:before {
             left: 0;
@@ -32,10 +42,10 @@
             height: 2px;
             width: 18px;
             background-color: rgb(151, 151, 151);
-            content: "";
+            content: '';
             border-radius: 20px;
-            transition-duration: .25s;
-            transition: transform .25s, top .25s .25s;
+            transition-duration: 0.25s;
+            transition: transform 0.25s, top 0.25s 0.25s;
         }
         span:after {
             left: 0;
@@ -44,10 +54,10 @@
             height: 2px;
             width: 18px;
             background-color: rgb(151, 151, 151);
-            content: "";
+            content: '';
             border-radius: 20px;
-            transition-duration: .25s;
-            transition: transform .25s, top .25s .25s;
+            transition-duration: 0.25s;
+            transition: transform 0.25s, top 0.25s 0.25s;
         }
     }
 }
@@ -60,17 +70,17 @@
 .open_menu {
     span {
         transition-duration: 0.1s;
-        transition-delay: .25s;
+        transition-delay: 0.25s;
         background: transparent;
     }
     span:before {
-        transition: top .25s, transform .25s .25s;
+        transition: top 0.25s, transform 0.25s 0.25s;
         top: 0px;
         transform: rotateZ(-45deg);
         background-color: #000000;
     }
     span:after {
-        transition: top 0.4s, transform .25s .25s;
+        transition: top 0.4s, transform 0.25s 0.25s;
         top: 0px;
         transform: rotateZ(45deg);
         background-color: #000000;

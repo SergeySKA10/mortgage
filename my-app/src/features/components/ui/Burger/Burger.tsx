@@ -26,11 +26,11 @@ const Burger = () => {
     };
 
     return (
-        <div className={clazzBurger} onClick={() => showMenu()}>
+        <button tabIndex={1} className={clazzBurger} onClick={() => showMenu()}>
             <div className={clazzWrapper}>
                 <span />
             </div>
-        </div>
+        </button>
     );
 };
 

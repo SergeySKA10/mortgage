@@ -12,7 +12,10 @@ const EducationBlock = () => {
                 <div className="article__info">
                     <div className="article__info-inner">
                         <div className="article__education">
-                            <h2 className="header__h2-left roboto-bold">
+                            <h2
+                                tabIndex={0}
+                                className="header__h2-left roboto-bold"
+                            >
                                 Education
                             </h2>
                             <Filters />

@@ -50,13 +50,14 @@ export const ButtonArrow = ({
 
     return (
         <button
+            tabIndex={0}
             className={`btn btn__arrow-${type}`}
             data-arrow={data}
             onClick={(e) => {
                 initialOffset(e.target as HTMLElement);
             }}
         >
-            <div data-arrow={data}></div>
+            <div tabIndex={-1} data-arrow={data}></div>
         </button>
     );
 };

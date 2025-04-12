@@ -12,7 +12,7 @@ const Rating = () => {
 
     return (
         <Suspense key={'ratingsBlock'} fallback={<RatingSkeleton />}>
-            <div className="customers__rating">
+            <div tabIndex={0} className="customers__rating">
                 <HydrationBoundary state={dehydrate(queryClient)}>
                     <RatingInfo />
                 </HydrationBoundary>

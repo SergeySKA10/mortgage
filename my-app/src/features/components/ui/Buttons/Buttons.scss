@@ -64,6 +64,10 @@
             background-color: $blue_color;
             box-shadow: 0px 5px 15px 0px $blue_color;
         }
+        &:focus {
+            background-color: $blue_color;
+            box-shadow: 0px 5px 15px 0px $blue_color;
+        }
     }
     &__white {
         transition: all 0.5s ease-out;
@@ -92,6 +96,10 @@
             color: $dark_color;
         }
         &:hover {
+            background-color: rgba(0, 0, 0, 0.1);
+            box-shadow: 0px 5px 15px 0px $dark_color;
+        }
+        &:focus {
             background-color: rgba(0, 0, 0, 0.1);
             box-shadow: 0px 5px 15px 0px $dark_color;
         }
@@ -127,6 +135,9 @@
         &:hover {
             background: $blue_color;
         }
+        &:focus {
+            background: $blue_color;
+        }
     }
     &__play-white {
         transition: all 0.5s ease-out;
@@ -160,6 +171,9 @@
         &:hover {
             background: $blue_color;
         }
+        &:focus {
+            background: $blue_color;
+        }
     }
     &__mini {
         transition: all 0.3s ease-out;
@@ -185,6 +199,10 @@
             text-decoration: none;
         }
         &:hover {
+            background-color: $blue_color;
+            box-shadow: 0px 5px 15px 0px rgba(18, 104, 147, 0.5);
+        }
+        &:focus {
             background-color: $blue_color;
             box-shadow: 0px 5px 15px 0px rgba(18, 104, 147, 0.5);
         }
@@ -232,6 +250,9 @@
         &:hover {
             border: 8px solid rgba(255, 255, 255, 0.8);
         }
+        &:focus {
+            border: 8px solid rgba(255, 255, 255, 0.8);
+        }
     }
     &__arrow-left {
         transition: all 0.3s ease-out;
@@ -276,6 +297,9 @@
         &:hover {
             border: 8px solid rgba(255, 255, 255, 0.8);
         }
+        &:focus {
+            border: 8px solid rgba(255, 255, 255, 0.8);
+        }
     }
     &__watch {
         transition: all 0.5s ease-out;
@@ -306,6 +330,9 @@
             border: 2px solid #ffffff;
         }
         &:hover {
+            background: $blue_color;
+        }
+        &:focus {
             background: $blue_color;
         }
     }
@@ -440,6 +467,10 @@
     );
     animation: gradient-rotate 5s ease-in-out 5s infinite;
     &:hover {
+        animation: none;
+        background: rgba(18, 104, 147, 0.4);
+    }
+    &:focus {
         animation: none;
         background: rgba(18, 104, 147, 0.4);
     }

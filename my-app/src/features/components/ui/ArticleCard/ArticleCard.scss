@@ -46,6 +46,28 @@
                 color: rgb(255, 255, 255);
             }
         }
+        &:focus {
+            background-color: $main_color;
+            box-shadow: 0px 15px 30px 0px rgba(52, 47, 69, 0.7);
+            .line_dark {
+                background-color: rgb(255, 255, 255, 0.2);
+            }
+            .article__logo {
+                color: rgb(255, 255, 255, 0.5);
+            }
+            .article__descr {
+                color: rgb(255, 255, 255, 0.5);
+            }
+            .article__by_name {
+                color: rgb(255, 255, 255, 0.5);
+                div {
+                    color: rgb(255, 255, 255);
+                }
+            }
+            h4 {
+                color: rgb(255, 255, 255);
+            }
+        }
     }
     &__header-skeleton {
         margin-top: 82px;
@@ -194,6 +216,27 @@
             color: rgb(255, 255, 255);
         }
     }
+    &:focus {
+        background: $main_color;
+        .line_dark {
+            background-color: rgb(255, 255, 255, 0.2);
+        }
+        .article__logo {
+            color: rgb(255, 255, 255, 0.5);
+        }
+        .article__descr {
+            color: rgb(255, 255, 255, 0.5);
+        }
+        .article__by_name {
+            color: rgb(255, 255, 255, 0.5);
+            div {
+                color: rgb(255, 255, 255);
+            }
+        }
+        h4 {
+            color: rgb(255, 255, 255);
+        }
+    }
 }
 
 [data-size='large-right'] {
@@ -223,6 +266,27 @@
         color: rgb(255, 255, 255);
     }
     &:hover {
+        background: $main_color;
+        .line_dark {
+            background-color: rgb(255, 255, 255, 0.2);
+        }
+        .article__logo {
+            color: rgb(255, 255, 255, 0.5);
+        }
+        .article__descr {
+            color: rgb(255, 255, 255, 0.5);
+        }
+        .article__by_name {
+            color: rgb(255, 255, 255, 0.5);
+            div {
+                color: rgb(255, 255, 255);
+            }
+        }
+        h4 {
+            color: rgb(255, 255, 255);
+        }
+    }
+    &:focus {
         background: $main_color;
         .line_dark {
             background-color: rgb(255, 255, 255, 0.2);

@@ -81,14 +81,21 @@ export const ButtonDownLoad = ({ path, name }: IButtonDownload) => {
             ) : (
                 <div className="btn-wrapper">
                     <button
+                        tabIndex={0}
                         className={`btn btn__watch-download`}
                         disabled={pressBtn}
                         onClick={() => setPressBtn((pressBtn) => !pressBtn)}
                     >
-                        <div className="btn btn__watch-download-text roboto-bold">
+                        <div
+                            tabIndex={0}
+                            className="btn btn__watch-download-text roboto-bold"
+                        >
                             Download
                         </div>
-                        <div className="btn btn__watch-download-arrow"></div>
+                        <div
+                            tabIndex={-1}
+                            className="btn btn__watch-download-arrow"
+                        ></div>
                     </button>
                 </div>
             )}

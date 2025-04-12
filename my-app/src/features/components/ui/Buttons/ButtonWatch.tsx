@@ -5,8 +5,9 @@ import './ButtonMedia.scss';
 
 export const ButtonWatch = ({ link }: IButtonWatchProps) => {
     return (
-        <button className="btn btn__watch btn__animation">
+        <button tabIndex={0} className="btn btn__watch btn__animation">
             <Link
+                tabIndex={-1}
                 href={`${link}`}
                 target={'_blank'}
                 style={{ textDecoration: 'none' }}

@@ -7,6 +7,7 @@
         gap: 20px;
     }
     &__filter {
+        transition: all 0.3s;
         width: 68px;
         height: 22px;
         color: $dark_color;
@@ -21,12 +22,24 @@
             border-radius: 4px;
             background-color: rgba(0, 0, 0, 0.1);
         }
+        &:hover {
+            color: $main_color;
+        }
+        &:focus {
+            color: $main_color;
+        }
     }
 }
 
 .filter-active {
     color: $main_color;
     border-bottom: 1px solid $main_color;
+    &:hover {
+        color: $blue_color;
+    }
+    &:focus {
+        color: $blue_color;
+    }
 }
 
 .filters-error {

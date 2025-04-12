@@ -16,25 +16,40 @@ const ArticleCard = ({
 
     return (
         <Link
+            tabIndex={0}
             href={`${link}`}
             className={`article__block`}
             data-size={size}
             data-index={index}
             style={{ ...order }}
         >
-            <div className="article__logo roboto-bold">{subheader}</div>
-            <h4 className="header__h4 roboto-bold">{header}</h4>
-            <div className="article__descr roboto-regular">{descr}</div>
+            <div tabIndex={0} className="article__logo roboto-bold">
+                {subheader}
+            </div>
+            <h4 tabIndex={0} className="header__h4 roboto-bold">
+                {header}
+            </h4>
+            <div tabIndex={0} className="article__descr roboto-regular">
+                {descr}
+            </div>
             <div className="article__education__line">
                 <Line />
             </div>
             <div className="article__by">
                 <div className="article__by_photo">
-                    <Image src={avatar} alt="photo" height={48} width={48} />
+                    <Image
+                        tabIndex={0}
+                        src={avatar}
+                        alt="photo"
+                        height={48}
+                        width={48}
+                    />
                 </div>
-                <div className="article__by_name roboto-regular">
+                <div tabIndex={0} className="article__by_name roboto-regular">
                     by
-                    <div className="roboto-bold">{name}</div>
+                    <div tabIndex={0} className="roboto-bold">
+                        {name}
+                    </div>
                 </div>
             </div>
         </Link>

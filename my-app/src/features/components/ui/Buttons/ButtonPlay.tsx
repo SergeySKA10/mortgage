@@ -7,8 +7,11 @@ export const ButtonPlay = ({ type, link }: IButtonProps) => {
     const animationClass = type ? `btn__animation-${type}` : 'btn__animation';
 
     return (
-        <button className={`btn btn__${typeBtn} ${animationClass}`}>
-            <a href={link} target={'_blank'}>
+        <button
+            tabIndex={0}
+            className={`btn btn__${typeBtn} ${animationClass}`}
+        >
+            <a tabIndex={-1} href={link} target={'_blank'}>
                 <div className={`btn__${typeBtn}-block`}></div>
             </a>
         </button>

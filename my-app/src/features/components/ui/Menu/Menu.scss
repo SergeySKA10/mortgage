@@ -40,6 +40,11 @@
                         color: $main_color;
                         background-size: 100% 2px;
                     }
+                    &:focus {
+                        font-size: 23px;
+                        color: $main_color;
+                        background-size: 100% 2px;
+                    }
                 }
             }
         }

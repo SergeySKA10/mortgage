@@ -11,7 +11,7 @@ const VideoBlock = () => {
 
     return (
         <Suspense key={'videoBlock'} fallback={<VideoBlockSkeletont />}>
-            <div className="story__presentation">
+            <div tabIndex={0} className="story__presentation">
                 <HydrationBoundary state={dehydrate(queryClient)}>
                     <VideoInfo />
                 </HydrationBoundary>

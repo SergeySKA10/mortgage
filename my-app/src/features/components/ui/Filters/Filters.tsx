@@ -68,6 +68,7 @@ const Filter = (props: IFilterProps) => {
     const { name } = props.data;
     return (
         <Link
+            tabIndex={0}
             className={`article__filter roboto-bold ${props.activeClass}`}
             href={''}
         >

@@ -135,10 +135,14 @@ const SliderReviews = () => {
         <div className="customers__slider">
             <div className="customers__slider_counter">
                 <div className="customers__slider_current">
-                    <span id="current-customers" className="roboto-bold">
+                    <span tabIndex={0} id="current-customers">
                         {indexSlide < 10 ? `0${indexSlide}` : indexSlide}
                     </span>
-                    <span id="total-customers" className="roboto-bold">
+                    <span
+                        tabIndex={0}
+                        id="total-customers"
+                        className="roboto-bold"
+                    >
                         /{total}
                     </span>
                 </div>
@@ -191,24 +195,45 @@ const SlideReviews = ({ data }: ISlideReview) => {
     const { photo, city, name, profession, icon, reviews } = data;
 
     return (
-        <div className="customers__slide">
+        <div tabIndex={0} className="customers__slide">
             <div className="customers__slide-profile">
                 <div className="customers__slide-photo">
-                    <Image src={photo} alt="photo" height={110} width={110} />
+                    <Image
+                        tabIndex={0}
+                        src={photo}
+                        alt="photo"
+                        height={110}
+                        width={110}
+                    />
                 </div>
                 <div className="customers__slide-info">
-                    <div className="customers__slide-city roboto-bold">
+                    <div
+                        tabIndex={0}
+                        className="customers__slide-city roboto-bold"
+                    >
                         {city}
                     </div>
-                    <div className="customers__slide-name roboto-bold">
+                    <div
+                        tabIndex={0}
+                        className="customers__slide-name roboto-bold"
+                    >
                         {name}
                     </div>
-                    <div className="customers__slide-proff roboto-regular">
+                    <div
+                        tabIndex={0}
+                        className="customers__slide-proff roboto-regular"
+                    >
                         {profession}
                     </div>
                 </div>
                 <div className="customers__slide-social">
-                    <Image src={icon} alt="social" height={20} width={20} />
+                    <Image
+                        tabIndex={0}
+                        src={icon}
+                        alt="social"
+                        height={20}
+                        width={20}
+                    />
                 </div>
             </div>
             <div className="customers__slide_line">
@@ -223,7 +248,10 @@ const SlideReviews = ({ data }: ISlideReview) => {
                         width={32}
                     />
                 </div>
-                <p className="customers__slide-text roboto-regular">
+                <p
+                    tabIndex={0}
+                    className="customers__slide-text roboto-regular"
+                >
                     {reviews}
                 </p>
             </div>
@@ -262,6 +290,7 @@ const Dot = ({
 
     return (
         <div
+            tabIndex={0}
             className={'customers__slider_dot ' + activeClass}
             data-slide-to={data}
             onClick={initialOffset}

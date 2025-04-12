@@ -9,12 +9,16 @@ const VideoCard = ({ data, size = '' }: IVideoCardProps) => {
     const time = useGetDurationVideo(link);
 
     return (
-        <div className="story__presentation_elem" data-size={size}>
+        <div tabIndex={0} className="story__presentation_elem" data-size={size}>
             <div className="story__presentation_block">
                 <div className="story__wrapper">
-                    <ButtonPlay link={link} type="white" />
-                    <p className="story__text  roboto-bold">{descr}</p>
-                    <div className="story__time roboto-regular">{time}</div>
+                    <ButtonPlay link={link} type="white" text={''} />
+                    <p tabIndex={0} className="story__text  roboto-bold">
+                        {descr}
+                    </p>
+                    <div tabIndex={0} className="story__time roboto-regular">
+                        {time}
+                    </div>
                 </div>
             </div>
         </div>

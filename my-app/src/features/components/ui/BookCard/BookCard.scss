@@ -38,6 +38,10 @@
             color: $main_color;
             background-size: 100% 2px;
         }
+        &:focus {
+            color: $main_color;
+            background-size: 100% 2px;
+        }
     }
     &__resources {
         &__line {
@@ -81,6 +85,9 @@
                     width: 96px;
                     object-fit: cover;
                     &:hover {
+                        box-shadow: 0px 5px 15px 0px rgba(18, 104, 147, 0.5);
+                    }
+                    &:focus {
                         box-shadow: 0px 5px 15px 0px rgba(18, 104, 147, 0.5);
                     }
                 }

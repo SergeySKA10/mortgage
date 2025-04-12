@@ -37,7 +37,7 @@ const PopUpWindow = () => {
     }, []);
 
     return (
-        <div className={clazz}>
+        <div tabIndex={0} className={clazz}>
             <div className="story__window_wrapper">
                 <div className="story__window_quote">
                     <Image
@@ -47,20 +47,24 @@ const PopUpWindow = () => {
                         alt="quote"
                     />
                 </div>
-                <p className="story__window_descr roboto-regular">
+                <p tabIndex={0} className="story__window_descr roboto-regular">
                     A mortgage isn`t just about a rate. It`s about building a
                     strategy to help you leverage your wealth.
                 </p>
                 <div className="story__window_profile">
                     <div className="story__window_profile-photo">
                         <Image
+                            tabIndex={0}
                             src="https://github.com/SergeySKA10/mortgage/blob/assets/src/assets/img/main_page/avatar_consultant/avatar_justin.png?raw=true"
                             alt="Justin"
                             width={64}
                             height={64}
                         />
                     </div>
-                    <div className="story__window_profile-name roboto-bold">
+                    <div
+                        tabIndex={0}
+                        className="story__window_profile-name roboto-bold"
+                    >
                         Justin
                     </div>
                 </div>
@@ -69,7 +73,7 @@ const PopUpWindow = () => {
                 <hr className="line__dark" />
             </div>
             <div className="story__window_button">
-                <div className="roboto-regular">Have a question?</div>
+                <div tabIndex={0}>Have a question?</div>
                 <Button type="mini" link="#" text="Let's talk" />
             </div>
         </div>

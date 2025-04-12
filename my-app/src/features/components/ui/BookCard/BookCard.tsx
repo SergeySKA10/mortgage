@@ -33,6 +33,7 @@ const BookCard = ({ data }: IBookCardProps) => {
             <div className="article__resources_descr">
                 <div className="article__resources_descr-img">
                     <Image
+                        tabIndex={0}
                         src={pictures[0]}
                         alt={name}
                         width={96}
@@ -40,10 +41,17 @@ const BookCard = ({ data }: IBookCardProps) => {
                     />
                 </div>
                 <div className="article__resources_descr-book">
-                    <div className="article__logo-book roboto-bold">
+                    <div
+                        tabIndex={0}
+                        className="article__logo-book roboto-bold"
+                    >
                         {category}
                     </div>
-                    <Link href={path} className="article__book roboto-bold">
+                    <Link
+                        tabIndex={0}
+                        href={path}
+                        className="article__book roboto-bold"
+                    >
                         {name}
                     </Link>
                 </div>

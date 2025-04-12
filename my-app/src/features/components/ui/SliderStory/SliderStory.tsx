@@ -210,13 +210,19 @@ const SliderStory = () => {
 const Slide = ({ data, activeClass, current }: ISlidesStoryProps) => {
     const { header, descr } = data;
     return (
-        <div className={'story__slider_slide ' + activeClass}>
-            <div className="story__slider_counter roboto-bold">{current}</div>
-            <div className="story__slider_header roboto-bold">{header}</div>
+        <div tabIndex={0} className={'story__slider_slide ' + activeClass}>
+            <div tabIndex={0} className="story__slider_counter roboto-bold">
+                {current}
+            </div>
+            <div tabIndex={0} className="story__slider_header roboto-bold">
+                {header}
+            </div>
             <div className="story__slider_line">
                 <Line />
             </div>
-            <div className="story__slider_descr roboto-regular">{descr}</div>
+            <div tabIndex={0} className="story__slider_descr roboto-regular">
+                {descr}
+            </div>
         </div>
     );
 };
@@ -259,6 +265,7 @@ const Dot = ({
 
     return (
         <div
+            tabIndex={0}
             className={'dots-dot ' + activeClass}
             data-slide-to={data}
             onClick={initialScroll}

@@ -17,13 +17,16 @@ const SpeakerCard = (props: ISpeakerCardProps) => {
             <div key={el.id} className="getting__descr_skill">
                 <div>
                     <Image
+                        tabIndex={0}
                         width={22}
                         height={22}
                         src={el.icon}
                         alt={el.skill}
                     />
                 </div>
-                <p className="roboto-regular">{el.skill}</p>
+                <p tabIndex={0} className="roboto-regular">
+                    {el.skill}
+                </p>
             </div>
         );
     });
@@ -34,26 +37,39 @@ const SpeakerCard = (props: ISpeakerCardProps) => {
                 <div className="getting__promo_btn">
                     <div className="getting__promo_img">
                         <Image
+                            tabIndex={0}
                             height={273}
                             width={389}
                             src={photo}
                             alt={`speaker ${name}`}
                         />
                     </div>
-                    <ButtonPlay link={link} />
-                    <div className="getting__promo_descr roboto-regular">
+                    <ButtonPlay link={link} text={''} />
+                    <div
+                        tabIndex={0}
+                        className="getting__promo_descr roboto-regular"
+                    >
                         Meet {name}
                     </div>
                 </div>
             </div>
 
             <div className="getting__descr">
-                <p className="getting__descr_subheader roboto-bold">
+                <p
+                    tabIndex={0}
+                    className="getting__descr_subheader roboto-bold"
+                >
                     {quality}
                 </p>
-                <h4 className="getting__descr_header roboto-bold">{name}</h4>
-                <p className="getting__descr_text roboto-regular">{descr}</p>
-                <div className="getting__descr_block roboto-bold">Skills</div>
+                <h4 tabIndex={0} className="getting__descr_header roboto-bold">
+                    {name}
+                </h4>
+                <p tabIndex={0} className="getting__descr_text roboto-regular">
+                    {descr}
+                </p>
+                <div tabIndex={0} className="getting__descr_block roboto-bold">
+                    Skills
+                </div>
                 <div className="getting__line">
                     <Line />
                 </div>

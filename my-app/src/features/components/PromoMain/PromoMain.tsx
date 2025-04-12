@@ -17,12 +17,18 @@ const PromoMain = () => {
     return (
         <section className="promo_main">
             <div className="promo_main__descr">
-                <h2 className="promo_main__subheader roboto-bold">
+                <h2 tabIndex={0} className="promo_main__subheader roboto-bold">
                     Why a mortgage is so much more than just a rate?
                 </h2>
                 <div className="promo_main__video">
-                    <ButtonPlay link="https://www.youtube.com/watch?v=JPR6TEYp5tg" />
-                    <div className="promo_main__time roboto-regular">
+                    <ButtonPlay
+                        link="https://www.youtube.com/watch?v=JPR6TEYp5tg"
+                        text={''}
+                    />
+                    <div
+                        tabIndex={0}
+                        className="promo_main__time roboto-regular"
+                    >
                         {time}
                     </div>
                 </div>
@@ -31,6 +37,7 @@ const PromoMain = () => {
             <div className="promo_main__info">
                 <div className="promo_main__logo">
                     <Image
+                        tabIndex={0}
                         src={'/logo/NAF_Logo.svg'}
                         width={240}
                         height={43}
@@ -38,7 +45,7 @@ const PromoMain = () => {
                     />
                 </div>
 
-                <h1 className="header__h1 roboto-bold">
+                <h1 tabIndex={0} className="header__h1 roboto-bold">
                     Finding a mortgage is so{' '}
                     <span
                         className="header__h1-span_more"
@@ -56,7 +63,10 @@ const PromoMain = () => {
                     </span>
                 </h1>
 
-                <p className="promo_main__info_text roboto-regular">
+                <p
+                    tabIndex={0}
+                    className="promo_main__info_text roboto-regular"
+                >
                     Rates change, but every mortgage journey starts with a
                     relationship. (Pssst...it`s not just about clicking a
                     button)
@@ -67,7 +77,10 @@ const PromoMain = () => {
                 </div>
 
                 <div className="promo_main__start">
-                    <p className="promo_main__start_text roboto-bold">
+                    <p
+                        tabIndex={0}
+                        className="promo_main__start_text roboto-bold"
+                    >
                         Let us help you create your mortgage journey
                     </p>
                     <div className="promo_main__start_btns">

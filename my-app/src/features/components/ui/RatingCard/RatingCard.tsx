@@ -63,16 +63,24 @@ const RatingCard = ({ data }: IRatingsProps) => {
     return (
         <div className="customers__block">
             <div className="customers__block-descr">
-                <div className="customers__block_text roboto-bold">{stars}</div>
+                <div tabIndex={0} className="customers__block_text roboto-bold">
+                    {stars}
+                </div>
                 <div className="customers__block_img">
-                    <Image src={icon} alt="google" width={100} height={42} />
+                    <Image
+                        tabIndex={0}
+                        src={icon}
+                        alt="google"
+                        width={100}
+                        height={42}
+                    />
                 </div>
                 <div className="customers__block_line">
                     <Line />
                 </div>
                 <div className="customers__block_reviews">
-                    <p className="roboto-regular">Based on</p>
-                    <Link className="roboto-bold" href={`${link}`}>
+                    <p tabIndex={0}>Based on</p>
+                    <Link tabIndex={0} href={`${link}`}>
                         {reviews}
                     </Link>
                 </div>

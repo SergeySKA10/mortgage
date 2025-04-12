@@ -11,7 +11,7 @@ const Article = () => {
 
     return (
         <Suspense key={'ArticleBlock'} fallback={<ArticleSkeleton />}>
-            <div className="article__education_wrapper">
+            <div tabIndex={0} className="article__education_wrapper">
                 <HydrationBoundary state={dehydrate(queryClient)}>
                     <ArticleInfo />
                 </HydrationBoundary>

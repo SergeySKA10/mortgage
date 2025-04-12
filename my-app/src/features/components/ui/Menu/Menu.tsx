@@ -58,6 +58,7 @@ const Menu = () => {
         return arr.map((el) => (
             <li key={el.id}>
                 <Link
+                    tabIndex={0}
                     onClick={() => closeMenu(dispatch)}
                     className="roboto-bold"
                     href={`#${el.link}`}
@@ -83,6 +84,7 @@ const Menu = () => {
     const linksOnPages = pageLinks.map((el) => (
         <li key={el.id}>
             <Link
+                tabIndex={0}
                 onClick={() => closeMenu(dispatch)}
                 className="roboto-bold"
                 href={el.link}
@@ -125,6 +127,7 @@ const Menu = () => {
         >
             <div className={`menu__block ${classOpenBlock}`}>
                 <Link
+                    tabIndex={0}
                     href="/"
                     className="menu__logo"
                     onClick={() => closeMenu(dispatch)}
