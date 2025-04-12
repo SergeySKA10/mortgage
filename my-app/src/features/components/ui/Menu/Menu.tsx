@@ -57,13 +57,13 @@ const Menu = () => {
     const createLinksonSection = (arr: ILink[]) => {
         return arr.map((el) => (
             <li key={el.id}>
-                <a
+                <Link
                     onClick={() => closeMenu(dispatch)}
                     className="roboto-bold"
-                    href={el.link}
+                    href={`#${el.link}`}
                 >
                     {el.text}
-                </a>
+                </Link>
             </li>
         ));
     };

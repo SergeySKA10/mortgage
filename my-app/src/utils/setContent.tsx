@@ -6,6 +6,7 @@ const setContent = ({
     process = null,
     isError = null,
     isPending = null,
+    refetch,
     Skeleton = () => <></>,
     data,
     Component,
@@ -13,7 +14,7 @@ const setContent = ({
     if (process === 'waiting') {
         return null;
     } else if (isError) {
-        return <ErrorMessage />;
+        return <ErrorMessage refetch={refetch} />;
     } else if (isPending) {
         return <Skeleton />;
     } else if (data) {

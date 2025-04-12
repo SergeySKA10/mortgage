@@ -7,7 +7,7 @@ import './StoryBlockMedia.scss';
 
 const StoryBlock = () => {
     return (
-        <section id="story" className="story">
+        <section id="/story" className="story">
             <h2 className="header__h2-left roboto-bold">
                 Your mortgage journey is a story...
             </h2>

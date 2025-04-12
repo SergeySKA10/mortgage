@@ -1,6 +1,17 @@
+import { QueryData } from '@/shared/shared-components/dataTypesFromSQL';
+import { QueryObserverResult, RefetchOptions } from '@tanstack/react-query';
 import Image from 'next/image';
+import { redirect } from 'next/navigation';
+interface ErrorProps {
+    message?: string | undefined;
+    path?: string;
+    refetch?: (
+        options?: RefetchOptions
+    ) => Promise<QueryObserverResult<QueryData, Error>>;
+    reset?: () => void;
+}
 
-const ErrorMessage = () => {
+const ErrorMessage = ({ message, path, refetch, reset }: ErrorProps) => {
     return (
         <div
             style={{
@@ -31,10 +42,39 @@ const ErrorMessage = () => {
                     fontSize: '16px',
                     fontWeight: 400,
                     width: '300px',
+                    color: 'red',
                 }}
             >
-                There was an error loading the data. Please try again later.
+                There was an error loading the data:{' '}
+                {message ? message : 'unknown error'} Please try again later.
             </p>
+            {path ? (
+                <button
+                    className="btn btn__mini"
+                    style={{ marginTop: '20px' }}
+                    onClick={() => redirect(`${path}`)}
+                >
+                    Try again
+                </button>
+            ) : null}
+            {refetch ? (
+                <button
+                    className="btn btn__mini"
+                    style={{ marginTop: '20px' }}
+                    onClick={() => refetch()}
+                >
+                    Try again
+                </button>
+            ) : null}
+            {reset ? (
+                <button
+                    className="btn btn__mini"
+                    style={{ marginTop: '20px' }}
+                    onClick={() => reset()}
+                >
+                    Try again
+                </button>
+            ) : null}
         </div>
     );
 };

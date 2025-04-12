@@ -15,9 +15,15 @@ const fetchOptions = async (key: Key) => {
         return await response.json();
     } catch (error) {
         if (error instanceof Error) {
-            throw new Error(`error message: ${error.message}`);
+            return {
+                isError: true,
+                error: `error name: ${error.name} error message: ${error.message}`,
+            };
         } else {
-            throw new Error(`error message: ${error}`);
+            return {
+                isError: true,
+                error: `error: ${error}`,
+            };
         }
     }
 };

@@ -24,7 +24,7 @@ const SliderReviews = () => {
     // делаем запрос для получения данных
     const {
         process,
-        getData: { data, isError, isPending },
+        getData: { data, isError, isPending, refetch },
     } = useGetData('slidesReviews');
 
     // создаем state для индекса слайдера
@@ -174,6 +174,7 @@ const SliderReviews = () => {
                         process,
                         isError,
                         isPending,
+                        refetch,
                         Skeleton: SliderSkeleton,
                         data: data,
                         Component: SlideReviews,

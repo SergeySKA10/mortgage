@@ -12,7 +12,7 @@ import './Filters.scss';
 const Filters = () => {
     // делаем запрос для получения данных
     const {
-        getData: { data, isError, isPending },
+        getData: { data, isError, isPending, refetch },
     } = useGetData('filters');
 
     // // стейт для фильтров
@@ -47,10 +47,15 @@ const Filters = () => {
                 </>
             ) : isError ? (
                 <>
-                    <div className="filters-error">
-                        There was an error loading filters
+                    <div
+                        style={{ textAlign: 'center', alignContent: 'center' }}
+                    >
+                        {' '}
+                        There was an error loading the data{' '}
                     </div>
-                    <button className="btn btn__mini">Upload again</button>
+                    <button onClick={() => refetch()} className="btn btn__mini">
+                        Try again
+                    </button>
                 </>
             ) : (
                 filters

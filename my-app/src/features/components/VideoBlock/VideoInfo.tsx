@@ -4,10 +4,19 @@ import { useSuspenseQuery } from '@tanstack/react-query';
 import { getOptions } from '../../../services/getOptions';
 import { sortByDate } from '../../../utils/sortByDate';
 import VideoCard from '../ui/VideoCard/VideoCard';
+import ErrorMessage from '../ui/ErrorMessage/ErrorMessage';
 import { VideoDB } from '@/shared/shared-components/dataTypesFromSQL';
 
 export const VideoInfo = () => {
     const { data } = useSuspenseQuery(getOptions('video'));
+
+    if (data.isError) {
+        return (
+            <>
+                <ErrorMessage message={data.message} path={'/'} />
+            </>
+        );
+    }
 
     return (
         <>
