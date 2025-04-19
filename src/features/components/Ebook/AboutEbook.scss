@@ -1,0 +1,25 @@
+.about_ebook {
+    padding: 29px 100px 68px 100px;
+    min-height: 474px;
+    &__wrapper {
+        display: flex;
+        justify-content: center;
+        gap: 66px;
+    }
+    &__cover {
+        height: 446px;
+        img {
+            position: relative;
+            bottom: 285px;
+            box-shadow: 0px 15px 30px 0px rgba(0, 0, 0, 0.3);
+        }
+    }
+    &__descr {
+        margin-top: 22px;
+        padding-right: 200px;
+        color: rgb(0, 0, 0, 0.5);
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 24px;
+    }
+}

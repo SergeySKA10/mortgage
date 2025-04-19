@@ -1,0 +1,9 @@
+.customers {
+    &__rating {
+        height: 344px;
+        width: 287px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+}

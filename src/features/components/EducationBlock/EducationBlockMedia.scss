@@ -1,0 +1,74 @@
+@media(max-width: 1320px) {
+    .article__info {
+        grid-template-columns: minmax(818px, 0);
+    }
+    .article__resources_wrapper {
+        grid-template-columns: minmax(397px, 0) minmax(397px, 0);
+        grid-template-rows: minmax(266px, 0px);
+        gap: 24px;
+    }
+}
+
+@media(max-width: 992px) {
+    .article {
+        margin-top: 50px;
+    }
+    .article__info {
+        grid-template-columns: minmax(397px, 0);
+    }
+    .article__filters {
+        top: 0px;
+    }
+    .article__education_wrapper {
+        top: 0px;
+        grid-template-columns: minmax(397px, 0px);
+        grid-template-rows: repeat(3, minmax(342px, 0px));
+        justify-content: center;
+    }
+    [data-size = "large"] {
+        grid-column-end: 2;
+        padding-right: 32px;
+        .article__descr {
+            padding-right: 0px;
+        }
+    }
+    .article__resources {
+        margin-top: 20px;
+    }
+    .article__resources_wrapper {
+        grid-template-columns: minmax(397px, 0px);
+    }
+}
+
+@media(max-width: 576px) {
+    .article__info {
+        grid-template-columns: minmax(375px, 0px);
+    }
+    .article__education_wrapper {
+        grid-template-columns: minmax(375px, 0px);
+    }
+    .article__resources_wrapper {
+        grid-template-columns: minmax(375px, 0px);
+    }
+    .article__filters {
+        padding-right: 10px;
+    }
+}
+@media(max-width: 375px) {
+    .article__info {
+        grid-template-columns: minmax(310px, 0px);
+    }
+    .article__education_wrapper {
+        grid-template-columns: minmax(310px, 0px);
+    }
+    .article__resources_wrapper {
+        grid-template-columns: minmax(310px, 0px);
+    }
+    .article__resources__line {
+        width: 250px;
+        overflow: hidden;
+    }
+    .article__filters {
+        padding-right: 10px;
+    }
+}

@@ -1,0 +1,11 @@
+.article {
+    &__education_wrapper {
+        position: relative;
+        top: -18px;
+        margin-top: 5px;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(397px, 0px));
+        grid-template-rows: repeat(2, minmax(342px, 0px));
+        gap: 24px;
+    }
+}

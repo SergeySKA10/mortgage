@@ -1,0 +1,15 @@
+.getting {
+    position: relative;
+    padding-top: 104px;
+    h2 {
+        padding-left: 267px;
+        padding-right: 286px;
+    }
+    &__speakers {
+        padding: 0px 76px;
+        margin-top: 65px;
+        display: flex;
+        justify-content: center;
+        gap: 164px;
+    }
+}

@@ -1,0 +1,106 @@
+@keyframes buttonbeat {
+    from {
+        transform: scale(1.1);
+        border: 8px solid rgba(39, 143, 180, 0.4);
+    }
+    50% {
+        transform: scale(1);
+        border: 8px solid rgba(39, 143, 180, 0);
+    }
+    100% {
+        transform: scale(1.1);
+        border: 8px solid rgba(39, 143, 180, 0.4);
+    }
+}
+
+@keyframes whitebuttonbeat {
+    from {
+        transform: scale(1.1);
+        border: 8px solid rgba(255, 255, 255, 0.4);
+    }
+    50% {
+        transform: scale(1);
+        border: 8px solid rgba(255, 255, 255, 0);
+    }
+    100% {
+        transform: scale(1.1);
+        border: 8px solid rgba(255, 255, 255, 0.4);
+    }
+}
+
+.btn__animation {
+    animation: buttonbeat 1.5s ease infinite;
+}
+
+.btn__animation:hover {
+    animation: none;
+}
+
+.btn__animation:focus {
+    animation: none;
+}
+
+.btn__animation-white {
+    animation: whitebuttonbeat 1.5s ease infinite;
+}
+
+.btn__animation-white:hover {
+    animation: none;
+}
+
+.btn__animation-white:focus {
+    animation: none;
+}
+
+@keyframes gradient-rotate {
+    to {
+        transform: rotate(1turn);
+    }
+}
+
+@property --my-angle {
+    syntax: '<angle>';
+    inherits: false;
+    initial-value: 0turn;
+}
+
+@keyframes gradient-rotate {
+    to {
+        --my-angle: 1turn;
+    }
+}
+
+@keyframes shine {
+    100% {
+        background-position: 500% 0, 0 0, 0 0, 0 100%, 0 4px, 0 calc(100% - 4px);
+    }
+    20% {
+        background-position: 200% 0, 0 0, 0 0, 0 100%, 0 4px, 0 calc(100% - 4px);
+    }
+    0% {
+        background-position: -200% 0, 0 0, 0 0, 0 100%, 0 4px,
+            0 calc(100% - 4px);
+    }
+}
+
+@keyframes loading {
+    0% {
+        max-width: 0;
+    }
+}
+
+@keyframes skeleton {
+    from {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.animation-skeleton {
+    animation: skeleton 2s ease-in-out infinite;
+}

@@ -1,0 +1,11 @@
+.article {
+    &__resources {
+        &_wrapper {
+            margin-top: 9px;
+            display: grid;
+            grid-template-columns: minmax(397px, 0px);
+            grid-template-rows: repeat(2, minmax(266px, 0px));
+            row-gap: 20px;
+        }
+    }
+}

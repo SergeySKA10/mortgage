@@ -1,0 +1,32 @@
+@media(max-width: 768px) {
+    .info__wrapper {
+        width: 540px;
+    }
+    .info__block_img {
+        width: 540px;
+        img {
+            width: 100%;
+        }
+    }
+}
+
+@media(max-width: 576px) {
+    .info__wrapper {
+        width: 340px;
+    }
+    .info__block_img {
+        width: 340px;
+    }
+}
+
+@media (max-width: 375px) {
+    .info__wrapper {
+        width: 310px;
+    }
+    .info__descr {
+        padding-right: 0px;
+    }
+    .info__block_img {
+        width: 310px;
+    }
+}

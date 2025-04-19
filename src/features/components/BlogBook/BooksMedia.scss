@@ -1,0 +1,11 @@
+@media (max-width: 1200px) {
+    .blog_books {
+        padding-top: 0px;
+    }
+}
+
+@media (max-width: 375px) {
+    .blog_books__wrapper {
+        grid-template-columns: repeat(auto-fill, minmax(310px, 0));
+    }
+}

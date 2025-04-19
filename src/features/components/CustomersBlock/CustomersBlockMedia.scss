@@ -1,0 +1,106 @@
+@media(max-width: 1440px) {
+    .customers__wrapper {
+        margin-top: 29px;
+    }
+}
+
+@media(max-width: 1200px) {
+    .customers {
+        padding: 0px;
+    }
+    .customers__wrapper {
+        flex-direction: column;
+        align-items:center;
+    }
+    .customers__rating {
+        flex-direction: row;
+        gap: 20px;
+        height: 0px;
+        min-height: 160px;
+        width: 0;
+        min-width: 580px;
+    }
+    .customers__slider {
+        top: 0px;
+        flex-direction: column;
+        align-items: center;
+        height: 0px;
+        min-height: 500px;
+    }
+    .customers__slider_counter {
+        gap: 10px;
+        height: 0px;
+        min-height: 100px;
+        margin-left: 0px;
+        justify-content: center;
+    }
+    .customers__slider_inner {
+        top: 0px;
+        width: 474px;
+    }
+    .customers__slider_arrows {
+        flex-direction: row;
+        gap: 50px;
+        height: 60px;
+    }
+    .customers__slider_current {
+        margin-top: 0px;
+        margin-bottom: 0px;
+        padding-top: 20px;
+    }
+    .customers__slider_dots {
+        gap: 35px;
+        top: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    .customers__slides {
+        top: 0;
+        width: 479px;
+        height: 310px;
+        margin: 0 auto;
+    }
+}
+
+@media(max-width: 768px) {
+    .customers__rating {
+        flex-direction: column;
+        align-items: center;
+        min-height: 340px;
+    }
+}
+
+@media(max-width: 576px) {
+    .customers__slides {
+        width: 310px;
+    }
+    .customers__slide {
+        width: 310px;
+        padding: 5px 15px 5px 15px;
+        &-profile {
+            align-items: center;
+        }
+        &-photo {
+            width: 50px;
+            height: 50px;
+        }
+        &-info {
+            padding-left: 0px;
+            min-width: 80px;
+        }
+        &-social {
+            padding-top: 0px;
+            padding-right: 9px;
+        }
+        &-descr {
+            margin-top: 10px;
+            gap: 10px;
+        }
+        &-text {
+            height: 140px;
+        }
+    }
+    .customers__slider_dots {
+        gap: 15px;
+    }
+}
