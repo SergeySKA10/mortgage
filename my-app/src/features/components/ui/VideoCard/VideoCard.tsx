@@ -4,8 +4,8 @@ import type { IVideoCardProps } from '@/shared/shared-components/componentsTypes
 
 import './VideoCard.scss';
 
-const VideoCard = ({ data, size = '' }: IVideoCardProps) => {
-    const { descr, link } = data;
+const VideoCard = ({ data }: IVideoCardProps) => {
+    const { descr, link, size } = data;
     const time = useGetDurationVideo(link);
 
     return (

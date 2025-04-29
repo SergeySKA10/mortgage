@@ -55,8 +55,7 @@ export interface IDotsSliderStoryProps {
 }
 
 export interface IVideoCardProps {
-    data: VideoDB;
-    size?: 'videoLarge' | '';
+    data: VideoDB & { size?: 'videoLarge' | '' };
 }
 
 type PopUpActive = 'popUpActive' | 'hide';
@@ -90,10 +89,10 @@ export interface IFilterProps {
 }
 
 export interface IArticleCardProps {
-    data: ArticlesDB;
-    size: 'large' | 'large-right' | '';
-    index: number;
-    order?: { order: string };
+    data: ArticlesDB & {
+        size: 'large' | 'large-right' | '';
+        order?: { order: string };
+    };
 }
 
 export interface IBookCardProps {

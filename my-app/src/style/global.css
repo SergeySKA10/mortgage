@@ -8,6 +8,14 @@
     scroll-behavior: smooth;
 }
 
+*:focus-visible {
+    outline-color: #ffa420;
+    outline-style: solid;
+    outline-offset: 0.25rem;
+    outline-width: 0.25rem;
+    border-radius: 5px;
+}
+
 .container {
     display: block;
     margin: 0 auto;

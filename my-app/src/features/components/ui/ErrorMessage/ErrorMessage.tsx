@@ -1,17 +1,24 @@
 import { QueryData } from '@/shared/shared-components/dataTypesFromSQL';
 import { QueryObserverResult, RefetchOptions } from '@tanstack/react-query';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
-import { redirect } from 'next/navigation';
 interface ErrorProps {
     message?: string | undefined;
-    path?: string;
     refetch?: (
         options?: RefetchOptions
     ) => Promise<QueryObserverResult<QueryData, Error>>;
-    reset?: () => void;
 }
 
-const ErrorMessage = ({ message, path, refetch, reset }: ErrorProps) => {
+const ErrorMessage = ({ message, refetch }: ErrorProps) => {
+    const [pressBtn, setPressBtn] = useState<boolean>(false);
+
+    useEffect(() => {
+        if (pressBtn && refetch) {
+            refetch();
+            setPressBtn((pressBtn) => !pressBtn);
+        }
+    }, [pressBtn]);
+
     return (
         <div
             style={{
@@ -49,36 +56,14 @@ const ErrorMessage = ({ message, path, refetch, reset }: ErrorProps) => {
                 There was an error loading the data:{' '}
                 {message ? message : 'unknown error'} Please try again later.
             </p>
-            {path ? (
-                <button
-                    tabIndex={0}
-                    className="btn btn__mini"
-                    style={{ marginTop: '20px' }}
-                    onClick={() => redirect(`${path}`)}
-                >
-                    Try again
-                </button>
-            ) : null}
-            {refetch ? (
-                <button
-                    tabIndex={0}
-                    className="btn btn__mini"
-                    style={{ marginTop: '20px' }}
-                    onClick={() => refetch()}
-                >
-                    Try again
-                </button>
-            ) : null}
-            {reset ? (
-                <button
-                    tabIndex={0}
-                    className="btn btn__mini"
-                    style={{ marginTop: '20px' }}
-                    onClick={() => reset()}
-                >
-                    Try again
-                </button>
-            ) : null}
+            <button
+                tabIndex={0}
+                className="btn btn__mini"
+                style={{ marginTop: '20px' }}
+                onClick={() => setPressBtn((pressBtn) => !pressBtn)}
+            >
+                Try again
+            </button>
         </div>
     );
 };

@@ -6,13 +6,18 @@ import type { IArticleCardProps } from '@/shared/shared-components/componentsTyp
 import { Line } from '../Line/Line';
 import './ArticleCard.scss';
 
-const ArticleCard = ({
-    data,
-    size,
-    index,
-    order = { order: '' },
-}: IArticleCardProps) => {
-    const { link, subheader, header, descr, avatar, name } = data;
+const ArticleCard = ({ data }: IArticleCardProps) => {
+    const {
+        link,
+        subheader,
+        header,
+        descr,
+        avatar,
+        name,
+        size,
+        // index,
+        order = { order: '' },
+    } = data;
 
     return (
         <Link
@@ -20,7 +25,7 @@ const ArticleCard = ({
             href={`${link}`}
             className={`article__block`}
             data-size={size}
-            data-index={index}
+            // data-index={index}
             style={{ ...order }}
         >
             <div tabIndex={0} className="article__logo roboto-bold">

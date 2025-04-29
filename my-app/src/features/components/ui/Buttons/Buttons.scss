@@ -137,6 +137,7 @@
         }
         &:focus {
             background: $blue_color;
+            border-radius: 100%;
         }
     }
     &__play-white {
@@ -173,6 +174,7 @@
         }
         &:focus {
             background: $blue_color;
+            border-radius: 100%;
         }
     }
     &__mini {
@@ -197,6 +199,10 @@
             font-size: 12px;
             line-height: 14px;
             text-decoration: none;
+        }
+        &:disabled {
+            width: 96px;
+            height: 33px;
         }
         &:hover {
             background-color: $blue_color;
@@ -252,6 +258,7 @@
         }
         &:focus {
             border: 8px solid rgba(255, 255, 255, 0.8);
+            border-radius: 100%;
         }
     }
     &__arrow-left {
@@ -299,6 +306,7 @@
         }
         &:focus {
             border: 8px solid rgba(255, 255, 255, 0.8);
+            border-radius: 100%;
         }
     }
     &__watch {
@@ -334,6 +342,7 @@
         }
         &:focus {
             background: $blue_color;
+            border-radius: 100%;
         }
     }
     &__watch-download {

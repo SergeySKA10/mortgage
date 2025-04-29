@@ -4,7 +4,7 @@ import { useSuspenseQuery } from '@tanstack/react-query';
 import { getOptions } from '../../../services/getOptions';
 import setContent from '../../../utils/setContent';
 import SpeakerCard from '../ui/SpeakerCard/SpeakerCard';
-import ErrorMessage from '../ui/ErrorMessage/ErrorMessage';
+import { ErrorServerMessage } from '../ui/ErrorMessage/ErrorServerMessage';
 
 const GettingInfo = () => {
     const { data } = useSuspenseQuery(getOptions('mentors'));
@@ -12,7 +12,7 @@ const GettingInfo = () => {
     if (data.isError) {
         return (
             <>
-                <ErrorMessage message={data.message} path="/" />
+                <ErrorServerMessage message={data.message} id="mentors" />
             </>
         );
     }

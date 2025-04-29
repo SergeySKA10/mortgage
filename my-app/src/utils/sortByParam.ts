@@ -3,9 +3,9 @@ import type {
     ArticlesDB,
 } from '@/shared/shared-components/dataTypesFromSQL';
 
-type SortParametr = 'creation_time';
+export type SortParametr = 'creation_time';
 
-export const sortByDate = (
+export const sortByParam = (
     data: any[] | undefined,
     parameter: SortParametr
 ): VideoDB[] | ArticlesDB[] => {
@@ -18,7 +18,10 @@ export const sortByDate = (
         const left = data.slice(0, middle);
         const right = data.slice(middle, data.length);
 
-        return merge(sortByDate(left, parameter), sortByDate(right, parameter));
+        return merge(
+            sortByParam(left, parameter),
+            sortByParam(right, parameter)
+        );
     }
 
     // функция по сравнению и формированию массива

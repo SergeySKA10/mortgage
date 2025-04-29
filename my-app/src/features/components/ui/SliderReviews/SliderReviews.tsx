@@ -7,7 +7,7 @@ import { SliderSkeleton } from './SlideSkeleton';
 
 import type { SlidesReviewsDB } from '@/shared/shared-components/dataTypesFromSQL';
 
-import { useState, useEffect, JSX, MouseEvent } from 'react';
+import { useState, useEffect, JSX, MouseEvent, FocusEvent } from 'react';
 
 import { ButtonArrow } from '../Buttons/ButtonArrows';
 import { Line } from '../Line/Line';
@@ -195,45 +195,24 @@ const SlideReviews = ({ data }: ISlideReview) => {
     const { photo, city, name, profession, icon, reviews } = data;
 
     return (
-        <div tabIndex={0} className="customers__slide">
+        <div className="customers__slide">
             <div className="customers__slide-profile">
                 <div className="customers__slide-photo">
-                    <Image
-                        tabIndex={0}
-                        src={photo}
-                        alt="photo"
-                        height={110}
-                        width={110}
-                    />
+                    <Image src={photo} alt="photo" height={110} width={110} />
                 </div>
                 <div className="customers__slide-info">
-                    <div
-                        tabIndex={0}
-                        className="customers__slide-city roboto-bold"
-                    >
+                    <div className="customers__slide-city roboto-bold">
                         {city}
                     </div>
-                    <div
-                        tabIndex={0}
-                        className="customers__slide-name roboto-bold"
-                    >
+                    <div className="customers__slide-name roboto-bold">
                         {name}
                     </div>
-                    <div
-                        tabIndex={0}
-                        className="customers__slide-proff roboto-regular"
-                    >
+                    <div className="customers__slide-proff roboto-regular">
                         {profession}
                     </div>
                 </div>
                 <div className="customers__slide-social">
-                    <Image
-                        tabIndex={0}
-                        src={icon}
-                        alt="social"
-                        height={20}
-                        width={20}
-                    />
+                    <Image src={icon} alt="social" height={20} width={20} />
                 </div>
             </div>
             <div className="customers__slide_line">
@@ -248,10 +227,7 @@ const SlideReviews = ({ data }: ISlideReview) => {
                         width={32}
                     />
                 </div>
-                <p
-                    tabIndex={0}
-                    className="customers__slide-text roboto-regular"
-                >
+                <p className="customers__slide-text roboto-regular">
                     {reviews}
                 </p>
             </div>
@@ -269,7 +245,9 @@ const Dot = ({
 }: IDotReview) => {
     // функция установки offset и indexSlide при клике на dots
     const initialOffset = (
-        e: MouseEvent<HTMLDivElement, globalThis.MouseEvent>
+        e:
+            | MouseEvent<HTMLDivElement, globalThis.MouseEvent>
+            | FocusEvent<HTMLDivElement, Element>
     ): void => {
         if (
             e.target &&
@@ -294,6 +272,7 @@ const Dot = ({
             className={'customers__slider_dot ' + activeClass}
             data-slide-to={data}
             onClick={initialOffset}
+            onBlur={initialOffset}
         ></div>
     );
 };

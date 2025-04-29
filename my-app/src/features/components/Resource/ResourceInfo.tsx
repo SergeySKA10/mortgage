@@ -4,7 +4,7 @@ import { useSuspenseQuery } from '@tanstack/react-query';
 import { getOptions } from '@/services/getOptions';
 import setContent from '@/utils/setContent';
 import BookCard from '../ui/BookCard/BookCard';
-import ErrorMessage from '../ui/ErrorMessage/ErrorMessage';
+import { ErrorServerMessage } from '../ui/ErrorMessage/ErrorServerMessage';
 import type { IResourcesDB } from '@/shared/shared-components/dataTypesFromSQL';
 
 export const ResourceInfo = () => {
@@ -13,7 +13,7 @@ export const ResourceInfo = () => {
     if (data.isError) {
         return (
             <>
-                <ErrorMessage message={data.message} path={'/'} />
+                <ErrorServerMessage message={data.message} id={'resources'} />
             </>
         );
     }

@@ -1,12 +1,10 @@
 'use client';
 
+import setContent from '@/utils/setContent';
 import { useSuspenseQuery } from '@tanstack/react-query';
 import { getOptions } from '../../../services/getOptions';
-import { sortByDate } from '../../../utils/sortByDate';
 import ArticleCard from '../ui/ArticleCard/ArticleCard';
-import ErrorMessage from '../ui/ErrorMessage/ErrorMessage';
-
-import type { ArticlesDB } from '@/shared/shared-components/dataTypesFromSQL';
+import { ErrorServerMessage } from '../ui/ErrorMessage/ErrorServerMessage';
 
 export const ArticleInfo = () => {
     const { data } = useSuspenseQuery(getOptions('articles'));
@@ -14,14 +12,14 @@ export const ArticleInfo = () => {
     if (data.isError) {
         return (
             <>
-                <ErrorMessage message={data.message} path={'/'} />
+                <ErrorServerMessage message={data.message} id={'articles'} />
             </>
         );
     }
 
     return (
         <>
-            {sortByDate(data, 'creation_time').map((el, i) => {
+            {/* {sortByParam(data, 'creation_time').map((el, i) => {
                 // делаем ограничение до 3-х блоков
                 if (i < 3) {
                     // созаем переменную для обозначения большого блока и передачи в props
@@ -36,6 +34,18 @@ export const ArticleInfo = () => {
                         />
                     );
                 }
+            })} */}
+            {setContent({
+                data,
+                Component: ArticleCard,
+                sorted: 'creation_time',
+                dataAtr: [
+                    {
+                        index: 0,
+                        value: 'large',
+                    },
+                ],
+                limitContent: 3,
             })}
         </>
     );

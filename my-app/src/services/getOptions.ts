@@ -17,12 +17,12 @@ const fetchOptions = async (key: Key) => {
         if (error instanceof Error) {
             return {
                 isError: true,
-                error: `error name: ${error.name} error message: ${error.message}`,
+                message: `Error loading data. Error: ${error.name}, error message: ${error.message}. Please, try again later`,
             };
         } else {
             return {
                 isError: true,
-                error: `error: ${error}`,
+                message: `Error loading data. Error: ${error}. Please, try again later`,
             };
         }
     }

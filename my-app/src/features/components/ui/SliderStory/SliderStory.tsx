@@ -1,7 +1,14 @@
 'use client';
 
 import { useAppSelector } from '@/hooks/redux.hooks';
-import { useEffect, useState, useRef, MouseEvent, JSX } from 'react';
+import {
+    useEffect,
+    useState,
+    useRef,
+    MouseEvent,
+    JSX,
+    FocusEvent,
+} from 'react';
 
 import { ButtonArrow } from '../Buttons/ButtonArrows';
 import { Line } from '../Line/Line';
@@ -210,19 +217,13 @@ const SliderStory = () => {
 const Slide = ({ data, activeClass, current }: ISlidesStoryProps) => {
     const { header, descr } = data;
     return (
-        <div tabIndex={0} className={'story__slider_slide ' + activeClass}>
-            <div tabIndex={0} className="story__slider_counter roboto-bold">
-                {current}
-            </div>
-            <div tabIndex={0} className="story__slider_header roboto-bold">
-                {header}
-            </div>
+        <div className={'story__slider_slide ' + activeClass}>
+            <div className="story__slider_counter roboto-bold">{current}</div>
+            <div className="story__slider_header roboto-bold">{header}</div>
             <div className="story__slider_line">
                 <Line />
             </div>
-            <div tabIndex={0} className="story__slider_descr roboto-regular">
-                {descr}
-            </div>
+            <div className="story__slider_descr roboto-regular">{descr}</div>
         </div>
     );
 };
@@ -238,7 +239,9 @@ const Dot = ({
 }: IDotsSliderStoryProps) => {
     // функция установки offset и indexSlide при клике на dots
     const initialScroll = (
-        e: MouseEvent<HTMLDivElement, globalThis.MouseEvent>
+        e:
+            | MouseEvent<HTMLDivElement, globalThis.MouseEvent>
+            | FocusEvent<HTMLDivElement, Element>
     ): void => {
         if (document.documentElement.clientWidth <= 1200) {
             const numSlide = +(e.target as HTMLElement).getAttribute(
@@ -269,6 +272,9 @@ const Dot = ({
             className={'dots-dot ' + activeClass}
             data-slide-to={data}
             onClick={initialScroll}
+            onBlur={(e) => {
+                initialScroll(e);
+            }}
         ></div>
     );
 };
