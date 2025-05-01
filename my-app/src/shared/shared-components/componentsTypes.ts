@@ -127,3 +127,22 @@ export interface IButtonDownload {
     path: `src/assets/database/${string}` | '';
     name: string;
 }
+
+export interface IReport {
+    id: string;
+    src: string;
+    header: string;
+    descr: string;
+}
+
+export interface IReports {
+    report: IReport[];
+}
+
+export interface IAuthorCardProps {
+    data: MentorsDB;
+}
+
+export interface IWebinarPromoProps {
+    data: BooksOrWebinarsDB;
+}

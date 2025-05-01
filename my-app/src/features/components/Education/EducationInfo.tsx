@@ -6,7 +6,7 @@ import { getOptions } from '../../../services/getOptions';
 import ArticleCard from '../ui/ArticleCard/ArticleCard';
 import { ErrorServerMessage } from '../ui/ErrorMessage/ErrorServerMessage';
 
-export const ArticleInfo = () => {
+export const EducationInfo = () => {
     const { data } = useSuspenseQuery(getOptions('articles'));
 
     if (data.isError) {
@@ -28,8 +28,11 @@ export const ArticleInfo = () => {
                         index: 0,
                         value: 'large',
                     },
+                    {
+                        index: 6,
+                        value: 'large-right',
+                    },
                 ],
-                limitContent: 3,
             })}
         </>
     );

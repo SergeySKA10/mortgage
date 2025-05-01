@@ -1,20 +1,26 @@
-// import { Link } from 'react-router-dom';
+import Link from 'next/link';
+import Image from 'next/image';
 
-// import './PromoBlog.scss';
-// import './PromoBlogMedia.scss';
+import './PromoBlog.scss';
+import './PromoBlogMedia.scss';
 
-// import logo from '../../../assets/icons/main_page/logo/NAF_Logo.svg';
+const PromoBlog = () => {
+    return (
+        <section className="promo_blog">
+            <header className="promo_blog__header">
+                <Link href="/">
+                    <Image
+                        tabIndex={0}
+                        src={'/logo/NAF_Logo.svg'}
+                        alt="logo"
+                        width={240}
+                        height={43}
+                        priority
+                    />
+                </Link>
+            </header>
+        </section>
+    );
+};
 
-// const PromoBlog = () => {
-//     return (
-//         <section className="promo_blog">
-//             <header className="promo_blog__header">
-//                 <Link to="/">
-//                     <img src={logo} alt="logo"/>
-//                 </Link>
-//             </header>
-//         </section>
-//     )
-// }
-
-// export default PromoBlog;
+export default PromoBlog;
