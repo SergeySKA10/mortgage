@@ -16,6 +16,13 @@
             height: 100%;
             object-fit: contain;
         }
+        &-skeleton {
+            background-color: #ffffff;
+            border: none;
+            img {
+                object-fit: contain;
+            }
+        }
     }
     &__descr {
         width: 430px;
@@ -28,6 +35,13 @@
         line-height: 13px;
         letter-spacing: 2px;
         text-transform: uppercase;
+        &-skeleton {
+            margin-top: 48px;
+            height: 13px;
+            width: 80px;
+            border-radius: 4px;
+            background-color: rgba(0, 0, 0, 0.1);
+        }
     }
     &__name {
         margin-top: 5px;
@@ -35,6 +49,13 @@
         font-size: 28px;
         font-weight: 700;
         line-height: 28px;
+        &-skeleton {
+            margin-top: 5px;
+            height: 28px;
+            width: 100px;
+            border-radius: 4px;
+            background-color: rgba(0, 0, 0, 0.1);
+        }
     }
     &__info {
         margin-top: 39px;
@@ -42,6 +63,13 @@
         font-size: 14px;
         font-weight: 400;
         line-height: 24px;
+        &-skeleton {
+            margin-top: 39px;
+            height: 48px;
+            width: 200px;
+            border-radius: 4px;
+            background-color: rgba(0, 0, 0, 0.1);
+        }
     }
     &__btn {
         margin-top: 20px;
@@ -50,11 +78,24 @@
         flex-wrap: wrap;
         align-items: center;
         gap: 16px;
+        &-skeleton {
+            border-radius: 100%;
+            border: none;
+            width: 60px;
+            height: 60px;
+            background-color: rgba(0, 0, 0, 0.1);
+        }
     }
     &__meet {
         color: rgb(0, 0, 0);
         font-size: 13px;
         font-weight: 400;
         line-height: 15px;
+        &-skeleton {
+            height: 13px;
+            width: 50px;
+            border-radius: 4px;
+            background-color: rgba(0, 0, 0, 0.1);
+        }
     }
 }

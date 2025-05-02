@@ -18,16 +18,15 @@ export const BooksInfo = () => {
         );
     }
 
-    <>
-        {setContent({
-            data: [
-                ...(data as IResourcesDB).books,
-                ...(data as IResourcesDB).webinars,
-            ],
-            Component: BookCard,
-        })}
-        {/* {(data as IResourcesDB).books.map((el) => {
-            return <BookCard key={el.id} data={el} />;
-        })} */}
-    </>;
+    return (
+        <>
+            {setContent({
+                data: [
+                    ...(data as IResourcesDB).books,
+                    ...(data as IResourcesDB).webinars,
+                ],
+                Component: BookCard,
+            })}
+        </>
+    );
 };

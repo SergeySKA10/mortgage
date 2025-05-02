@@ -9,7 +9,7 @@ export default function Webinar() {
     return (
         <>
             <PromoWebinar />
-            {/* <Report /> */}
+            <Report />
             <Author />
             <Start />
         </>

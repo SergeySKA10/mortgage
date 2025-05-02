@@ -1,3 +1,5 @@
+'use client';
+
 import { useAppSelector } from '@/hooks/redux.hooks';
 
 import ReportCard from '../ui/ReportCard/ReportCard';

@@ -13,11 +13,11 @@ const reportSlice = createSlice({
         createNote: (state, action: PayloadAction<IReport>) => {
             state.report.push(action.payload);
         },
-        deleteNote: (state, action) => {
-            state.report = state.report.filter(
-                (el) => el.id !== action.payload
-            );
-        },
+        // deleteNote: (state, action) => {
+        //     state.report = state.report.filter(
+        //         (el) => el.id !== action.payload
+        //     );
+        // },
     },
 });
 
@@ -25,4 +25,4 @@ const { actions, reducer } = reportSlice;
 
 export default reducer;
 
-export const { createNote, deleteNote } = actions;
+export const { createNote } = actions;
