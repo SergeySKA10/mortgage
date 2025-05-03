@@ -1,48 +1,64 @@
-// import useGetData from '../../../services/useGetData';
-// import setContent from '../../../utils/setContent';
+'use client';
 
-// import { useEffect } from 'react';
+import useGetData from '../../../services/useGetData';
+import setContent from '../../../utils/setContent';
+import { useContext } from 'react';
+import { BookContext } from '@/app/ebook/context/BookContext';
+import Image from 'next/image';
+import { SkeletonAboutEbook } from './SkeletonAboutEbook';
+import type { IResourcesDB } from '@/shared/shared-components/dataTypesFromSQL';
+
+import { useEffect } from 'react';
 
 // import Form from '../ui/Form/Form';
 
-// import './AboutEbook.scss';
-// import './AboutEbookMedia.scss';
+import './AboutEbook.scss';
+import './AboutEbookMedia.scss';
 
-// const AboutEbook = ({setAuthor, setNameBook, setFormat, format, indexActiveFormat}) => {
-//     // получение данных
-//     const {process, getData: {data, isError, isPending}} = useGetData('resources', 7);
+const AboutEbook = () => {
+    // получение данных
+    const {
+        process,
+        getData: { data, isError, isPending },
+    } = useGetData('resources');
 
-//     const content = setContent({process, isError, isPending, Components: <ViewWrapper format={format} index={indexActiveFormat} data={data?.books[0]}/>})
+    const { setAuthor, setnameBook, setFormat, format } =
+        useContext(BookContext);
 
-//     // запись в state автора и название книги
-//     useEffect(() => {
-//         if(data) {
-//             setAuthor(data.books[0].author);
-//             setNameBook(data.books[0].name);
-//             setFormat(format => format.concat(data.books[0].format))
-//         }
-//     }, [data])
+    const content = setContent({
+        process,
+        isError,
+        isPending,
+        Skeleton: SkeletonAboutEbook,
+        Component: AboutEbookWrapper,
+        data: data,
+    });
 
-//     return (
-//         <section className="about_ebook">
-//             {content}
-//         </section>
-//     )
-// }
+    // запись в state автора и название книги
+    useEffect(() => {
+        if (data) {
+            setAuthor((data as IResourcesDB).books[0].author);
+            setnameBook((data as IResourcesDB).books[0].name);
+            setFormat((data as IResourcesDB).books[0].format);
+        }
+    }, [data]);
 
-// const ViewWrapper = ({format, index, data: {pictures, descr}}) => {
-//     return (
-//         <div className="about_ebook__wrapper">
-//             <div className="about_ebook__cover">
-//                 <img src={pictures[0]} alt="cover"/>
-//             </div>
-//             <div className="about_ebook__content">
-//                 <h2 className="header__h2-left roboto-bold">About the book</h2>
-//                 <p className="about_ebook__descr roboto-regular">{descr[0]}</p>
-//                 <Form format={format} index={index} id='book-form' text='Get the eBook'/>
-//             </div>
-//         </div>
-// )
-// }
+    return <section className="about_ebook">{{ content }}</section>;
+};
 
-// export default AboutEbook;
+const AboutEbookWrapper = ({ data: { pictures, descr, format, index } }) => {
+    return (
+        <div className="about_ebook__wrapper">
+            <div className="about_ebook__cover">
+                <Image src={pictures[0]} alt="cover" width={90} height={120} />
+            </div>
+            <div className="about_ebook__content">
+                <h2 className="header__h2-left roboto-bold">About the book</h2>
+                <p className="about_ebook__descr roboto-regular">{descr[0]}</p>
+                {/* <Form format={format} index={index} id='book-form' text='Get the eBook'/> */}
+            </div>
+        </div>
+    );
+};
+
+export default AboutEbook;
