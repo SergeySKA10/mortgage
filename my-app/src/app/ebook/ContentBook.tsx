@@ -6,7 +6,7 @@ export const ContentBook = () => {
     return (
         <BookContextProvider>
             <PromoEbook />
-            {/* <AboutEbook /> */}
+            <AboutEbook />
         </BookContextProvider>
     );
 };

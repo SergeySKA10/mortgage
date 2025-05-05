@@ -1,21 +1,36 @@
-// import { Link } from 'react-router-dom';
+import Link from 'next/link';
+import Image from 'next/image';
+import ISecondBookProps from '@/shared/shared-components/componentsTypes';
 
-// import './SecondEbookPromo.scss';
-// import './SecondEbookPromoMedia.scss';
-// import logo from '../../../assets/icons/main_page/logo/logo_white.svg';
+import './SecondEbookPromo.scss';
+import './SecondEbookPromoMedia.scss';
 
-// const SecondEbookPromo = ({author, nameBook}) => {
-//     return (
-//         <section className="second_ebook__promo">
-//             <header className="second_ebook__header">
-//                 <Link to='/' style={{display: 'block', width: '340px'}}>
-//                     <img src={logo} alt="logo"/>
-//                 </Link>
-//             </header>
-//             <h1 className="header__h1 roboto-bold">{nameBook}</h1>
-//             <div className="second_ebook__author roboto-bold">{author}</div>
-//         </section>
-//     )
-// }
+const SecondEbookPromo = ({ author, nameBook, loading }: ISecondBookProps) => {
+    return (
+        <section className="second_ebook__promo">
+            <header className="second_ebook__header">
+                <Link
+                    tabIndex={0}
+                    href="/"
+                    style={{ display: 'block', width: '340px' }}
+                >
+                    <Image
+                        tabIndex={0}
+                        src={'/logo/logo_white.svg'}
+                        alt="logo"
+                        width={335}
+                        height={100}
+                    />
+                </Link>
+            </header>
+            <h1 tabIndex={0} className="header__h1 roboto-bold">
+                {loading ? `Loading ${nameBook}...` : nameBook}
+            </h1>
+            <div tabIndex={0} className="second_ebook__author roboto-bold">
+                {loading ? `Loading ${author}...` : author}
+            </div>
+        </section>
+    );
+};
 
-// export default SecondEbookPromo;
+export default SecondEbookPromo;

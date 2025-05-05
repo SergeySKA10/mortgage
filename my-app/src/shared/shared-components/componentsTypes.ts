@@ -146,3 +146,21 @@ export interface IAuthorCardProps {
 export interface IWebinarPromoProps {
     data: BooksOrWebinarsDB;
 }
+
+export interface IAboutEbookWrapperProps {
+    data: {
+        pictures: string[];
+        descr: string[];
+        format: string[];
+        index: number;
+    };
+}
+
+export default interface ISecondBookProps {
+    loading?: boolean;
+    setLoading?: Dispatch<SetStateAction<boolean>>;
+    author?: string;
+    nameBook?: string;
+    setAuthor?: Dispatch<SetStateAction<string>>;
+    setNameBook?: Dispatch<SetStateAction<string>>;
+}

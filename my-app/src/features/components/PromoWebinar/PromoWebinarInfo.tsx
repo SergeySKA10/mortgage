@@ -40,17 +40,23 @@ const PromoWebinarView = ({
     return (
         <div className="promo_webinar__wrapper">
             <div className="promo_webinar__info">
-                <h1 className="header__h1 roboto-bold">{name}</h1>
-                <div className="promo_webinar__author roboto-bold">
+                <h1 tabIndex={0} className="header__h1 roboto-bold">
+                    {name}
+                </h1>
+                <div tabIndex={0} className="promo_webinar__author roboto-bold">
                     {author}
                 </div>
-                <div className="promo_webinar__descr roboto-regular">
+                <div
+                    tabIndex={0}
+                    className="promo_webinar__descr roboto-regular"
+                >
                     {descr[0]}
                 </div>
                 {/* <Form id="webinar-form" text="Get the webinar" /> */}
             </div>
             <div className="promo_webinar__macbook">
                 <Image
+                    tabIndex={0}
                     src="https://github.com/SergeySKA10/mortgage/blob/assets/src/assets/img/webinar_page/promo/top-macbook.png?raw=true"
                     alt="macbook"
                     width={648}
@@ -58,7 +64,10 @@ const PromoWebinarView = ({
                 />
                 <div className="promo_webinar__macbook-play">
                     <ButtonPlay link={link} text={''} />
-                    <div className="promo_webinar__time roboto-regular">{`Play demo: ${time}`}</div>
+                    <div
+                        tabIndex={0}
+                        className="promo_webinar__time roboto-regular"
+                    >{`Play demo: ${time}`}</div>
                 </div>
             </div>
         </div>

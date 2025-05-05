@@ -14,7 +14,9 @@ const Report = () => {
 
     return (
         <section className="report">
-            <h2 className="header__h2 roboto-bold">{"What's in the report"}</h2>
+            <h2 tabIndex={0} className="header__h2 roboto-bold">
+                {"What's in the report"}
+            </h2>
             <div className="report__wrapper">{reportsWrapper}</div>
         </section>
     );

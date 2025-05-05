@@ -32,10 +32,10 @@ const BookContextProvider = ({ children }: ProviderProps) => {
 
     // контекст который передается в children
     const value = {
-        author: '',
-        nameBook: '',
-        format: [],
-        indexActiveFormat: 0,
+        author: state.author,
+        nameBook: state.nameBook,
+        format: state.format,
+        indexActiveFormat: state.indexActiveFormat,
         setAuthor: (newAuthor: IBookContext['author']) => {
             dispatch({ type: ActionTypes.SET_AUTHOR, payload: newAuthor });
         },

@@ -24,10 +24,13 @@ const Start = () => {
             <div className="container">
                 <div className="start__wrapper">
                     <div className="start__info">
-                        <h2 className="header__h2-left roboto-bold">
+                        <h2
+                            tabIndex={0}
+                            className="header__h2-left roboto-bold"
+                        >
                             Get started with us
                         </h2>
-                        <p className="start__descr roboto-regular">
+                        <p tabIndex={0} className="start__descr roboto-regular">
                             Rates change, but every mortgage journey starts with
                             a relationship. (Pssst...it`s not just about
                             clicking a button)
@@ -46,6 +49,7 @@ const Start = () => {
                     </div>
                     <div className="start__img">
                         <Image
+                            tabIndex={0}
                             src="https://github.com/SergeySKA10/mortgage/blob/assets/src/assets/img/ebook_page/cat.png?raw=true"
                             alt="house"
                             width={690}

@@ -8,8 +8,8 @@ const Resource = () => {
     const queryClient = getQueryClient();
 
     return (
-        <div className="article__resources">
-            <h2 tabIndex={0} className="header__h2-left roboto-bold">
+        <section id="resourse/blog" className="article__resources">
+            <h2 tabIndex={0} className="header__h2-left">
                 Resources
             </h2>
             <div className="article__resources_wrapper">
@@ -19,7 +19,7 @@ const Resource = () => {
                     </HydrationBoundary>
                 </Suspense>
             </div>
-        </div>
+        </section>
     );
 };
 

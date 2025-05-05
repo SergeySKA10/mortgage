@@ -31,6 +31,7 @@ const PromoEbook = () => {
         const active = i === indexActiveFormat ? 'format-active' : '';
         return (
             <div
+                tabIndex={0}
                 key={i}
                 className={`btn btn__ebook ${active}`}
                 data-index={i}
@@ -46,6 +47,7 @@ const PromoEbook = () => {
             <header className="promo_ebook__header">
                 <Link href="/" style={{ display: 'block', width: '340px' }}>
                     <Image
+                        tabIndex={0}
                         src={'/logo/logo_white.svg'}
                         alt="logo"
                         width={335}
@@ -53,12 +55,19 @@ const PromoEbook = () => {
                     />
                 </Link>
             </header>
-            <h1 className="promo_ebook__name header__h1 roboto-bold">
+            <h1
+                tabIndex={0}
+                className="promo_ebook__name header__h1 roboto-bold"
+            >
                 {nameBook}
             </h1>
             <div className="promo_ebook__descr">
-                <div className="promo_ebook__author roboto-bold">{author}</div>
-                <div className="promo_ebook__btns">{formats}</div>
+                <div tabIndex={0} className="promo_ebook__author roboto-bold">
+                    {author}
+                </div>
+                <div tabIndex={0} className="promo_ebook__btns">
+                    {formats}
+                </div>
             </div>
         </section>
     );

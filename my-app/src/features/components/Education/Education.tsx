@@ -37,16 +37,14 @@ const Education = () => {
         <section className="blog_education">
             <div className="container">
                 <h2 className="header__h2-left roboto-bold">Education</h2>
-                <div className="blog_education__wrapper">
-                    <Suspense
-                        key={'educationBlog'}
-                        fallback={<SkeletonEducation />}
-                    >
-                        <HydrationBoundary state={dehydrate(queryClient)}>
-                            <EducationInfo />
-                        </HydrationBoundary>
-                    </Suspense>
-                </div>
+                <Suspense
+                    key={'educationBlog'}
+                    fallback={<SkeletonEducation />}
+                >
+                    <HydrationBoundary state={dehydrate(queryClient)}>
+                        <EducationInfo />
+                    </HydrationBoundary>
+                </Suspense>
             </div>
         </section>
     );
