@@ -1,3 +1,5 @@
+'use client';
+
 import useGetData from '@/services/useGetData';
 import { useState, useEffect } from 'react';
 import setContent from '@/utils/setContent';

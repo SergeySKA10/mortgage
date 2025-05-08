@@ -11,7 +11,7 @@ import type { IAboutEbookWrapperProps } from '@/shared/shared-components/compone
 
 import { useEffect } from 'react';
 
-// import Form from '../ui/Form/Form';
+import Form from '../ui/Form/Form';
 
 import './AboutEbook.scss';
 import './AboutEbookMedia.scss';
@@ -72,7 +72,12 @@ const AboutEbookWrapper = ({ data }: IAboutEbookWrapperProps) => {
                 <p tabIndex={0} className="about_ebook__descr roboto-regular">
                     {descr[0]}
                 </p>
-                {/* <Form format={format} index={index} id='book-form' text='Get the eBook'/> */}
+                <Form
+                    format={format}
+                    index={index}
+                    id="book-form"
+                    text="Get the eBook"
+                />
             </div>
         </div>
     );

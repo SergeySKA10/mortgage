@@ -14,9 +14,9 @@ const Start = () => {
     // создаем уникальный идентификатор для секции
     const id =
         location === '/ebook'
-            ? 'started/book'
+            ? 'started-book'
             : location === '/webinar'
-            ? 'started/webinar'
+            ? 'started-webinar'
             : '';
 
     return (

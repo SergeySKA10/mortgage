@@ -1,7 +1,7 @@
 'use client';
 
+import { Link as LinkSection } from 'react-scroll';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
 import Image from 'next/image';
 
 import { useAppDispatch, useAppSelector } from '@/hooks/redux.hooks';
@@ -18,9 +18,6 @@ import './MenuMedia.scss';
 
 const Menu = () => {
     const dispatch = useAppDispatch();
-    const location = usePathname();
-
-    // const [linksOnSection, setLinksOnSection] = useState([]);
 
     // переменные для работы с окном меню
     const menu = useAppSelector((state) => state.menu.menu),
@@ -57,28 +54,23 @@ const Menu = () => {
     const createLinksonSection = (arr: ILink[]) => {
         return arr.map((el) => (
             <li key={el.id}>
-                <Link
+                <LinkSection
                     tabIndex={0}
-                    onClick={() => closeMenu(dispatch)}
-                    className="roboto-bold"
-                    href={`#${el.link}`}
+                    smooth={true}
+                    duration={500}
+                    to={el.link}
+                    onClick={() => {
+                        closeMenu(dispatch);
+                    }}
                 >
                     {el.text}
-                </Link>
+                </LinkSection>
             </li>
         ));
     };
 
     // создаем ссылки на блоки главной страницы
     const linksMain = createLinksonSection(sectionLinks.main);
-    // создаем ссылки на блоки Blog страницы
-    const linksBlog = createLinksonSection(sectionLinks.blog);
-    // создаем ссылки на блоки Webinar страницы
-    const linksWebinar = createLinksonSection(sectionLinks.webinar);
-    // создаем ссылки на блоки Webinar страницы
-    const linksBook = createLinksonSection(sectionLinks.book);
-    // создаем ссылки на блоки Webinar страницы
-    const linksSecondBook = createLinksonSection(sectionLinks.secondBook);
 
     // создаем ссылки на страницы
     const linksOnPages = pageLinks.map((el) => (
@@ -86,7 +78,6 @@ const Menu = () => {
             <Link
                 tabIndex={0}
                 onClick={() => closeMenu(dispatch)}
-                className="roboto-bold"
                 href={el.link}
             >
                 {el.text}
@@ -94,28 +85,10 @@ const Menu = () => {
         </li>
     ));
 
-    // функция рендера ссылок на секции в зависимости от страницы
-    const renderLinksonSection = () => {
-        switch (location) {
-            case '/':
-                return linksMain;
-            case '/blog':
-                return linksBlog;
-            case '/webinar':
-                return linksWebinar;
-            case '/ebook':
-                return linksBook;
-            case '/secondebook':
-                return linksSecondBook;
-            default:
-                return null;
-        }
-    };
-
     // создаем переменную для отображения статуса загрузки, ошибки или полученных данных
     const content = (
         <ul className="menu__block_list">
-            {renderLinksonSection()}
+            {linksMain}
             {linksOnPages}
         </ul>
     );

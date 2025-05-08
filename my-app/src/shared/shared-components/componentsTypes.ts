@@ -9,7 +9,7 @@ import type { SlidesReviewsDB } from '@/shared/shared-components/dataTypesFromSQ
 
 export interface ILink {
     id: string;
-    link: `/${string}`;
+    link: `/${string}` | string;
     text: string;
 }
 

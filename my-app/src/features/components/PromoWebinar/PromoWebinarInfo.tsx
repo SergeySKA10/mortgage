@@ -7,7 +7,7 @@ import { ErrorServerMessage } from '../ui/ErrorMessage/ErrorServerMessage';
 
 import Image from 'next/image';
 import { ButtonPlay } from '../ui/Buttons/ButtonPlay';
-// import Form from '../ui/Form/Form';
+import Form from '../ui/Form/Form';
 import { useGetDurationVideo } from '../../api/youtubeApi';
 import type { IResourcesDB } from '@/shared/shared-components/dataTypesFromSQL';
 import type { IWebinarPromoProps } from '@/shared/shared-components/componentsTypes';
@@ -52,7 +52,7 @@ const PromoWebinarView = ({
                 >
                     {descr[0]}
                 </div>
-                {/* <Form id="webinar-form" text="Get the webinar" /> */}
+                <Form id="webinar-form" text="Get the webinar" />
             </div>
             <div className="promo_webinar__macbook">
                 <Image

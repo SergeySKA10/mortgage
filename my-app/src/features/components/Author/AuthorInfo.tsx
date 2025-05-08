@@ -21,19 +21,19 @@ export const AuthorInfo = () => {
 
     const id =
         location === '/ebook'
-            ? 'author/book'
+            ? 'author-book'
             : location === '/webinar'
-            ? 'author/webinar'
+            ? 'author-webinar'
             : '';
 
     return (
         <div id={id}>
-            {id === 'author/book'
+            {id === 'author-book'
                 ? setContent({
                       data: [data[0]],
                       Component: AuthorCard,
                   })
-                : id === 'author/webinar'
+                : id === 'author-webinar'
                 ? setContent({
                       data: [data[1]],
                       Component: AuthorCard,

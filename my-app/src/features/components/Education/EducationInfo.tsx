@@ -21,14 +21,14 @@ export const EducationInfo = () => {
 
     const id =
         location === '/blog'
-            ? 'education/blog'
+            ? 'education-blog'
             : location === '/secondebook'
-            ? 'secondbook/articles'
+            ? 'secondbook-articles'
             : '';
 
     return (
         <div id={id} className="blog_education__wrapper">
-            {id === 'education/blog'
+            {id === 'education-blog'
                 ? setContent({
                       data,
                       Component: ArticleCard,
@@ -44,7 +44,7 @@ export const EducationInfo = () => {
                           },
                       ],
                   })
-                : id === 'secondbook/articles'
+                : id === 'secondbook-articles'
                 ? setContent({
                       data,
                       Component: ArticleCard,

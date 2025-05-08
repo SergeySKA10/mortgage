@@ -1,12 +1,14 @@
 import { useHttp } from '../hooks/http.hook';
 import { useMutation } from '@tanstack/react-query';
 
-const usePostData = (key: string) => {
-    const _apiBase = 'http://localhost:3000/';
+type Key = 'book' | 'webinar';
+
+const usePostData = (key: Key) => {
+    const _apiBase = 'http://localhost:3001/';
     const { request } = useHttp();
 
     const postData = useMutation({
-        mutationFn: (body) =>
+        mutationFn: (body: string) =>
             request({
                 url: `${_apiBase}${key}`,
                 method: 'POST',

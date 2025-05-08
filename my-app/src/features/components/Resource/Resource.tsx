@@ -8,7 +8,7 @@ const Resource = () => {
     const queryClient = getQueryClient();
 
     return (
-        <section id="resourse/blog" className="article__resources">
+        <section id="resourseBlog" className="article__resources">
             <h2 tabIndex={0} className="header__h2-left">
                 Resources
             </h2>
