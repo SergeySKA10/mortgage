@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { useContext, MouseEvent } from 'react';
-import { BookContext } from '@/app/ebook/context/BookContext';
+import { BookContext } from '@/app/(main)/ebook/context/BookContext';
 
 import './PromoEbook.scss';
 import './PromoEbookMedia.scss';

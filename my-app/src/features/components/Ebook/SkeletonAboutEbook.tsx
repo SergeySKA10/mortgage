@@ -9,7 +9,6 @@ export const SkeletonAboutEbook = () => {
             <div className="about_ebook__content">
                 <h2 className="header__h2-left about_ebook__header-skeleton animation-skeleton"></h2>
                 <p className="about_ebook__descr-skeleton animation-skeleton"></p>
-                {/* <Form format={format} index={index} id='book-form' text='Get the eBook'/> */}
             </div>
         </div>
     );

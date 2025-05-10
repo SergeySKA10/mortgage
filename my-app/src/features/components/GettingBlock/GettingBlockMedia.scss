@@ -67,7 +67,20 @@
                 width: 210px;
                 img {
                     width: 100%;
+                    height: 120px;
                 }
+                &-skeleton {
+                    width: 200px;
+                    height: 130px;
+                    img {
+                        width: 100px;
+                        height: 100px;
+                    }
+                }
+            }
+            &_btn-skeleton {
+                width: 40px;
+                height: 40px;
             }
             button {
                 top: 40px;
@@ -78,6 +91,11 @@
                 left: -30px;
                 padding-top: 55px;
                 padding-left: 0px;
+                &-skeleton {
+                    margin-top: 55px;
+                    position: relative;
+                    left: -30px;
+                }
             }
         }
         &__descr {

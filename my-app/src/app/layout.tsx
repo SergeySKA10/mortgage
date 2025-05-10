@@ -1,12 +1,7 @@
 import type { Metadata } from 'next';
 import robotoSans from './fonts';
-
-// import { QueryClientProvider } from '@tanstack/react-query';
-// import { queryClient } from '@/features/api/query-client';
 import Providers from './lib/tanstackQueryProvider';
 import StoreProvider from './lib/StoreProvider';
-import Header from '@/features/components/Header/Header';
-import Footer from '@/features/components/Footer/Footer';
 
 export const metadata: Metadata = {
     title: 'Create Next App',
@@ -22,11 +17,7 @@ export default function RootLayout({
         <html lang="en">
             <body className={`${robotoSans.variable}`}>
                 <Providers>
-                    <StoreProvider>
-                        <Header />
-                        {children}
-                        <Footer />
-                    </StoreProvider>
+                    <StoreProvider>{children}</StoreProvider>
                 </Providers>
             </body>
         </html>

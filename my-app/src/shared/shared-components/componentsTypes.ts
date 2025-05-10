@@ -90,7 +90,7 @@ export interface IFilterProps {
 
 export interface IArticleCardProps {
     data: ArticlesDB & {
-        size: 'large' | 'large-right' | '';
+        size?: 'large' | 'large-right' | '';
         order?: { order: string };
     };
 }
@@ -103,6 +103,12 @@ export interface IButtonProps {
     type?: 'white' | 'mini' | '';
     link: string;
     text: string;
+}
+
+export interface IButtonDashboard {
+    type: 'create' | 'mini' | '';
+    text: string;
+    color?: '' | 'red';
 }
 
 export type IButtonWatchProps = Pick<IButtonProps, 'link'>;

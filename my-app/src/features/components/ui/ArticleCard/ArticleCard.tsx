@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import Link from 'next/link';
+// import Link from 'next/link';
 
 import type { IArticleCardProps } from '@/shared/shared-components/componentsTypes';
 
@@ -8,7 +8,7 @@ import './ArticleCard.scss';
 
 const ArticleCard = ({ data }: IArticleCardProps) => {
     const {
-        link,
+        // link,
         subheader,
         header,
         descr,
@@ -20,9 +20,9 @@ const ArticleCard = ({ data }: IArticleCardProps) => {
     } = data;
 
     return (
-        <Link
+        <article
             tabIndex={0}
-            href={`${link}`}
+            // href={`${link}`}
             className={`article__block`}
             data-size={size}
             // data-index={index}
@@ -57,7 +57,7 @@ const ArticleCard = ({ data }: IArticleCardProps) => {
                     </div>
                 </div>
             </div>
-        </Link>
+        </article>
     );
 };
 

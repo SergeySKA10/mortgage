@@ -1,0 +1,13 @@
+.cards-wrapper {
+    padding: 20px;
+    box-shadow: 0px 5px 15px 0px rgba(52, 47, 69, 0.5);
+    &-btn {
+        margin-top: 10px;
+        display: flex;
+        gap: 20px;
+        justify-content: end;
+    }
+    .article__block {
+        box-shadow: none;
+    }
+}

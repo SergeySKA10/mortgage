@@ -2,7 +2,7 @@
 
 import useGetData from '../../../services/useGetData';
 import { JSX, useContext } from 'react';
-import { BookContext } from '@/app/ebook/context/BookContext';
+import { BookContext } from '@/app/(main)/ebook/context/BookContext';
 import Image from 'next/image';
 import { SkeletonAboutEbook } from './SkeletonAboutEbook';
 import ErrorMessage from '../ui/ErrorMessage/ErrorMessage';
