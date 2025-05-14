@@ -201,8 +201,7 @@
             text-decoration: none;
         }
         &:disabled {
-            width: 96px;
-            height: 33px;
+            opacity: 0.5;
         }
         &:hover {
             background-color: $blue_color;

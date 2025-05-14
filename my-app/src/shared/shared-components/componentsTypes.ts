@@ -108,7 +108,8 @@ export interface IButtonProps {
 export interface IButtonDashboard {
     type: 'create' | 'mini' | '';
     text: string;
-    color?: '' | 'red';
+    color?: '' | 'red' | 'grey' | 'yellow';
+    action: 'change' | 'delete' | 'send';
 }
 
 export type IButtonWatchProps = Pick<IButtonProps, 'link'>;
@@ -162,11 +163,18 @@ export interface IAboutEbookWrapperProps {
     };
 }
 
-export default interface ISecondBookProps {
+export interface ISecondBookProps {
     loading?: boolean;
     setLoading?: Dispatch<SetStateAction<boolean>>;
     author?: string;
     nameBook?: string;
     setAuthor?: Dispatch<SetStateAction<string>>;
     setNameBook?: Dispatch<SetStateAction<string>>;
+}
+
+export interface IRequestDashboardCard {
+    id: string;
+    email: string;
+    format?: string;
+    date: Date | string;
 }

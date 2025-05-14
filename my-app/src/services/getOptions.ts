@@ -1,8 +1,16 @@
 import { queryOptions } from '@tanstack/react-query';
 
-type Key = 'video' | 'mentors' | 'ratings' | 'articles' | 'resources';
+export type Key =
+    | 'video'
+    | 'mentors'
+    | 'ratings'
+    | 'articles'
+    | 'resources'
+    | 'slidesReviews'
+    | 'book'
+    | 'webinar';
 
-const fetchOptions = async (key: Key) => {
+export const fetchOptions = async (key: Key) => {
     const _apiBase = `http://localhost:3001/`;
     await new Promise((resolve) => setTimeout(resolve, 5000));
     try {

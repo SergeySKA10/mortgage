@@ -191,7 +191,7 @@ const SliderReviews = () => {
     );
 };
 
-const SlideReviews = ({ data }: ISlideReview) => {
+export const SlideReviews = ({ data }: ISlideReview) => {
     const { photo, city, name, profession, icon, reviews } = data;
 
     return (

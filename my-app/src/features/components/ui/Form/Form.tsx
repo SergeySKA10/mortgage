@@ -37,18 +37,21 @@ const Form = ({ id, text, format = null, index = null }: IFormProps) => {
                 obj = {
                     id: nanoid(),
                     format: format[index],
+                    date: new Date(),
                     ...data,
                 };
             } else {
                 obj = {
                     id: nanoid(),
                     format: 'PDF',
+                    date: new Date(),
                     ...data,
                 };
             }
         } else {
             obj = {
                 id: nanoid(),
+                date: new Date(),
                 ...data,
             };
         }
