@@ -51,7 +51,7 @@ const Form = ({ id, text, format = null, index = null }: IFormProps) => {
         } else {
             obj = {
                 id: nanoid(),
-                date: new Date(),
+                date: new Date().toDateString(),
                 ...data,
             };
         }

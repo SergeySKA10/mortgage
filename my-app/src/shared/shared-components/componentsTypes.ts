@@ -33,7 +33,7 @@ export interface ISlideStory {
 }
 
 export interface ISlidesStoryProps {
-    key: string;
+    key?: string;
     data: ISlideStory;
     activeClass: 'slide-active' | '';
     current: string;

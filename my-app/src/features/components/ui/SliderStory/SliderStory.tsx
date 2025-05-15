@@ -214,7 +214,7 @@ const SliderStory = () => {
     );
 };
 
-const Slide = ({ data, activeClass, current }: ISlidesStoryProps) => {
+export const Slide = ({ data, activeClass, current }: ISlidesStoryProps) => {
     const { header, descr } = data;
     return (
         <div className={'story__slider_slide ' + activeClass}>
