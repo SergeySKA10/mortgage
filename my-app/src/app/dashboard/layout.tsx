@@ -20,7 +20,11 @@ export default function DashboardLayout({
                 <SideNav />
                 <div className="dashboard__content">
                     <div className="dashboard__content-btn">
-                        <ButtonDashboard text={'Create'} type="create" />
+                        <ButtonDashboard
+                            text={'Create'}
+                            type="create"
+                            action="create"
+                        />
                     </div>
                     <div className="dashboard__content-cards">{children}</div>
                 </div>

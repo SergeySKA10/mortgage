@@ -109,7 +109,7 @@ export interface IButtonDashboard {
     type: 'create' | 'mini' | '';
     text: string;
     color?: '' | 'red' | 'grey' | 'yellow';
-    action: 'change' | 'delete' | 'send';
+    action: 'change' | 'delete' | 'send' | 'create';
 }
 
 export type IButtonWatchProps = Pick<IButtonProps, 'link'>;

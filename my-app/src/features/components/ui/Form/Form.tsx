@@ -28,7 +28,6 @@ const Form = ({ id, text, format = null, index = null }: IFormProps) => {
     const emailError = formState.errors['email']?.message;
 
     const onSubmit: SubmitHandler<IInputBook> = (data) => {
-        console.log(data);
         // формируем данные для отправки
         let obj = {};
 

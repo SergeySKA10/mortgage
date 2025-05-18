@@ -1,7 +1,7 @@
 import { useHttp } from '../hooks/http.hook';
 import { useMutation } from '@tanstack/react-query';
 
-type Key = 'book' | 'webinar';
+type Key = 'book' | 'webinar' | 'articles';
 
 const usePostData = (key: Key) => {
     const _apiBase = 'http://localhost:3001/';

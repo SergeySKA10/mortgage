@@ -14,13 +14,46 @@ export const ButtonDashboard = ({
     const style = type === 'create' ? 'main' : 'mini';
     const [disabled, setDisabled] = useState<boolean>(false);
 
+    // функция отправки пользователям продуктов по запросам
+    const sendResourceToUser = (
+        e: MouseEvent<HTMLButtonElement, MouseEvent>
+    ) => {
+        (e.target as HTMLElement).style.backgroundColor = 'yellow';
+        (e.target as HTMLElement).style.color = 'black';
+        //....
+    };
+
+    // функция открытия формы заполнения
+    const openForm = () => {
+        console.log('hi');
+        const popup = document.querySelector('.popup');
+        console.log(popup);
+        popup?.classList.add('popup-active');
+        setDisabled(false);
+    };
+
     const onHandleAction = (
         e: MouseEvent<HTMLButtonElement, MouseEvent>,
         action: IButtonDashboard['action']
     ): void => {
-        if (action === 'send') {
-            (e.target as HTMLElement).style.backgroundColor = 'yellow';
-            (e.target as HTMLElement).style.color = 'black';
+        console.log('hi1');
+        switch (action) {
+            case 'send':
+                sendResourceToUser(e);
+                break;
+            case 'create':
+                openForm();
+                break;
+            case 'change':
+                openForm();
+                break;
+            case 'delete':
+                openForm();
+                break;
+            default:
+                throw new Error(
+                    'Action is incorrect. ButtonDashboard prop.action is incorrect'
+                );
         }
     };
 
