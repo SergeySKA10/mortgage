@@ -4,7 +4,7 @@ import { useAppDispatch } from '@/hooks/redux.hooks';
 import { hidePopup } from '@/app/dashboard/dashboardSlice';
 import './FormsDashboard.scss';
 
-export const FormDelete = ({ id }: { id: number }) => {
+export const FormDelete = ({ id }: { id: string }) => {
     console.log(id);
     const dispatch = useAppDispatch();
     return (

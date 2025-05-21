@@ -8,7 +8,7 @@ const initialState: DashboardInitialState = {
     popup: '',
     query: 'articles',
     action: 'create',
-    idItem: 0,
+    idItem: '',
 };
 
 const dashboardSlice = createSlice({
@@ -30,7 +30,7 @@ const dashboardSlice = createSlice({
         ) => {
             state.action = action.payload;
         },
-        setIdItem: (state, action: PayloadAction<number>) => {
+        setIdItem: (state, action: PayloadAction<string>) => {
             state.idItem = action.payload;
         },
     },
@@ -61,6 +61,6 @@ export const setStateAction = (
     dispatch(setAction(value));
 };
 
-export const setID = (dispatch: AppDispatch, value: number) => {
+export const setID = (dispatch: AppDispatch, value: string) => {
     dispatch(setIdItem(value));
 };

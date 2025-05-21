@@ -7,7 +7,7 @@ export interface DashboardInitialState {
     popup: 'popup-active' | '';
     query: KeyQuery;
     action: 'change' | 'delete' | 'create';
-    idItem: number;
+    idItem: string;
 }
 
 export interface IItmeState {
@@ -28,4 +28,5 @@ type Method = 'DELETE' | 'POST' | 'PATCH';
 export interface IDashboardFormProp {
     method: Method;
     data?: QueryData;
+    id?: string;
 }

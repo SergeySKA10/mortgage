@@ -56,7 +56,7 @@ export const DashboardInfo = ({
             break;
     }
 
-    const content = (data as Data | IRequestDashboardCard[]).map((el, i) => {
+    const content = (data as Data | IRequestDashboardCard[]).map((el) => {
         return (
             <div key={el.id} className="cards-wrapper">
                 {category === 'articles' ? (
@@ -89,7 +89,7 @@ export const DashboardInfo = ({
                     <div className="cards-wrapper-btn">
                         {category === 'slidesReviews' ? null : (
                             <ButtonDashboard
-                                id={i}
+                                id={el.id}
                                 text="Change"
                                 type="mini"
                                 action={'change'}
@@ -97,7 +97,7 @@ export const DashboardInfo = ({
                         )}
 
                         <ButtonDashboard
-                            id={i}
+                            id={el.id}
                             text="Delete"
                             type="mini"
                             color="red"

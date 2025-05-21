@@ -17,7 +17,7 @@ import type { ArticlesDB } from '@/shared/shared-components/dataTypesFromSQL';
 import type { IDashboardFormProp } from '@/shared/shared-components/dashboardTypes';
 import './FormsDashboard.scss';
 
-const FormArticles = ({ method }: IDashboardFormProp) => {
+const FormArticles = ({ method, data, id }: IDashboardFormProp) => {
     const dispatch = useAppDispatch();
     // используем reactHookForm
     const { register, handleSubmit, formState, reset } = useForm<IFormArticles>(
@@ -25,6 +25,12 @@ const FormArticles = ({ method }: IDashboardFormProp) => {
             mode: 'onChange',
         }
     );
+
+    // преобразование данных по id
+    let sortData: ArticlesDB;
+    if (data && id) {
+        sortData = (data as ArticlesDB[]).filter((el) => el.id === id)[0];
+    }
 
     // POST запросы для книг и вебинаров
     const mutationArticles = usePostData('articles');
@@ -100,7 +106,7 @@ const FormArticles = ({ method }: IDashboardFormProp) => {
                             method === 'PATCH' ? '' : "Enter mentor's name"
                         }
                         type="text"
-                        value={method === 'PATCH' ? 'change' : ''}
+                        value={method === 'PATCH' ? `${sortData!.name}` : ''}
                         {...register('name', {
                             required: true,
                             maxLength: 50,
@@ -119,7 +125,7 @@ const FormArticles = ({ method }: IDashboardFormProp) => {
                     <input
                         placeholder={method === 'PATCH' ? '' : 'Enter header'}
                         type="text"
-                        value={method === 'PATCH' ? 'change' : ''}
+                        value={method === 'PATCH' ? `${sortData!.header}` : ''}
                         {...register('header', {
                             required: 'This field is required',
                             maxLength: 20,
@@ -140,7 +146,9 @@ const FormArticles = ({ method }: IDashboardFormProp) => {
                             method === 'PATCH' ? '' : 'Enter subheader'
                         }
                         type="text"
-                        value={method === 'PATCH' ? 'change' : ''}
+                        value={
+                            method === 'PATCH' ? `${sortData!.subheader}` : ''
+                        }
                         {...register('subheader', {
                             required: 'This field is required',
                             maxLength: 20,
@@ -160,7 +168,7 @@ const FormArticles = ({ method }: IDashboardFormProp) => {
                         placeholder={
                             method === 'PATCH' ? '' : 'Enter description'
                         }
-                        value={method === 'PATCH' ? 'change' : ''}
+                        value={method === 'PATCH' ? `${sortData!.descr}` : ''}
                         {...register('descr', {
                             required: 'This field is required',
                             maxLength: 300,
@@ -179,7 +187,7 @@ const FormArticles = ({ method }: IDashboardFormProp) => {
                     <input
                         placeholder={method === 'PATCH' ? '' : 'Enter path'}
                         type="text"
-                        value={method === 'PATCH' ? 'change' : ''}
+                        value={method === 'PATCH' ? `${sortData!.avatar}` : ''}
                         {...register('avatar', {
                             required: 'This field is required',
                         })}
@@ -190,7 +198,7 @@ const FormArticles = ({ method }: IDashboardFormProp) => {
                     <input
                         placeholder={method === 'PATCH' ? '' : 'Enter link'}
                         type="text"
-                        value={method === 'PATCH' ? 'change' : ''}
+                        value={method === 'PATCH' ? `${sortData!.link}` : ''}
                         {...register('link', {
                             required: 'This field is required',
                         })}

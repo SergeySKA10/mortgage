@@ -7,22 +7,26 @@ import type { KeyQuery } from '@/shared/shared-components/dashboardTypes';
 import { JSX } from 'react';
 
 export const DashboardStoreInfo = ({ category }: { category: KeyQuery }) => {
-    const state = useAppSelector((state) => state);
+    const slidesStory = useAppSelector(
+        (state) => state.sliderStory.slidesStory
+    );
     let content: JSX.Element[];
 
     switch (category) {
         case 'stories':
-            content = state.sliderStory.slidesStory.map((el, i) => {
+            content = slidesStory.map((el, i) => {
                 return (
                     <div key={`${i}`} className="cards-wrapper">
                         <Slide data={el} activeClass="" current={`${i + 1}`} />
                         <div className="cards-wrapper-btn">
                             <ButtonDashboard
+                                id={el.id}
                                 text="Change"
                                 type="mini"
                                 action={'change'}
                             />
                             <ButtonDashboard
+                                id={el.id}
                                 text="Delete"
                                 type="mini"
                                 color="red"

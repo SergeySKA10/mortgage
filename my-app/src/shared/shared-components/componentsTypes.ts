@@ -106,7 +106,7 @@ export interface IButtonProps {
 }
 
 export interface IButtonDashboard {
-    id: number;
+    id: string;
     type: 'create' | 'mini' | '';
     text: string;
     color?: '' | 'red';
