@@ -21,6 +21,7 @@ export default function DashboardLayout({
                 <div className="dashboard__content">
                     <div className="dashboard__content-btn">
                         <ButtonDashboard
+                            id={0}
                             text={'Create'}
                             type="create"
                             action="create"

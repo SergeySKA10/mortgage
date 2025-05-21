@@ -12,7 +12,7 @@ export type Key =
 
 export const fetchOptions = async (key: Key) => {
     const _apiBase = `http://localhost:3001/`;
-    await new Promise((resolve) => setTimeout(resolve, 5000));
+    // await new Promise((resolve) => setTimeout(resolve, 5000));
     try {
         const response = await fetch(`${_apiBase}${key}`);
 

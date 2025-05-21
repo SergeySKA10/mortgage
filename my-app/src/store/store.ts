@@ -6,10 +6,19 @@ import window from '../features/components/ui/PopUpWindow/popUpWindowSlice';
 import links from '../features/components/ui/Menu/menuSlice';
 import report from '../features/components/Report/reportSlice';
 import sidenav from '../app/dashboard/navigationBar/sideNavSlice';
+import dashboard from '../app/dashboard/dashboardSlice';
 
 export const makeStore = () => {
     return configureStore({
-        reducer: { menu, links, sliderStory, window, report, sidenav },
+        reducer: {
+            menu,
+            links,
+            sliderStory,
+            window,
+            report,
+            sidenav,
+            dashboard,
+        },
         devTools: process.env.NODE_ENV !== 'production',
     });
 };

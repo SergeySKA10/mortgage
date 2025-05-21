@@ -1,46 +1,36 @@
 'use client';
-import { useState, MouseEvent } from 'react';
+
+import { useAppDispatch } from '@/hooks/redux.hooks';
+import {
+    openPopup,
+    setStateAction,
+    setID,
+} from '@/app/dashboard/dashboardSlice';
 import type { IButtonDashboard } from '@/shared/shared-components/componentsTypes';
 
 import './Buttons.scss';
 import './ButtonMedia.scss';
 
 export const ButtonDashboard = ({
+    id,
     type,
     text,
     color = '',
     action,
 }: IButtonDashboard) => {
     const style = type === 'create' ? 'main' : 'mini';
-    const [disabled, setDisabled] = useState<boolean>(false);
-
-    // функция отправки пользователям продуктов по запросам
-    const sendResourceToUser = (
-        e: MouseEvent<HTMLButtonElement, MouseEvent>
-    ) => {
-        (e.target as HTMLElement).style.backgroundColor = 'yellow';
-        (e.target as HTMLElement).style.color = 'black';
-        //....
-    };
+    const dispatch = useAppDispatch();
 
     // функция открытия формы заполнения
     const openForm = () => {
-        console.log('hi');
-        const popup = document.querySelector('.popup');
-        console.log(popup);
-        popup?.classList.add('popup-active');
-        setDisabled(false);
+        openPopup(dispatch);
     };
 
     const onHandleAction = (
-        e: MouseEvent<HTMLButtonElement, MouseEvent>,
+        target: HTMLElement,
         action: IButtonDashboard['action']
     ): void => {
-        console.log('hi1');
         switch (action) {
-            case 'send':
-                sendResourceToUser(e);
-                break;
             case 'create':
                 openForm();
                 break;
@@ -63,10 +53,10 @@ export const ButtonDashboard = ({
             className={`btn btn__${style}`}
             style={{ backgroundColor: color }}
             onClick={(e) => {
-                onHandleAction(e, action);
-                setDisabled(true);
+                setStateAction(dispatch, action);
+                setID(dispatch, id);
+                onHandleAction(e.target as HTMLElement, action);
             }}
-            disabled={disabled}
         >
             {text}
         </button>

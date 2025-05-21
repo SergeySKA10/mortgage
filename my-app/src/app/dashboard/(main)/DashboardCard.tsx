@@ -3,6 +3,7 @@ import { DashboardInfo } from './DashboardInfo';
 import { DashboardStoreInfo } from './DashboardStoreInfo';
 import type { Key } from '@/services/getOptions';
 import { KeyQuery } from '@/shared/shared-components/dashboardTypes';
+
 export const DashboardCards = async ({ query }: { query: KeyQuery }) => {
     let data;
 

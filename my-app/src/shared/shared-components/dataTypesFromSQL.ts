@@ -11,7 +11,7 @@ export interface BooksOrWebinarsDB {
     pictures: string[];
     category: string;
     type: string;
-    link: `src/assets/database/${string}` | '';
+    link: string | '';
     format: string[];
     descr: string[];
 }

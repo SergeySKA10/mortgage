@@ -106,10 +106,11 @@ export interface IButtonProps {
 }
 
 export interface IButtonDashboard {
+    id: number;
     type: 'create' | 'mini' | '';
     text: string;
-    color?: '' | 'red' | 'grey' | 'yellow';
-    action: 'change' | 'delete' | 'send' | 'create';
+    color?: '' | 'red';
+    action: 'change' | 'delete' | 'create';
 }
 
 export type IButtonWatchProps = Pick<IButtonProps, 'link'>;

@@ -4,6 +4,8 @@ import { useForm, SubmitHandler } from 'react-hook-form';
 import { nanoid } from '@reduxjs/toolkit';
 
 import { useState, useEffect, JSX } from 'react';
+import { useAppDispatch } from '@/hooks/redux.hooks';
+import { hidePopup } from '@/app/dashboard/dashboardSlice';
 
 import usePostData from '../../../../services/usePostData';
 
@@ -12,9 +14,11 @@ import Spinner from '../Spinner/Spinner';
 
 import type { IFormArticles } from '@/shared/shared-forms/shared-forms';
 import type { ArticlesDB } from '@/shared/shared-components/dataTypesFromSQL';
+import type { IDashboardFormProp } from '@/shared/shared-components/dashboardTypes';
 import './FormsDashboard.scss';
 
-const FormArticles = () => {
+const FormArticles = ({ method }: IDashboardFormProp) => {
+    const dispatch = useAppDispatch();
     // используем reactHookForm
     const { register, handleSubmit, formState, reset } = useForm<IFormArticles>(
         {
@@ -85,11 +89,18 @@ const FormArticles = () => {
                 action=""
                 onSubmit={handleSubmit(onSubmit)}
             >
+                <div
+                    className="form-dashboard__close"
+                    onClick={() => hidePopup(dispatch)}
+                ></div>
                 <div>
                     <p className="form-dashboard__input">Mentor`s name</p>
                     <input
-                        placeholder="Enter mentor's name"
+                        placeholder={
+                            method === 'PATCH' ? '' : "Enter mentor's name"
+                        }
                         type="text"
+                        value={method === 'PATCH' ? 'change' : ''}
                         {...register('name', {
                             required: true,
                             maxLength: 50,
@@ -106,8 +117,9 @@ const FormArticles = () => {
                 <div>
                     <p className="form-dashboard__input">Header</p>
                     <input
-                        placeholder="Enter header"
+                        placeholder={method === 'PATCH' ? '' : 'Enter header'}
                         type="text"
+                        value={method === 'PATCH' ? 'change' : ''}
                         {...register('header', {
                             required: 'This field is required',
                             maxLength: 20,
@@ -124,8 +136,11 @@ const FormArticles = () => {
                 <div>
                     <p className="form-dashboard__input">Subheader</p>
                     <input
-                        placeholder="Enter subheader"
+                        placeholder={
+                            method === 'PATCH' ? '' : 'Enter subheader'
+                        }
                         type="text"
+                        value={method === 'PATCH' ? 'change' : ''}
                         {...register('subheader', {
                             required: 'This field is required',
                             maxLength: 20,
@@ -142,7 +157,10 @@ const FormArticles = () => {
                 <div>
                     <p className="form-dashboard__input">Description</p>
                     <textarea
-                        placeholder="Enter description"
+                        placeholder={
+                            method === 'PATCH' ? '' : 'Enter description'
+                        }
+                        value={method === 'PATCH' ? 'change' : ''}
                         {...register('descr', {
                             required: 'This field is required',
                             maxLength: 300,
@@ -159,8 +177,9 @@ const FormArticles = () => {
                 <div>
                     <p className="form-dashboard__input">Link for avatar</p>
                     <input
-                        placeholder="Enter path"
+                        placeholder={method === 'PATCH' ? '' : 'Enter path'}
                         type="text"
+                        value={method === 'PATCH' ? 'change' : ''}
                         {...register('avatar', {
                             required: 'This field is required',
                         })}
@@ -169,8 +188,9 @@ const FormArticles = () => {
                 <div>
                     <p className="form-dashboard__input">Link video</p>
                     <input
-                        placeholder="Enter link"
+                        placeholder={method === 'PATCH' ? '' : 'Enter link'}
                         type="text"
+                        value={method === 'PATCH' ? 'change' : ''}
                         {...register('link', {
                             required: 'This field is required',
                         })}

@@ -8,9 +8,13 @@ import RatingCard from '@/features/components/ui/RatingCard/RatingCard';
 import { RequestDashboardCard } from '@/features/components/ui/RequestDashboardCard/RequestDashboardCard';
 import { SlideReviews } from '@/features/components/ui/SliderReviews/SliderReviews';
 import { ButtonDashboard } from '@/features/components/ui/Buttons/ButtonDashboard';
-import { KeyQuery } from '@/shared/shared-components/dashboardTypes';
-import { IRequestDashboardCard } from '@/shared/shared-components/componentsTypes';
-import {
+import { ButtonSendEmail } from '@/features/components/ui/Buttons/ButtonSendEmail';
+import { useAppDispatch } from '@/hooks/redux.hooks';
+import { setStateQuery } from '../dashboardSlice';
+
+import type { KeyQuery } from '@/shared/shared-components/dashboardTypes';
+import type { IRequestDashboardCard } from '@/shared/shared-components/componentsTypes';
+import type {
     QueryData,
     ArticlesDB,
     MentorsDB,
@@ -29,14 +33,30 @@ export const DashboardInfo = ({
     data: QueryData;
     category: KeyQuery;
 }) => {
-    if (category === 'resources') {
-        data = [
-            ...(data as IResourcesDB).books,
-            ...(data as IResourcesDB).webinars,
-        ];
+    const dispatch = useAppDispatch();
+
+    switch (category) {
+        case 'articles':
+            setStateQuery(dispatch, 'articles');
+            break;
+        case 'resources':
+            setStateQuery(dispatch, 'resources');
+            data = [
+                ...(data as IResourcesDB).books,
+                ...(data as IResourcesDB).webinars,
+            ];
+            break;
+        case 'mentors':
+            setStateQuery(dispatch, 'mentors');
+            break;
+        case 'video':
+            setStateQuery(dispatch, 'video');
+            break;
+        default:
+            break;
     }
 
-    const content = (data as Data | IRequestDashboardCard[]).map((el) => {
+    const content = (data as Data | IRequestDashboardCard[]).map((el, i) => {
         return (
             <div key={el.id} className="cards-wrapper">
                 {category === 'articles' ? (
@@ -59,26 +79,17 @@ export const DashboardInfo = ({
 
                 {category === 'ratings' ? null : category === 'book' ? (
                     <div className="cards-wrapper-btn">
-                        <ButtonDashboard
-                            text="Send"
-                            type="mini"
-                            color="grey"
-                            action={'send'}
-                        />
+                        <ButtonSendEmail text="Send" />
                     </div>
                 ) : category === 'webinar' ? (
                     <div className="cards-wrapper-btn">
-                        <ButtonDashboard
-                            text="Send"
-                            type="mini"
-                            color="grey"
-                            action={'send'}
-                        />
+                        <ButtonSendEmail text="Send" />
                     </div>
                 ) : (
                     <div className="cards-wrapper-btn">
                         {category === 'slidesReviews' ? null : (
                             <ButtonDashboard
+                                id={i}
                                 text="Change"
                                 type="mini"
                                 action={'change'}
@@ -86,6 +97,7 @@ export const DashboardInfo = ({
                         )}
 
                         <ButtonDashboard
+                            id={i}
                             text="Delete"
                             type="mini"
                             color="red"
