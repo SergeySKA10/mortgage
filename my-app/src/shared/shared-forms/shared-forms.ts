@@ -41,3 +41,8 @@ export interface IFormResource {
     format?: string;
     descr: string;
 }
+
+export interface IFormStories {
+    header: string;
+    descr: string;
+}

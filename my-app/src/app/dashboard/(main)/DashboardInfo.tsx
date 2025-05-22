@@ -52,8 +52,22 @@ export const DashboardInfo = ({
         case 'video':
             setStateQuery(dispatch, 'video');
             break;
-        default:
+        case 'book':
+            setStateQuery(dispatch, 'book');
             break;
+        case 'webinar':
+            setStateQuery(dispatch, 'webinar');
+            break;
+        case 'ratings':
+            setStateQuery(dispatch, 'ratings');
+            break;
+        case 'slidesReviews':
+            setStateQuery(dispatch, 'slidesReviews');
+            break;
+        default:
+            throw new Error(
+                'Category prop incorrect. Props error in DashboardInfo component'
+            );
     }
 
     const content = (data as Data | IRequestDashboardCard[]).map((el) => {

@@ -14,14 +14,21 @@ import Spinner from '../Spinner/Spinner';
 
 import type { IFormVideo } from '@/shared/shared-forms/shared-forms';
 import type { VideoDB } from '@/shared/shared-components/dataTypesFromSQL';
+import type { IDashboardFormProp } from '@/shared/shared-components/dashboardTypes';
 import './FormsDashboard.scss';
 
-const FormVideo = () => {
+const FormVideo = ({ method, data, id }: IDashboardFormProp) => {
     const dispatch = useAppDispatch();
     // используем reactHookForm
     const { register, handleSubmit, formState, reset } = useForm<IFormVideo>({
         mode: 'onChange',
     });
+
+    // преобразование данных по id
+    let sortData: VideoDB;
+    if (data && id) {
+        sortData = (data as VideoDB[]).filter((el) => el.id === id)[0];
+    }
 
     // POST запросы для книг и вебинаров
     const mutationVideo = usePostData('video');
@@ -93,7 +100,10 @@ const FormVideo = () => {
                 <div>
                     <p className="form-dashboard__input">Description</p>
                     <textarea
-                        placeholder="Enter description"
+                        placeholder={
+                            method === 'PATCH' ? '' : 'Enter description'
+                        }
+                        value={method === 'PATCH' ? `${sortData!.descr}` : ''}
                         {...register('descr', {
                             required: 'This field is required',
                             maxLength: 300,
@@ -110,8 +120,9 @@ const FormVideo = () => {
                 <div>
                     <p className="form-dashboard__input">Link video</p>
                     <input
-                        placeholder="Enter link"
+                        placeholder={method === 'PATCH' ? '' : 'Enter link'}
                         type="text"
+                        value={method === 'PATCH' ? `${sortData!.link}` : ''}
                         {...register('link', {
                             required: 'This field is required',
                         })}

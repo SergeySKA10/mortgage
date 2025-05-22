@@ -13,10 +13,14 @@ import { ButtonForm } from '../Buttons/ButtonForm';
 import Spinner from '../Spinner/Spinner';
 
 import type { IFormResource } from '@/shared/shared-forms/shared-forms';
-import type { BooksOrWebinarsDB } from '@/shared/shared-components/dataTypesFromSQL';
+import type {
+    BooksOrWebinarsDB,
+    IResourcesDB,
+} from '@/shared/shared-components/dataTypesFromSQL';
+import type { IDashboardFormProp } from '@/shared/shared-components/dashboardTypes';
 import './FormsDashboard.scss';
 
-const FormResource = () => {
+const FormResource = ({ method, data, id }: IDashboardFormProp) => {
     const dispatch = useAppDispatch();
     // используем reactHookForm
     const { register, handleSubmit, formState, reset } = useForm<IFormResource>(
@@ -24,6 +28,27 @@ const FormResource = () => {
             mode: 'onChange',
         }
     );
+
+    // преобразование данных по id
+    let sortData: BooksOrWebinarsDB;
+    if (data && id) {
+        for (const key in data as IResourcesDB) {
+            for (
+                let i = 0;
+                i < (data as IResourcesDB)[key as keyof IResourcesDB].length;
+                i++
+            ) {
+                if (
+                    (data as IResourcesDB)[key as keyof IResourcesDB][i].id ===
+                    id
+                ) {
+                    sortData = (data as IResourcesDB)[
+                        key as keyof IResourcesDB
+                    ][i];
+                }
+            }
+        }
+    }
 
     // POST запросы для книг и вебинаров
     const mutationResource = usePostData('resources');
@@ -93,8 +118,11 @@ const FormResource = () => {
                 <div>
                     <p className="form-dashboard__input">Author name</p>
                     <input
-                        placeholder="Enter author name"
+                        placeholder={
+                            method === 'PATCH' ? '' : 'Enter author name'
+                        }
                         type="text"
+                        value={method === 'PATCH' ? `${sortData!.author}` : ''}
                         {...register('author', {
                             required: true,
                             maxLength: 30,
@@ -111,8 +139,9 @@ const FormResource = () => {
                 <div>
                     <p className="form-dashboard__input">Book name</p>
                     <input
-                        placeholder="Enter header"
+                        placeholder={method === 'PATCH' ? '' : 'Enter header'}
                         type="text"
+                        value={method === 'PATCH' ? `${sortData!.name}` : ''}
                         {...register('name', {
                             required: 'This field is required',
                             maxLength: 50,
@@ -129,6 +158,9 @@ const FormResource = () => {
                 <div>
                     <p className="form-dashboard__input">Category</p>
                     <select
+                        value={
+                            method === 'PATCH' ? `${sortData!.category}` : ''
+                        }
                         {...register('category', {
                             required: 'This field is required',
                         })}
@@ -142,6 +174,7 @@ const FormResource = () => {
                 <div>
                     <p className="form-dashboard__input">Viewing options</p>
                     <select
+                        value={method === 'PATCH' ? `${sortData!.type}` : ''}
                         {...register('type', {
                             required: 'This field is required',
                         })}
@@ -155,7 +188,16 @@ const FormResource = () => {
                 <div>
                     <p className="form-dashboard__input">Description</p>
                     <textarea
-                        placeholder="Enter each description phrase on a new line"
+                        placeholder={
+                            method === 'PATCH'
+                                ? ''
+                                : 'Enter each description phrase on a new line'
+                        }
+                        value={
+                            method === 'PATCH'
+                                ? `${sortData!.descr.join('\n')}`
+                                : ''
+                        }
                         {...register('descr', {
                             required: 'This field is required',
                             maxLength: 1000,
@@ -172,15 +214,33 @@ const FormResource = () => {
                 <div>
                     <p className="form-dashboard__input">Formats</p>
                     <input
-                        placeholder="Enter formats separated by commas"
+                        placeholder={
+                            method === 'PATCH'
+                                ? ''
+                                : 'Enter formats separated by commas'
+                        }
                         type="text"
+                        value={
+                            method === 'PATCH'
+                                ? `${sortData!.format.join(', ')}`
+                                : ''
+                        }
                         {...register('format')}
                     />
                 </div>
                 <div>
                     <p className="form-dashboard__input">Covers</p>
                     <textarea
-                        placeholder="Enter links on covers separated by commas"
+                        placeholder={
+                            method === 'PATCH'
+                                ? ''
+                                : 'Enter links on covers separated by commas'
+                        }
+                        value={
+                            method === 'PATCH'
+                                ? `${sortData!.pictures.join(', ')}`
+                                : ''
+                        }
                         {...register('pictures', {
                             required: 'This field is required',
                         })}
@@ -194,8 +254,9 @@ const FormResource = () => {
                 <div>
                     <p className="form-dashboard__input">Link video</p>
                     <input
-                        placeholder="Enter link"
+                        placeholder={method === 'PATCH' ? '' : 'Enter link'}
                         type="text"
+                        value={method === 'PATCH' ? `${sortData!.link}` : ''}
                         {...register('link')}
                     />
                 </div>

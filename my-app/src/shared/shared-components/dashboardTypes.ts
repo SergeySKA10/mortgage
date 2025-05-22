@@ -1,5 +1,6 @@
 import { Key } from '@/services/getOptions';
 import { QueryData } from './dataTypesFromSQL';
+import { ISlideStory } from './componentsTypes';
 
 export type KeyQuery = Key | 'stories' | '';
 
@@ -28,5 +29,11 @@ type Method = 'DELETE' | 'POST' | 'PATCH';
 export interface IDashboardFormProp {
     method: Method;
     data?: QueryData;
+    id?: string;
+}
+
+export interface IDashboardFormStoreProp {
+    method: 'create' | 'change';
+    data?: ISlideStory[];
     id?: string;
 }

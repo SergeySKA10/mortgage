@@ -14,14 +14,21 @@ import Spinner from '../Spinner/Spinner';
 
 import type { IFormMentors } from '@/shared/shared-forms/shared-forms';
 import type { MentorsDB } from '@/shared/shared-components/dataTypesFromSQL';
+import type { IDashboardFormProp } from '@/shared/shared-components/dashboardTypes';
 import './FormsDashboard.scss';
 
-const FormMentors = () => {
+const FormMentors = ({ method, data, id }: IDashboardFormProp) => {
     const dispatch = useAppDispatch();
     // используем reactHookForm
     const { register, handleSubmit, formState, reset } = useForm<IFormMentors>({
         mode: 'onChange',
     });
+
+    // преобразование данных по id
+    let sortData: MentorsDB;
+    if (data && id) {
+        sortData = (data as MentorsDB[]).filter((el) => el.id === id)[0];
+    }
 
     // POST запросы для книг и вебинаров
     const mutationMentors = usePostData('mentors');
@@ -86,8 +93,11 @@ const FormMentors = () => {
                 <div>
                     <p className="form-dashboard__input">Mentor`s name</p>
                     <input
-                        placeholder="Enter mentor's name"
+                        placeholder={
+                            method === 'PATCH' ? '' : "Enter mentor's name"
+                        }
                         type="text"
+                        value={method === 'PATCH' ? `${sortData!.name}` : ''}
                         {...register('name', {
                             required: true,
                             maxLength: 50,
@@ -104,8 +114,9 @@ const FormMentors = () => {
                 <div>
                     <p className="form-dashboard__input">Quality</p>
                     <input
-                        placeholder="Enter quality"
+                        placeholder={method === 'PATCH' ? '' : 'Enter quality'}
                         type="text"
+                        value={method === 'PATCH' ? `${sortData!.quality}` : ''}
                         {...register('quality', {
                             required: 'This field is required',
                             maxLength: 20,
@@ -122,7 +133,10 @@ const FormMentors = () => {
                 <div>
                     <p className="form-dashboard__input">Description</p>
                     <textarea
-                        placeholder="Enter description"
+                        placeholder={
+                            method === 'PATCH' ? '' : 'Enter description'
+                        }
+                        value={method === 'PATCH' ? `${sortData!.descr}` : ''}
                         {...register('descr', {
                             required: 'This field is required',
                             maxLength: 300,
@@ -139,8 +153,9 @@ const FormMentors = () => {
                 <div>
                     <p className="form-dashboard__input">Link for avatar</p>
                     <input
-                        placeholder="Enter path"
+                        placeholder={method === 'PATCH' ? '' : 'Enter path'}
                         type="text"
+                        value={method === 'PATCH' ? `${sortData!.photo}` : ''}
                         {...register('photo', {
                             required: 'This field is required',
                         })}
@@ -149,8 +164,9 @@ const FormMentors = () => {
                 <div>
                     <p className="form-dashboard__input">Link video</p>
                     <input
-                        placeholder="Enter link"
+                        placeholder={method === 'PATCH' ? '' : 'Enter link'}
                         type="text"
+                        value={method === 'PATCH' ? `${sortData!.link}` : ''}
                         {...register('link', {
                             required: 'This field is required',
                         })}

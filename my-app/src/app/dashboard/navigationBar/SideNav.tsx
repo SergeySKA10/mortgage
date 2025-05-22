@@ -2,9 +2,12 @@
 
 import { useAppSelector } from '@/hooks/redux.hooks';
 import { useSearchParams, useRouter, usePathname } from 'next/navigation';
-import { useState, useEffect, MouseEvent } from 'react';
+import { useState, useEffect } from 'react';
 import { Line } from '@/features/components/ui/Line/Line';
-import { KeyQuery } from '@/shared/shared-components/dashboardTypes';
+import {
+    KeyQuery,
+    // IListItemsState,
+} from '@/shared/shared-components/dashboardTypes';
 import './SideNav.scss';
 
 export const SideNav = () => {
@@ -12,6 +15,7 @@ export const SideNav = () => {
     const pathname = usePathname();
     const { replace } = useRouter();
     const listItmes = useAppSelector((state) => state.sidenav);
+    // const query = useAppSelector((state) => state.dashboard.query);
 
     const onChangeParams = (key: KeyQuery): void => {
         const params = new URLSearchParams(searchParams);
@@ -21,6 +25,25 @@ export const SideNav = () => {
 
     const [activeIndex, setActiveIndex] = useState<number>(0);
     const [activeElem, setActiveElem] = useState<HTMLDivElement | null>(null);
+
+    // установка изначального активного элемента
+    // useEffect(() => {
+    //     let count = 0;
+
+    //     for (const key in listItmes) {
+    //         for (
+    //             let i = 0;
+    //             i < listItmes[key as keyof IListItemsState].length;
+    //             i++
+    //         ) {
+    //             if (listItmes[key as keyof IListItemsState][i].name === query) {
+    //                 setActiveIndex(count);
+    //             }
+
+    //             count++;
+    //         }
+    //     }
+    // }, []);
 
     useEffect(() => {
         if (activeElem) {
@@ -57,12 +80,7 @@ export const SideNav = () => {
                         return (
                             <li key={i}>
                                 <div
-                                    onClick={(
-                                        e: MouseEvent<
-                                            HTMLDivElement,
-                                            MouseEvent
-                                        >
-                                    ) => {
+                                    onClick={(e) => {
                                         onChangeParams(el.id);
                                         setActiveIndex(
                                             +(
@@ -93,12 +111,7 @@ export const SideNav = () => {
                         return (
                             <li key={i}>
                                 <div
-                                    onClick={(
-                                        e: MouseEvent<
-                                            HTMLDivElement,
-                                            MouseEvent
-                                        >
-                                    ) => {
+                                    onClick={(e) => {
                                         onChangeParams(el.id);
                                         setActiveIndex(
                                             +(
@@ -129,12 +142,7 @@ export const SideNav = () => {
                         return (
                             <li key={i}>
                                 <div
-                                    onClick={(
-                                        e: MouseEvent<
-                                            HTMLDivElement,
-                                            MouseEvent
-                                        >
-                                    ) => {
+                                    onClick={(e) => {
                                         onChangeParams(el.id);
                                         setActiveIndex(
                                             +(
@@ -169,12 +177,7 @@ export const SideNav = () => {
                         return (
                             <li key={i}>
                                 <div
-                                    onClick={(
-                                        e: MouseEvent<
-                                            HTMLDivElement,
-                                            MouseEvent
-                                        >
-                                    ) => {
+                                    onClick={(e) => {
                                         onChangeParams(el.id);
                                         setActiveIndex(
                                             +(
