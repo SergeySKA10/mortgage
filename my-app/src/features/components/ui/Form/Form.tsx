@@ -21,8 +21,8 @@ const Form = ({ id, text, format = null, index = null }: IFormProps) => {
     });
 
     // POST запросы для книг и вебинаров
-    const mutationBook = usePostData('book');
-    const mutationWebinar = usePostData('webinar');
+    const mutationBook = usePostData('book', 'POST');
+    const mutationWebinar = usePostData('webinar', 'POST');
 
     // выводим ошибку при заполнении формы
     const emailError = formState.errors['email']?.message;

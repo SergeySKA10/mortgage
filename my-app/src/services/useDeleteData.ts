@@ -4,24 +4,22 @@ import { Key } from '@/services/getOptions';
 
 export type Method = 'DELETE' | 'POST' | 'PUT';
 
-const usePostData = (key: Key, method: Method, id?: string) => {
+const useDeletetData = (key: Key, method: Method) => {
     const _apiBase = 'http://localhost:3001/';
     const { request } = useHttp();
-    const url = id ? `${_apiBase}${key}/${id}` : `${_apiBase}${key}`;
 
-    const postData = useMutation({
-        mutationFn: (body: string) =>
+    const deleteData = useMutation({
+        mutationFn: (id: string) =>
             request({
-                url,
+                url: `${_apiBase}${key}/${id}`,
                 method: method,
-                body: body,
             }),
         onSuccess: (data) => {
             console.log(data);
         },
     });
 
-    return postData;
+    return deleteData;
 };
 
-export default usePostData;
+export default useDeletetData;

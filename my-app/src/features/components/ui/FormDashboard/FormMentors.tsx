@@ -2,7 +2,7 @@
 
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { nanoid } from '@reduxjs/toolkit';
-
+import { useQueryClient } from '@tanstack/react-query';
 import { useState, useEffect, JSX } from 'react';
 import { useAppDispatch } from '@/hooks/redux.hooks';
 import { hidePopup } from '@/app/dashboard/dashboardSlice';
@@ -17,8 +17,9 @@ import type { MentorsDB } from '@/shared/shared-components/dataTypesFromSQL';
 import type { IDashboardFormProp } from '@/shared/shared-components/dashboardTypes';
 import './FormsDashboard.scss';
 
-const FormMentors = ({ method, data, id }: IDashboardFormProp) => {
+const FormMentors = ({ method, data, id, query }: IDashboardFormProp) => {
     const dispatch = useAppDispatch();
+    const queryClient = useQueryClient();
     // используем reactHookForm
     const { register, handleSubmit, formState, reset } = useForm<IFormMentors>({
         mode: 'onChange',
@@ -30,20 +31,47 @@ const FormMentors = ({ method, data, id }: IDashboardFormProp) => {
         sortData = (data as MentorsDB[]).filter((el) => el.id === id)[0];
     }
 
-    // POST запросы для книг и вебинаров
-    const mutationMentors = usePostData('mentors');
+    // заполняем поля формы при method === PUT и наличии sortData
+    useEffect(() => {
+        if (sortData) {
+            reset({
+                name: sortData.name,
+                quality: sortData.quality,
+                descr: sortData.descr,
+                photo: sortData.photo,
+                link: sortData.link,
+            });
+        }
+    }, [reset, sortData!]);
 
-    const onSubmit: SubmitHandler<IFormMentors> = (data) => {
+    const mutationMentors = usePostData('mentors', method, id);
+
+    const onSubmit: SubmitHandler<IFormMentors> = (formData) => {
         // формируем данные для отправки
-        const obj: MentorsDB = {
-            id: nanoid(),
-            skills: [],
-            ...data,
-        };
+        let obj: MentorsDB;
+
+        switch (method) {
+            case 'POST':
+                obj = {
+                    id: nanoid(),
+                    skills: [],
+                    ...formData,
+                };
+                break;
+            case 'PUT':
+                obj = {
+                    id: sortData.id,
+                    skills: [],
+                    ...formData,
+                };
+                break;
+            default:
+                throw new Error(
+                    'Method prop is incorrect (FormArticles component).'
+                );
+        }
 
         mutationMentors.mutate(JSON.stringify(obj));
-
-        reset();
     };
 
     //создаем state для отображения статуса отправки формы
@@ -62,14 +90,17 @@ const FormMentors = ({ method, data, id }: IDashboardFormProp) => {
             timer = setTimeout(() => setUserNotification(null), 4000);
         } else if (mutationMentors.isPending) {
             setUserNotification(<Spinner />);
-            timer = setTimeout(() => setUserNotification(null), 4000);
         } else if (mutationMentors.isSuccess) {
+            reset();
+            queryClient.invalidateQueries({
+                queryKey: [query],
+            });
             setUserNotification(
                 <p className="form-dashboard__success_msg">
                     Successfully. We will reply to you shortly.
                 </p>
             );
-            timer = setTimeout(() => setUserNotification(null), 4000);
+            timer = setTimeout(() => setUserNotification(null), 2500);
         }
 
         return () => clearTimeout(timer);
@@ -94,10 +125,9 @@ const FormMentors = ({ method, data, id }: IDashboardFormProp) => {
                     <p className="form-dashboard__input">Mentor`s name</p>
                     <input
                         placeholder={
-                            method === 'PATCH' ? '' : "Enter mentor's name"
+                            method === 'PUT' ? '' : "Enter mentor's name"
                         }
                         type="text"
-                        value={method === 'PATCH' ? `${sortData!.name}` : ''}
                         {...register('name', {
                             required: true,
                             maxLength: 50,
@@ -114,9 +144,8 @@ const FormMentors = ({ method, data, id }: IDashboardFormProp) => {
                 <div>
                     <p className="form-dashboard__input">Quality</p>
                     <input
-                        placeholder={method === 'PATCH' ? '' : 'Enter quality'}
+                        placeholder={method === 'PUT' ? '' : 'Enter quality'}
                         type="text"
-                        value={method === 'PATCH' ? `${sortData!.quality}` : ''}
                         {...register('quality', {
                             required: 'This field is required',
                             maxLength: 20,
@@ -134,9 +163,8 @@ const FormMentors = ({ method, data, id }: IDashboardFormProp) => {
                     <p className="form-dashboard__input">Description</p>
                     <textarea
                         placeholder={
-                            method === 'PATCH' ? '' : 'Enter description'
+                            method === 'PUT' ? '' : 'Enter description'
                         }
-                        value={method === 'PATCH' ? `${sortData!.descr}` : ''}
                         {...register('descr', {
                             required: 'This field is required',
                             maxLength: 300,
@@ -153,9 +181,8 @@ const FormMentors = ({ method, data, id }: IDashboardFormProp) => {
                 <div>
                     <p className="form-dashboard__input">Link for avatar</p>
                     <input
-                        placeholder={method === 'PATCH' ? '' : 'Enter path'}
+                        placeholder={method === 'PUT' ? '' : 'Enter path'}
                         type="text"
-                        value={method === 'PATCH' ? `${sortData!.photo}` : ''}
                         {...register('photo', {
                             required: 'This field is required',
                         })}
@@ -164,19 +191,23 @@ const FormMentors = ({ method, data, id }: IDashboardFormProp) => {
                 <div>
                     <p className="form-dashboard__input">Link video</p>
                     <input
-                        placeholder={method === 'PATCH' ? '' : 'Enter link'}
+                        placeholder={method === 'PUT' ? '' : 'Enter link'}
                         type="text"
-                        value={method === 'PATCH' ? `${sortData!.link}` : ''}
                         {...register('link', {
                             required: 'This field is required',
                         })}
                     />
                 </div>
-                <div className="form-dashboard__btn">
-                    <ButtonForm text={'Create'} />
-                </div>
+                {!userNotification ? (
+                    <div className="form-dashboard__btn">
+                        <ButtonForm
+                            text={method === 'PUT' ? 'Change' : 'Create'}
+                        />
+                    </div>
+                ) : (
+                    userNotification
+                )}
             </form>
-            {userNotification}
         </>
     );
 };

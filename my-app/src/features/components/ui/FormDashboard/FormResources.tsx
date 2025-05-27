@@ -2,7 +2,7 @@
 
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { nanoid } from '@reduxjs/toolkit';
-
+import { useQueryClient } from '@tanstack/react-query';
 import { useState, useEffect, JSX } from 'react';
 import { useAppDispatch } from '@/hooks/redux.hooks';
 import { hidePopup } from '@/app/dashboard/dashboardSlice';
@@ -20,8 +20,9 @@ import type {
 import type { IDashboardFormProp } from '@/shared/shared-components/dashboardTypes';
 import './FormsDashboard.scss';
 
-const FormResource = ({ method, data, id }: IDashboardFormProp) => {
+const FormResource = ({ method, data, id, query }: IDashboardFormProp) => {
     const dispatch = useAppDispatch();
+    const queryClient = useQueryClient();
     // используем reactHookForm
     const { register, handleSubmit, formState, reset } = useForm<IFormResource>(
         {
@@ -50,25 +51,59 @@ const FormResource = ({ method, data, id }: IDashboardFormProp) => {
         }
     }
 
-    // POST запросы для книг и вебинаров
-    const mutationResource = usePostData('resources');
+    // заполняем поля формы при method === PUT и наличии sortData
+    useEffect(() => {
+        if (sortData) {
+            reset({
+                name: sortData.name,
+                author: sortData.author,
+                category: sortData.category,
+                type: sortData.type,
+                descr: sortData.descr.join('\n'),
+                format: sortData.format.join(', '),
+                pictures: sortData.pictures.join(', '),
+                link: sortData.link,
+            });
+        }
+    }, [reset, sortData!]);
 
-    const onSubmit: SubmitHandler<IFormResource> = (data) => {
-        const formats = data.format ? data.format.split(',') : [];
-        const link = data.link ? data.link : '';
+    // POST запросы для книг и вебинаров
+    const mutationResource = usePostData('resources', method, id);
+
+    const onSubmit: SubmitHandler<IFormResource> = (formData) => {
+        const formats = formData.format ? formData.format.split(',') : [];
+        const link = formData.link ? formData.link : '';
         // формируем данные для отправки
-        const obj: BooksOrWebinarsDB = {
-            ...data,
-            id: nanoid(),
-            pictures: data.pictures.split(','),
-            format: formats,
-            descr: data.descr.split('\n'),
-            link: link,
-        };
+        let obj: BooksOrWebinarsDB;
+
+        switch (method) {
+            case 'POST':
+                obj = {
+                    ...formData,
+                    id: nanoid(),
+                    pictures: formData.pictures.split(','),
+                    format: formats,
+                    descr: formData.descr.split('\n'),
+                    link: link,
+                };
+                break;
+            case 'PUT':
+                obj = {
+                    id: sortData.id,
+                    ...formData,
+                    pictures: formData.pictures.split(','),
+                    format: formats,
+                    descr: formData.descr.split('\n'),
+                    link: link,
+                };
+                break;
+            default:
+                throw new Error(
+                    'Method prop is incorrect (FormArticles component).'
+                );
+        }
 
         mutationResource.mutate(JSON.stringify(obj));
-
-        reset();
     };
 
     //создаем state для отображения статуса отправки формы
@@ -87,14 +122,17 @@ const FormResource = ({ method, data, id }: IDashboardFormProp) => {
             timer = setTimeout(() => setUserNotification(null), 4000);
         } else if (mutationResource.isPending) {
             setUserNotification(<Spinner />);
-            timer = setTimeout(() => setUserNotification(null), 4000);
         } else if (mutationResource.isSuccess) {
+            reset();
+            queryClient.invalidateQueries({
+                queryKey: [query],
+            });
             setUserNotification(
                 <p className="form-dashboard__success_msg">
                     Successfully. We will reply to you shortly.
                 </p>
             );
-            timer = setTimeout(() => setUserNotification(null), 4000);
+            timer = setTimeout(() => setUserNotification(null), 2500);
         }
 
         return () => clearTimeout(timer);
@@ -119,10 +157,9 @@ const FormResource = ({ method, data, id }: IDashboardFormProp) => {
                     <p className="form-dashboard__input">Author name</p>
                     <input
                         placeholder={
-                            method === 'PATCH' ? '' : 'Enter author name'
+                            method === 'PUT' ? '' : 'Enter author name'
                         }
                         type="text"
-                        value={method === 'PATCH' ? `${sortData!.author}` : ''}
                         {...register('author', {
                             required: true,
                             maxLength: 30,
@@ -139,9 +176,8 @@ const FormResource = ({ method, data, id }: IDashboardFormProp) => {
                 <div>
                     <p className="form-dashboard__input">Book name</p>
                     <input
-                        placeholder={method === 'PATCH' ? '' : 'Enter header'}
+                        placeholder={method === 'PUT' ? '' : 'Enter header'}
                         type="text"
-                        value={method === 'PATCH' ? `${sortData!.name}` : ''}
                         {...register('name', {
                             required: 'This field is required',
                             maxLength: 50,
@@ -158,9 +194,6 @@ const FormResource = ({ method, data, id }: IDashboardFormProp) => {
                 <div>
                     <p className="form-dashboard__input">Category</p>
                     <select
-                        value={
-                            method === 'PATCH' ? `${sortData!.category}` : ''
-                        }
                         {...register('category', {
                             required: 'This field is required',
                         })}
@@ -174,7 +207,6 @@ const FormResource = ({ method, data, id }: IDashboardFormProp) => {
                 <div>
                     <p className="form-dashboard__input">Viewing options</p>
                     <select
-                        value={method === 'PATCH' ? `${sortData!.type}` : ''}
                         {...register('type', {
                             required: 'This field is required',
                         })}
@@ -189,14 +221,9 @@ const FormResource = ({ method, data, id }: IDashboardFormProp) => {
                     <p className="form-dashboard__input">Description</p>
                     <textarea
                         placeholder={
-                            method === 'PATCH'
+                            method === 'PUT'
                                 ? ''
                                 : 'Enter each description phrase on a new line'
-                        }
-                        value={
-                            method === 'PATCH'
-                                ? `${sortData!.descr.join('\n')}`
-                                : ''
                         }
                         {...register('descr', {
                             required: 'This field is required',
@@ -215,16 +242,11 @@ const FormResource = ({ method, data, id }: IDashboardFormProp) => {
                     <p className="form-dashboard__input">Formats</p>
                     <input
                         placeholder={
-                            method === 'PATCH'
+                            method === 'PUT'
                                 ? ''
                                 : 'Enter formats separated by commas'
                         }
                         type="text"
-                        value={
-                            method === 'PATCH'
-                                ? `${sortData!.format.join(', ')}`
-                                : ''
-                        }
                         {...register('format')}
                     />
                 </div>
@@ -232,14 +254,9 @@ const FormResource = ({ method, data, id }: IDashboardFormProp) => {
                     <p className="form-dashboard__input">Covers</p>
                     <textarea
                         placeholder={
-                            method === 'PATCH'
+                            method === 'PUT'
                                 ? ''
                                 : 'Enter links on covers separated by commas'
-                        }
-                        value={
-                            method === 'PATCH'
-                                ? `${sortData!.pictures.join(', ')}`
-                                : ''
                         }
                         {...register('pictures', {
                             required: 'This field is required',
@@ -254,17 +271,21 @@ const FormResource = ({ method, data, id }: IDashboardFormProp) => {
                 <div>
                     <p className="form-dashboard__input">Link video</p>
                     <input
-                        placeholder={method === 'PATCH' ? '' : 'Enter link'}
+                        placeholder={method === 'PUT' ? '' : 'Enter link'}
                         type="text"
-                        value={method === 'PATCH' ? `${sortData!.link}` : ''}
                         {...register('link')}
                     />
                 </div>
-                <div className="form-dashboard__btn">
-                    <ButtonForm text={'Create'} />
-                </div>
+                {!userNotification ? (
+                    <div className="form-dashboard__btn">
+                        <ButtonForm
+                            text={method === 'PUT' ? 'Change' : 'Create'}
+                        />
+                    </div>
+                ) : (
+                    userNotification
+                )}
             </form>
-            {userNotification}
         </>
     );
 };

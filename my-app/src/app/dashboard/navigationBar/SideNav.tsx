@@ -6,7 +6,7 @@ import { useState, useEffect } from 'react';
 import { Line } from '@/features/components/ui/Line/Line';
 import {
     KeyQuery,
-    // IListItemsState,
+    IListItemsState,
 } from '@/shared/shared-components/dashboardTypes';
 import './SideNav.scss';
 
@@ -15,7 +15,7 @@ export const SideNav = () => {
     const pathname = usePathname();
     const { replace } = useRouter();
     const listItmes = useAppSelector((state) => state.sidenav);
-    // const query = useAppSelector((state) => state.dashboard.query);
+    const query = useAppSelector((state) => state.dashboard.query);
 
     const onChangeParams = (key: KeyQuery): void => {
         const params = new URLSearchParams(searchParams);
@@ -27,23 +27,27 @@ export const SideNav = () => {
     const [activeElem, setActiveElem] = useState<HTMLDivElement | null>(null);
 
     // установка изначального активного элемента
-    // useEffect(() => {
-    //     let count = 0;
+    useEffect(() => {
+        let count = 0;
 
-    //     for (const key in listItmes) {
-    //         for (
-    //             let i = 0;
-    //             i < listItmes[key as keyof IListItemsState].length;
-    //             i++
-    //         ) {
-    //             if (listItmes[key as keyof IListItemsState][i].name === query) {
-    //                 setActiveIndex(count);
-    //             }
+        for (const key in listItmes) {
+            for (
+                let i = 0;
+                i < listItmes[key as keyof IListItemsState].length;
+                i++
+            ) {
+                if (
+                    listItmes[key as keyof IListItemsState][
+                        i
+                    ].name.toLowerCase() === query
+                ) {
+                    setActiveIndex(count);
+                }
 
-    //             count++;
-    //         }
-    //     }
-    // }, []);
+                count++;
+            }
+        }
+    }, []);
 
     useEffect(() => {
         if (activeElem) {

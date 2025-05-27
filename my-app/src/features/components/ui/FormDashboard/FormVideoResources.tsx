@@ -2,7 +2,7 @@
 
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { nanoid } from '@reduxjs/toolkit';
-
+import { useQueryClient } from '@tanstack/react-query';
 import { useState, useEffect, JSX } from 'react';
 import { useAppDispatch } from '@/hooks/redux.hooks';
 import { hidePopup } from '@/app/dashboard/dashboardSlice';
@@ -17,8 +17,9 @@ import type { VideoDB } from '@/shared/shared-components/dataTypesFromSQL';
 import type { IDashboardFormProp } from '@/shared/shared-components/dashboardTypes';
 import './FormsDashboard.scss';
 
-const FormVideo = ({ method, data, id }: IDashboardFormProp) => {
+const FormVideo = ({ method, data, id, query }: IDashboardFormProp) => {
     const dispatch = useAppDispatch();
+    const queryClient = useQueryClient();
     // используем reactHookForm
     const { register, handleSubmit, formState, reset } = useForm<IFormVideo>({
         mode: 'onChange',
@@ -30,10 +31,19 @@ const FormVideo = ({ method, data, id }: IDashboardFormProp) => {
         sortData = (data as VideoDB[]).filter((el) => el.id === id)[0];
     }
 
-    // POST запросы для книг и вебинаров
-    const mutationVideo = usePostData('video');
+    // заполняем поля формы при method === PUT и наличии sortData
+    useEffect(() => {
+        if (sortData) {
+            reset({
+                descr: sortData.descr,
+                link: sortData.link,
+            });
+        }
+    }, [reset, sortData!]);
 
-    const onSubmit: SubmitHandler<IFormVideo> = (data) => {
+    const mutationVideo = usePostData('video', method, id);
+
+    const onSubmit: SubmitHandler<IFormVideo> = (formData) => {
         const date = new Date();
         const year = date.getFullYear();
         const month =
@@ -42,15 +52,30 @@ const FormVideo = ({ method, data, id }: IDashboardFormProp) => {
                 : date.getMonth() + 1;
         const day = date.getDate() < 10 ? `0${date.getDate()}` : date.getDate();
         // формируем данные для отправки
-        const obj: VideoDB = {
-            id: nanoid(),
-            creation_time: `${year}-${month}-${day}`,
-            ...data,
-        };
+        let obj: VideoDB;
+
+        switch (method) {
+            case 'POST':
+                obj = {
+                    id: nanoid(),
+                    creation_time: `${year}-${month}-${day}`,
+                    ...formData,
+                };
+                break;
+            case 'PUT':
+                obj = {
+                    id: sortData.id,
+                    creation_time: `${year}-${month}-${day}`,
+                    ...formData,
+                };
+                break;
+            default:
+                throw new Error(
+                    'Method prop is incorrect (FormArticles component).'
+                );
+        }
 
         mutationVideo.mutate(JSON.stringify(obj));
-
-        reset();
     };
 
     //создаем state для отображения статуса отправки формы
@@ -69,14 +94,17 @@ const FormVideo = ({ method, data, id }: IDashboardFormProp) => {
             timer = setTimeout(() => setUserNotification(null), 4000);
         } else if (mutationVideo.isPending) {
             setUserNotification(<Spinner />);
-            timer = setTimeout(() => setUserNotification(null), 4000);
         } else if (mutationVideo.isSuccess) {
+            reset();
+            queryClient.invalidateQueries({
+                queryKey: [query],
+            });
             setUserNotification(
                 <p className="form-dashboard__success_msg">
                     Successfully. We will reply to you shortly.
                 </p>
             );
-            timer = setTimeout(() => setUserNotification(null), 4000);
+            timer = setTimeout(() => setUserNotification(null), 2500);
         }
 
         return () => clearTimeout(timer);
@@ -101,9 +129,8 @@ const FormVideo = ({ method, data, id }: IDashboardFormProp) => {
                     <p className="form-dashboard__input">Description</p>
                     <textarea
                         placeholder={
-                            method === 'PATCH' ? '' : 'Enter description'
+                            method === 'PUT' ? '' : 'Enter description'
                         }
-                        value={method === 'PATCH' ? `${sortData!.descr}` : ''}
                         {...register('descr', {
                             required: 'This field is required',
                             maxLength: 300,
@@ -120,19 +147,23 @@ const FormVideo = ({ method, data, id }: IDashboardFormProp) => {
                 <div>
                     <p className="form-dashboard__input">Link video</p>
                     <input
-                        placeholder={method === 'PATCH' ? '' : 'Enter link'}
+                        placeholder={method === 'PUT' ? '' : 'Enter link'}
                         type="text"
-                        value={method === 'PATCH' ? `${sortData!.link}` : ''}
                         {...register('link', {
                             required: 'This field is required',
                         })}
                     />
                 </div>
-                <div className="form-dashboard__btn">
-                    <ButtonForm text={'Create'} />
-                </div>
+                {!userNotification ? (
+                    <div className="form-dashboard__btn">
+                        <ButtonForm
+                            text={method === 'PUT' ? 'Change' : 'Create'}
+                        />
+                    </div>
+                ) : (
+                    userNotification
+                )}
             </form>
-            {userNotification}
         </>
     );
 };

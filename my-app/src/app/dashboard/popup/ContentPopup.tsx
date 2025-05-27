@@ -22,7 +22,7 @@ export const ContentPopup = () => {
     const action = useAppSelector((state) => state.dashboard.action);
     const id = useAppSelector((state) => state.dashboard.idItem);
     const method =
-        action === 'create' ? 'POST' : action === 'change' ? 'PATCH' : 'DELETE';
+        action === 'create' ? 'POST' : action === 'change' ? 'PUT' : 'DELETE';
     const queryClient = useQueryClient();
     const data = queryClient.getQueryData([query]);
     const dataStory = useAppSelector((state) => state.sliderStory.slidesStory);
@@ -30,77 +30,82 @@ export const ContentPopup = () => {
     switch (query) {
         case '':
             if (action === 'delete') {
-                return <FormDelete id={id} />;
+                return <FormDelete id={id} query={'articles'} />;
             } else if (action === 'change') {
                 return (
                     <FormArticles
                         data={data as ArticlesDB[]}
                         id={id}
                         method={method}
+                        query={'articles'}
                     />
                 );
             } else {
-                return <FormArticles method={method} />;
+                return <FormArticles method={method} query={'articles'} />;
             }
         case 'articles':
             if (action === 'delete') {
-                return <FormDelete id={id} />;
+                return <FormDelete id={id} query={query} />;
             } else if (action === 'change') {
                 return (
                     <FormArticles
                         data={data as ArticlesDB[]}
                         id={id}
                         method={method}
+                        query={query}
                     />
                 );
             } else {
-                return <FormArticles method={method} />;
+                return <FormArticles method={method} query={query} />;
             }
         case 'mentors':
             if (action === 'delete') {
-                return <FormDelete id={id} />;
+                return <FormDelete id={id} query={query} />;
             } else if (action === 'change') {
                 return (
                     <FormMentors
                         data={data as MentorsDB[]}
                         id={id}
                         method={method}
+                        query={query}
                     />
                 );
             } else {
-                return <FormMentors method={method} />;
+                return <FormMentors method={method} query={query} />;
             }
         case 'video':
             if (action === 'delete') {
-                return <FormDelete id={id} />;
+                return <FormDelete id={id} query={query} />;
             } else if (action === 'change') {
                 return (
                     <FormVideo
                         data={data as VideoDB[]}
                         id={id}
                         method={method}
+                        query={query}
                     />
                 );
             } else {
-                return <FormVideo method={method} />;
+                return <FormVideo method={method} query={query} />;
             }
         case 'resources':
             if (action === 'delete') {
-                return <FormDelete id={id} />;
+                return <FormDelete id={id} query={query} />;
             } else if (action === 'change') {
                 return (
                     <FormResource
                         data={data as IResourcesDB}
                         id={id}
                         method={method}
+                        query={query}
                     />
                 );
             } else {
-                return <FormResource method={method} />;
+                return <FormResource method={method} query={query} />;
             }
         case 'stories':
             if (action === 'delete') {
-                return <FormDelete id={id} />;
+                return <FormDelete id={id} query={query} />;
             } else if (action === 'change') {
                 return (
                     <FormStories
@@ -114,7 +119,7 @@ export const ContentPopup = () => {
             }
         case 'slidesReviews':
             if (action === 'delete') {
-                return <FormDelete id={id} />;
+                return <FormDelete id={id} query={query} />;
             } else {
                 return (
                     <FormBan text="You can`t create itmes in the reviews section" />
