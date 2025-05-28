@@ -4,8 +4,12 @@ import { useForm, SubmitHandler } from 'react-hook-form';
 import { nanoid } from '@reduxjs/toolkit';
 import { useQueryClient } from '@tanstack/react-query';
 import { useState, useEffect, JSX } from 'react';
-import { useAppDispatch } from '@/hooks/redux.hooks';
-import { hidePopup } from '@/app/dashboard/dashboardSlice';
+import { useAppDispatch, useAppSelector } from '@/hooks/redux.hooks';
+import {
+    hidePopup,
+    setFormData,
+    deleteFormData,
+} from '@/app/dashboard/dashboardSlice';
 
 import usePostData from '../../../../services/usePostData';
 
@@ -18,12 +22,13 @@ import type { IDashboardFormProp } from '@/shared/shared-components/dashboardTyp
 import './FormsDashboard.scss';
 
 const FormArticles = ({ method, data, id, query }: IDashboardFormProp) => {
+    const valuesData = useAppSelector((state) => state.dashboard.loadData);
     const dispatch = useAppDispatch();
     const queryClient = useQueryClient();
-    // преобразование данных по id
-    let sortData: ArticlesDB;
+
     if (data && id) {
-        sortData = (data as ArticlesDB[]).filter((el) => el.id === id)[0];
+        const sortData = (data as ArticlesDB[]).filter((el) => el.id === id)[0];
+        setFormData(dispatch, sortData);
     }
 
     // используем reactHookForm
@@ -35,17 +40,17 @@ const FormArticles = ({ method, data, id, query }: IDashboardFormProp) => {
 
     // заполняем поля формы при method === PUT и наличии sortData
     useEffect(() => {
-        if (sortData) {
+        if (valuesData) {
             reset({
-                name: sortData.name,
-                header: sortData.header,
-                subheader: sortData.subheader,
-                descr: sortData.descr,
-                avatar: sortData.avatar,
-                link: sortData.link,
+                name: (valuesData as ArticlesDB).name,
+                header: (valuesData as ArticlesDB).header,
+                subheader: (valuesData as ArticlesDB).subheader,
+                descr: (valuesData as ArticlesDB).descr,
+                avatar: (valuesData as ArticlesDB).avatar,
+                link: (valuesData as ArticlesDB).link,
             });
         }
-    }, [reset, sortData!]);
+    }, [reset, valuesData]);
 
     const mutationArticles = usePostData('articles', method, id);
 
@@ -57,6 +62,7 @@ const FormArticles = ({ method, data, id, query }: IDashboardFormProp) => {
                 ? `0${date.getMonth() + 1}`
                 : date.getMonth() + 1;
         const day = date.getDate() < 10 ? `0${date.getDate()}` : date.getDate();
+        const avatar = formData.avatar ? formData.avatar : '/icons/profile.png';
         // формируем данные для отправки
         let obj: ArticlesDB;
 
@@ -66,13 +72,15 @@ const FormArticles = ({ method, data, id, query }: IDashboardFormProp) => {
                     id: nanoid(),
                     creation_time: `${year}-${month}-${day}`,
                     ...formData,
+                    avatar: avatar,
                 };
                 break;
             case 'PUT':
                 obj = {
-                    id: sortData.id,
+                    id: valuesData!.id,
                     creation_time: `${year}-${month}-${day}`,
                     ...formData,
+                    avatar: avatar,
                 };
                 break;
             default:
@@ -113,6 +121,7 @@ const FormArticles = ({ method, data, id, query }: IDashboardFormProp) => {
             timer = setTimeout(() => {
                 setUserNotification(null);
                 hidePopup(dispatch);
+                deleteFormData(dispatch);
             }, 2500);
         }
 
@@ -132,7 +141,10 @@ const FormArticles = ({ method, data, id, query }: IDashboardFormProp) => {
             >
                 <div
                     className="form-dashboard__close"
-                    onClick={() => hidePopup(dispatch)}
+                    onClick={() => {
+                        hidePopup(dispatch);
+                        deleteFormData(dispatch);
+                    }}
                 ></div>
                 <div>
                     <p className="form-dashboard__input">Mentor`s name</p>
@@ -215,9 +227,20 @@ const FormArticles = ({ method, data, id, query }: IDashboardFormProp) => {
                         placeholder={method === 'PUT' ? '' : 'Enter path'}
                         type="text"
                         {...register('avatar', {
-                            required: 'This field is required',
+                            pattern: {
+                                value: new RegExp(
+                                    'https://github.com/SergeySKA10/mortgage/blob/assets/src/assets/\\D+'
+                                ),
+                                message:
+                                    'This field must be empty or match the\n url: https://github.com ....',
+                            },
                         })}
                     />
+                    {formState.errors.avatar ? (
+                        <p tabIndex={0} className="form-dashboard__error_msg">
+                            {formState.errors.avatar.message}
+                        </p>
+                    ) : null}
                 </div>
                 <div>
                     <p className="form-dashboard__input">Link video</p>

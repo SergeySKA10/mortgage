@@ -185,63 +185,21 @@
     }
   ],
   "resources": {
-    "books": [
-      {
-        "id": "book/things",
-        "name": "9 Things You Must Know About Buying Your First Home",
-        "author": "Justin Roberts",
-        "pictures": [
-          "https://github.com/SergeySKA10/mortgage/blob/assets/src/assets/img/book/book.png?raw=true"
-        ],
-        "category": "Resources",
-        "type": "download",
-        "link": "src/assets/database/mortgage.pdf",
-        "format": [
-          "PDF",
-          "ePUB"
-        ],
-        "descr": [
-          "So you're about to get into the world of homeownership. It's okay...everyone feels lost during this process, but the more preparation you do upfront, the smoother your journey will be."
-        ]
-      },
-      {
-        "id": "book/second",
-        "name": "Second Book",
-        "author": "Justin Roberts",
-        "pictures": [
-          "https://github.com/SergeySKA10/mortgage/blob/assets/src/assets/img/ebook_page/things/mountains.png?raw=true",
-          "https://github.com/SergeySKA10/mortgage/blob/assets/src/assets/img/ebook_page/things/space.png?raw=true"
-        ],
-        "category": "Resources",
-        "type": "download",
-        "link": "",
-        "format": [
-          "ePUB"
-        ],
-        "descr": [
-          "So you're about to get into the world of homeownership. It's okay...everyone feels lost during this process, but the more preparation you do upfront, the smoother your journey will be.",
-          "So you're about to get into the world of homeownership. It's okay...everyone feels lost during this process, but the more preparation you do upfront, the smoother your journey will be. So you're about to get into the world of homeownership. It's okay...everyone feels lost during this process, but the more preparation you do upfront, the smoother your journey will be.So you're about to get into the world of homeownership. It's okay...everyone feels lost during this process, but the more preparation you do upfront, the smoother your journey will be.So you're about to get into the world of homeownership.",
-          "So you're about to get into the world of homeownership. It's okay...everyone feels lost during this process, but the more preparation you do upfront, the smoother your journey will be. So you're about to get into the world of homeownership. It's okay...everyone feels lost during this process, but the more preparation you do upfront, the smoother your journey will be.So you're about to get into the world of homeownership. It's okay...everyone feels lost during this process, but the more preparation you do upfront, the smoother your journey will be.So you're about to get into the world of homeownership."
-        ]
-      }
+    "author": "awd",
+    "name": "awda",
+    "category": "",
+    "type": "",
+    "descr": [
+      "awdddddddddddddddddddddddddddddddddadwdwawdawdawdwawda"
     ],
-    "webinars": [
-      {
-        "id": "webinar/one",
-        "name": "Webinar name",
-        "author": "Scott Johnson",
-        "pictures": [
-          "https://github.com/SergeySKA10/mortgage/blob/assets/src/assets/img/book/book_cover.png?raw=true"
-        ],
-        "category": "Resources",
-        "type": "video",
-        "link": "https://www.youtube.com/watch?v=ZRcfHk3unR8",
-        "format": [],
-        "descr": [
-          "So you're about to get into the world of homeownership. It's okay...everyone feels lost during this process, but the more preparation you do upfront, the smoother your journey will be."
-        ]
-      }
-    ]
+    "format": [
+      "awd"
+    ],
+    "pictures": [
+      "awd"
+    ],
+    "link": "#",
+    "id": "-PWChG33RIiJIV8K1Vmo4"
   },
   "slidesReviews": [
     {
@@ -250,15 +208,6 @@
       "city": "New York",
       "name": "Emily Pearson",
       "profession": "Engeneer",
-      "icon": "https://raw.githubusercontent.com/SergeySKA10/mortgage/3389c7e5e6085b7e584408deee2e34a7e920ea10/src/assets/icons/main_page/customers/G.svg",
-      "reviews": "Terms of your offer, how quickly you can turn things around and who your lenders is. advising, calling listing agents, to get your deal done, Offer-Stage advising, calling listing agents, to get your deal done."
-    },
-    {
-      "id": "Michael1",
-      "photo": "https://github.com/SergeySKA10/mortgage/blob/assets/src/assets/img/main_page/customers/Michael.png?raw=true",
-      "city": "Los angeles",
-      "name": "Michael Bronson",
-      "profession": "Product designe",
       "icon": "https://raw.githubusercontent.com/SergeySKA10/mortgage/3389c7e5e6085b7e584408deee2e34a7e920ea10/src/assets/icons/main_page/customers/G.svg",
       "reviews": "Terms of your offer, how quickly you can turn things around and who your lenders is. advising, calling listing agents, to get your deal done, Offer-Stage advising, calling listing agents, to get your deal done."
     },
@@ -338,9 +287,9 @@
   "video": [
     {
       "id": "video1",
-      "link": "https://www.youtube.com/watch?v=QKryqvikLJI",
+      "creation_time": "2025-05-29",
       "descr": "The difference between «fixed rate» and «adjustable»",
-      "creation_time": "2024-03-25"
+      "link": "https://www.youtube.com/watch?v=QKryqvikLJI"
     },
     {
       "id": "video2",

@@ -3,6 +3,7 @@
 import { useAppSelector } from '@/hooks/redux.hooks';
 import { useQueryClient } from '@tanstack/react-query';
 import { FormDelete } from '@/features/components/ui/FormDashboard/FormDelete';
+import { FormDeleteFromSore } from '@/features/components/ui/FormDashboard/FormDeleteFromStore';
 import { FormBan } from '@/features/components/ui/FormDashboard/FormBan';
 import FormArticles from '@/features/components/ui/FormDashboard/FormArticles';
 import FormMentors from '@/features/components/ui/FormDashboard/FormMentors';
@@ -105,7 +106,7 @@ export const ContentPopup = () => {
             }
         case 'stories':
             if (action === 'delete') {
-                return <FormDelete id={id} query={query} />;
+                return <FormDeleteFromSore id={id} query={query} />;
             } else if (action === 'change') {
                 return (
                     <FormStories

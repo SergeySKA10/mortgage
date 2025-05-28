@@ -9,6 +9,7 @@ const initialState: DashboardInitialState = {
     query: 'articles',
     action: 'create',
     idItem: '',
+    loadData: null,
 };
 
 const dashboardSlice = createSlice({
@@ -33,6 +34,15 @@ const dashboardSlice = createSlice({
         setIdItem: (state, action: PayloadAction<string>) => {
             state.idItem = action.payload;
         },
+        setLoadData: (
+            state,
+            action: PayloadAction<DashboardInitialState['loadData']>
+        ) => {
+            state.loadData = action.payload;
+        },
+        deleteLoadData: (state) => {
+            state.loadData = null;
+        },
     },
 });
 
@@ -40,7 +50,14 @@ const { actions, reducer } = dashboardSlice;
 
 export default reducer;
 
-const { showPopup, setQuery, setAction, setIdItem } = actions;
+const {
+    showPopup,
+    setQuery,
+    setAction,
+    setIdItem,
+    setLoadData,
+    deleteLoadData,
+} = actions;
 
 export const openPopup = (dispatch: AppDispatch) => {
     dispatch(showPopup('popup-active'));
@@ -63,4 +80,15 @@ export const setStateAction = (
 
 export const setID = (dispatch: AppDispatch, value: string) => {
     dispatch(setIdItem(value));
+};
+
+export const setFormData = (
+    dispatch: AppDispatch,
+    value: DashboardInitialState['loadData']
+) => {
+    dispatch(setLoadData(value));
+};
+
+export const deleteFormData = (dispatch: AppDispatch) => {
+    dispatch(deleteLoadData());
 };

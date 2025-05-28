@@ -1,5 +1,11 @@
 import { Key } from '@/services/getOptions';
-import { QueryData } from './dataTypesFromSQL';
+import {
+    QueryData,
+    ArticlesDB,
+    MentorsDB,
+    VideoDB,
+    BooksOrWebinarsDB,
+} from './dataTypesFromSQL';
 import { ISlideStory } from './componentsTypes';
 import { Method } from '@/services/usePostData';
 
@@ -10,6 +16,13 @@ export interface DashboardInitialState {
     query: KeyQuery;
     action: 'change' | 'delete' | 'create';
     idItem: string;
+    loadData:
+        | null
+        | ArticlesDB
+        | MentorsDB
+        | VideoDB
+        | BooksOrWebinarsDB
+        | ISlideStory;
 }
 
 export interface IItmeState {

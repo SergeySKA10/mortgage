@@ -46,3 +46,10 @@ export interface IFormStories {
     header: string;
     descr: string;
 }
+
+export type DeleteFormProps =
+    | IFormArticles
+    | IFormMentors
+    | IFormVideo
+    | IFormResource
+    | IFormStories;

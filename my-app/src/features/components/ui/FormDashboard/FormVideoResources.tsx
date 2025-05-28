@@ -4,8 +4,12 @@ import { useForm, SubmitHandler } from 'react-hook-form';
 import { nanoid } from '@reduxjs/toolkit';
 import { useQueryClient } from '@tanstack/react-query';
 import { useState, useEffect, JSX } from 'react';
-import { useAppDispatch } from '@/hooks/redux.hooks';
-import { hidePopup } from '@/app/dashboard/dashboardSlice';
+import { useAppDispatch, useAppSelector } from '@/hooks/redux.hooks';
+import {
+    hidePopup,
+    setFormData,
+    deleteFormData,
+} from '@/app/dashboard/dashboardSlice';
 
 import usePostData from '../../../../services/usePostData';
 
@@ -18,6 +22,7 @@ import type { IDashboardFormProp } from '@/shared/shared-components/dashboardTyp
 import './FormsDashboard.scss';
 
 const FormVideo = ({ method, data, id, query }: IDashboardFormProp) => {
+    const valuesData = useAppSelector((state) => state.dashboard.loadData);
     const dispatch = useAppDispatch();
     const queryClient = useQueryClient();
     // используем reactHookForm
@@ -25,21 +30,20 @@ const FormVideo = ({ method, data, id, query }: IDashboardFormProp) => {
         mode: 'onChange',
     });
 
-    // преобразование данных по id
-    let sortData: VideoDB;
     if (data && id) {
-        sortData = (data as VideoDB[]).filter((el) => el.id === id)[0];
+        const sortData = (data as VideoDB[]).filter((el) => el.id === id)[0];
+        setFormData(dispatch, sortData);
     }
 
     // заполняем поля формы при method === PUT и наличии sortData
     useEffect(() => {
-        if (sortData) {
+        if (valuesData) {
             reset({
-                descr: sortData.descr,
-                link: sortData.link,
+                descr: (valuesData as VideoDB).descr,
+                link: (valuesData as VideoDB).link,
             });
         }
-    }, [reset, sortData!]);
+    }, [reset, valuesData]);
 
     const mutationVideo = usePostData('video', method, id);
 
@@ -64,14 +68,14 @@ const FormVideo = ({ method, data, id, query }: IDashboardFormProp) => {
                 break;
             case 'PUT':
                 obj = {
-                    id: sortData.id,
+                    id: valuesData!.id,
                     creation_time: `${year}-${month}-${day}`,
                     ...formData,
                 };
                 break;
             default:
                 throw new Error(
-                    'Method prop is incorrect (FormArticles component).'
+                    'Method prop is incorrect (FormVideo component).'
                 );
         }
 
@@ -104,7 +108,11 @@ const FormVideo = ({ method, data, id, query }: IDashboardFormProp) => {
                     Successfully. We will reply to you shortly.
                 </p>
             );
-            timer = setTimeout(() => setUserNotification(null), 2500);
+            timer = setTimeout(() => {
+                setUserNotification(null);
+                hidePopup(dispatch);
+                deleteFormData(dispatch);
+            }, 2500);
         }
 
         return () => clearTimeout(timer);
@@ -123,7 +131,10 @@ const FormVideo = ({ method, data, id, query }: IDashboardFormProp) => {
             >
                 <div
                     className="form-dashboard__close"
-                    onClick={() => hidePopup(dispatch)}
+                    onClick={() => {
+                        hidePopup(dispatch);
+                        deleteFormData(dispatch);
+                    }}
                 ></div>
                 <div>
                     <p className="form-dashboard__input">Description</p>

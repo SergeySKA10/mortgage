@@ -22,11 +22,34 @@ const sliderStorySlice = createSlice({
                 }
             }
         },
+        deleteSlide: (state, action: PayloadAction<string>) => {
+            let findIndex = false;
+            for (let i = 0; i < state.slidesStory.length; i++) {
+                if (state.slidesStory[i].id === action.payload) {
+                    if (i === state.slidesStory.length - 1) {
+                        state.slidesStory.pop();
+                    } else {
+                        findIndex = true;
+                        state.slidesStory[i] = state.slidesStory[i + 1];
+                        continue;
+                    }
+                }
+
+                if (findIndex) {
+                    if (i === state.slidesStory.length - 1) {
+                        break;
+                    }
+                    state.slidesStory[i] = state.slidesStory[i + 1];
+                } else {
+                    continue;
+                }
+            }
+        },
     },
 });
 
 const {
-    actions: { createSlide, changeSlide },
+    actions: { createSlide, changeSlide, deleteSlide },
     reducer,
 } = sliderStorySlice;
 
@@ -41,4 +64,8 @@ export const createNewSlideStory = (
 
 export const changeSlideStory = (dispatch: AppDispatch, value: ISlideStory) => {
     dispatch(changeSlide(value));
+};
+
+export const deleteSlideStory = (dispatch: AppDispatch, id: string) => {
+    dispatch(deleteSlide(id));
 };
